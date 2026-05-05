@@ -1,6 +1,6 @@
 # Proactive Intent World Model (PIWM)
 
-智能售货机 / 冰箱前置摄像头视角下的顾客行为数据合成 pipeline，用于训练零售场景多模态主动代理。
+智能售货机 前置摄像头视角下的顾客行为数据合成 pipeline，用于训练零售场景多模态主动代理。
 
 ## 架构
 
