@@ -1,0 +1,95 @@
+{
+  "session_id": "piwm_701",
+  "persona": "一名下班途中路过零售区的年轻白领女性，想顺手看看是否有合适的饮品但并不急着购买。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她认为眼前可能有符合日常需求的商品，但还需要简单确认是否值得购买。",
+    "desire": "她想快速了解可选项，找到一个方便、合适、无需花太多时间决定的选择。",
+    "intention": "她倾向于再看几秒并做一个初步判断，如果没有明显吸引点就离开。"
+  },
+  "interest_level": "中等偏低，表现为愿意停留观察但没有强烈购买冲动",
+  "hesitation_level": "低，几乎没有明显纠结，只是进行轻度比较",
+  "observable_behavior": "顾客站在设备前，目光在不同方向之间平稳移动，偶尔轻微点头，双手自然放在身前或一手握着手机，没有触摸或取物动作。",
+  "facial_expression": "表情平静自然，眼神专注但不兴奋，嘴唇放松，偶尔露出轻微思考神情。",
+  "body_posture": "上半身正对镜头，身体略微前倾，肩膀放松，站姿稳定，动作幅度小且自然。",
+  "timeline": {
+    "t_0_2": "顾客从画面中央稳定站定，抬眼看向前方，表情平静，像是刚被某个选项吸引而停下。",
+    "t_2_5": "她的目光缓慢从左侧移到右侧，头部轻微转动，双手保持自然放松，表现出一般程度的浏览兴趣。",
+    "t_5_8": "她稍稍前倾半步，眼睛短暂停在某个方向，眉头轻微收起又放松，像是在快速比较但没有明显犹豫。",
+    "t_8_10": "她轻微点头后恢复直立，视线仍停留在前方，表情中性，呈现出继续观察或准备离开的自然状态。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_show_quick_top_picks",
+    "A2_offer_preference_filter",
+    "A3_trigger_human_sales_assist"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她仍认为设备里可能有合适饮品，但缺少额外信息来判断是否值得买。",
+        "desire": "她继续想快速扫一眼可选项，但兴趣不会明显增强。",
+        "intention": "她可能再看几秒，如果没有明显吸引点就自然离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "rationale": "顾客当前只是轻度浏览且不急购，沉默不会打扰她，但也难以增加购买动机。",
+      "reward": 0.05
+    },
+    "A1_show_quick_top_picks": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会认为系统能快速帮她筛出几个适合下班路上购买的常见饮品。",
+        "desire": "她对其中一两个热门或低负担选项产生更明确的偏好。",
+        "intention": "她倾向于继续查看推荐商品的价格、口味或库存，并考虑下单。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.5,
+      "action_cost": 0.3,
+      "rationale": "她想快速确认是否值得买，轻量展示热门推荐能减少搜索成本且不显得强推。",
+      "reward": 0.852
+    },
+    "A2_offer_preference_filter": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会认为只需简单选择偏好就能更快找到合适饮品。",
+        "desire": "她希望通过无糖、咖啡、茶饮或低卡等标签快速缩小选择范围。",
+        "intention": "她可能点击一个偏好标签，进一步查看筛选后的商品。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.0,
+      "action_cost": 0.45,
+      "rationale": "她有轻度比较行为但犹豫不深，偏好筛选能帮助决策，不过需要她主动交互，介入感略高。",
+      "reward": 0.587
+    },
+    "A3_trigger_human_sales_assist": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "她可能觉得自己只是随便看看，却被过度关注或打扰。",
+        "desire": "她对继续挑选饮品的兴趣下降，更希望保持自主浏览空间。",
+        "intention": "她大概率会礼貌回避或直接离开设备区域。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -1.8,
+      "action_cost": 0.7,
+      "rationale": "顾客当前没有明显求助或强烈纠结，直接转人工介入会显得压力过大，容易打断自然浏览。",
+      "reward": -1.0
+    }
+  },
+  "best_action": "A1_show_quick_top_picks",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}
