@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_707",
+  "persona": "午后课间路过自助零售区、想买一瓶饮品的年轻女大学生",
+  "persona_visual": "22岁左右的女性，黑色中长发自然披肩，穿浅灰色连帽卫衣和浅蓝色牛仔裤，肩背一个米白色帆布包，手里拿着手机",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她认为眼前可选的饮品看起来比较符合自己现在想喝点清爽饮料的需求。",
+    "desire": "她想快速挑出一瓶口味合适、喝起来轻松的饮品。",
+    "intention": "她倾向于继续对比两三个选项后很快做出选择。"
+  },
+  "observable_behavior": "她的目光在不同位置之间来回停留，右手握着手机，左手轻轻抬起又放下，像是在对比选项但没有明显纠结。",
+  "facial_expression": "表情放松，眼神专注，嘴角轻微上扬，带着明确的兴趣和轻微期待。",
+  "body_posture": "身体正面朝向镜头并微微前倾，肩膀自然放松，双手始终在画面内。",
+  "timeline": {
+    "t_0_2": "22岁左右的女性走近后停在画面中央，身体微微前倾，视线先落在正前方某个位置。",
+    "t_2_5": "她的目光缓慢向一侧移动，又回到中间，嘴角轻轻上扬，右手握着手机停在胸前。",
+    "t_5_8": "她微微点了一下头，左手抬到半空像是在确认某个选择，眼神在两个位置之间短暂来回比较。",
+    "t_8_10": "她保持轻松的微笑，身体仍向前倾一点，视线稳定停在其中一个位置，像是已经基本选定。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_highlight_refreshing_match",
+    "A2_compare_two_options",
+    "A3_one_tap_checkout_prompt"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她继续相信眼前几款饮品都较符合自己想喝清爽饮料的需求，其中一个选项看起来更顺眼。",
+        "desire": "她想在不被打扰的情况下凭直觉快速确定一瓶。",
+        "intention": "她倾向于再看几秒后选择当前目光停留的那瓶饮品。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.2,
+      "delta_mental": 0.4,
+      "action_cost": 0.0,
+      "rationale": "不介入保留她当前轻松对比的自主感，信念和兴趣自然小幅增强，意图从继续对比缓慢靠近选定。",
+      "reward": 0.28
+    },
+    "A1_highlight_refreshing_match": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她相信被提示的饮品口味清爽、负担较轻，和自己此刻想喝轻松饮料的需求更匹配。",
+        "desire": "她更想选择这瓶看起来最符合当前口味偏好的饮品。",
+        "intention": "她准备把这瓶作为优先选择，并短暂确认价格或口味后下单。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.2,
+      "action_cost": 0.25,
+      "rationale": "轻量突出“清爽、好入口”的匹配点会强化她对合适口味的信念，减少选择成本，使意图从比较转向偏好锁定。",
+      "reward": 0.707
+    },
+    "A2_compare_two_options": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她清楚两款候选饮品的关键差异，例如一款更清爽解渴、另一款口味更甜更浓。",
+        "desire": "她想选择更符合自己课间快速喝、口感轻松需求的那一款。",
+        "intention": "她准备选定更清爽的那瓶并进行购买操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.6,
+      "delta_mental": 1.7,
+      "action_cost": 0.35,
+      "rationale": "把她正在对比的两三个选项压缩成清晰差异，会直接消除轻微犹豫并把购买意图推进到选定与操作。",
+      "reward": 1.0
+    },
+    "A3_one_tap_checkout_prompt": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她相信如果已经看中某瓶饮品，可以很快通过手机扫码或一键确认完成购买。",
+        "desire": "她想节省课间时间，尽快拿到饮品离开。",
+        "intention": "她准备对当前基本选定的饮品执行扫码、确认或取货操作。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.5,
+      "delta_mental": 0.6,
+      "action_cost": 0.55,
+      "rationale": "快速购买提示会激活她节省时间的欲望并推进到操作，但在她仍处于轻微比较时可能带来一定被催促感。",
+      "reward": 0.445
+    }
+  },
+  "best_action": "A2_compare_two_options",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

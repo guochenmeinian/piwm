@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_710",
+  "persona": "午休间隙路过便利区、想买饮品但担心不够健康的年轻上班族。",
+  "persona_visual": "28岁左右的女性，齐肩黑色直发，穿浅灰色针织开衫和白色圆领上衣，背一个米色帆布托特包，手里拿着一部手机。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她认为这里可能有适合午后提神的选择，但不确定是否符合自己的健康需求。",
+    "desire": "她想快速找到一款低负担、不会太甜的饮品。",
+    "intention": "她倾向于继续观察和比较片刻，再决定是否购买。"
+  },
+  "observable_behavior": "她站在设备前保持正面朝向，视线在前方不同区域频繁转移，偶尔低头看手机又抬头观察，手指轻轻摩挲手机边缘，没有立即操作。",
+  "facial_expression": "眉头微微收紧，嘴唇轻抿，表情专注但带有明显犹豫。",
+  "body_posture": "身体重心略微向后，肩膀有些收紧，一只脚轻轻后撤，双手始终在胸前或腰前画面内。",
+  "timeline": {
+    "t_0_2": "这名28岁左右的女性正面站定，抬眼看向前方，右手握着手机，左手轻扶托特包肩带。",
+    "t_2_5": "她的视线从左侧移到右侧又回到中间，眉头微皱，手指无意识地摩挲手机边缘。",
+    "t_5_8": "她稍稍向后移了半步，低头短暂看了一眼手机，再抬头继续观察，嘴唇轻轻抿起。",
+    "t_8_10": "她停在原地没有动作选择，双手仍在画面内，身体保持微微后倾，脸上维持犹豫而感兴趣的神情。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_highlight_low_sugar_refreshers",
+    "A2_compare_caffeine_sugar_calories",
+    "A3_offer_quick_low_sugar_pick"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她仍认为这里可能有合适的提神饮品，但健康程度和甜度信息依然不清楚。",
+        "desire": "她继续想找到低负担、不太甜的饮品，但兴趣可能被午休时间压力削弱。",
+        "intention": "她倾向于再观察几秒，若仍无法判断则可能放弃或转去看手机。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.2,
+      "action_cost": 0.0,
+      "reward": -0.12000000000000001,
+      "rationale": "沉默不会增加健康与甜度相关信念，犹豫维持并受时间压力影响，购买意向略微后退。"
+    },
+    "A1_highlight_low_sugar_refreshers": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会相信这里确实有无糖茶、低糖咖啡或低卡饮品等更符合健康需求的选项。",
+        "desire": "她寻找低负担、午后提神饮品的欲望被增强，并开始偏向低糖品类。",
+        "intention": "她准备把注意力集中到低糖或无糖推荐区域，进一步筛选一两款候选。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.4,
+      "action_cost": 0.2,
+      "reward": 0.8119999999999999,
+      "rationale": "轻量提示低糖提神选项能补足她最缺的健康信念，降低选择焦虑，使兴趣自然转为明确偏好。"
+    },
+    "A2_compare_caffeine_sugar_calories": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会更清楚不同饮品在咖啡因、糖分和热量上的差异，认为自己可以理性判断哪款更健康。",
+        "desire": "她想快速选出兼顾提神和低负担的最佳平衡款，而不是漫无目的浏览。",
+        "intention": "她准备在对比信息中锁定一款糖分较低且提神效果合适的饮品。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.4,
+      "delta_mental": 1.7,
+      "action_cost": 0.35,
+      "reward": 0.975,
+      "rationale": "结构化对比把她的健康不确定转化为可比较信念，显著减少犹豫并推动形成候选偏好。"
+    },
+    "A3_offer_quick_low_sugar_pick": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会认为系统已经根据低糖、提神、快速购买三个条件给出了一款省时选择。",
+        "desire": "她的省时需求被激活，同时仍希望饮品不要太甜、负担不要太高。",
+        "intention": "她准备点击该低糖提神推荐款，进入确认或支付操作。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.66,
+      "delta_mental": 0.7,
+      "action_cost": 0.55,
+      "reward": 0.5589999999999999,
+      "rationale": "快速推荐能利用午休时间压力直接催化操作，但在她仍犹豫时略有推销感，信任提升有限。"
+    }
+  },
+  "best_action": "A2_compare_caffeine_sugar_calories",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

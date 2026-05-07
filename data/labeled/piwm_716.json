@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_716",
+  "persona": "午休后路过办公楼便利区、想买一瓶饮品但担心不够划算的中年女职员",
+  "persona_visual": "45岁左右的女性，齐肩深棕色短发，穿米色针织开衫和浅灰色衬衫，肩上背一个棕色皮质单肩包，手腕戴银色手表",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "她认为眼前的饮品很适合缓解下午的疲惫，但又觉得价格或必要性需要再斟酌。",
+    "desire": "她明显想买下这件商品来提神解渴，同时希望自己的选择不要冲动浪费。",
+    "intention": "她倾向于再确认几秒后做决定，手已经准备抬起选择但仍可能放弃。"
+  },
+  "observable_behavior": "她的视线在前方不同位置来回移动，右手几次抬到胸前又停住，指尖微微蜷起，随后又慢慢放下，表现出明显犹豫和反复权衡。",
+  "facial_expression": "眉头轻微皱起，嘴唇轻抿，眼神专注但不确定，表情克制而纠结。",
+  "body_posture": "身体正面朝向镜头，上半身略微前倾，肩膀有些收紧，一只手扶着包带，另一只手在胸前犹豫地抬起又放下。",
+  "timeline": {
+    "t_0_2": "这位45岁左右、穿米色针织开衫的女性站到镜头前，正面看向前方，眉头轻轻皱起，右手扶着棕色单肩包带。",
+    "t_2_5": "她的目光在前方左右轻微移动，像是在比较不同选择，嘴唇抿紧，右手慢慢抬到胸前却没有继续动作。",
+    "t_5_8": "她上半身稍微前倾，右手指尖悬停片刻后又缩回，表情更显犹豫，像是在衡量是否真的值得购买。",
+    "t_8_10": "她低低吸了一口气，右手再次抬起一点又放下，仍正面望着前方，停在一个尚未下定决心的购买前瞬间。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_surface_value_offer",
+    "A2_compare_best_refresh_match",
+    "A3_gentle_pickup_checkout_nudge"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她仍认为饮品能缓解下午疲惫，但价格是否划算和是否必要的问题没有被解决。",
+        "desire": "她依然想买来提神解渴，但节省和避免冲动消费的欲望继续牵制购买冲动。",
+        "intention": "她会继续短暂犹豫，可能自行拿取，也可能因没有足够理由而放弃。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": -0.2,
+      "action_cost": 0.0,
+      "reward": -0.08,
+      "rationale": "沉默不会改变她对划算性的疑虑，虽无打扰风险，但让犹豫继续累积，AIDA大概率停留在desire。"
+    },
+    "A1_surface_value_offer": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会相信这瓶饮品不仅适合午后提神，而且当前价格、优惠或性价比是可以接受的。",
+        "desire": "提神解渴的购买欲被增强，避免浪费的顾虑被明显削弱。",
+        "intention": "她准备伸手选择该饮品，并进入付款或取货操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.55,
+      "action_cost": 0.25,
+      "reward": 0.882,
+      "rationale": "用轻量方式补充优惠或性价比信息会直接修正她的价格信念，降低冲动消费顾虑，并推动desire进入action。"
+    },
+    "A2_compare_best_refresh_match": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会觉得不同饮品的容量、提神效果和价格差异已经更清楚，其中有一个选择更符合她的午后需求。",
+        "desire": "她想买饮品的欲望被理性比较支持，犹豫感下降，但仍保留一定自我判断空间。",
+        "intention": "她倾向于拿起被标识为更适合提神且更划算的饮品，并继续完成购买。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.05,
+      "action_cost": 0.4,
+      "reward": 0.617,
+      "rationale": "比较引导把她正在进行的左右权衡结构化，增强选择信心，但主动介入和信息量带来中等打扰成本。"
+    },
+    "A3_gentle_pickup_checkout_nudge": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会感觉系统判断她已经接近决定，并提示了一个快速完成购买的路径，但对价格是否最划算的信念改善有限。",
+        "desire": "快速提神和结束犹豫的欲望被激活，但节省顾虑仍未完全消除。",
+        "intention": "她可能顺势拿起饮品并准备付款，但若感到被催促也可能在最后一刻迟疑。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.4,
+      "action_cost": 0.55,
+      "reward": 0.277,
+      "rationale": "温和催促能利用她已接近购买的状态推动action，但未解决划算性疑虑，且存在被推销的中等风险。"
+    }
+  },
+  "best_action": "A1_surface_value_offer",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_721",
+  "persona": "晚自习前路过校园便利区、准备快速购买饮品的大学生。",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色休闲裤，双肩背一个黑色书包，手里拿着一部手机。",
+  "aida_stage": "action",
+  "bdi": {
+    "belief": "他认为自己已经基本选定要买的东西，只需要完成最后确认即可。",
+    "desire": "他想在不耽误晚自习的情况下尽快完成购买。",
+    "intention": "他倾向于短暂停顿确认后继续完成操作。"
+  },
+  "observable_behavior": "他站在镜头前，手机握在一只手中，另一只手抬起准备操作，动作在半空中短暂停住，目光在下方操作区和旁侧位置之间快速移动后继续伸手。",
+  "facial_expression": "表情克制而专注，眉头轻微收紧，嘴唇自然闭合，带有中等程度的犹豫感。",
+  "body_posture": "身体正面朝向镜头，肩膀略微前倾，双手保持在画面内，重心稳定但上身有轻微停顿感。",
+  "timeline": {
+    "t_0_2": "20岁左右的男性学生正面站定，低头看向下方操作区，右手握着手机，左手缓慢抬起。",
+    "t_2_5": "他准备继续操作时手指在半空中停了一下，眉头微微收紧，目光短暂移向旁侧位置。",
+    "t_5_8": "他又看回下方操作区，左手小幅调整位置，手指犹豫地悬停片刻后向前移动。",
+    "t_8_10": "他轻轻点下并保持专注表情，身体仍正面朝向镜头，动作显示已进入最后确认。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_show_order_summary",
+    "A2_highlight_one_tap_pay",
+    "A3_offer_optional_staff_help"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他仍认为自己基本选定商品，并可自行完成最后确认。",
+        "desire": "他继续希望不耽误晚自习，尽快完成购买。",
+        "intention": "他会按照当前节奏短暂停顿后继续点击确认或付款。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.082,
+      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率依靠自身确认继续完成操作。"
+    },
+    "A1_show_order_summary": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他更确信当前选择的饮品、价格和数量无误，最后确认风险较低。",
+        "desire": "他想在确认无误后立刻完成购买，避免因选错而浪费时间。",
+        "intention": "他准备直接点击确认并进入付款或取货操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.18,
+      "delta_mental": 1.25,
+      "action_cost": 0.2,
+      "reward": 0.6769999999999999,
+      "rationale": "用简短订单摘要补足其最后确认所需信念，降低选错犹豫并推动其继续付款。"
+    },
+    "A2_highlight_one_tap_pay": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他相信下一步操作路径很明确，只需点击高亮按钮即可完成购买。",
+        "desire": "他更想快速结束操作并赶去晚自习。",
+        "intention": "他准备立即点击一键付款或确认按钮完成交易。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.22,
+      "delta_mental": 0.85,
+      "action_cost": 0.4,
+      "reward": 0.473,
+      "rationale": "高亮最终操作按钮强化快速完成的欲望，但主动催促略有推销和打扰感。"
+    },
+    "A3_offer_optional_staff_help": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他可能怀疑当前操作存在问题或自己是否需要人工协助。",
+        "desire": "他仍想尽快买完饮品，但会短暂权衡继续自助还是寻求帮助。",
+        "intention": "他可能暂停当前确认动作，重新判断是否继续自助完成购买。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -0.9,
+      "action_cost": 0.55,
+      "reward": -0.6370000000000001,
+      "rationale": "在最后确认阶段主动提出人工帮助会暗示流程异常，打断其购买节奏并增加犹豫。"
+    }
+  },
+  "best_action": "A1_show_order_summary",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

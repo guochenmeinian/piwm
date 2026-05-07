@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_714",
+  "persona": "午休结束前路过办公楼便利区的年轻上班族，想快速买一瓶饮品但还在两个选择之间比较。",
+  "persona_visual": "28岁左右的男性，短黑发，穿浅灰色针织开衫和白色T恤，斜挎一个深棕色通勤包，手里拿着手机",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "他认为眼前两个选择都适合现在喝，一个更解渴，另一个看起来更有新鲜感。",
+    "desire": "他想买一瓶让自己下午更舒服的饮品，但希望在口味和实用性之间选得更稳妥。",
+    "intention": "他倾向于再看一眼两个方向后做出选择，准备把手伸向其中一个选项。"
+  },
+  "observable_behavior": "他的目光在左侧和右侧两个方向之间来回切换，偶尔轻轻点头又停住，握着手机的手指轻微摩挲，另一只手的食指小幅抬起又放下。",
+  "facial_expression": "表情专注但带有中等程度犹豫，眉头轻微收紧，嘴唇短暂抿起，眼神在比较中显得认真克制。",
+  "body_posture": "身体正面朝向镜头，肩膀略向前倾，双手保持在胸前到腰部范围内，重心轻微左右转换但动作幅度不大。",
+  "timeline": {
+    "t_0_2": "28岁左右的男性正面站定，视线先停在左侧方向，眉头微收，握着手机的手指轻轻摩挲。",
+    "t_2_5": "他把目光移向右侧方向，头部轻微跟随转动，像是在比较另一个选择，嘴唇短暂抿起。",
+    "t_5_8": "他轻轻点了一下头又马上收住，另一只手的食指小幅抬起后放下，视线再次在左侧和右侧之间切换。",
+    "t_8_10": "他身体略微前倾，目光停留在其中一个方向，表情仍有些犹豫但更接近决定，手指准备向前伸出。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_clarify_choice_criteria",
+    "A2_offer_low_regret_default",
+    "A3_time_sensitive_pickup_prompt"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他仍认为两个选择都可行，但会根据刚才停留更久的方向形成轻微偏好。",
+        "desire": "他继续想快速买一瓶让下午更舒服的饮品，并希望不再花太多时间纠结。",
+        "intention": "他准备自然伸手拿起其中一个选项并去结账。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.22,
+      "delta_mental": 0.15,
+      "action_cost": 0.0,
+      "reward": 0.163,
+      "rationale": "不介入不会改变核心信念，但保留自主感并让他沿着已接近决定的状态自然推进到拿取。"
+    },
+    "A1_clarify_choice_criteria": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更清楚地相信左侧更偏解渴实用，右侧更偏新鲜口味，两者适合的需求场景不同。",
+        "desire": "他想根据自己此刻更重视解渴还是尝鲜来做一个更稳妥的选择。",
+        "intention": "他准备按当前最优先的需求选定其中一瓶并伸手拿取。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.35,
+      "action_cost": 0.25,
+      "reward": 0.782,
+      "rationale": "用场景标准帮助他重构两个选项的差异，降低比较犹豫并把原本的购买倾向推进为明确拿取。"
+    },
+    "A2_offer_low_regret_default": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会相信在时间有限且不想踩雷的情况下，选择更解渴、更稳妥的那瓶后悔概率更低。",
+        "desire": "他更想避免口味不合或下午不舒服的风险，优先满足实用和稳妥。",
+        "intention": "他准备选择被提示为低后悔风险的饮品并完成购买。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.34,
+      "delta_mental": 1.05,
+      "action_cost": 0.35,
+      "reward": 0.626,
+      "rationale": "给出低后悔默认项会强化稳妥信念、抑制选择焦虑，从而推动他直接进入购买操作。"
+    },
+    "A3_time_sensitive_pickup_prompt": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会意识到午休快结束，继续比较的时间成本高于两瓶饮品之间的差异。",
+        "desire": "他想尽快结束选择并回到工作状态，但也可能觉得自己的选择节奏被催促。",
+        "intention": "他可能会为了省时间立即拿起其中一瓶去结账。"
+      },
+      "risk": "high",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": -0.65,
+      "action_cost": 0.75,
+      "reward": -0.28,
+      "rationale": "用时间压力能催化拿取动作，但会压缩自主比较空间，容易引发被推销或被催促的不适感。"
+    }
+  },
+  "best_action": "A1_clarify_choice_criteria",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

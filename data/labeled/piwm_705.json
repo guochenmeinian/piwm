@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_705",
+  "persona": "午休后路过便利区的中年办公室职员，只是顺路经过并没有明确购买计划。",
+  "persona_visual": "45岁左右的男性，短黑发略带灰白，穿浅灰色夹克和深色休闲裤，左手拿着手机，右手拎着一个黑色公文包。",
+  "aida_stage": "attention",
+  "bdi": {
+    "belief": "他隐约注意到前方有可购买饮品或零食的零售设备，但不确定是否有自己需要的东西。",
+    "desire": "他只想快速判断这里是否值得停留，避免耽误返回办公室的时间。",
+    "intention": "他倾向于短暂扫视后直接离开，除非立刻发现非常合适的选择。"
+  },
+  "observable_behavior": "他在镜头前短暂停步，视线从上到下快速扫过前方区域，随后目光游移，左手手机停在胸前，右手公文包轻微晃动，没有进一步靠近或操作的动作。",
+  "facial_expression": "眉头轻微皱起，嘴角放平，眼神短暂聚焦后变得犹疑，整体表情略显困惑且兴趣不高。",
+  "body_posture": "身体正面朝向镜头但重心偏向一侧，肩膀微微转开，右脚已经向外侧迈出半步，呈现准备转身离开的姿态。",
+  "timeline": {
+    "t_0_2": "45岁左右的男性从画面正前方进入并放慢脚步，抬眼快速看向前方区域，左手握着手机停在胸前。",
+    "t_2_5": "他短暂停住，视线上下扫动一次，眉头轻轻皱起，右手拎着的黑色公文包在腿侧小幅摆动。",
+    "t_5_8": "他没有继续靠近，目光偏向一侧又回到前方，嘴唇微抿，身体重心逐渐移到准备离开的脚上。",
+    "t_8_10": "他肩膀微微转开，右脚向外侧迈出半步，仍保持面部可见，带着困惑和低兴趣的表情准备离开。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_highlight_quick_best_match",
+    "A2_offer_simple_category_comparison",
+    "A3_soft_time_saving_coupon_nudge"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "他仍只模糊知道这里可能有饮品或零食，但没有获得足够线索判断是否值得停留。",
+        "desire": "他更想避免耽误返回办公室的时间，尽快结束这次短暂扫视。",
+        "intention": "他倾向于按原姿态转身离开，不再靠近或操作。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.3,
+      "action_cost": 0.0,
+      "reward": -0.16999999999999998,
+      "rationale": "不介入不会修正其“这里可能不值得停留”的信念，时间节省欲望占上风，购买意向自然后退。"
+    },
+    "A1_highlight_quick_best_match": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会更清楚地相信这里有适合午后快速补充的常见选择，例如无糖茶、冰咖啡或小零食，且不需要花太久寻找。",
+        "desire": "他快速判断是否值得停留的欲望被满足，同时轻微激活了“顺手买个提神饮品或零食”的欲望。",
+        "intention": "他倾向于暂停离开的动作，再看一眼被突出显示的商品区域或价格信息。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.2,
+      "action_cost": 0.2,
+      "reward": 0.712,
+      "rationale": "用极短提示把模糊零售设备转化为“午后可快速解决的小选择”，降低搜索成本并把他从扫视拉入兴趣阶段。"
+    },
+    "A2_offer_simple_category_comparison": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会认为商品可以按提神、解渴、垫肚子等用途快速区分，但仍需要花一点认知精力比较。",
+        "desire": "他高效筛选的欲望被部分满足，不过对是否真的需要购买仍保持犹豫。",
+        "intention": "他可能短暂停留并横向比较几个类别，但尚未形成明确购买目标。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.25,
+      "delta_mental": 0.55,
+      "action_cost": 0.4,
+      "reward": 0.33499999999999996,
+      "rationale": "分类比较能改善其“不知道有没有需要的东西”的信念，但在低兴趣注意阶段可能增加决策负担。"
+    },
+    "A3_soft_time_saving_coupon_nudge": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会相信这里不仅有可选商品，而且手机扫码即可快速完成，并且当前有小额优惠，停留成本可能低于预期。",
+        "desire": "他避免耽误时间的欲望被安抚，同时被激活了“顺手占个小便宜并带走一瓶饮品”的欲望。",
+        "intention": "他倾向于靠近一步确认优惠商品，如果看到合适饮品则准备扫码购买。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.66,
+      "delta_mental": 0.7,
+      "action_cost": 0.5,
+      "reward": 0.564,
+      "rationale": "把时间风险和价格阻力同时降低，可快速生成购买欲望，但促销语气会带来一定被推销感。"
+    }
+  },
+  "best_action": "A1_highlight_quick_best_match",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

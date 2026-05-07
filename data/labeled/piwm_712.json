@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_712",
+  "persona": "下班途中经过办公楼便利区、准备快速买一瓶饮料的年轻上班族",
+  "persona_visual": "28岁左右的男性，短黑发，穿浅灰色衬衫和深色休闲西裤，左肩背一个黑色通勤包，手腕戴银色手表",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "他已经判断自己想要的那款饮料就在面前的固定位置，且符合当前解渴和提神的需求。",
+    "desire": "他想尽快确认选择并买下那款饮料，减少下班路上的停留时间。",
+    "intention": "他接下来倾向于直接伸手操作或确认购买，几乎不再继续比较其他选项。"
+  },
+  "observable_behavior": "他的目光持续锁定在画面下方偏中央的固定位置，双手保持在胸前到腰部范围内，手指轻微收拢又放松，只有短暂的小幅确认动作。",
+  "facial_expression": "表情平静专注，眉眼放松但视线稳定，嘴唇自然闭合，几乎没有明显犹豫神色。",
+  "body_posture": "身体微微前倾，肩膀保持稳定，头部略向前探，站姿端正且重心靠近前方。",
+  "timeline": {
+    "t_0_2": "28岁左右的男性上班族正面站定，身体微微前倾，视线迅速落在画面下方偏中央的固定位置。",
+    "t_2_5": "他保持平静专注的表情，眼神几乎不移动，双手在画面内自然抬起到腰腹前方，手指轻微收拢。",
+    "t_5_8": "他略微点头般确认了一下，肩膀和身体继续向前保持轻微倾斜，视线仍牢牢锁定同一位置。",
+    "t_8_10": "他的右手开始向前小幅伸出，表情仍然稳定专注，呈现即将做出购买决定的状态。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_enable_one_tap_checkout",
+    "A2_reassure_price_and_availability",
+    "A3_quick_compare_nearby_options"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他继续相信目标饮料就在面前且符合解渴提神需求，当前环境没有额外干扰。",
+        "desire": "他维持尽快买下该饮料、减少停留时间的欲望。",
+        "intention": "他准备直接伸手取饮料或完成购买操作。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.25,
+      "delta_mental": 0.2,
+      "action_cost": 0.0,
+      "reward": 0.2,
+      "rationale": "沉默不改变其既有信念，但避免打断其已形成的快速购买意图，使其自然从 desire 进入 action。"
+    },
+    "A1_enable_one_tap_checkout": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会相信当前锁定的饮料可以被快速确认并立即完成购买，操作路径很短。",
+        "desire": "他尽快完成购买、减少下班途中停留的欲望被进一步强化。",
+        "intention": "他准备立刻点击确认、扫码支付或伸手完成取购动作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.1,
+      "action_cost": 0.25,
+      "reward": 0.657,
+      "rationale": "一键购买提示强化“现在就能快速完成”的信念，激活省时欲望并把意图直接推向购买操作。"
+    },
+    "A2_reassure_price_and_availability": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更确信目标饮料有货、价格清楚且购买过程没有隐藏阻碍。",
+        "desire": "他想快速买下该饮料的欲望保持，同时因不确定性降低而更安心。",
+        "intention": "他准备确认该饮料并继续完成支付或取货。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.28,
+      "delta_mental": 0.8,
+      "action_cost": 0.3,
+      "reward": 0.482,
+      "rationale": "简短确认有货与价格会增强信任、降低最后一秒顾虑，使其购买意图更稳定地进入 action。"
+    },
+    "A3_quick_compare_nearby_options": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他可能重新认为旁边还有其他口味、低糖或促销饮料值得看一眼。",
+        "desire": "省钱或选择更优选项的欲望被激活，但原本快速买下目标饮料的欲望被抑制。",
+        "intention": "他倾向于暂停伸手购买，转而快速扫视或比较附近选项。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": -0.2,
+      "delta_mental": -0.7,
+      "action_cost": 0.45,
+      "reward": -0.475,
+      "rationale": "比较提示会改变其“已选定”的信念并引入新选项，打断省时目标，使意图从购买操作后退到重新比较。"
+    }
+  },
+  "best_action": "A1_enable_one_tap_checkout",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_709",
+  "persona": "午休后路过办公楼便利区的中年男职员，看到智能售货设备后停下来慢慢查看。",
+  "persona_visual": "45岁左右的男性，短发略有灰白，穿浅灰色夹克和深色休闲裤，左手戴手表，右手拿着一部黑色手机。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为这台智能设备可能有适合自己临时补充能量的选择，但还不确定是否真的需要购买。",
+    "desire": "他想快速判断有没有值得买的东西，同时避免冲动消费。",
+    "intention": "他倾向于再观察几秒并比较心中的需求，如果仍觉得合适才会继续操作。"
+  },
+  "observable_behavior": "他站在设备前缓慢扫视，目光在镜头下方某处停留片刻后又移开，右手握着手机不急于操作，左手偶尔轻轻抬起又放下。",
+  "facial_expression": "表情平静但略带迟疑，眉头轻微收紧，嘴唇自然闭合，眼神专注中带着思考。",
+  "body_posture": "身体正面朝向镜头，肩膀放松，微微前倾，双手保持在胸腹部附近的画面内，姿态克制而缓慢。",
+  "timeline": {
+    "t_0_2": "这名45岁左右的男性从画面前方停稳，正面朝向镜头，右手拿着黑色手机，视线缓慢落到镜头下方的某个位置。",
+    "t_2_5": "他微微前倾，眼睛在下方区域来回移动，左手轻轻抬起到胸前又停住，像是在查看并理解可选内容。",
+    "t_5_8": "他的目光在某处停留约一秒，眉头轻轻收紧，随后视线移向一侧，右手仍握着手机没有进一步动作。",
+    "t_8_10": "他重新看回镜头下方，身体保持正面但动作很慢，左手放低，表情仍显得在权衡是否真的需要购买。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_show_concise_value_info",
+    "A2_guide_need_based_comparison",
+    "A3_offer_low_commitment_purchase_path"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍认为设备里可能有适合午后补充能量的商品，但是否值得购买尚未被进一步澄清。",
+        "desire": "他继续想快速判断有没有必要买，同时保持克制以避免冲动消费。",
+        "intention": "他会再观察几秒并自行比较需求，如果没有明显合适选项可能转身离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": 0.0,
+      "action_cost": 0.0,
+      "reward": 0.020000000000000004,
+      "rationale": "沉默不改变其核心信念，只让他按原有迟疑节奏继续观察，因此AIDA大多停留在interest并仅有轻微自然推进。"
+    },
+    "A1_show_concise_value_info": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会更清楚设备中有哪些午后补能选项、价格区间和基础特点，认为判断成本降低了。",
+        "desire": "他想从低负担、适合当下状态的商品中筛出一个可能值得买的选项。",
+        "intention": "他倾向于继续看屏幕上的具体商品信息，并把注意力集中到少数几个候选上。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.18,
+      "delta_mental": 0.9,
+      "action_cost": 0.2,
+      "reward": 0.502,
+      "rationale": "简短补充价格、品类和补能信息会增强其“可快速判断”的信念，降低迟疑但不强迫决策，使其在interest内明显升温。"
+    },
+    "A2_guide_need_based_comparison": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会相信可以按自己的真实需求在提神、垫肚、少糖或低价之间做理性比较，而不是被随机商品诱导。",
+        "desire": "他更想找到一个与午后状态匹配、且不会显得冲动消费的具体商品。",
+        "intention": "他准备根据需求筛选一两个目标商品，并进一步查看或点选其中最合适的一项。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.3,
+      "action_cost": 0.35,
+      "reward": 0.747,
+      "rationale": "需求导向比较强化了其理性选择信念并激活“买一个合适而非冲动”的欲望，最可能从interest推进到desire。"
+    },
+    "A3_offer_low_commitment_purchase_path": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会觉得可以先查看低价小份或推荐补能商品，并且在支付前仍可取消，购买风险相对可控。",
+        "desire": "他对尝试一个低负担商品的欲望上升，但仍会警惕自己是否只是被促成下单。",
+        "intention": "他可能准备点开推荐商品或拿起手机扫码查看购买页，但在最终支付前还会再确认必要性。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": 0.5,
+      "action_cost": 0.45,
+      "reward": 0.325,
+      "rationale": "低承诺购买路径能降低支付风险并催化行动意向，但因他正避免冲动消费，主动促成下单会带来一定推销感。"
+    }
+  },
+  "best_action": "A2_guide_need_based_comparison",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

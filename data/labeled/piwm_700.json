@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_700",
+  "persona": "双休日无聊出来逛逛街的普通消费者。",
+  "persona_visual": "一名 25–35 岁的普通亚洲女性，穿着简洁自然的日常休闲服饰，外表生活化，气质自然克制。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "售货机里可能有她感兴趣的商品，值得停下来仔细看一看。她认为当前还需要继续确认和比较信息，暂时没有足够把握立即购买。",
+    "desire": "想进一步了解商品是否值得购买，并确认它是否符合自己的需求。",
+    "intention": "继续停留观察，反复确认信息并进行比较，在做出购买决定前保持谨慎。"
+  },
+  "observable_behavior": "顾客走近后在机器前停留，身体轻微前倾，视线先稳定看向前方，再短暂下移，并在前方不同位置之间自然切换数次，持续表现出浏览、比较和确认信息的状态。",
+  "facial_expression": "表情自然克制，带有轻微思考、权衡和犹豫，没有夸张惊讶或明显情绪波动。",
+  "body_posture": "正面朝向机器，站姿稳定，停留在原地，身体轻微前倾，双手自然放置并始终保持在画面内。",
+  "timeline": {
+    "t_0_2": "顾客从前方走近，进入镜头中心，脚步逐渐放慢，在机器前停下，并将注意力集中到机器前方开始认真观察。",
+    "t_2_5": "顾客继续停留，身体轻微前倾，目光稳定看向前方，随后短暂下移视线，再回到前方，像是在浏览和确认不同信息。",
+    "t_5_8": "顾客头部和目光在前方不同位置之间自然切换数次，节奏缓慢真实，表现出比较、思考和犹豫。",
+    "t_8_10": "顾客继续停留在原地，再次短暂下移视线，然后回到前方，保持思考和犹豫状态，没有支付、没有扫码、没有离开。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_provide_key_product_info",
+    "A2_compare_best_value_options",
+    "A3_reduce_risk_with_trial_offer"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "售货机里可能仍有值得看的商品，但缺少新的信息帮助她缩小选择范围。",
+        "desire": "继续了解和比较商品，维持谨慎观察的需求。",
+        "intention": "继续停留浏览一小段时间，若仍无法确认可能放弃或转移注意力。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": -0.1,
+      "action_cost": 0.0,
+      "reward": -0.03,
+      "rationale": "沉默不会打扰顾客，但也不会改变其信息不足和犹豫的信念，购买意图基本停留在观察比较阶段。"
+    },
+    "A1_provide_key_product_info": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她能更清楚地看到商品价格、口味、规格和卖点，认为部分商品可能符合自己的需求。",
+        "desire": "想进一步锁定其中一两个更合适的选项，并判断哪一个最值得买。",
+        "intention": "从泛泛浏览转向重点查看候选商品，准备基于关键信息做进一步选择。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.1,
+      "action_cost": 0.2,
+      "reward": 0.662,
+      "rationale": "轻量补充商品关键信息会降低信息不确定性，增强其对具体商品的兴趣，使其从兴趣浏览推进到产生偏好。"
+    },
+    "A2_compare_best_value_options": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她可以快速看到几款商品在价格、热度、适合场景和性价比上的差异，认为选择成本被降低。",
+        "desire": "想在推荐的高性价比或热门选项中挑出最适合当前心情的一款。",
+        "intention": "围绕少数候选商品进行最后比较，倾向于选择其中一个继续操作。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.5,
+      "action_cost": 0.4,
+      "reward": 0.842,
+      "rationale": "比较引导能直接回应她正在权衡的状态，减少决策负担并增强候选商品吸引力，但主动推荐略有推销感。"
+    },
+    "A3_reduce_risk_with_trial_offer": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她认为即使只是随便逛逛，当前也可以用较低成本尝试一件商品，购买风险和后悔成本较低。",
+        "desire": "想趁低风险优惠尝试一款看起来还不错的商品。",
+        "intention": "准备选择一款商品并进入扫码或支付操作。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.58,
+      "delta_mental": 1.2,
+      "action_cost": 0.55,
+      "reward": 0.7769999999999999,
+      "rationale": "低风险试买或小额优惠会抑制价格和后悔顾虑，激活尝试欲望并可能推动到购买操作，但在兴趣阶段略显催促。"
+    }
+  },
+  "best_action": "A2_compare_best_value_options",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

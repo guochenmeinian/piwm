@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_701",
+  "persona": "下班路过办公楼便利区的年轻白领女性，想顺手看看是否有合适的饮品。",
+  "persona_visual": "28岁左右的女性，黑色中长发自然披肩，穿浅米色风衣和白色针织内搭，肩背一个棕色通勤托特包，手里拿着手机和门禁卡。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她认为眼前的饮品选择可能适合下班后解渴或提神，但还需要简单比较一下。",
+    "desire": "她想快速找到一款口味合适、喝起来轻松的饮品。",
+    "intention": "她倾向继续平稳扫视并做一个简单判断，若看到合适选项就准备购买。"
+  },
+  "observable_behavior": "她站在设备前方，目光平稳地从左到右扫视，偶尔短暂停留，手指轻轻握着手机，动作自然放松，没有明显反复犹豫。",
+  "facial_expression": "表情平和专注，嘴角自然放松，眼神稳定，带有轻微兴趣感。",
+  "body_posture": "身体正面朝向镜头，肩膀放松，重心稳定，双手保持在胸前到腰间的画面范围内，姿态轻松自然。",
+  "timeline": {
+    "t_0_2": "28岁左右的女性走近并停在画面中央，正面朝向镜头，肩背棕色托特包，手里自然拿着手机和门禁卡。",
+    "t_2_5": "她的目光从画面左侧平稳扫到右侧，头部只做轻微转动，表情保持平和专注。",
+    "t_5_8": "她在某个方向短暂停留视线，手指轻轻调整手机位置，身体微微前倾但整体仍然放松。",
+    "t_8_10": "她收回轻微前倾的姿态，目光再次平稳扫过前方，露出低程度犹豫后的自然兴趣神情。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_quick_category_hint",
+    "A2_compare_refresh_vs_energy",
+    "A3_soft_best_match_nudge"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她仍认为饮品选择里可能有合适的下班轻饮，但需要靠自己继续快速扫视比较。",
+        "desire": "她继续想快速找到一款口味合适、喝起来轻松的饮品。",
+        "intention": "她会继续平稳浏览，若自然注意到合适选项再考虑购买。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.06,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.07400000000000001,
+      "rationale": "沉默不改变她的主要信念和欲望，只允许她按原节奏自然扫视，因此大概率维持在 interest 并轻微前进。"
+    },
+    "A1_quick_category_hint": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会相信眼前饮品可以按清爽解渴、低糖轻负担、提神醒脑这几类快速筛选。",
+        "desire": "她想在最符合自己下班状态的一类中尽快挑出一款。",
+        "intention": "她会把注意力集中到一两个相关类别上，准备进一步确认具体饮品。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.1,
+      "action_cost": 0.2,
+      "reward": 0.662,
+      "rationale": "轻量分类提示降低比较成本，强化她“能快速找到合适饮品”的信念，使欲望从泛泛兴趣推进到具体筛选。"
+    },
+    "A2_compare_refresh_vs_energy": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会认为当前选择可以围绕清爽解渴和轻度提神两个目标来比较，不必逐个反复看。",
+        "desire": "她想根据自己此刻更想解渴还是提神来缩小选择范围。",
+        "intention": "她会在两类候选之间做简单取舍，并准备选定更匹配的一款。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.32,
+      "delta_mental": 0.85,
+      "action_cost": 0.35,
+      "reward": 0.5179999999999999,
+      "rationale": "对比引导能帮助她把模糊兴趣转为取舍标准，但主动比较略增加认知负担和被引导感。"
+    },
+    "A3_soft_best_match_nudge": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会相信有一款低糖清爽、适合下班顺手带走的饮品与自己当前需求高度匹配。",
+        "desire": "她想省去继续比较的时间，直接拿到一款轻松好喝的饮品。",
+        "intention": "她准备点击或扫码购买这款被提示的匹配饮品。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.58,
+      "delta_mental": 1.25,
+      "action_cost": 0.45,
+      "reward": 0.8119999999999999,
+      "rationale": "柔和地给出下班场景的最佳匹配能激活她快速决策的欲望，把“若看到合适就买”的意向推进到实际购买操作。"
+    }
+  },
+  "best_action": "A3_soft_best_match_nudge",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

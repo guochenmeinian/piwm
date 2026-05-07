@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_704",
+  "persona": "下班途中经过便利区、被智能售货机吸引而停下脚步的年轻女性上班族",
+  "persona_visual": "25岁左右的女性，齐肩黑色直发，穿浅灰色针织开衫和白色内搭，背着米色帆布单肩包，手里拿着手机",
+  "aida_stage": "attention",
+  "bdi": {
+    "belief": "她刚注意到前方设备似乎有值得查看的内容，但还不确定是否与自己当前需求相关。",
+    "desire": "她想快速判断这里是否有适合下班路上购买的饮品或小食。",
+    "intention": "她倾向先停下来观察几秒，再决定是否进一步靠近或操作。"
+  },
+  "observable_behavior": "她从经过状态放慢并停住，视线被前方吸引，头部微微转向设备方向，手机握在胸前但没有操作，另一只手轻轻扶着包带。",
+  "facial_expression": "眉毛轻微上扬，眼神专注但带一点疑问，嘴唇自然闭合，表情克制而犹豫。",
+  "body_posture": "身体略微斜向一侧，尚未完全正面站定，肩膀有轻微转动，重心停在一只脚上，姿态表现出中等程度的迟疑。",
+  "timeline": {
+    "t_0_2": "这位25岁左右的女性从画面前方经过时放慢脚步，眼神被前方吸引，头部轻轻转向设备方向。",
+    "t_2_5": "她停在原地，身体仍略微侧着，右手握着手机停在胸前，左手自然扶住米色帆布包带。",
+    "t_5_8": "她微微抬眉，视线在前方上下扫过，像是在确认内容是否值得继续查看，动作保持克制。",
+    "t_8_10": "她没有立即行动，只是稍稍调整站姿并继续注视前方，脸上保持轻微疑问和中等犹豫。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_highlight_commute_refreshments",
+    "A2_show_top_picks_with_simple_compare",
+    "A3_gentle_no_pressure_browse_invite"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "她仍认为设备可能有可看的内容，但相关性和购买价值尚未被确认。",
+        "desire": "她仍想用很短时间判断是否值得继续停留。",
+        "intention": "她会再观察几秒，若没有快速发现有用信息，可能转身离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.08,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.082,
+      "rationale": "沉默不会打扰她，但也无法补足相关性信念，只能让她自然维持短暂注意。"
+    },
+    "A1_highlight_commute_refreshments": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她会相信设备里可能有适合下班途中快速购买的饮品或小食，并且浏览成本不高。",
+        "desire": "她想进一步确认是否有符合自己口味和即时需求的选项。",
+        "intention": "她倾向靠近屏幕或继续看清具体品类与价格。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.2,
+      "action_cost": 0.25,
+      "reward": 0.707,
+      "rationale": "用“下班路上饮品/轻食”补足需求相关性信念，激活快速判断欲望，使她从注意转向兴趣。"
+    },
+    "A2_show_top_picks_with_simple_compare": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她会认为设备已经把热门饮品、轻食、价格和标签整理出来，能帮助她快速比较。",
+        "desire": "她想在几个候选中找出最适合当前状态的一项。",
+        "intention": "她倾向停留更久，查看两三个推荐选项并进行初步比较。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.28,
+      "delta_mental": 0.7,
+      "action_cost": 0.4,
+      "reward": 0.42199999999999993,
+      "rationale": "直接给出简明对比能降低选择搜索成本，但在注意阶段信息量略高，可能带来轻微推销感。"
+    },
+    "A3_gentle_no_pressure_browse_invite": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她会觉得自己可以先随意浏览，不必马上购买或承担承诺。",
+        "desire": "她的防备感下降，更愿意确认设备是否有值得看的商品。",
+        "intention": "她倾向稍微靠近或轻触开始浏览，但仍保留随时离开的选择。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.25,
+      "delta_mental": 0.9,
+      "action_cost": 0.2,
+      "reward": 0.53,
+      "rationale": "强调无压力浏览能抑制被推销的顾虑并提升信任，使她更愿意从观察进入轻度探索。"
+    }
+  },
+  "best_action": "A1_highlight_commute_refreshments",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

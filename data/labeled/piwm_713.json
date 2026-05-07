@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_713",
+  "persona": "午休后路过办公楼便利区的年轻女白领，已经看中智能售货机里的一款饮品，准备快速购买。",
+  "persona_visual": "26岁左右的女性，齐肩黑色直发，穿浅灰色针织开衫和白色T恤，下身为深色直筒裤，肩上背一个米色帆布托特包。",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "她认为眼前这款饮品正好符合自己想要提神解渴的需求，选择基本已经明确。",
+    "desire": "她想尽快买到机器里的那款产品，减少继续比较的时间。",
+    "intention": "她准备拿出手机进行扫码或支付，进入购买动作。"
+  },
+  "observable_behavior": "她起初短暂看向不同位置，随后目光固定在一个方向不再扫视，右手从裤子口袋里掏出手机并抬到胸前。",
+  "facial_expression": "表情从轻微思考和抿唇，逐渐转为平静确定，眉头放松，眼神集中。",
+  "body_posture": "身体正面朝向镜头，站姿稳定，上半身微微前倾，一只手扶着包带，另一只手在画面内从口袋取出手机。",
+  "timeline": {
+    "t_0_2": "这位26岁左右的女性正面站在镜头前，眼神在前方轻微移动，像是在最后确认选择。",
+    "t_2_5": "她的视线逐渐停在固定方向，嘴唇轻轻抿了一下，脸上的思考感开始减弱。",
+    "t_5_8": "她眉头放松，表情变得确定，右手伸向裤子口袋并把手机掏出来。",
+    "t_8_10": "她将手机拿到胸前，目光仍固定在前方，身体微微前倾，呈现准备购买的状态。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_quick_scan_pay_prompt",
+    "A2_confirm_stock_and_price",
+    "A3_push_bundle_promo"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她继续相信眼前这款饮品正符合提神解渴需求，且无需再比较。",
+        "desire": "她仍想尽快买到这款产品，保持低干扰的快速购买欲望。",
+        "intention": "她准备打开手机扫码或支付，直接完成购买操作。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.28,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.16200000000000003,
+      "rationale": "不介入不会改变其信念，但保留了已形成的明确购买欲望，使她自然从 desire 进入扫码支付的 action。"
+    },
+    "A1_quick_scan_pay_prompt": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会认为当前商品的购买入口清晰、扫码支付很方便，能快速拿到饮品。",
+        "desire": "她快速购买的欲望被强化，减少了寻找支付入口或操作路径的犹豫。",
+        "intention": "她准备立即对准支付码或商品码进行扫码并完成付款。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.1,
+      "action_cost": 0.2,
+      "reward": 0.662,
+      "rationale": "轻量提示支付入口会增强“购买很顺畅”的信念，激活快速完成的欲望，推动她稳定进入 action。"
+    },
+    "A2_confirm_stock_and_price": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会确认所选饮品有货、价格明确，没有需要额外核对的信息。",
+        "desire": "她的安心感上升，继续希望快速买到这款已选定的饮品。",
+        "intention": "她准备直接扫码付款，减少最后一刻的价格或库存疑虑。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": 0.8,
+      "action_cost": 0.25,
+      "reward": 0.495,
+      "rationale": "库存与价格确认降低最后风险感，增强信任和确定性，使购买意图更接近实际支付。"
+    },
+    "A3_push_bundle_promo": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她可能认为系统在引导她看额外优惠或组合购买，原本简单的选择变复杂了。",
+        "desire": "她的快速购买欲望被省钱或是否参与优惠的念头打断，产生新的比较负担。",
+        "intention": "她可能暂缓扫码，先判断优惠是否值得，甚至放弃继续操作。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -1.2,
+      "action_cost": 0.55,
+      "reward": -0.787,
+      "rationale": "在她已准备付款时推送组合优惠会扰动既定信念并制造选择负担，使意图从购买操作倒退到重新评估。"
+    }
+  },
+  "best_action": "A1_quick_scan_pay_prompt",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

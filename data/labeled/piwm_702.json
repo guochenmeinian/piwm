@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_702",
+  "persona": "午休后路过办公楼便利区、想买一瓶饮品提神的年轻上班族。",
+  "persona_visual": "28 岁左右的男性，短黑发，穿浅灰色针织开衫和白色 T 恤，背一个深色双肩包，右手拿着手机",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为这里可能有适合下午提神的饮品，但还不确定哪一种更合适。",
+    "desire": "他想快速选到一款不太甜、能让自己恢复精神的饮品。",
+    "intention": "他倾向于继续观察并在两个备选之间做比较后再决定是否购买。"
+  },
+  "observable_behavior": "他站在设备前停留，视线在不同位置之间来回移动，右手握着手机但不操作，左手偶尔抬起又放下，表现出比较和犹豫。",
+  "facial_expression": "表情安静专注，眉头轻微收紧，嘴唇自然闭合，眼神带有思考感。",
+  "body_posture": "身体正面朝向镜头，肩膀微微前倾，双脚站稳，双手始终在胸腹前的画面范围内。",
+  "timeline": {
+    "t_0_2": "28 岁左右的男性走近并停在镜头前，正面站定，眼睛先快速扫视前方。",
+    "t_2_5": "他微微低头又抬眼，视线在左右两个方向之间切换，右手握着手机停在胸前。",
+    "t_5_8": "他左手抬到下巴附近短暂停顿，眉头轻轻收紧，像是在比较不同选择。",
+    "t_8_10": "他放下左手，身体稍微前倾，目光固定在前方某一点，仍未做出最终动作。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_show_low_sugar_energy_tags",
+    "A2_compare_best_two_options",
+    "A3_offer_quick_safe_pick"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍认为这里可能有适合下午提神的饮品，但缺少额外线索来判断哪款不太甜且更提神。",
+        "desire": "他继续想快速选到一款不太甜、能恢复精神的饮品，但欲望强度没有明显上升。",
+        "intention": "他会继续在两个备选之间观察比较，可能自行决定，也可能因犹豫而延迟购买。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.07,
+      "rationale": "沉默不会打扰他，但也不会改变其缺少判断依据的信念，只能让他维持在兴趣和比较状态中。"
+    },
+    "A1_show_low_sugar_energy_tags": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会更清楚哪些饮品具有低糖、无糖、含咖啡因或清爽提神等属性，并相信其中有更匹配自己需求的选择。",
+        "desire": "他对低糖且提神的候选饮品兴趣增强，想尽快锁定其中一款。",
+        "intention": "他倾向于优先查看带有低糖和提神标签的饮品，并准备从这些选项中选出一瓶。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.2,
+      "action_cost": 0.2,
+      "reward": 0.712,
+      "rationale": "用低糖和提神标签补足关键信息，会增强其“有合适选择”的信念并把兴趣推进到明确偏好。"
+    },
+    "A2_compare_best_two_options": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会认为两个主要备选的差异已经足够清楚，例如无糖咖啡更提神、低糖茶饮更清爽，从而相信其中一款更符合当前需求。",
+        "desire": "他对更匹配“不太甜且提神”的那一款产生明确偏好。",
+        "intention": "他准备选择并购买更符合自己偏好的那瓶饮品。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.66,
+      "delta_mental": 1.6,
+      "action_cost": 0.4,
+      "reward": 1.0,
+      "rationale": "针对他正在左右比较的行为直接给出两款差异，会降低犹豫并把意图从比较推进到准备购买。"
+    },
+    "A3_offer_quick_safe_pick": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会觉得系统理解他赶时间且怕太甜的顾虑，并认为选择一款小瓶或无糖的热门提神饮品风险较低。",
+        "desire": "他想减少选择成本，倾向于接受一个稳妥、不容易踩雷的提神选择。",
+        "intention": "他准备优先考虑系统提示的低风险推荐款，但仍可能短暂确认价格或口味后再购买。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.8,
+      "action_cost": 0.45,
+      "reward": 0.48700000000000004,
+      "rationale": "以低风险快速选择来回应其时间压力和甜度顾虑，可缓解犹豫，但主动推荐仍有一定推销感。"
+    }
+  },
+  "best_action": "A2_compare_best_two_options",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

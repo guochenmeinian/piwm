@@ -14,6 +14,7 @@ load_dotenv()
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_DIR = REPO_ROOT / "data" / "manifest"
+SEED_DIR = REPO_ROOT / "data" / "seed"
 SESSION_PREFIX = "piwm_"
 SESSION_START = 700  # piwm_70x range
 
@@ -156,24 +157,60 @@ def next_session_id(start: int = SESSION_START) -> str:
     return f"{SESSION_PREFIX}{n}"
 
 
+def find_missing_manifests() -> list[Path]:
+    """Seed files in data/seed/ that don't have a manifest in data/manifest/ yet."""
+    result = []
+    for seed in sorted(SEED_DIR.glob("piwm_*.txt")):
+        if not (MANIFEST_DIR / f"{seed.stem}.json").exists():
+            result.append(seed)
+    return result
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Step 1: generate manifest JSON via GPT")
+    parser = argparse.ArgumentParser(
+        description="Step 1: generate manifest JSON via GPT. "
+                    "Run without arguments to batch-process all data/seed/ → data/manifest/."
+    )
     parser.add_argument(
         "note", nargs="?",
-        help='自然语言约束，会附在 prompt 底部 (例如: "action 阶段，不犹豫，正在伸手购买")'
+        help='自然语言约束 (例如: "action 阶段，不犹豫"). 省略则进入批量模式，从 data/seed/ 读取'
     )
     parser.add_argument(
         "--id", dest="session_id",
-        help=f"session_id (e.g. piwm_750). 缺省时自动从 {SESSION_PREFIX}{SESSION_START} 起编号"
+        help=f"session_id (e.g. piwm_750). 单条模式缺省时自动编号"
     )
     parser.add_argument("--model", default="gpt-5.5", help="OpenAI model name")
-    parser.add_argument("--dry-run", action="store_true", help="打印最终 prompt，不调用 API")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="批量: 列出待处理文件. 单条: 打印最终 prompt")
     parser.add_argument(
         "--output", "-o",
-        help=f"输出路径，缺省 {MANIFEST_DIR}/<session_id>.json，'-' 写 stdout"
+        help=f"输出路径 (单条模式). 缺省 {MANIFEST_DIR}/<session_id>.json，'-' 写 stdout"
     )
     args = parser.parse_args()
 
+    # ── batch mode ──
+    if args.note is None and args.session_id is None and args.output is None:
+        pending = find_missing_manifests()
+        if not pending:
+            print("All seeds already have manifests.", file=sys.stderr)
+            return
+        print(f"{'[dry-run] would process' if args.dry_run else 'Processing'} "
+              f"{len(pending)} seed(s):", file=sys.stderr)
+        for f in pending:
+            print(f"  {f.name}", file=sys.stderr)
+        if args.dry_run:
+            return
+        for seed_path in pending:
+            session_id = seed_path.stem
+            note = seed_path.read_text(encoding="utf-8").strip()
+            result = generate_manifest(session_id, note, args.model)
+            out_path = MANIFEST_DIR / f"{session_id}.json"
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"  ✓ {out_path.name}", file=sys.stderr)
+        return
+
+    # ── single-file mode ──
     session_id = args.session_id or next_session_id()
 
     if args.dry_run:

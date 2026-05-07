@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_720",
+  "persona": "下班途中路过便利区、想快速买一瓶饮料的年轻上班族。",
+  "persona_visual": "28岁左右的男性，短黑发，穿浅灰色衬衫和深色休闲西裤，肩上背一个黑色通勤双肩包，一只手腕戴银色手表。",
+  "aida_stage": "action",
+  "bdi": {
+    "belief": "他认为自己已经基本选定了想买的饮品，但仍想确认没有选错。",
+    "desire": "他想尽快完成购买，同时避免因为匆忙按错选项。",
+    "intention": "他倾向于伸手进行操作，但会在确认后再继续完成选择。"
+  },
+  "observable_behavior": "他站在镜头前，目光在正前方和略下方之间短暂切换，右手伸向画面下方准备操作，中途停顿一下后又继续前伸。",
+  "facial_expression": "表情专注而略带犹豫，眉头轻微收紧，嘴唇自然闭合，没有夸张情绪。",
+  "body_posture": "身体正面朝向镜头，上半身微微前倾，左手靠近背包肩带，右手抬起并保持在画面内，整体姿态克制稳定。",
+  "timeline": {
+    "t_0_2": "这名28岁左右的男性上班族正面站定，目光先落在正前方，右手从身体一侧慢慢抬起。",
+    "t_2_5": "他微微前倾，右手伸向画面下方准备操作，眼神保持专注，眉头轻轻皱起。",
+    "t_5_8": "他的右手在半空中短暂停住，动作中断了一下，眼睛又快速向正前方看了一眼，像是在再次确认选择。",
+    "t_8_10": "确认后他放松一点，右手继续向前下方伸出完成操作，身体仍保持正面朝向镜头。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_show_selection_summary",
+    "A2_offer_quick_compare_alternatives",
+    "A3_highlight_confirm_with_edit_safety"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他认为自己已基本确认当前选择没有明显问题，可以继续完成操作。",
+        "desire": "他仍想尽快买到饮料并减少不必要停留。",
+        "intention": "他准备继续伸手完成确认或支付操作。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.2,
+      "action_cost": 0.0,
+      "reward": 0.14,
+      "rationale": "不介入避免打断其已形成的购买动作，让他依靠自我确认自然完成操作。"
+    },
+    "A1_show_selection_summary": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他相信系统已清楚呈现当前所选饮品和关键信息，自己没有按错选项。",
+        "desire": "他更想快速确认并结束购买，同时保持对选择正确性的安心感。",
+        "intention": "他准备点击确认或继续支付当前选中的饮品。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.18,
+      "delta_mental": 1.1,
+      "action_cost": 0.2,
+      "reward": 0.602,
+      "rationale": "简短展示所选饮品摘要会强化“没有选错”的信念，降低犹豫并推动其继续确认购买。"
+    },
+    "A2_offer_quick_compare_alternatives": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他意识到还有相似饮品可以比较，当前选择未必是最优。",
+        "desire": "他避免后悔的欲望被激活，但快速完成购买的欲望被削弱。",
+        "intention": "他倾向于暂停支付，先查看或比较其他饮品后再决定。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -0.4,
+      "action_cost": 0.4,
+      "reward": -0.372,
+      "rationale": "在已准备操作时引入替代比较会放大选择不确定性，使其从购买执行退回到重新权衡。"
+    },
+    "A3_highlight_confirm_with_edit_safety": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他相信即使当前选择有误也可以返回修改，因此继续确认的风险较低。",
+        "desire": "他快速完成购买的欲望被增强，同时避免按错的顾虑被明显缓解。",
+        "intention": "他准备直接点击确认购买或进入支付，并在必要时使用返回修改。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.25,
+      "delta_mental": 1.5,
+      "action_cost": 0.3,
+      "reward": 0.82,
+      "rationale": "同时突出确认按钮和可修改退路，会降低操作风险感并催化其完成最后购买动作。"
+    }
+  },
+  "best_action": "A3_highlight_confirm_with_edit_safety",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_706",
+  "persona": "课间路过校园便利区、被智能售货机内容吸引的男大学生。",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色休闲裤，肩上背一个黑色双肩包，手里拿着手机。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为眼前的选择里可能有适合自己课间补充能量的饮品或零食。",
+    "desire": "他想快速了解有哪些看起来合适的选项，并挑出一个感兴趣的目标。",
+    "intention": "他倾向继续查看不同区域，很快做出选择。"
+  },
+  "observable_behavior": "他停在设备前，目光积极地在不同区域来回扫视，偶尔轻轻点头，双手自然放在画面内，一只手握着手机，动作轻松而连贯。",
+  "facial_expression": "表情放松，嘴角微微上扬，眼神明亮专注，明显带有兴趣但没有明显纠结。",
+  "body_posture": "身体略微前倾，肩膀放松，双脚站稳，头部随视线小幅转动，整体姿态自然主动。",
+  "timeline": {
+    "t_0_2": "这名20岁左右的男大学生走近并停在镜头前，身体自然前倾，眼神迅速落到前方。",
+    "t_2_5": "他微微抬头又低头，目光轻快地在不同区域扫视，握着手机的手保持在胸前附近。",
+    "t_5_8": "他嘴角略微上扬，轻轻点了一下头，另一只手放松地抬起一点，像是在确认某个感兴趣的选择。",
+    "t_8_10": "他继续保持前倾姿态，视线再次横向扫过，表情积极而放松，准备进一步选择。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_quick_category_filter",
+    "A2_compare_top_picks",
+    "A3_student_deal_checkout_shortcut"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍认为售货机里可能有适合课间补能的饮品或零食，但需要自己继续扫视确认。",
+        "desire": "他继续想快速浏览不同区域，找出一个看起来最顺眼的选项。",
+        "intention": "他倾向继续查看并自然缩小选择范围，暂时还未进入明确购买操作。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.12,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.098,
+      "rationale": "不介入能保留其当前积极兴趣，但不会主动增强对具体商品的信念或加速决策。"
+    },
+    "A1_quick_category_filter": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会相信这些商品可以按提神、饱腹、低糖等课间需求快速筛选，选择成本明显降低。",
+        "desire": "他更想从符合自己即时需求的分类中挑出一个最合适的目标。",
+        "intention": "他准备根据分类提示锁定一两个候选商品，并进一步决定具体购买哪个。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.4,
+      "action_cost": 0.2,
+      "reward": 0.8119999999999999,
+      "rationale": "轻量分类提示强化了“能快速找到适合课间补能商品”的信念，激活明确挑选欲望并推进到 desire。"
+    },
+    "A2_compare_top_picks": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会认为系统展示的热门候选在价格、口味、能量补充效果上更容易比较。",
+        "desire": "他想在几个看起来不错的选项之间选出性价比和口味最匹配的一个。",
+        "intention": "他准备对比推荐的两三个商品，并尽快确定最终目标。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.34,
+      "delta_mental": 1.0,
+      "action_cost": 0.4,
+      "reward": 0.596,
+      "rationale": "热门候选对比增强了可判断性和信任感，但主动推荐略有推销感，因此稳定推进到 desire。"
+    },
+    "A3_student_deal_checkout_shortcut": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会相信现在有学生友好的优惠或快捷支付路径，购买成本和时间成本都较低。",
+        "desire": "他更想抓住一个划算且方便的选项，快速完成课间补给。",
+        "intention": "他准备直接点选感兴趣商品，并用手机扫码完成购买操作。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.62,
+      "delta_mental": 0.6,
+      "action_cost": 0.55,
+      "reward": 0.49300000000000005,
+      "rationale": "优惠和快捷结账会降低价格与操作阻力、推动购买意图，但在 interest 阶段稍显催促而存在中等打扰风险。"
+    }
+  },
+  "best_action": "A1_quick_category_filter",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

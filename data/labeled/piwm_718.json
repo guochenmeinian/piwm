@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_718",
+  "persona": "课间路过校园便利区、已经决定购买饮料的大学生",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色牛仔裤，肩背一个深蓝色双肩包",
+  "aida_stage": "action",
+  "bdi": {
+    "belief": "他认为自己已经选好了合适的饮料，购买步骤很简单且不需要再比较。",
+    "desire": "他想快速完成购买，在下一节课前拿到饮料。",
+    "intention": "他准备立即伸手操作并确认购买。"
+  },
+  "observable_behavior": "他始终正面看向前方，视线稳定，动作直接，右手从胸前自然抬起并向画面下方前伸，左手轻扶背包肩带，全程没有停顿、回看或反复比较的动作。",
+  "facial_expression": "表情轻松而坚定，嘴角微微放松，眼神专注，没有皱眉或犹豫神态。",
+  "body_posture": "上半身明显前倾，肩膀放松，双脚站稳，右臂伸出准备操作，姿态主动且确定。",
+  "timeline": {
+    "t_0_2": "这名20岁左右的男学生正面站定，目光平稳看向前方，脸上带着轻松坚定的神情。",
+    "t_2_5": "他上半身自然前倾，左手扶住深蓝色双肩包肩带，右手从身体前方抬起。",
+    "t_5_8": "他保持专注视线，右臂继续向画面下方前伸，动作流畅直接，没有任何迟疑。",
+    "t_8_10": "他右手停在准备操作的位置，身体仍微微前倾，表情放松坚定，显然已经准备确认购买。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_enable_one_tap_checkout",
+    "A2_confirm_selection_and_price",
+    "A3_suggest_add_on_promo"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他仍认为饮料已经选定，购买步骤简单且无需外部帮助。",
+        "desire": "他继续想在课前快速拿到饮料。",
+        "intention": "他准备继续伸手操作并完成确认购买。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.05,
+      "delta_mental": 0.2,
+      "action_cost": 0.0,
+      "reward": 0.12000000000000001,
+      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率按原计划自然完成操作。"
+    },
+    "A1_enable_one_tap_checkout": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会相信当前购买路径更快捷，系统正在帮助他减少操作步骤而不是重新推荐商品。",
+        "desire": "他快速完成购买、赶在上课前拿到饮料的欲望被进一步激活。",
+        "intention": "他准备立即点击一键确认或扫码付款完成购买。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.12,
+      "delta_mental": 0.9,
+      "action_cost": 0.2,
+      "reward": 0.478,
+      "rationale": "提供一键结算强化了“购买很快”的信念，直接服务其快速完成购买的欲望，使意图更稳定地落到付款操作。"
+    },
+    "A2_confirm_selection_and_price": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更确认自己选中的饮料、价格和购买信息无误。",
+        "desire": "他对避免买错或多花时间返工的需求被轻度满足，同时仍想快速完成购买。",
+        "intention": "他准备在确认信息无误后立即继续付款购买。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.04,
+      "delta_mental": 0.35,
+      "action_cost": 0.25,
+      "reward": 0.166,
+      "rationale": "简短确认能增强正确性信念并降低出错风险，但在其已经很确定时也会带来轻微打断成本。"
+    },
+    "A3_suggest_add_on_promo": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他可能认为系统在额外推销，与自己只想快速买饮料的目标不完全一致。",
+        "desire": "他快速完成购买的欲望被打断，加购或优惠比较的欲望被短暂激活但不稳定。",
+        "intention": "他可能暂停确认购买，转而犹豫是否查看加购优惠，或直接忽略提示。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -0.9,
+      "action_cost": 0.55,
+      "reward": -0.6370000000000001,
+      "rationale": "加购促销会改变其原本清晰的快速购买路径，容易触发被推销感并使确认购买意图后退到犹豫比较。"
+    }
+  },
+  "best_action": "A1_enable_one_tap_checkout",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}

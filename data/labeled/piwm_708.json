@@ -1,0 +1,94 @@
+{
+  "session_id": "piwm_708",
+  "persona": "加班后路过办公楼便利区的年轻上班族，站在智能售货设备前短暂停留并比较选择。",
+  "persona_visual": "30岁左右的男性，短黑发，穿浅灰色衬衫和深色休闲西裤，肩上背一个黑色通勤双肩包，手里拿着一部手机和工牌挂绳。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为左右两个区域里的选择都可能适合现在的疲惫状态，但还没看出哪个更值得买。",
+    "desire": "他想快速选一个能让自己稍微恢复精力、又不需要花太多时间纠结的选项。",
+    "intention": "他倾向继续在左右两个区域之间比较几秒，再决定是否下单。"
+  },
+  "observable_behavior": "他站在原地，目光在左侧和右侧之间来回移动，偶尔轻轻抬起手机又放低，手指无意识地摩挲手机边缘，停留时间略长但没有立即操作。",
+  "facial_expression": "表情淡漠疲惫，眼神有些迟缓，眉头轻微收紧，嘴唇自然闭合，没有明显兴奋或抗拒。",
+  "body_posture": "身体正面朝向镜头，肩膀略微下沉，上半身轻微前倾，双臂靠近身体，双手始终在画面内，姿态克制而犹豫。",
+  "timeline": {
+    "t_0_2": "这名30岁左右的男性上班族正面站定，肩背黑色双肩包，疲惫地抬眼看向左侧区域。",
+    "t_2_5": "他视线缓慢移到右侧区域，右手握着手机停在胸前，左手轻轻碰了一下工牌挂绳。",
+    "t_5_8": "他又把目光从右侧拉回左侧，眉头微微收紧，嘴角保持平直，像是在比较两个选择。",
+    "t_8_10": "他短暂低头看了一眼手里的手机又抬头，仍正面站着，目光停在左右之间，尚未做出决定。"
+  },
+  "candidate_actions": [
+    "A0_silence",
+    "A1_highlight_quick_energy_match",
+    "A2_side_by_side_compare",
+    "A3_one_tap_recommended_checkout"
+  ],
+  "outcomes": {
+    "A0_silence": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍认为左右两个区域都可能适合自己，但哪个更值得买依然不清晰。",
+        "desire": "他仍想快速选一个能恢复精力的选项，但不想继续花太多脑力比较。",
+        "intention": "他可能再短暂比较几秒，若仍无法判断则可能放弃或随便选择。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": -0.2,
+      "action_cost": 0.0,
+      "reward": -0.08,
+      "rationale": "沉默不会打扰他，但也不会解除左右选择难以判断的信念，疲惫状态下犹豫可能自然延长。"
+    },
+    "A1_highlight_quick_energy_match": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会更相信其中一个选项与自己加班后想快速恢复精力的需求更匹配。",
+        "desire": "他想减少纠结，优先选择被提示为更适合疲惫状态的商品。",
+        "intention": "他倾向把注意力集中到推荐的匹配选项上，并准备进一步确认价格或口味后下单。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.4,
+      "action_cost": 0.3,
+      "reward": 0.8019999999999999,
+      "rationale": "用简短匹配提示改变他“看不出哪个更值得买”的信念，激活快速恢复精力的欲望，使意向从比较转向确认单个选项。"
+    },
+    "A2_side_by_side_compare": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会更清楚左右两个区域在提神强度、甜度、价格或取货速度上的差异。",
+        "desire": "他想根据最关键的一两个标准快速筛掉不合适的选项。",
+        "intention": "他倾向按照对比信息选出更合适的一边，并进入下单前的最终确认。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.1,
+      "action_cost": 0.25,
+      "reward": 0.657,
+      "rationale": "结构化对比降低认知负担，抑制继续左右摇摆的犹豫，让他更容易从兴趣比较进入明确偏好。"
+    },
+    "A3_one_tap_recommended_checkout": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会认为系统已经替他给出一个省时选择，并且可以很快完成购买。",
+        "desire": "他想尽快结束决策并拿到能补充精力的商品。",
+        "intention": "他准备点击一键下单或扫码支付，但若觉得推荐过于直接也可能短暂迟疑。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.66,
+      "delta_mental": 0.5,
+      "action_cost": 0.55,
+      "reward": 0.459,
+      "rationale": "一键推荐能强力催化省时欲望并推进到购买操作，但在他仍处于比较阶段时可能带来一定被推销感。"
+    }
+  },
+  "best_action": "A1_highlight_quick_energy_match",
+  "reward_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.1
+  }
+}
