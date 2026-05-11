@@ -37,7 +37,29 @@
       "delta_mental": -0.1,
       "action_cost": 0.0,
       "reward": -0.07,
-      "rationale": "不介入不会打扰他，但也无法把外观好奇转化为明确认知，注意力大概率随步行离开而消散。"
+      "rationale": "不介入不会打扰他，但也无法把外观好奇转化为明确认知，注意力大概率随步行离开而消散。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_subtle_identify_device": {
       "next_aida_stage": "interest",
@@ -52,7 +74,32 @@
       "delta_mental": 0.75,
       "action_cost": 0.2,
       "reward": 0.487,
-      "rationale": "轻量说明会补足‘这是什么’的信念缺口，激活低压力探索欲，使他从短暂注意推进到初步兴趣。"
+      "rationale": "轻量说明会补足‘这是什么’的信念缺口，激活低压力探索欲，使他从短暂注意推进到初步兴趣。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_subtle_identify_device"
+      }
     },
     "A2_show_campus_popular_picks": {
       "next_aida_stage": "interest",
@@ -67,7 +114,32 @@
       "delta_mental": 0.35,
       "action_cost": 0.4,
       "reward": 0.24700000000000003,
-      "rationale": "展示校园热门商品能把设备与他的课间场景关联起来，但在注意阶段略显推荐导向，可能让赶路的他感到轻微被推销。"
+      "rationale": "展示校园热门商品能把设备与他的课间场景关联起来，但在注意阶段略显推荐导向，可能让赶路的他感到轻微被推销。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_show_campus_popular_picks"
+      }
     },
     "A3_low_commitment_browse_invite": {
       "next_aida_stage": "interest",
@@ -82,7 +154,36 @@
       "delta_mental": 1.15,
       "action_cost": 0.25,
       "reward": 0.6819999999999999,
-      "rationale": "强调‘不买也可快速浏览’会降低承诺压力，增强信任和探索意愿，最适合把路过注意转化为主动了解。"
+      "rationale": "强调‘不买也可快速浏览’会降低承诺压力，增强信任和探索意愿，最适合把路过注意转化为主动了解。",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_low_commitment_browse_invite"
+      }
     }
   },
   "best_action": "A3_low_commitment_browse_invite",
@@ -90,5 +191,34 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Elicit",
+  "act_params": {
+    "openness": "open",
+    "slot": "need_focus"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+    "screen": {
+      "action": "show_choice_bubbles",
+      "choices": [
+        "价格",
+        "功能",
+        "场景"
+      ],
+      "cta": null
+    },
+    "voice_style": "curious",
+    "light": "soft_invitation",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Elicit",
+    "act_params": {
+      "openness": "open",
+      "slot": "need_focus"
+    },
+    "co_acts": [],
+    "legacy_action": "A3_low_commitment_browse_invite"
   }
 }

@@ -37,7 +37,29 @@
       "delta_mental": 0.1,
       "action_cost": 0.0,
       "reward": 0.07,
-      "rationale": "沉默不会打扰他，但也不会改变其缺少判断依据的信念，只能让他维持在兴趣和比较状态中。"
+      "rationale": "沉默不会打扰他，但也不会改变其缺少判断依据的信念，只能让他维持在兴趣和比较状态中。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_show_low_sugar_energy_tags": {
       "next_aida_stage": "desire",
@@ -52,7 +74,32 @@
       "delta_mental": 1.2,
       "action_cost": 0.2,
       "reward": 0.712,
-      "rationale": "用低糖和提神标签补足关键信息，会增强其“有合适选择”的信念并把兴趣推进到明确偏好。"
+      "rationale": "用低糖和提神标签补足关键信息，会增强其“有合适选择”的信念并把兴趣推进到明确偏好。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_show_low_sugar_energy_tags"
+      }
     },
     "A2_compare_best_two_options": {
       "next_aida_stage": "action",
@@ -67,7 +114,32 @@
       "delta_mental": 1.6,
       "action_cost": 0.4,
       "reward": 1.0,
-      "rationale": "针对他正在左右比较的行为直接给出两款差异，会降低犹豫并把意图从比较推进到准备购买。"
+      "rationale": "针对他正在左右比较的行为直接给出两款差异，会降低犹豫并把意图从比较推进到准备购买。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_compare_best_two_options"
+      }
     },
     "A3_offer_quick_safe_pick": {
       "next_aida_stage": "desire",
@@ -82,7 +154,32 @@
       "delta_mental": 0.8,
       "action_cost": 0.45,
       "reward": 0.48700000000000004,
-      "rationale": "以低风险快速选择来回应其时间压力和甜度顾虑，可缓解犹豫，但主动推荐仍有一定推销感。"
+      "rationale": "以低风险快速选择来回应其时间压力和甜度顾虑，可缓解犹豫，但主动推荐仍有一定推销感。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_offer_quick_safe_pick"
+      }
     }
   },
   "best_action": "A2_compare_best_two_options",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "comparison",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+    "screen": {
+      "action": "show_comparison_or_details",
+      "target": "{candidate_items}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_comparison_cards",
+    "cabinet_motion": null,
+    "duration_ms": 4000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "comparison",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A2_compare_best_two_options"
   }
 }

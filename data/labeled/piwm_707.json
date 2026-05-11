@@ -37,7 +37,29 @@
       "delta_mental": 0.4,
       "action_cost": 0.0,
       "rationale": "不介入保留她当前轻松对比的自主感，信念和兴趣自然小幅增强，意图从继续对比缓慢靠近选定。",
-      "reward": 0.28
+      "reward": 0.28,
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_highlight_refreshing_match": {
       "next_aida_stage": "desire",
@@ -52,7 +74,32 @@
       "delta_mental": 1.2,
       "action_cost": 0.25,
       "rationale": "轻量突出“清爽、好入口”的匹配点会强化她对合适口味的信念，减少选择成本，使意图从比较转向偏好锁定。",
-      "reward": 0.707
+      "reward": 0.707,
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_highlight_refreshing_match"
+      }
     },
     "A2_compare_two_options": {
       "next_aida_stage": "action",
@@ -67,7 +114,32 @@
       "delta_mental": 1.7,
       "action_cost": 0.35,
       "rationale": "把她正在对比的两三个选项压缩成清晰差异，会直接消除轻微犹豫并把购买意图推进到选定与操作。",
-      "reward": 1.0
+      "reward": 1.0,
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_compare_two_options"
+      }
     },
     "A3_one_tap_checkout_prompt": {
       "next_aida_stage": "action",
@@ -82,7 +154,32 @@
       "delta_mental": 0.6,
       "action_cost": 0.55,
       "rationale": "快速购买提示会激活她节省时间的欲望并推进到操作，但在她仍处于轻微比较时可能带来一定被催促感。",
-      "reward": 0.445
+      "reward": 0.445,
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_one_tap_checkout_prompt"
+      }
     }
   },
   "best_action": "A2_compare_two_options",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "comparison",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+    "screen": {
+      "action": "show_comparison_or_details",
+      "target": "{candidate_items}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_comparison_cards",
+    "cabinet_motion": null,
+    "duration_ms": 4000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "comparison",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A2_compare_two_options"
   }
 }

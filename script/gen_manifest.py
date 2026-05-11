@@ -8,7 +8,13 @@ import re
 import sys
 from pathlib import Path
 from openai import OpenAI
-from dotenv import load_dotenv
+
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:
+    def load_dotenv() -> None:
+        return None
+
 
 load_dotenv()
 

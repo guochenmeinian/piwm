@@ -37,7 +37,29 @@
       "delta_mental": 0.0,
       "action_cost": 0.0,
       "reward": 0.020000000000000004,
-      "rationale": "沉默不改变其核心信念，只让他按原有迟疑节奏继续观察，因此AIDA大多停留在interest并仅有轻微自然推进。"
+      "rationale": "沉默不改变其核心信念，只让他按原有迟疑节奏继续观察，因此AIDA大多停留在interest并仅有轻微自然推进。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_show_concise_value_info": {
       "next_aida_stage": "interest",
@@ -52,7 +74,32 @@
       "delta_mental": 0.9,
       "action_cost": 0.2,
       "reward": 0.502,
-      "rationale": "简短补充价格、品类和补能信息会增强其“可快速判断”的信念，降低迟疑但不强迫决策，使其在interest内明显升温。"
+      "rationale": "简短补充价格、品类和补能信息会增强其“可快速判断”的信念，降低迟疑但不强迫决策，使其在interest内明显升温。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_show_concise_value_info"
+      }
     },
     "A2_guide_need_based_comparison": {
       "next_aida_stage": "desire",
@@ -67,7 +114,32 @@
       "delta_mental": 1.3,
       "action_cost": 0.35,
       "reward": 0.747,
-      "rationale": "需求导向比较强化了其理性选择信念并激活“买一个合适而非冲动”的欲望，最可能从interest推进到desire。"
+      "rationale": "需求导向比较强化了其理性选择信念并激活“买一个合适而非冲动”的欲望，最可能从interest推进到desire。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_guide_need_based_comparison"
+      }
     },
     "A3_offer_low_commitment_purchase_path": {
       "next_aida_stage": "desire",
@@ -82,7 +154,32 @@
       "delta_mental": 0.5,
       "action_cost": 0.45,
       "reward": 0.325,
-      "rationale": "低承诺购买路径能降低支付风险并催化行动意向，但因他正避免冲动消费，主动促成下单会带来一定推销感。"
+      "rationale": "低承诺购买路径能降低支付风险并催化行动意向，但因他正避免冲动消费，主动促成下单会带来一定推销感。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_offer_low_commitment_purchase_path"
+      }
     }
   },
   "best_action": "A2_guide_need_based_comparison",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A2_guide_need_based_comparison"
   }
 }

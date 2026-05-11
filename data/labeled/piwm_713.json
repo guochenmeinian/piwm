@@ -37,7 +37,29 @@
       "delta_mental": 0.1,
       "action_cost": 0.0,
       "reward": 0.16200000000000003,
-      "rationale": "不介入不会改变其信念，但保留了已形成的明确购买欲望，使她自然从 desire 进入扫码支付的 action。"
+      "rationale": "不介入不会改变其信念，但保留了已形成的明确购买欲望，使她自然从 desire 进入扫码支付的 action。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_quick_scan_pay_prompt": {
       "next_aida_stage": "action",
@@ -52,7 +74,32 @@
       "delta_mental": 1.1,
       "action_cost": 0.2,
       "reward": 0.662,
-      "rationale": "轻量提示支付入口会增强“购买很顺畅”的信念，激活快速完成的欲望，推动她稳定进入 action。"
+      "rationale": "轻量提示支付入口会增强“购买很顺畅”的信念，激活快速完成的欲望，推动她稳定进入 action。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_quick_scan_pay_prompt"
+      }
     },
     "A2_confirm_stock_and_price": {
       "next_aida_stage": "action",
@@ -67,7 +114,32 @@
       "delta_mental": 0.8,
       "action_cost": 0.25,
       "reward": 0.495,
-      "rationale": "库存与价格确认降低最后风险感，增强信任和确定性，使购买意图更接近实际支付。"
+      "rationale": "库存与价格确认降低最后风险感，增强信任和确定性，使购买意图更接近实际支付。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_confirm_stock_and_price"
+      }
     },
     "A3_push_bundle_promo": {
       "next_aida_stage": "interest",
@@ -82,7 +154,32 @@
       "delta_mental": -1.2,
       "action_cost": 0.55,
       "reward": -0.787,
-      "rationale": "在她已准备付款时推送组合优惠会扰动既定信念并制造选择负担，使意图从购买操作倒退到重新评估。"
+      "rationale": "在她已准备付款时推送组合优惠会扰动既定信念并制造选择负担，使意图从购买操作倒退到重新评估。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_push_bundle_promo"
+      }
     }
   },
   "best_action": "A1_quick_scan_pay_prompt",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A1_quick_scan_pay_prompt"
   }
 }

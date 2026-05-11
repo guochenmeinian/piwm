@@ -37,7 +37,29 @@
       "delta_mental": -0.2,
       "action_cost": 0.0,
       "reward": -0.08,
-      "rationale": "沉默不会打扰他，但也不会解除左右选择难以判断的信念，疲惫状态下犹豫可能自然延长。"
+      "rationale": "沉默不会打扰他，但也不会解除左右选择难以判断的信念，疲惫状态下犹豫可能自然延长。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_highlight_quick_energy_match": {
       "next_aida_stage": "desire",
@@ -52,7 +74,32 @@
       "delta_mental": 1.4,
       "action_cost": 0.3,
       "reward": 0.8019999999999999,
-      "rationale": "用简短匹配提示改变他“看不出哪个更值得买”的信念，激活快速恢复精力的欲望，使意向从比较转向确认单个选项。"
+      "rationale": "用简短匹配提示改变他“看不出哪个更值得买”的信念，激活快速恢复精力的欲望，使意向从比较转向确认单个选项。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_highlight_quick_energy_match"
+      }
     },
     "A2_side_by_side_compare": {
       "next_aida_stage": "desire",
@@ -67,7 +114,32 @@
       "delta_mental": 1.1,
       "action_cost": 0.25,
       "reward": 0.657,
-      "rationale": "结构化对比降低认知负担，抑制继续左右摇摆的犹豫，让他更容易从兴趣比较进入明确偏好。"
+      "rationale": "结构化对比降低认知负担，抑制继续左右摇摆的犹豫，让他更容易从兴趣比较进入明确偏好。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_side_by_side_compare"
+      }
     },
     "A3_one_tap_recommended_checkout": {
       "next_aida_stage": "action",
@@ -82,7 +154,32 @@
       "delta_mental": 0.5,
       "action_cost": 0.55,
       "reward": 0.459,
-      "rationale": "一键推荐能强力催化省时欲望并推进到购买操作，但在他仍处于比较阶段时可能带来一定被推销感。"
+      "rationale": "一键推荐能强力催化省时欲望并推进到购买操作，但在他仍处于比较阶段时可能带来一定被推销感。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_one_tap_recommended_checkout"
+      }
     }
   },
   "best_action": "A1_highlight_quick_energy_match",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Recommend",
+  "act_params": {
+    "target": "item",
+    "pressure": "soft"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+    "screen": {
+      "action": "highlight_recommended_item",
+      "target": "{recommended_item}",
+      "cta": null
+    },
+    "voice_style": "soft",
+    "light": "gentle_highlight",
+    "cabinet_motion": null,
+    "duration_ms": 4500,
+    "dialogue_act": "Recommend",
+    "act_params": {
+      "target": "item",
+      "pressure": "soft"
+    },
+    "co_acts": [],
+    "legacy_action": "A1_highlight_quick_energy_match"
   }
 }

@@ -1,32 +1,60 @@
 # Proactive Intent World Model (PIWM)
 
-智能售货机 前置摄像头视角下的顾客行为数据合成 pipeline，用于训练零售场景多模态主动代理。
+轻量版 PIWM 数据合成仓库。它保留 `seed -> manifest -> labeled -> kling -> video` 的小型生产线，用来快速生成和审阅智能售货机/智能冰箱前置摄像头视角下的顾客行为样本。
 
-## 架构
+当前同步主项目的 v2 口径：
 
+- policy 语义中心是 6 个 `DialogueAct`：`Greet / Elicit / Inform / Recommend / Reassure / Hold`。
+- `T-state` 和旧 `A*` 动作只作为兼容标签保留。
+- labeled JSON 同时包含旧字段 `candidate_actions / best_action` 和新字段 `dialogue_act / act_params / co_acts / realization`。
+- 每个 outcome 会补齐 `terminal_realization`，描述屏幕、语音、灯效、柜体动作和持续时间。
+
+## Pipeline
+
+```text
+data/seed/piwm_NNN.txt
+  -> script/gen_manifest.py     -> data/manifest/piwm_NNN.json
+  -> script/gen_deliberation.py -> data/labeled/piwm_NNN.json
+  -> script/gen_video.py        -> data/kling/piwm_NNN.md
+  -> Kling API                  -> data/video/piwm_NNN.mp4
 ```
-Perception   →  从视频帧推断 AIDA 阶段 + BDI（训练数据由 gen_manifest 合成）
-Deliberation →  对每个候选动作预测 next BDI + reward（gen_deliberation 合成标注）
-Action       →  argmax(reward) 选 best_action，含 A0_silence 沉默基线
-```
 
-## 目录
+## Directory
 
-```
-data/       manifest/  labeled/  prompt/  video/
-docs/       usage.md  schema.md  pipeline.md  draft/
-script/     gen_manifest.py  gen_deliberation.py  gen_video.py
+```text
+data/
+  seed/       natural-language constraints
+  manifest/   customer state and observable behavior
+  labeled/    v2-compatible action/outcome labels
+  kling/      rendered Kling prompts
+  video/      generated videos
+docs/
+  action_space_v2.md
+  schema.md
+  pipeline.md
+  usage.md
+script/
+  action_space_v2.py
+  gen_manifest.py
+  gen_deliberation.py
+  gen_video.py
+  upgrade_labeled_v2.py
 ```
 
 ## Quick Start
 
 ```bash
-pip install openai python-dotenv requests
-# .env 里写 OPENAI_API_KEY=sk-...  KLING_API_KEY=...
+pip install openai requests
 
-python script/gen_manifest.py "action 阶段，不犹豫，正在伸手购买"
-python script/gen_deliberation.py data/manifest/piwm_700.json
-python script/gen_video.py data/labeled/piwm_700.json
+python script/gen_manifest.py "interest 阶段，高犹豫，价格敏感" --id piwm_750
+python script/gen_deliberation.py data/manifest/piwm_750.json
+python script/gen_video.py data/labeled/piwm_750.json
 ```
 
-→ [docs/usage.md](docs/usage.md) · [docs/schema.md](docs/schema.md) · [docs/pipeline.md](docs/pipeline.md)
+Backfill existing labeled files to v2 fields:
+
+```bash
+python script/upgrade_labeled_v2.py
+```
+
+Docs: [docs/action_space_v2.md](docs/action_space_v2.md) · [docs/schema.md](docs/schema.md) · [docs/pipeline.md](docs/pipeline.md) · [docs/usage.md](docs/usage.md)

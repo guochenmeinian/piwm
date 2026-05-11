@@ -37,7 +37,29 @@
       "delta_mental": -0.1,
       "action_cost": 0.0,
       "reward": -0.03,
-      "rationale": "沉默不会增加打扰，但也无法解除健康和划算疑虑，顾客大概率停留在欲望阶段继续犹豫。"
+      "rationale": "沉默不会增加打扰，但也无法解除健康和划算疑虑，顾客大概率停留在欲望阶段继续犹豫。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_surface_health_value_cue": {
       "next_aida_stage": "action",
@@ -52,7 +74,32 @@
       "delta_mental": 1.5,
       "action_cost": 0.25,
       "reward": 0.857,
-      "rationale": "用轻量标签补足健康和性价比信息，直接修正核心疑虑并激活尽快无悔购买的欲望，使意图推进到购买操作。"
+      "rationale": "用轻量标签补足健康和性价比信息，直接修正核心疑虑并激活尽快无悔购买的欲望，使意图推进到购买操作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_surface_health_value_cue"
+      }
     },
     "A2_offer_quick_comparison": {
       "next_aida_stage": "action",
@@ -67,7 +114,32 @@
       "delta_mental": 1.0,
       "action_cost": 0.4,
       "reward": 0.592,
-      "rationale": "简短比较能降低选择负担并增强判断确定性，但主动介入略有推销感，整体仍会推动他从欲望转向行动。"
+      "rationale": "简短比较能降低选择负担并增强判断确定性，但主动介入略有推销感，整体仍会推动他从欲望转向行动。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_offer_quick_comparison"
+      }
     },
     "A3_gentle_fast_checkout_nudge": {
       "next_aida_stage": "action",
@@ -82,7 +154,32 @@
       "delta_mental": 0.35,
       "action_cost": 0.55,
       "reward": 0.23200000000000004,
-      "rationale": "温和催促快速结算会放大省时动机并促成行动，但没有充分解决健康和性价比疑虑，且存在一定被催促感。"
+      "rationale": "温和催促快速结算会放大省时动机并促成行动，但没有充分解决健康和性价比疑虑，且存在一定被催促感。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_gentle_fast_checkout_nudge"
+      }
     }
   },
   "best_action": "A1_surface_health_value_cue",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A1_surface_health_value_cue"
   }
 }

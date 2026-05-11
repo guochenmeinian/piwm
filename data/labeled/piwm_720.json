@@ -37,7 +37,29 @@
       "delta_mental": 0.2,
       "action_cost": 0.0,
       "reward": 0.14,
-      "rationale": "不介入避免打断其已形成的购买动作，让他依靠自我确认自然完成操作。"
+      "rationale": "不介入避免打断其已形成的购买动作，让他依靠自我确认自然完成操作。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_show_selection_summary": {
       "next_aida_stage": "action",
@@ -52,7 +74,32 @@
       "delta_mental": 1.1,
       "action_cost": 0.2,
       "reward": 0.602,
-      "rationale": "简短展示所选饮品摘要会强化“没有选错”的信念，降低犹豫并推动其继续确认购买。"
+      "rationale": "简短展示所选饮品摘要会强化“没有选错”的信念，降低犹豫并推动其继续确认购买。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_show_selection_summary"
+      }
     },
     "A2_offer_quick_compare_alternatives": {
       "next_aida_stage": "desire",
@@ -67,7 +114,32 @@
       "delta_mental": -0.4,
       "action_cost": 0.4,
       "reward": -0.372,
-      "rationale": "在已准备操作时引入替代比较会放大选择不确定性，使其从购买执行退回到重新权衡。"
+      "rationale": "在已准备操作时引入替代比较会放大选择不确定性，使其从购买执行退回到重新权衡。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_offer_quick_compare_alternatives"
+      }
     },
     "A3_highlight_confirm_with_edit_safety": {
       "next_aida_stage": "action",
@@ -82,7 +154,32 @@
       "delta_mental": 1.5,
       "action_cost": 0.3,
       "reward": 0.82,
-      "rationale": "同时突出确认按钮和可修改退路，会降低操作风险感并催化其完成最后购买动作。"
+      "rationale": "同时突出确认按钮和可修改退路，会降低操作风险感并催化其完成最后购买动作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_highlight_confirm_with_edit_safety"
+      }
     }
   },
   "best_action": "A3_highlight_confirm_with_edit_safety",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A3_highlight_confirm_with_edit_safety"
   }
 }

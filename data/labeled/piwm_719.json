@@ -37,7 +37,29 @@
       "delta_mental": 0.2,
       "action_cost": 0.0,
       "reward": 0.12000000000000001,
-      "rationale": "沉默不干扰其已形成的购买意图，维持其对流程顺利的信念并让他自然停留在 action 阶段等待结果。"
+      "rationale": "沉默不干扰其已形成的购买意图，维持其对流程顺利的信念并让他自然停留在 action 阶段等待结果。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_show_order_confirmed_status": {
       "next_aida_stage": "action",
@@ -52,7 +74,32 @@
       "delta_mental": 0.9,
       "action_cost": 0.2,
       "reward": 0.46199999999999997,
-      "rationale": "订单成功状态反馈强化其“已确认且流程正常”的信念，降低不确定感并支持其继续执行购买完成动作。"
+      "rationale": "订单成功状态反馈强化其“已确认且流程正常”的信念，降低不确定感并支持其继续执行购买完成动作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_show_order_confirmed_status"
+      }
     },
     "A2_display_quick_pickup_guidance": {
       "next_aida_stage": "action",
@@ -67,7 +114,32 @@
       "delta_mental": 1.1,
       "action_cost": 0.25,
       "reward": 0.5730000000000001,
-      "rationale": "简短取货指引直接服务其快速离开的欲望，提升流程掌控感并把 intention 稳定推向购买完成。"
+      "rationale": "简短取货指引直接服务其快速离开的欲望，提升流程掌控感并把 intention 稳定推向购买完成。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_display_quick_pickup_guidance"
+      }
     },
     "A3_last_second_bundle_upsell": {
       "next_aida_stage": "desire",
@@ -82,7 +154,32 @@
       "delta_mental": -1.7,
       "action_cost": 0.7,
       "reward": -1.0,
-      "rationale": "临门加购会抑制其快速完成的欲望并制造被推销感，使其从已准备执行购买倒退到处理干扰和重新确认状态。"
+      "rationale": "临门加购会抑制其快速完成的欲望并制造被推销感，使其从已准备执行购买倒退到处理干扰和重新确认状态。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_last_second_bundle_upsell"
+      }
     }
   },
   "best_action": "A2_display_quick_pickup_guidance",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Recommend",
+  "act_params": {
+    "target": "item",
+    "pressure": "soft"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+    "screen": {
+      "action": "highlight_recommended_item",
+      "target": "{recommended_item}",
+      "cta": null
+    },
+    "voice_style": "soft",
+    "light": "gentle_highlight",
+    "cabinet_motion": null,
+    "duration_ms": 4500,
+    "dialogue_act": "Recommend",
+    "act_params": {
+      "target": "item",
+      "pressure": "soft"
+    },
+    "co_acts": [],
+    "legacy_action": "A2_display_quick_pickup_guidance"
   }
 }

@@ -37,7 +37,29 @@
       "delta_mental": -0.2,
       "action_cost": 0.0,
       "reward": -0.12000000000000001,
-      "rationale": "沉默不会增加健康与甜度相关信念，犹豫维持并受时间压力影响，购买意向略微后退。"
+      "rationale": "沉默不会增加健康与甜度相关信念，犹豫维持并受时间压力影响，购买意向略微后退。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_highlight_low_sugar_refreshers": {
       "next_aida_stage": "desire",
@@ -52,7 +74,32 @@
       "delta_mental": 1.4,
       "action_cost": 0.2,
       "reward": 0.8119999999999999,
-      "rationale": "轻量提示低糖提神选项能补足她最缺的健康信念，降低选择焦虑，使兴趣自然转为明确偏好。"
+      "rationale": "轻量提示低糖提神选项能补足她最缺的健康信念，降低选择焦虑，使兴趣自然转为明确偏好。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_highlight_low_sugar_refreshers"
+      }
     },
     "A2_compare_caffeine_sugar_calories": {
       "next_aida_stage": "desire",
@@ -67,7 +114,32 @@
       "delta_mental": 1.7,
       "action_cost": 0.35,
       "reward": 0.975,
-      "rationale": "结构化对比把她的健康不确定转化为可比较信念，显著减少犹豫并推动形成候选偏好。"
+      "rationale": "结构化对比把她的健康不确定转化为可比较信念，显著减少犹豫并推动形成候选偏好。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_compare_caffeine_sugar_calories"
+      }
     },
     "A3_offer_quick_low_sugar_pick": {
       "next_aida_stage": "action",
@@ -82,7 +154,32 @@
       "delta_mental": 0.7,
       "action_cost": 0.55,
       "reward": 0.5589999999999999,
-      "rationale": "快速推荐能利用午休时间压力直接催化操作，但在她仍犹豫时略有推销感，信任提升有限。"
+      "rationale": "快速推荐能利用午休时间压力直接催化操作，但在她仍犹豫时略有推销感，信任提升有限。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_offer_quick_low_sugar_pick"
+      }
     }
   },
   "best_action": "A2_compare_caffeine_sugar_calories",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "comparison",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+    "screen": {
+      "action": "show_comparison_or_details",
+      "target": "{candidate_items}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_comparison_cards",
+    "cabinet_motion": null,
+    "duration_ms": 4000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "comparison",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A2_compare_caffeine_sugar_calories"
   }
 }

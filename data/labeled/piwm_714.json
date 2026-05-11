@@ -37,7 +37,29 @@
       "delta_mental": 0.15,
       "action_cost": 0.0,
       "reward": 0.163,
-      "rationale": "不介入不会改变核心信念，但保留自主感并让他沿着已接近决定的状态自然推进到拿取。"
+      "rationale": "不介入不会改变核心信念，但保留自主感并让他沿着已接近决定的状态自然推进到拿取。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_clarify_choice_criteria": {
       "next_aida_stage": "action",
@@ -52,7 +74,32 @@
       "delta_mental": 1.35,
       "action_cost": 0.25,
       "reward": 0.782,
-      "rationale": "用场景标准帮助他重构两个选项的差异，降低比较犹豫并把原本的购买倾向推进为明确拿取。"
+      "rationale": "用场景标准帮助他重构两个选项的差异，降低比较犹豫并把原本的购买倾向推进为明确拿取。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_clarify_choice_criteria"
+      }
     },
     "A2_offer_low_regret_default": {
       "next_aida_stage": "action",
@@ -67,7 +114,32 @@
       "delta_mental": 1.05,
       "action_cost": 0.35,
       "reward": 0.626,
-      "rationale": "给出低后悔默认项会强化稳妥信念、抑制选择焦虑，从而推动他直接进入购买操作。"
+      "rationale": "给出低后悔默认项会强化稳妥信念、抑制选择焦虑，从而推动他直接进入购买操作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_offer_low_regret_default"
+      }
     },
     "A3_time_sensitive_pickup_prompt": {
       "next_aida_stage": "action",
@@ -82,7 +154,32 @@
       "delta_mental": -0.65,
       "action_cost": 0.75,
       "reward": -0.28,
-      "rationale": "用时间压力能催化拿取动作，但会压缩自主比较空间，容易引发被推销或被催促的不适感。"
+      "rationale": "用时间压力能催化拿取动作，但会压缩自主比较空间，容易引发被推销或被催促的不适感。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_time_sensitive_pickup_prompt"
+      }
     }
   },
   "best_action": "A1_clarify_choice_criteria",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A1_clarify_choice_criteria"
   }
 }

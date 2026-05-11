@@ -37,7 +37,29 @@
       "delta_mental": 0.1,
       "action_cost": 0.0,
       "reward": 0.082,
-      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率依靠自身确认继续完成操作。"
+      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率依靠自身确认继续完成操作。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "legacy_action": "A0_silence"
+      }
     },
     "A1_show_order_summary": {
       "next_aida_stage": "action",
@@ -52,7 +74,32 @@
       "delta_mental": 1.25,
       "action_cost": 0.2,
       "reward": 0.6769999999999999,
-      "rationale": "用简短订单摘要补足其最后确认所需信念，降低选错犹豫并推动其继续付款。"
+      "rationale": "用简短订单摘要补足其最后确认所需信念，降低选错犹豫并推动其继续付款。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A1_show_order_summary"
+      }
     },
     "A2_highlight_one_tap_pay": {
       "next_aida_stage": "action",
@@ -67,7 +114,32 @@
       "delta_mental": 0.85,
       "action_cost": 0.4,
       "reward": 0.473,
-      "rationale": "高亮最终操作按钮强化快速完成的欲望，但主动催促略有推销和打扰感。"
+      "rationale": "高亮最终操作按钮强化快速完成的欲望，但主动催促略有推销和打扰感。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A2_highlight_one_tap_pay"
+      }
     },
     "A3_offer_optional_staff_help": {
       "next_aida_stage": "desire",
@@ -82,7 +154,32 @@
       "delta_mental": -0.9,
       "action_cost": 0.55,
       "reward": -0.6370000000000001,
-      "rationale": "在最后确认阶段主动提出人工帮助会暗示流程异常，打断其购买节奏并增加犹豫。"
+      "rationale": "在最后确认阶段主动提出人工帮助会暗示流程异常，打断其购买节奏并增加犹豫。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "legacy_action": "A3_offer_optional_staff_help"
+      }
     }
   },
   "best_action": "A1_show_order_summary",
@@ -90,5 +187,30 @@
     "alpha": 0.4,
     "beta": 0.5,
     "gamma": 0.1
+  },
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "legacy_action": "A1_show_order_summary"
   }
 }
