@@ -18,13 +18,13 @@
     "t_8_10": "她停在原地没有动作选择，双手仍在画面内，身体保持微微后倾，脸上维持犹豫而感兴趣的神情。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_highlight_low_sugar_refreshers",
-    "A2_compare_caffeine_sugar_calories",
-    "A3_offer_quick_low_sugar_pick"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "recommend_soft"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "她仍认为这里可能有合适的提神饮品，但健康程度和甜度信息依然不清楚。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_highlight_low_sugar_refreshers": {
+    "inform_attributes_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她会相信这里确实有无糖茶、低糖咖啡或低卡饮品等更符合健康需求的选项。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_highlight_low_sugar_refreshers"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_compare_caffeine_sugar_calories": {
+    "inform_comparison_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她会更清楚不同饮品在咖啡因、糖分和热量上的差异，认为自己可以理性判断哪款更健康。",
@@ -138,10 +140,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_compare_caffeine_sugar_calories"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_offer_quick_low_sugar_pick": {
+    "recommend_soft": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她会认为系统已经根据低糖、提神、快速购买三个条件给出了一款省时选择。",
@@ -157,7 +160,6 @@
       "rationale": "快速推荐能利用午休时间压力直接催化操作，但在她仍犹豫时略有推销感，信任提升有限。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -174,15 +176,15 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A3_offer_quick_low_sugar_pick"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     }
   },
-  "best_action": "A2_compare_caffeine_sugar_calories",
+  "best_action": "inform_comparison_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +213,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A2_compare_caffeine_sugar_calories"
-  }
+    "response_id": "inform_comparison_brief"
+  },
+  "response_id": "inform_comparison_brief"
 }

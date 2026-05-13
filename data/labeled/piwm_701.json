@@ -18,13 +18,13 @@
     "t_8_10": "她收回轻微前倾的姿态，目光再次平稳扫过前方，露出低程度犹豫后的自然兴趣神情。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_quick_category_hint",
-    "A2_compare_refresh_vs_energy",
-    "A3_soft_best_match_nudge"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "recommend_soft"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "她仍认为饮品选择里可能有合适的下班轻饮，但需要靠自己继续快速扫视比较。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_quick_category_hint": {
+    "inform_attributes_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她会相信眼前饮品可以按清爽解渴、低糖轻负担、提神醒脑这几类快速筛选。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_quick_category_hint"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_compare_refresh_vs_energy": {
+    "inform_comparison_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她会认为当前选择可以围绕清爽解渴和轻度提神两个目标来比较，不必逐个反复看。",
@@ -138,10 +140,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_compare_refresh_vs_energy"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_soft_best_match_nudge": {
+    "recommend_soft": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她会相信有一款低糖清爽、适合下班顺手带走的饮品与自己当前需求高度匹配。",
@@ -157,7 +160,6 @@
       "rationale": "柔和地给出下班场景的最佳匹配能激活她快速决策的欲望，把“若看到合适就买”的意向推进到实际购买操作。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -174,15 +176,15 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A3_soft_best_match_nudge"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     }
   },
-  "best_action": "A3_soft_best_match_nudge",
+  "best_action": "recommend_soft",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -190,7 +192,6 @@
   },
   "dialogue_act": "Recommend",
   "act_params": {
-    "target": "item",
     "pressure": "soft"
   },
   "co_acts": [],
@@ -207,10 +208,10 @@
     "duration_ms": 4500,
     "dialogue_act": "Recommend",
     "act_params": {
-      "target": "item",
       "pressure": "soft"
     },
     "co_acts": [],
-    "legacy_action": "A3_soft_best_match_nudge"
-  }
+    "response_id": "recommend_soft"
+  },
+  "response_id": "recommend_soft"
 }

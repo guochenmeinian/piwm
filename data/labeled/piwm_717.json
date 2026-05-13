@@ -18,13 +18,13 @@
     "t_8_10": "他轻轻换了一下重心，再次看向前方某处，表情仍然纠结，保持犹豫但接近决定的姿态。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_surface_health_value_cue",
-    "A2_offer_quick_comparison",
-    "A3_gentle_fast_checkout_nudge"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_attributes_brief",
+    "recommend_soft"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他仍相信这些商品能缓解疲惫，但关于健康程度和性价比的疑虑没有被消除。",
@@ -58,50 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
-    },
-    "A1_surface_health_value_cue": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他会更相信某个选项既能补充能量，又相对健康且价格合理。",
-        "desire": "他想抓住这个兼顾能量、健康和性价比的选择，减少下班后继续纠结的负担。",
-        "intention": "他准备伸手选择该商品并完成购买操作。"
+        "response_id": "hold_silent"
       },
-      "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.33,
-      "delta_mental": 1.5,
-      "action_cost": 0.25,
-      "reward": 0.857,
-      "rationale": "用轻量标签补足健康和性价比信息，直接修正核心疑虑并激活尽快无悔购买的欲望，使意图推进到购买操作。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A1_surface_health_value_cue"
-      }
+      "response_id": "hold_silent"
     },
-    "A2_offer_quick_comparison": {
+    "inform_attributes_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会认为系统理解他的纠结点，并能把不同选项的能量补充、健康程度和价格差异快速讲清楚。",
@@ -138,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_offer_quick_comparison"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A3_gentle_fast_checkout_nudge": {
+    "recommend_soft": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会更注意到现在可以快速完成购买，减少下班后继续停留和纠结的时间成本。",
@@ -157,7 +119,6 @@
       "rationale": "温和催促快速结算会放大省时动机并促成行动，但没有充分解决健康和性价比疑虑，且存在一定被催促感。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -174,15 +135,15 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A3_gentle_fast_checkout_nudge"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     }
   },
-  "best_action": "A1_surface_health_value_cue",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +172,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_surface_health_value_cue"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

@@ -18,13 +18,13 @@
     "t_8_10": "他继续保持前倾姿态，视线再次横向扫过，表情积极而放松，准备进一步选择。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_quick_category_filter",
-    "A2_compare_top_picks",
-    "A3_student_deal_checkout_shortcut"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "inform_attributes_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他仍认为售货机里可能有适合课间补能的饮品或零食，但需要自己继续扫视确认。",
@@ -58,90 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_quick_category_filter": {
-      "next_aida_stage": "desire",
-      "next_bdi": {
-        "belief": "他会相信这些商品可以按提神、饱腹、低糖等课间需求快速筛选，选择成本明显降低。",
-        "desire": "他更想从符合自己即时需求的分类中挑出一个最合适的目标。",
-        "intention": "他准备根据分类提示锁定一两个候选商品，并进一步决定具体购买哪个。"
-      },
-      "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.33,
-      "delta_mental": 1.4,
-      "action_cost": 0.2,
-      "reward": 0.8119999999999999,
-      "rationale": "轻量分类提示强化了“能快速找到适合课间补能商品”的信念，激活明确挑选欲望并推进到 desire。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A1_quick_category_filter"
-      }
-    },
-    "A2_compare_top_picks": {
-      "next_aida_stage": "desire",
-      "next_bdi": {
-        "belief": "他会认为系统展示的热门候选在价格、口味、能量补充效果上更容易比较。",
-        "desire": "他想在几个看起来不错的选项之间选出性价比和口味最匹配的一个。",
-        "intention": "他准备对比推荐的两三个商品，并尽快确定最终目标。"
-      },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.34,
-      "delta_mental": 1.0,
-      "action_cost": 0.4,
-      "reward": 0.596,
-      "rationale": "热门候选对比增强了可判断性和信任感，但主动推荐略有推销感，因此稳定推进到 desire。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "comparison",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
-        "screen": {
-          "action": "show_comparison_or_details",
-          "target": "{candidate_items}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_comparison_cards",
-        "cabinet_motion": null,
-        "duration_ms": 4000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "comparison",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A2_compare_top_picks"
-      }
-    },
-    "A3_student_deal_checkout_shortcut": {
+    "inform_attributes_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会相信现在有学生友好的优惠或快捷支付路径，购买成本和时间成本都较低。",
@@ -178,11 +99,53 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_student_deal_checkout_shortcut"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
+    },
+    "inform_comparison_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会认为系统展示的热门候选在价格、口味、能量补充效果上更容易比较。",
+        "desire": "他想在几个看起来不错的选项之间选出性价比和口味最匹配的一个。",
+        "intention": "他准备对比推荐的两三个商品，并尽快确定最终目标。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.34,
+      "delta_mental": 1.0,
+      "action_cost": 0.4,
+      "reward": 0.596,
+      "rationale": "热门候选对比增强了可判断性和信任感，但主动推荐略有推销感，因此稳定推进到 desire。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     }
   },
-  "best_action": "A1_quick_category_filter",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +174,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_quick_category_filter"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

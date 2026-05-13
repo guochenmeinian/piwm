@@ -1,0 +1,1 @@
+desire 阶段，犹豫程度中等，和同伴一起来的带伴顾客，自己已基本决定买某款，但在等同伴表态后再行动，需要主动邀请同伴发表意见推动共同决定，target_act=Elicit:companion_opinion

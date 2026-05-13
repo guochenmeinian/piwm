@@ -18,13 +18,13 @@
     "t_8_10": "他收回视线，继续正面向前走过画面区域，动作自然，没有伸手操作或停留。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_subtle_identify_device",
-    "A2_show_campus_popular_picks",
-    "A3_low_commitment_browse_invite"
+    "hold_silent",
+    "inform_attributes_brief",
+    "recommend_soft",
+    "elicit_need_focus_open"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "attention",
       "next_bdi": {
         "belief": "他仍只觉得设备外观有点新奇，但没有获得更多信息，也没有形成是否值得停留的判断。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_subtle_identify_device": {
+    "inform_attributes_brief": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他会知道这是一台校园智能售货设备，并且支持手机快速查看或购买，而不只是一个外观新奇的装置。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_subtle_identify_device"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_show_campus_popular_picks": {
+    "recommend_soft": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他会认为这台设备里可能有同学常买的饮料、零食或课间补给，商品与校园场景有一定相关性。",
@@ -117,7 +119,6 @@
       "rationale": "展示校园热门商品能把设备与他的课间场景关联起来，但在注意阶段略显推荐导向，可能让赶路的他感到轻微被推销。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -134,14 +135,14 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A2_show_campus_popular_picks"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     },
-    "A3_low_commitment_browse_invite": {
+    "elicit_need_focus_open": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他会相信靠近或扫码只是低成本浏览，不代表必须购买，也不会耽误太久。",
@@ -182,11 +183,12 @@
           "slot": "need_focus"
         },
         "co_acts": [],
-        "legacy_action": "A3_low_commitment_browse_invite"
-      }
+        "response_id": "elicit_need_focus_open"
+      },
+      "response_id": "elicit_need_focus_open"
     }
   },
-  "best_action": "A3_low_commitment_browse_invite",
+  "best_action": "elicit_need_focus_open",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -219,6 +221,7 @@
       "slot": "need_focus"
     },
     "co_acts": [],
-    "legacy_action": "A3_low_commitment_browse_invite"
-  }
+    "response_id": "elicit_need_focus_open"
+  },
+  "response_id": "elicit_need_focus_open"
 }

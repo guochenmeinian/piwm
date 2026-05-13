@@ -1,0 +1,1 @@
+action 阶段，犹豫程度中等，和同伴一起来的带伴年轻女性，在最后支付前停下等同伴意见，同伴意见是她最终行动的关键，需要引入同伴意见推动完成，target_act=Elicit:companion_opinion

@@ -1,0 +1,1 @@
+desire 阶段，犹豫程度高，和朋友一起逛的带伴年轻女性，两人意见不统一，主导者频繁看向朋友等待认可，需要引入同伴意见打破僵局，target_act=Elicit:companion_opinion

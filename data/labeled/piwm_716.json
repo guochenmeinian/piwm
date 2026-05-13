@@ -18,13 +18,13 @@
     "t_8_10": "她低低吸了一口气，右手再次抬起一点又放下，仍正面望着前方，停在一个尚未下定决心的购买前瞬间。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_surface_value_offer",
-    "A2_compare_best_refresh_match",
-    "A3_gentle_pickup_checkout_nudge"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "recommend_soft"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她仍认为饮品能缓解下午疲惫，但价格是否划算和是否必要的问题没有被解决。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_surface_value_offer": {
+    "inform_attributes_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她会相信这瓶饮品不仅适合午后提神，而且当前价格、优惠或性价比是可以接受的。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_surface_value_offer"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_compare_best_refresh_match": {
+    "inform_comparison_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她会觉得不同饮品的容量、提神效果和价格差异已经更清楚，其中有一个选择更符合她的午后需求。",
@@ -138,10 +140,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_compare_best_refresh_match"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_gentle_pickup_checkout_nudge": {
+    "recommend_soft": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她会感觉系统判断她已经接近决定，并提示了一个快速完成购买的路径，但对价格是否最划算的信念改善有限。",
@@ -157,7 +160,6 @@
       "rationale": "温和催促能利用她已接近购买的状态推动action，但未解决划算性疑虑，且存在被推销的中等风险。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -174,15 +176,15 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A3_gentle_pickup_checkout_nudge"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     }
   },
-  "best_action": "A1_surface_value_offer",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +213,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_surface_value_offer"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

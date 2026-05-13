@@ -1,71 +1,14 @@
 #!/usr/bin/env python3
-"""Step 3: Fill Kling prompt template from a manifest, optionally call Kling API."""
+"""Generate videos from pre-rendered prompt files via Kling API."""
 
 import argparse
-import json
 import os
 import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-MANIFEST_DIR = REPO_ROOT / "data" / "manifest"
-LABELED_DIR = REPO_ROOT / "data" / "labeled"
-KLING_DIR = REPO_ROOT / "data" / "kling"
+PROMPT_DIR = REPO_ROOT / "data" / "prompts"
 VIDEO_DIR = REPO_ROOT / "data" / "video"
-
-KLING_TEMPLATE = """# Task
-生成一段 10 秒、单镜头、固定机位、写实自然风格的视频，模拟智能售货机前置摄像头记录到的顾客行为片段。
-
-# Camera
-镜头来自智能售货机正面上方的前置摄像头。第一人称视角，轻微俯视，固定机位，不晃动，不变焦。摄像头朝外拍摄顾客，视野完全不受遮挡。画面中清晰可见顾客的面部、目光方向、细微表情、上半身和双手。顾客始终位于画面中央附近，正面朝向镜头，面部无遮挡，双手始终在画面内。你能不受视野遮挡地看到顾客周身，画面中**禁止出现**机器本体、商品、货架、价格标签或任何商品。
-
-# Character
-{persona_visual}
-背景：{persona}
-
-# State
-- 购买阶段：{aida_stage}
-- Belief：{belief}
-- Desire：{desire}
-- Intention：{intention}
-
-# Behavior
-- 可见行为：{observable_behavior}
-- 表情：{facial_expression}
-- 姿态：{body_posture}
-
-# Timeline
-- 0–2 秒：{t_0_2}
-- 2–5 秒：{t_2_5}
-- 5–8 秒：{t_5_8}
-- 8–10 秒：{t_8_10}
-
-# Constraints
-- 顾客外观必须与 Character 描述完全一致，全程不变
-- 禁止出现：售货机本体、机器边框、商品、货架
-- 无夸张表情、无夸张动作、无表演感，无其他人介入交互
-- 整体效果像真实零售设备前置摄像头记录到的顾客浏览片段
-"""
-
-
-def render_prompt(manifest: dict) -> str:
-    timeline = manifest.get("timeline", {})
-    bdi = manifest.get("bdi", {})
-    return KLING_TEMPLATE.format(
-        persona_visual=manifest.get("persona_visual", ""),
-        persona=manifest.get("persona", ""),
-        aida_stage=manifest.get("aida_stage", ""),
-        belief=bdi.get("belief", ""),
-        desire=bdi.get("desire", ""),
-        intention=bdi.get("intention", ""),
-        observable_behavior=manifest.get("observable_behavior", ""),
-        facial_expression=manifest.get("facial_expression", ""),
-        body_posture=manifest.get("body_posture", ""),
-        t_0_2=timeline.get("t_0_2", ""),
-        t_2_5=timeline.get("t_2_5", ""),
-        t_5_8=timeline.get("t_5_8", ""),
-        t_8_10=timeline.get("t_8_10", ""),
-    )
 
 
 def call_kling(prompt: str, session_id: str, output_dir: str, model: str = "kling-v2") -> str:
@@ -106,42 +49,35 @@ def call_kling(prompt: str, session_id: str, output_dir: str, model: str = "klin
     return out_path
 
 
-def find_missing_kling() -> list[Path]:
-    """All piwm_* files that don't have a kling prompt yet. Prefers labeled/ over manifest/."""
-    all_ids = {f.stem for f in MANIFEST_DIR.glob("piwm_*.json")}
-    result = []
-    for stem in sorted(all_ids):
-        if (KLING_DIR / f"{stem}.md").exists():
-            continue
-        labeled = LABELED_DIR / f"{stem}.json"
-        result.append(labeled if labeled.exists() else MANIFEST_DIR / f"{stem}.json")
-    return result
+def find_missing_videos() -> list[Path]:
+    """Prompt files that do not yet have a generated video."""
+    return [
+        path
+        for path in sorted(PROMPT_DIR.glob("piwm_*.md"))
+        if not (VIDEO_DIR / f"{path.stem}.mp4").exists()
+    ]
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Render Kling prompt from manifest and optionally generate video. "
-                    "Run without arguments to batch-process all un-prompted files."
+        description="Generate videos from saved prompt files via Kling API. "
+                    "Run without arguments to batch-process prompts without videos."
     )
     parser.add_argument(
-        "manifest", nargs="?",
-        help="Manifest/labeled JSON path (use - for stdin). Omit to batch all data/manifest/ → data/kling/."
+        "prompt", nargs="?",
+        help="Prompt markdown path (use - for stdin). Omit to batch-process data/prompts/*.md."
     )
-    parser.add_argument("-o", "--output",
-                        help=f"Output path (single-file mode). Default: {KLING_DIR}/<id>.md. Use '-' for stdout.")
-    parser.add_argument("--call-kling", action="store_true",
-                        help="Call Kling API to generate video (requires KLING_API_KEY)")
     parser.add_argument("--video-dir", default=str(VIDEO_DIR))
     parser.add_argument("--kling-model", default="kling-v2")
     parser.add_argument("--dry-run", action="store_true",
-                        help="Batch: list files that would be processed. Single: print prompt to stdout.")
+                        help="Batch: list prompt files that would be sent. Single: print prompt metadata only.")
     args = parser.parse_args()
 
     # ── batch mode ──
-    if args.manifest is None:
-        pending = find_missing_kling()
+    if args.prompt is None:
+        pending = find_missing_videos()
         if not pending:
-            print("All labeled files already have prompts.", file=sys.stderr)
+            print("All prompts already have videos.", file=sys.stderr)
             return
         print(f"{'[dry-run] would process' if args.dry_run else 'Processing'} "
               f"{len(pending)} file(s):", file=sys.stderr)
@@ -150,39 +86,26 @@ def main():
         if args.dry_run:
             return
         for f in pending:
-            manifest = json.loads(f.read_text(encoding="utf-8"))
-            session_id = manifest.get("session_id", f.stem)
-            prompt = render_prompt(manifest)
-            out_path = KLING_DIR / f"{session_id}.md"
-            out_path.parent.mkdir(parents=True, exist_ok=True)
-            out_path.write_text(prompt, encoding="utf-8")
-            print(f"  ✓ {out_path.name}", file=sys.stderr)
-            if args.call_kling:
-                video_path = call_kling(prompt, session_id, args.video_dir, args.kling_model)
-                print(f"    → {video_path}", file=sys.stderr)
+            prompt = f.read_text(encoding="utf-8")
+            video_path = call_kling(prompt, f.stem, args.video_dir, args.kling_model)
+            print(f"  saved {video_path}", file=sys.stderr)
         return
 
     # ── single-file mode ──
-    if args.manifest == "-":
-        manifest = json.load(sys.stdin)
+    if args.prompt == "-":
+        prompt = sys.stdin.read()
+        session_id = "stdin_prompt"
     else:
-        with open(args.manifest, "r", encoding="utf-8") as f:
-            manifest = json.load(f)
+        prompt_path = Path(args.prompt)
+        prompt = prompt_path.read_text(encoding="utf-8")
+        session_id = prompt_path.stem
 
-    prompt = render_prompt(manifest)
-    session_id = manifest.get("session_id", "unknown")
+    if args.dry_run:
+        print(f"Would generate video for {session_id} using {args.kling_model}")
+        return
 
-    if args.output == "-" or args.dry_run:
-        print(prompt)
-    else:
-        out_path = Path(args.output) if args.output else KLING_DIR / f"{session_id}.md"
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_text(prompt, encoding="utf-8")
-        print(f"Prompt saved to {out_path}", file=sys.stderr)
-
-    if args.call_kling and not args.dry_run:
-        video_path = call_kling(prompt, session_id, args.video_dir, args.kling_model)
-        print(f"Video saved to {video_path}", file=sys.stderr)
+    video_path = call_kling(prompt, session_id, args.video_dir, args.kling_model)
+    print(f"Video saved to {video_path}", file=sys.stderr)
 
 
 if __name__ == "__main__":

@@ -129,7 +129,9 @@ def generate_manifest(
     session_id: str,
     note: str = None,
     model: str = "gpt-5.5",
+    max_retries: int = 5,
 ) -> dict:
+    import time
     client = OpenAI()
 
     prompt = PROMPT_TEMPLATE.format(
@@ -137,15 +139,24 @@ def generate_manifest(
         extra_note=render_extra_note(note),
     )
 
-    response = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}],
-        response_format={"type": "json_object"},
-    )
-
-    result = json.loads(response.choices[0].message.content)
-    result["session_id"] = session_id
-    return result
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                response_format={"type": "json_object"},
+                timeout=60,
+            )
+            result = json.loads(response.choices[0].message.content)
+            result["session_id"] = session_id
+            return result
+        except Exception as e:
+            wait = 2 ** attempt
+            print(f"  [retry {attempt + 1}/{max_retries}] {type(e).__name__}: {e} — waiting {wait}s",
+                  file=sys.stderr)
+            if attempt + 1 == max_retries:
+                raise
+            time.sleep(wait)
 
 
 def next_session_id(start: int = SESSION_START) -> str:

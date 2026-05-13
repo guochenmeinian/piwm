@@ -18,13 +18,13 @@
     "t_8_10": "他的右手开始向前小幅伸出，表情仍然稳定专注，呈现即将做出购买决定的状态。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_enable_one_tap_checkout",
-    "A2_reassure_price_and_availability",
-    "A3_quick_compare_nearby_options"
+    "hold_silent",
+    "inform_attributes_brief",
+    "reassure_time_wait",
+    "inform_comparison_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他继续相信目标饮料就在面前且符合解渴提神需求，当前环境没有额外干扰。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_enable_one_tap_checkout": {
+    "inform_attributes_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会相信当前锁定的饮料可以被快速确认并立即完成购买，操作路径很短。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_enable_one_tap_checkout"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_reassure_price_and_availability": {
+    "reassure_time_wait": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会更确信目标饮料有货、价格清楚且购买过程没有隐藏阻碍。",
@@ -149,10 +151,11 @@
             }
           }
         ],
-        "legacy_action": "A2_reassure_price_and_availability"
-      }
+        "response_id": "reassure_time_wait"
+      },
+      "response_id": "reassure_time_wait"
     },
-    "A3_quick_compare_nearby_options": {
+    "inform_comparison_brief": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他可能重新认为旁边还有其他口味、低糖或促销饮料值得看一眼。",
@@ -189,11 +192,12 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_quick_compare_nearby_options"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     }
   },
-  "best_action": "A1_enable_one_tap_checkout",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -222,6 +226,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_enable_one_tap_checkout"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

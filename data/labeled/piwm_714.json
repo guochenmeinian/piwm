@@ -18,13 +18,13 @@
     "t_8_10": "他身体略微前倾，目光停留在其中一个方向，表情仍有些犹豫但更接近决定，手指准备向前伸出。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_clarify_choice_criteria",
-    "A2_offer_low_regret_default",
-    "A3_time_sensitive_pickup_prompt"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_attributes_brief",
+    "recommend_soft"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他仍认为两个选择都可行，但会根据刚才停留更久的方向形成轻微偏好。",
@@ -58,50 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
-    },
-    "A1_clarify_choice_criteria": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他会更清楚地相信左侧更偏解渴实用，右侧更偏新鲜口味，两者适合的需求场景不同。",
-        "desire": "他想根据自己此刻更重视解渴还是尝鲜来做一个更稳妥的选择。",
-        "intention": "他准备按当前最优先的需求选定其中一瓶并伸手拿取。"
+        "response_id": "hold_silent"
       },
-      "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.33,
-      "delta_mental": 1.35,
-      "action_cost": 0.25,
-      "reward": 0.782,
-      "rationale": "用场景标准帮助他重构两个选项的差异，降低比较犹豫并把原本的购买倾向推进为明确拿取。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A1_clarify_choice_criteria"
-      }
+      "response_id": "hold_silent"
     },
-    "A2_offer_low_regret_default": {
+    "inform_attributes_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会相信在时间有限且不想踩雷的情况下，选择更解渴、更稳妥的那瓶后悔概率更低。",
@@ -138,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_offer_low_regret_default"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A3_time_sensitive_pickup_prompt": {
+    "recommend_soft": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会意识到午休快结束，继续比较的时间成本高于两瓶饮品之间的差异。",
@@ -157,7 +119,6 @@
       "rationale": "用时间压力能催化拿取动作，但会压缩自主比较空间，容易引发被推销或被催促的不适感。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -174,15 +135,15 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A3_time_sensitive_pickup_prompt"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     }
   },
-  "best_action": "A1_clarify_choice_criteria",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +172,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_clarify_choice_criteria"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

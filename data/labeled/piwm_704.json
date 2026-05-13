@@ -18,13 +18,13 @@
     "t_8_10": "她没有立即行动，只是稍稍调整站姿并继续注视前方，脸上保持轻微疑问和中等犹豫。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_highlight_commute_refreshments",
-    "A2_show_top_picks_with_simple_compare",
-    "A3_gentle_no_pressure_browse_invite"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "elicit_need_focus_open"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "attention",
       "next_bdi": {
         "belief": "她仍认为设备可能有可看的内容，但相关性和购买价值尚未被确认。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_highlight_commute_refreshments": {
+    "inform_attributes_brief": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "她会相信设备里可能有适合下班途中快速购买的饮品或小食，并且浏览成本不高。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_highlight_commute_refreshments"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_show_top_picks_with_simple_compare": {
+    "inform_comparison_brief": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "她会认为设备已经把热门饮品、轻食、价格和标签整理出来，能帮助她快速比较。",
@@ -138,10 +140,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_show_top_picks_with_simple_compare"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_gentle_no_pressure_browse_invite": {
+    "elicit_need_focus_open": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "她会觉得自己可以先随意浏览，不必马上购买或承担承诺。",
@@ -182,11 +185,12 @@
           "slot": "need_focus"
         },
         "co_acts": [],
-        "legacy_action": "A3_gentle_no_pressure_browse_invite"
-      }
+        "response_id": "elicit_need_focus_open"
+      },
+      "response_id": "elicit_need_focus_open"
     }
   },
-  "best_action": "A1_highlight_commute_refreshments",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -215,6 +219,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_highlight_commute_refreshments"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

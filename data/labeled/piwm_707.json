@@ -18,13 +18,13 @@
     "t_8_10": "她保持轻松的微笑，身体仍向前倾一点，视线稳定停在其中一个位置，像是已经基本选定。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_highlight_refreshing_match",
-    "A2_compare_two_options",
-    "A3_one_tap_checkout_prompt"
+    "hold_silent",
+    "recommend_soft",
+    "inform_comparison_brief",
+    "inform_attributes_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她继续相信眼前几款饮品都较符合自己想喝清爽饮料的需求，其中一个选项看起来更顺眼。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_highlight_refreshing_match": {
+    "recommend_soft": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她相信被提示的饮品口味清爽、负担较轻，和自己此刻想喝轻松饮料的需求更匹配。",
@@ -77,7 +78,6 @@
       "reward": 0.707,
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -94,14 +94,14 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A1_highlight_refreshing_match"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     },
-    "A2_compare_two_options": {
+    "inform_comparison_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她清楚两款候选饮品的关键差异，例如一款更清爽解渴、另一款口味更甜更浓。",
@@ -138,10 +138,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_compare_two_options"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_one_tap_checkout_prompt": {
+    "inform_attributes_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她相信如果已经看中某瓶饮品，可以很快通过手机扫码或一键确认完成购买。",
@@ -178,11 +179,12 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_one_tap_checkout_prompt"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     }
   },
-  "best_action": "A2_compare_two_options",
+  "best_action": "inform_comparison_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +213,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A2_compare_two_options"
-  }
+    "response_id": "inform_comparison_brief"
+  },
+  "response_id": "inform_comparison_brief"
 }

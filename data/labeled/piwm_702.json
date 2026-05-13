@@ -18,13 +18,13 @@
     "t_8_10": "他放下左手，身体稍微前倾，目光固定在前方某一点，仍未做出最终动作。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_show_low_sugar_energy_tags",
-    "A2_compare_best_two_options",
-    "A3_offer_quick_safe_pick"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "recommend_soft"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他仍认为这里可能有适合下午提神的饮品，但缺少额外线索来判断哪款不太甜且更提神。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_show_low_sugar_energy_tags": {
+    "inform_attributes_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他会更清楚哪些饮品具有低糖、无糖、含咖啡因或清爽提神等属性，并相信其中有更匹配自己需求的选择。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_show_low_sugar_energy_tags"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_compare_best_two_options": {
+    "inform_comparison_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他会认为两个主要备选的差异已经足够清楚，例如无糖咖啡更提神、低糖茶饮更清爽，从而相信其中一款更符合当前需求。",
@@ -138,10 +140,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_compare_best_two_options"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_offer_quick_safe_pick": {
+    "recommend_soft": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他会觉得系统理解他赶时间且怕太甜的顾虑，并认为选择一款小瓶或无糖的热门提神饮品风险较低。",
@@ -157,7 +160,6 @@
       "rationale": "以低风险快速选择来回应其时间压力和甜度顾虑，可缓解犹豫，但主动推荐仍有一定推销感。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -174,15 +176,15 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A3_offer_quick_safe_pick"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     }
   },
-  "best_action": "A2_compare_best_two_options",
+  "best_action": "inform_comparison_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +213,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A2_compare_best_two_options"
-  }
+    "response_id": "inform_comparison_brief"
+  },
+  "response_id": "inform_comparison_brief"
 }

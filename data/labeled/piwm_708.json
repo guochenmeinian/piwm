@@ -18,13 +18,13 @@
     "t_8_10": "他短暂低头看了一眼手里的手机又抬头，仍正面站着，目光停在左右之间，尚未做出决定。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_highlight_quick_energy_match",
-    "A2_side_by_side_compare",
-    "A3_one_tap_recommended_checkout"
+    "hold_silent",
+    "recommend_soft",
+    "inform_comparison_brief",
+    "recommend_soft"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他仍认为左右两个区域都可能适合自己，但哪个更值得买依然不清晰。",
@@ -58,26 +58,26 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
-    },
-    "A1_highlight_quick_energy_match": {
-      "next_aida_stage": "desire",
-      "next_bdi": {
-        "belief": "他会更相信其中一个选项与自己加班后想快速恢复精力的需求更匹配。",
-        "desire": "他想减少纠结，优先选择被提示为更适合疲惫状态的商品。",
-        "intention": "他倾向把注意力集中到推荐的匹配选项上，并准备进一步确认价格或口味后下单。"
+        "response_id": "hold_silent"
       },
-      "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.33,
-      "delta_mental": 1.4,
-      "action_cost": 0.3,
-      "reward": 0.8019999999999999,
-      "rationale": "用简短匹配提示改变他“看不出哪个更值得买”的信念，激活快速恢复精力的欲望，使意向从比较转向确认单个选项。",
+      "response_id": "hold_silent"
+    },
+    "recommend_soft": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会认为系统已经替他给出一个省时选择，并且可以很快完成购买。",
+        "desire": "他想尽快结束决策并拿到能补充精力的商品。",
+        "intention": "他准备点击一键下单或扫码支付，但若觉得推荐过于直接也可能短暂迟疑。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.66,
+      "delta_mental": 0.5,
+      "action_cost": 0.55,
+      "reward": 0.459,
+      "rationale": "一键推荐能强力催化省时欲望并推进到购买操作，但在他仍处于比较阶段时可能带来一定被推销感。",
       "dialogue_act": "Recommend",
       "act_params": {
-        "target": "item",
         "pressure": "soft"
       },
       "co_acts": [],
@@ -94,14 +94,14 @@
         "duration_ms": 4500,
         "dialogue_act": "Recommend",
         "act_params": {
-          "target": "item",
           "pressure": "soft"
         },
         "co_acts": [],
-        "legacy_action": "A1_highlight_quick_energy_match"
-      }
+        "response_id": "recommend_soft"
+      },
+      "response_id": "recommend_soft"
     },
-    "A2_side_by_side_compare": {
+    "inform_comparison_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他会更清楚左右两个区域在提神强度、甜度、价格或取货速度上的差异。",
@@ -138,51 +138,12 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_side_by_side_compare"
-      }
-    },
-    "A3_one_tap_recommended_checkout": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他会认为系统已经替他给出一个省时选择，并且可以很快完成购买。",
-        "desire": "他想尽快结束决策并拿到能补充精力的商品。",
-        "intention": "他准备点击一键下单或扫码支付，但若觉得推荐过于直接也可能短暂迟疑。"
+        "response_id": "inform_comparison_brief"
       },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.66,
-      "delta_mental": 0.5,
-      "action_cost": 0.55,
-      "reward": 0.459,
-      "rationale": "一键推荐能强力催化省时欲望并推进到购买操作，但在他仍处于比较阶段时可能带来一定被推销感。",
-      "dialogue_act": "Recommend",
-      "act_params": {
-        "target": "item",
-        "pressure": "soft"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
-        "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
-          "cta": null
-        },
-        "voice_style": "soft",
-        "light": "gentle_highlight",
-        "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
-        "act_params": {
-          "target": "item",
-          "pressure": "soft"
-        },
-        "co_acts": [],
-        "legacy_action": "A3_one_tap_recommended_checkout"
-      }
+      "response_id": "inform_comparison_brief"
     }
   },
-  "best_action": "A1_highlight_quick_energy_match",
+  "best_action": "recommend_soft",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -190,7 +151,6 @@
   },
   "dialogue_act": "Recommend",
   "act_params": {
-    "target": "item",
     "pressure": "soft"
   },
   "co_acts": [],
@@ -207,10 +167,10 @@
     "duration_ms": 4500,
     "dialogue_act": "Recommend",
     "act_params": {
-      "target": "item",
       "pressure": "soft"
     },
     "co_acts": [],
-    "legacy_action": "A1_highlight_quick_energy_match"
-  }
+    "response_id": "recommend_soft"
+  },
+  "response_id": "recommend_soft"
 }

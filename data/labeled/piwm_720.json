@@ -18,13 +18,13 @@
     "t_8_10": "确认后他放松一点，右手继续向前下方伸出完成操作，身体仍保持正面朝向镜头。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_show_selection_summary",
-    "A2_offer_quick_compare_alternatives",
-    "A3_highlight_confirm_with_edit_safety"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "inform_attributes_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他认为自己已基本确认当前选择没有明显问题，可以继续完成操作。",
@@ -58,90 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_show_selection_summary": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他相信系统已清楚呈现当前所选饮品和关键信息，自己没有按错选项。",
-        "desire": "他更想快速确认并结束购买，同时保持对选择正确性的安心感。",
-        "intention": "他准备点击确认或继续支付当前选中的饮品。"
-      },
-      "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.18,
-      "delta_mental": 1.1,
-      "action_cost": 0.2,
-      "reward": 0.602,
-      "rationale": "简短展示所选饮品摘要会强化“没有选错”的信念，降低犹豫并推动其继续确认购买。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A1_show_selection_summary"
-      }
-    },
-    "A2_offer_quick_compare_alternatives": {
-      "next_aida_stage": "desire",
-      "next_bdi": {
-        "belief": "他意识到还有相似饮品可以比较，当前选择未必是最优。",
-        "desire": "他避免后悔的欲望被激活，但快速完成购买的欲望被削弱。",
-        "intention": "他倾向于暂停支付，先查看或比较其他饮品后再决定。"
-      },
-      "risk": "medium",
-      "benefit": "low",
-      "delta_stage": -0.33,
-      "delta_mental": -0.4,
-      "action_cost": 0.4,
-      "reward": -0.372,
-      "rationale": "在已准备操作时引入替代比较会放大选择不确定性，使其从购买执行退回到重新权衡。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "comparison",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
-        "screen": {
-          "action": "show_comparison_or_details",
-          "target": "{candidate_items}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_comparison_cards",
-        "cabinet_motion": null,
-        "duration_ms": 4000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "comparison",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A2_offer_quick_compare_alternatives"
-      }
-    },
-    "A3_highlight_confirm_with_edit_safety": {
+    "inform_attributes_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他相信即使当前选择有误也可以返回修改，因此继续确认的风险较低。",
@@ -178,11 +99,53 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_highlight_confirm_with_edit_safety"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
+    },
+    "inform_comparison_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他意识到还有相似饮品可以比较，当前选择未必是最优。",
+        "desire": "他避免后悔的欲望被激活，但快速完成购买的欲望被削弱。",
+        "intention": "他倾向于暂停支付，先查看或比较其他饮品后再决定。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -0.4,
+      "action_cost": 0.4,
+      "reward": -0.372,
+      "rationale": "在已准备操作时引入替代比较会放大选择不确定性，使其从购买执行退回到重新权衡。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     }
   },
-  "best_action": "A3_highlight_confirm_with_edit_safety",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +174,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A3_highlight_confirm_with_edit_safety"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

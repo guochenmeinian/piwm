@@ -18,13 +18,13 @@
     "t_8_10": "他轻轻点下并保持专注表情，身体仍正面朝向镜头，动作显示已进入最后确认。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_show_order_summary",
-    "A2_highlight_one_tap_pay",
-    "A3_offer_optional_staff_help"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_attributes_brief",
+    "inform_attributes_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他仍认为自己基本选定商品，并可自行完成最后确认。",
@@ -58,90 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_show_order_summary": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他更确信当前选择的饮品、价格和数量无误，最后确认风险较低。",
-        "desire": "他想在确认无误后立刻完成购买，避免因选错而浪费时间。",
-        "intention": "他准备直接点击确认并进入付款或取货操作。"
-      },
-      "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.18,
-      "delta_mental": 1.25,
-      "action_cost": 0.2,
-      "reward": 0.6769999999999999,
-      "rationale": "用简短订单摘要补足其最后确认所需信念，降低选错犹豫并推动其继续付款。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A1_show_order_summary"
-      }
-    },
-    "A2_highlight_one_tap_pay": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他相信下一步操作路径很明确，只需点击高亮按钮即可完成购买。",
-        "desire": "他更想快速结束操作并赶去晚自习。",
-        "intention": "他准备立即点击一键付款或确认按钮完成交易。"
-      },
-      "risk": "medium",
-      "benefit": "high",
-      "delta_stage": 0.22,
-      "delta_mental": 0.85,
-      "action_cost": 0.4,
-      "reward": 0.473,
-      "rationale": "高亮最终操作按钮强化快速完成的欲望，但主动催促略有推销和打扰感。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A2_highlight_one_tap_pay"
-      }
-    },
-    "A3_offer_optional_staff_help": {
+    "inform_attributes_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他可能怀疑当前操作存在问题或自己是否需要人工协助。",
@@ -178,11 +99,12 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_offer_optional_staff_help"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     }
   },
-  "best_action": "A1_show_order_summary",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +133,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_show_order_summary"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

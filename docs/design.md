@@ -1,6 +1,6 @@
 # PIWM Data Design
 
-本文记录轻量 `piwm` 仓库的当前设计。它已同步主项目 PIWM v2 的动作空间和数据格式，但仍保持小仓库定位：快速生成 seed、manifest、labeled、Kling prompt 和少量视频样例。
+本文记录轻量 `piwm` 仓库的当前设计。它保持小仓库定位：快速生成 seed、manifest、labeled、视频 prompt 和少量视频样例。
 
 ## 1. Problem
 
@@ -32,7 +32,7 @@
 - `desire`: 顾客当前想解决的问题。
 - `intention`: 顾客接下来最可能采取的行为。
 
-## 3. Action Space v2
+## 3. Action Space
 
 当前语义中心是 6 个 `DialogueAct`：
 
@@ -41,24 +41,24 @@
 | `Greet` | 开场或收尾礼节 |
 | `Elicit` | 提问探询顾客需求 |
 | `Inform` | 提供比较、演示、参数或价格信息 |
-| `Recommend` | 推荐商品或下一步 |
+| `Recommend` | 给出温和或明确的推荐 |
 | `Reassure` | 安抚、降压、降低决策压力 |
 | `Hold` | 静默观察或背景退出 |
 
-旧 `T-state` 作为兼容执行标签保留：
+候选动作通过 `response_id` 索引，例如：
 
-| T-state | v2 act |
+| response_id | act |
 |---|---|
-| `T1_SILENT_OBSERVE` | `Hold(mode=silent)` |
-| `T2_VALUE_COMPARE` | `Inform(content_type=comparison)` |
-| `T3_STRONG_RECOMMEND` | `Recommend(pressure=firm)` |
-| `T4_OPEN_QUESTION` | `Elicit(slot=need_focus)` |
-| `T5_DEMO` | `Inform(content_type=demo)` |
-| `T6_ACK_WAIT` | `Reassure(focus=time)` + `Hold(mode=ambient)` |
-| `T7_DISENGAGE` | `Hold(mode=ambient)` |
-| `T_TRANSACT` | `Greet(phase=close)` |
+| `hold_silent` | `Hold(mode=silent)` |
+| `inform_comparison_brief` | `Inform(content_type=comparison, depth=brief)` |
+| `recommend_firm` | `Recommend(pressure=firm)` |
+| `elicit_need_focus_open` | `Elicit(openness=open, slot=need_focus)` |
+| `inform_demo_brief` | `Inform(content_type=demo, depth=brief)` |
+| `reassure_time_wait` | `Reassure(focus=time)` + `Hold(mode=ambient)` |
+| `hold_ambient` | `Hold(mode=ambient)` |
+| `greet_close` | `Greet(phase=close)` |
 
-更完整契约见 [action_space_v2.md](action_space_v2.md)。
+更完整契约见 [action_space.md](action_space.md)。
 
 ## 4. Realization
 
@@ -90,7 +90,7 @@ Realization layer 确定终端响应：
 ## 5. Data Generation
 
 ```text
-seed -> manifest -> labeled -> kling -> video
+seed -> manifest -> labeled -> prompts -> video
 ```
 
 ### Manifest
@@ -113,11 +113,11 @@ seed -> manifest -> labeled -> kling -> video
 - delta_stage / delta_mental
 - action_cost / reward
 - rationale
-- dialogue_act / act_params / terminal_realization
+- response_id / dialogue_act / act_params / terminal_realization
 
-### Kling
+### Prompts
 
-将 manifest/labeled 中的顾客观察字段渲染成视频 prompt。Kling 视频描述 intervention 前的顾客状态，不强制包含终端响应。
+将 manifest/labeled 中的顾客观察字段渲染成视频 prompt。视频只描述 intervention 前的顾客状态，不包含终端响应。
 
 ## 6. Reward
 
@@ -131,10 +131,10 @@ clip to [-1, 1]
 
 ## 7. Compatibility
 
-本仓库早期 22 条 labeled 样例使用动态 A-action，例如 `A2_compare_best_value_options`。这些名字现在作为 `legacy_action` 保留。运行：
+本仓库早期 22 条 labeled 样例使用旧动作键。运行：
 
 ```bash
-python script/upgrade_labeled_v2.py
+python script/upgrade_labeled.py
 ```
 
-即可回填 v2 字段。新生成数据应直接包含 v2 字段。
+即可统一归一到 `response_id` 格式。新生成数据直接使用 canonical action 格式。

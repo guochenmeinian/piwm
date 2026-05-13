@@ -18,13 +18,13 @@
     "t_8_10": "顾客继续停留在原地，再次短暂下移视线，然后回到前方，保持思考和犹豫状态，没有支付、没有扫码、没有离开。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_provide_key_product_info",
-    "A2_compare_best_value_options",
-    "A3_reduce_risk_with_trial_offer"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "inform_demo_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "售货机里可能仍有值得看的商品，但缺少新的信息帮助她缩小选择范围。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_provide_key_product_info": {
+    "inform_attributes_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她能更清楚地看到商品价格、口味、规格和卖点，认为部分商品可能符合自己的需求。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_provide_key_product_info"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_compare_best_value_options": {
+    "inform_comparison_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "她可以快速看到几款商品在价格、热度、适合场景和性价比上的差异，认为选择成本被降低。",
@@ -138,10 +140,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_compare_best_value_options"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_reduce_risk_with_trial_offer": {
+    "inform_demo_brief": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "她认为即使只是随便逛逛，当前也可以用较低成本尝试一件商品，购买风险和后悔成本较低。",
@@ -178,11 +181,12 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_reduce_risk_with_trial_offer"
-      }
+        "response_id": "inform_demo_brief"
+      },
+      "response_id": "inform_demo_brief"
     }
   },
-  "best_action": "A2_compare_best_value_options",
+  "best_action": "inform_comparison_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +215,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A2_compare_best_value_options"
-  }
+    "response_id": "inform_comparison_brief"
+  },
+  "response_id": "inform_comparison_brief"
 }

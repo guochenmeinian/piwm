@@ -18,13 +18,13 @@
     "t_8_10": "他右手停在准备操作的位置，身体仍微微前倾，表情放松坚定，显然已经准备确认购买。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_enable_one_tap_checkout",
-    "A2_confirm_selection_and_price",
-    "A3_suggest_add_on_promo"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_price_brief",
+    "inform_attributes_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
         "belief": "他仍认为饮料已经选定，购买步骤简单且无需外部帮助。",
@@ -58,90 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_enable_one_tap_checkout": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他会相信当前购买路径更快捷，系统正在帮助他减少操作步骤而不是重新推荐商品。",
-        "desire": "他快速完成购买、赶在上课前拿到饮料的欲望被进一步激活。",
-        "intention": "他准备立即点击一键确认或扫码付款完成购买。"
-      },
-      "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.12,
-      "delta_mental": 0.9,
-      "action_cost": 0.2,
-      "reward": 0.478,
-      "rationale": "提供一键结算强化了“购买很快”的信念，直接服务其快速完成购买的欲望，使意图更稳定地落到付款操作。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A1_enable_one_tap_checkout"
-      }
-    },
-    "A2_confirm_selection_and_price": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "他会更确认自己选中的饮料、价格和购买信息无误。",
-        "desire": "他对避免买错或多花时间返工的需求被轻度满足，同时仍想快速完成购买。",
-        "intention": "他准备在确认信息无误后立即继续付款购买。"
-      },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.04,
-      "delta_mental": 0.35,
-      "action_cost": 0.25,
-      "reward": 0.166,
-      "rationale": "简短确认能增强正确性信念并降低出错风险，但在其已经很确定时也会带来轻微打断成本。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "price",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
-        "screen": {
-          "action": "show_price_or_discount",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_price",
-        "cabinet_motion": null,
-        "duration_ms": 3500,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "price",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "legacy_action": "A2_confirm_selection_and_price"
-      }
-    },
-    "A3_suggest_add_on_promo": {
+    "inform_attributes_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他可能认为系统在额外推销，与自己只想快速买饮料的目标不完全一致。",
@@ -178,11 +99,53 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_suggest_add_on_promo"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更确认自己选中的饮料、价格和购买信息无误。",
+        "desire": "他对避免买错或多花时间返工的需求被轻度满足，同时仍想快速完成购买。",
+        "intention": "他准备在确认信息无误后立即继续付款购买。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.04,
+      "delta_mental": 0.35,
+      "action_cost": 0.25,
+      "reward": 0.166,
+      "rationale": "简短确认能增强正确性信念并降低出错风险，但在其已经很确定时也会带来轻微打断成本。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      },
+      "response_id": "inform_price_brief"
     }
   },
-  "best_action": "A1_enable_one_tap_checkout",
+  "best_action": "inform_attributes_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +174,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A1_enable_one_tap_checkout"
-  }
+    "response_id": "inform_attributes_brief"
+  },
+  "response_id": "inform_attributes_brief"
 }

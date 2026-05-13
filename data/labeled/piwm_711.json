@@ -18,13 +18,13 @@
     "t_8_10": "他停在稍远的位置，嘴唇轻抿，双手仍握着手机，犹豫地继续观察而没有进一步操作。"
   },
   "candidate_actions": [
-    "A0_silence",
-    "A1_quick_energy_info_snippet",
-    "A2_compare_by_need",
-    "A3_low_risk_trial_prompt"
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "inform_demo_brief"
   ],
   "outcomes": {
-    "A0_silence": {
+    "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他仍认为右侧某款饮品可能适合课间补充能量，但缺少新的判断依据，价值感没有变得更清晰。",
@@ -58,10 +58,11 @@
           "mode": "silent"
         },
         "co_acts": [],
-        "legacy_action": "A0_silence"
-      }
+        "response_id": "hold_silent"
+      },
+      "response_id": "hold_silent"
     },
-    "A1_quick_energy_info_snippet": {
+    "inform_attributes_brief": {
       "next_aida_stage": "interest",
       "next_bdi": {
         "belief": "他会获得关于目标饮品的关键信息，例如适合课间提神、甜度适中或价格清晰，从而觉得该选择更可评估。",
@@ -98,10 +99,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A1_quick_energy_info_snippet"
-      }
+        "response_id": "inform_attributes_brief"
+      },
+      "response_id": "inform_attributes_brief"
     },
-    "A2_compare_by_need": {
+    "inform_comparison_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他会相信不同饮品可以按课间需求快速区分，例如想提神选茶咖、想解渴选运动饮料、想顶饿选酸奶。",
@@ -138,10 +140,11 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A2_compare_by_need"
-      }
+        "response_id": "inform_comparison_brief"
+      },
+      "response_id": "inform_comparison_brief"
     },
-    "A3_low_risk_trial_prompt": {
+    "inform_demo_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
         "belief": "他会相信可以通过选择小瓶、低糖或人气稳定款来降低踩雷和后悔概率。",
@@ -178,11 +181,12 @@
           "depth": "brief"
         },
         "co_acts": [],
-        "legacy_action": "A3_low_risk_trial_prompt"
-      }
+        "response_id": "inform_demo_brief"
+      },
+      "response_id": "inform_demo_brief"
     }
   },
-  "best_action": "A3_low_risk_trial_prompt",
+  "best_action": "inform_demo_brief",
   "reward_weights": {
     "alpha": 0.4,
     "beta": 0.5,
@@ -211,6 +215,7 @@
       "depth": "brief"
     },
     "co_acts": [],
-    "legacy_action": "A3_low_risk_trial_prompt"
-  }
+    "response_id": "inform_demo_brief"
+  },
+  "response_id": "inform_demo_brief"
 }
