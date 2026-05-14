@@ -1,0 +1,225 @@
+{
+  "session_id": "piwm_746",
+  "persona": "下班路过便利区的年轻白领女性，已经看中某款商品，想先确认功能展示再决定是否购买。",
+  "persona_visual": "28岁左右的女性，黑色中长发低马尾，穿浅灰色西装外套和白色内搭，背一个米色单肩通勤包，手里拿着手机。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她认为这款商品大概率符合下班后的即时需求，但还需要通过功能展示确认实际效果。",
+    "desire": "她想快速了解商品的核心功能和使用效果，以便做出更有把握的选择。",
+    "intention": "她倾向于先观看或等待功能演示信息，再决定是否继续购买。"
+  },
+  "observable_behavior": "她停在设备前，视线集中在画面下方偏中央的功能展示区域，眼神跟随内容轻微移动，偶尔小幅点头，手指自然握着手机，没有明显退缩或离开的动作。",
+  "facial_expression": "表情平静专注，眉眼微微收敛，嘴角放松，带有轻微期待感，犹豫程度较低。",
+  "body_posture": "身体正面朝向镜头，肩膀放松，上身略微前倾，双手保持在胸前到腰部之间的画面内，站姿稳定。",
+  "timeline": {
+    "t_0_2": "她从画面前方自然停下，正面朝向镜头，手里拿着手机，视线迅速落到画面下方偏中央的位置。",
+    "t_2_5": "她保持轻微前倾，眼睛专注地看着功能展示区域，头部有很小的左右调整，像是在确认细节。",
+    "t_5_8": "她眉头轻轻舒展，做出一次很轻的点头，手指在手机边缘自然收紧又放松，表现出已基本理解信息。",
+    "t_8_10": "她继续看向同一区域，表情平静而期待，身体没有后退，像是在等待下一步演示或准备继续操作。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_demo_brief",
+    "inform_attributes_brief",
+    "elicit_need_focus_open"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她依然认为商品大概率契合需求，但等待演示的预期暂未满足。",
+        "desire": "她持续希望看到功能演示，不主动离开。",
+        "intention": "保持观望状态，准备接收更多功能相关信息。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默不打扰保障自主权，但缺乏主动信息释放，兴趣无明显推进也无恶化。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她见到了功能实际呈现，确信商品符合即时需求。",
+        "desire": "希望将所见功能与个人需求对齐，增强拥有欲。",
+        "intention": "强烈倾向进入考虑/操作，准备决策下一步行动。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.7,
+      "delta_mental": 0.8,
+      "rationale": "直观轮播演示满足其关注点，降低犹豫，大幅增强进一步决策的信心和兴趣。",
+      "action_cost": 0.4,
+      "preference_score": 0.5999999999999999,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "了解主要参数后，基础认知增加，但对功能直观感受还有疑问。",
+        "desire": "依然希望获得更为生动的功能实际展示。",
+        "intention": "继续等待演示或考虑是否寻求更多信息。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.2,
+      "delta_mental": 0.2,
+      "rationale": "简要属性信息提升基线认知，但不足以形成较强驱动力，仅有小幅利益促进。",
+      "action_cost": 0.25,
+      "preference_score": 0.13,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "开放引导加深她已知功能区分，但暂未直接满足演示需求。",
+        "desire": "希望功能优先得到直接回应，若未满足，会略觉流程繁琐。",
+        "intention": "愿意自主选择切换信息，但如未见演示会倾向跳转或等待。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.1,
+      "rationale": "开放气泡加强主控感但不能马上满足演示预期，略有拖延但增加互动意愿。",
+      "action_cost": 0.2,
+      "preference_score": 0.05,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    }
+  },
+  "best_action": "inform_demo_brief",
+  "response_id": "inform_demo_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "demo",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+    "screen": {
+      "action": "play_short_demo",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "focus_on_demo_area",
+    "cabinet_motion": null,
+    "duration_ms": 8000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "demo",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_demo_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

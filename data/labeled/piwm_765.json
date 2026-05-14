@@ -1,0 +1,214 @@
+{
+  "session_id": "piwm_765",
+  "persona": "午休后路过办公楼便利区的中年男职员，已经基本决定购买一款固定饮品，只是在做最后确认。",
+  "persona_visual": "45岁左右的男性，短黑发略带灰白，穿浅蓝色长袖衬衫和深灰色西裤，脖子上挂着工牌，左手拿着手机，右手自然垂在身前",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "他认为目标商品正好符合午休后提神解渴的需求，并且已经是最合适的选择。",
+    "desire": "他想快速确认并购买这款已经看中的商品，不再花时间比较其他选项。",
+    "intention": "他倾向于接受明确推荐，随后直接执行购买动作。"
+  },
+  "observable_behavior": "他的视线长时间稳定停留在同一位置，几乎不左右扫视，左手握着手机停在胸前，右手轻微抬起像是在准备操作，整体动作简洁果断。",
+  "facial_expression": "表情平静而确定，眉头放松，嘴唇轻闭，眼神集中，几乎没有犹豫感。",
+  "body_posture": "身体正面朝向镜头，上身微微前倾，双肩放松但站姿稳定，双手始终在画面内。",
+  "timeline": {
+    "t_0_2": "45岁左右的男性正面站定，午休后的状态略显放松，视线一进入画面就稳定落在前方同一目标位置。",
+    "t_2_5": "他左手握着手机停在胸前，右手从身侧缓慢抬到身前，眼神保持集中，没有明显横向比较。",
+    "t_5_8": "他轻轻点头一次，表情平静确定，右手悬停片刻，像是在等待一个明确的确认信号。",
+    "t_8_10": "他上身稍微前倾，右手更坚定地向前伸出，准备直接完成选择动作。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_price_brief",
+    "reassure_decision",
+    "recommend_firm"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他的选择自信未变，确认等待，外界无新干扰。",
+        "desire": "依然希望迅速完成既定选择。",
+        "intention": "保持原本购买意向，略显被动等待系统反馈。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不给予任何介入，顾客感受自主但没有得到明确确认，状态维持不变。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "确认自己选择的商品价格和优惠没有意外，为决策扫清疑虑。",
+        "desire": "确信当前选择无遗憾，明确购买意愿。",
+        "intention": "安心进行购买操作。"
+      },
+      "risk": "low",
+      "benefit": "moderate",
+      "delta_stage": 0.33,
+      "delta_mental": 0.25,
+      "rationale": "简单直观的价格信息消除最后顾虑，促使顾客从意向转为操作行动。",
+      "action_cost": 0.25,
+      "preference_score": 0.20700000000000002,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "感觉自身判断被认可，即使现在不选也不会错失。",
+        "desire": "决策更踏实，心态放松但不减购买欲望。",
+        "intention": "准备安心下单，无压力下完成操作。"
+      },
+      "risk": "low",
+      "benefit": "moderate",
+      "delta_stage": 0.33,
+      "delta_mental": 0.2,
+      "rationale": "消除后悔风险，增强决策自信，让顾客顺畅进入行动阶段。",
+      "action_cost": 0.1,
+      "preference_score": 0.21200000000000002,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "recommend_firm": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "平台高度认可自己的选择，获得最终确认信号。",
+        "desire": "迅速完成心仪商品的购买行动。",
+        "intention": "立即执行购买，几无拖延。"
+      },
+      "risk": "moderate",
+      "benefit": "high",
+      "delta_stage": 0.5,
+      "delta_mental": 0.35,
+      "rationale": "强推荐精准命中已锁定用户，进一步点燃操作动机，极易促成行动转化。",
+      "action_cost": 0.65,
+      "preference_score": 0.245,
+      "response_id": "recommend_firm",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "pressure": "firm"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "这款最适合您，建议直接选这款。",
+        "screen": {
+          "action": "highlight_single_item_with_cta",
+          "target": "{recommended_item}",
+          "cta": "buy_now"
+        },
+        "voice_style": "assertive",
+        "light": "strong_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "pressure": "firm"
+        },
+        "co_acts": [],
+        "response_id": "recommend_firm"
+      }
+    }
+  },
+  "best_action": "recommend_firm",
+  "response_id": "recommend_firm",
+  "dialogue_act": "Recommend",
+  "act_params": {
+    "pressure": "firm"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "这款最适合您，建议直接选这款。",
+    "screen": {
+      "action": "highlight_single_item_with_cta",
+      "target": "{recommended_item}",
+      "cta": "buy_now"
+    },
+    "voice_style": "assertive",
+    "light": "strong_highlight",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Recommend",
+    "act_params": {
+      "pressure": "firm"
+    },
+    "co_acts": [],
+    "response_id": "recommend_firm"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

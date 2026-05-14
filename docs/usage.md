@@ -1,6 +1,8 @@
 # Usage
 
-数据流：`seed -> manifest -> labeled -> prompts -> video`
+视频数据流：`seed -> manifest -> prompts -> video`
+
+标注数据流：`seed -> manifest -> labeled`
 
 ## Environment
 
@@ -35,6 +37,7 @@ python script/gen_manifest.py "..." -o -
 ## gen_deliberation.py
 
 生成 labeled JSON。输出保留 `best_action`，同时补齐 `response_id / dialogue_act / act_params / co_acts / realization`。
+LLM 只预测 outcome；`action_cost / preference_score / best_action` 由系统生成。
 
 ```bash
 python script/gen_deliberation.py
@@ -64,7 +67,6 @@ python script/upgrade_labeled.py data/labeled/piwm_700.json
 python script/gen_prompt.py
 python script/gen_prompt.py --dry-run
 python script/gen_prompt.py --overwrite
-python script/gen_prompt.py data/labeled/piwm_700.json
 python script/gen_prompt.py data/manifest/piwm_700.json
 ```
 
@@ -82,9 +84,9 @@ KLING_API_KEY=... python script/gen_video.py data/prompts/piwm_700.md
 
 ```bash
 python script/gen_manifest.py "desire 阶段，中等犹豫" --id piwm_750
-python script/gen_deliberation.py data/manifest/piwm_750.json
-python script/gen_prompt.py data/labeled/piwm_750.json
+python script/gen_prompt.py data/manifest/piwm_750.json
 KLING_API_KEY=... python script/gen_video.py data/prompts/piwm_750.md
+python script/gen_deliberation.py data/manifest/piwm_750.json
 ```
 
 ## Validation

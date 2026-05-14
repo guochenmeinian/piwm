@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "recommend_soft",
+    "elicit_need_focus_open",
     "inform_comparison_brief",
-    "recommend_soft"
+    "inform_demo_brief"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "他仍认为左右两个区域都可能适合自己，但哪个更值得买依然不清晰。",
-        "desire": "他仍想快速选一个能恢复精力的选项，但不想继续花太多脑力比较。",
-        "intention": "他可能再短暂比较几秒，若仍无法判断则可能放弃或随便选择。"
+        "belief": "他依然认为左右两个区域都可能合适，但暂未获得更多差异化信息，保留原先的困惑。",
+        "desire": "仍希望快速选出适合自己的恢复精力之选，避免浪费太多时间。",
+        "intention": "继续比较几秒，如果缺乏明显线索，可能会直接选择或转身离开。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": 0.05,
-      "delta_mental": -0.2,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默让用户保持完全自主空间，无压力，但没有积极化解其犹豫或信息不充分的状态。",
       "action_cost": 0.0,
-      "reward": -0.08,
-      "rationale": "沉默不会打扰他，但也不会解除左右选择难以判断的信念，疲惫状态下犹豫可能自然延长。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,62 +60,68 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "recommend_soft": {
-      "next_aida_stage": "action",
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "他会认为系统已经替他给出一个省时选择，并且可以很快完成购买。",
-        "desire": "他想尽快结束决策并拿到能补充精力的商品。",
-        "intention": "他准备点击一键下单或扫码支付，但若觉得推荐过于直接也可能短暂迟疑。"
+        "belief": "他意识到设备可以根据他的需求方向（功能、价格、场景）给出针对性信息，降低了迷茫和选择焦虑。",
+        "desire": "希望借助引导，高效了解自己更关心的要点，缩小选择范围。",
+        "intention": "准备选择一个关注点，引导设备展示对比或具体信息，推进决策。"
       },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.66,
-      "delta_mental": 0.5,
-      "action_cost": 0.55,
-      "reward": 0.459,
-      "rationale": "一键推荐能强力催化省时欲望并推进到购买操作，但在他仍处于比较阶段时可能带来一定被推销感。",
-      "dialogue_act": "Recommend",
+      "risk": "very_low",
+      "benefit": "moderate",
+      "delta_stage": 0.2,
+      "delta_mental": 0.25,
+      "rationale": "针对模糊需求和犹豫，温和开放提问既保护空间又引导聚焦，有效激活主动比较和探索意愿。",
+      "action_cost": 0.2,
+      "preference_score": 0.165,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
       "act_params": {
-        "pressure": "soft"
+        "openness": "open",
+        "slot": "need_focus"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
         "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
           "cta": null
         },
-        "voice_style": "soft",
-        "light": "gentle_highlight",
+        "voice_style": "curious",
+        "light": "soft_invitation",
         "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
         "act_params": {
-          "pressure": "soft"
+          "openness": "open",
+          "slot": "need_focus"
         },
         "co_acts": [],
-        "response_id": "recommend_soft"
-      },
-      "response_id": "recommend_soft"
+        "response_id": "elicit_need_focus_open"
+      }
     },
     "inform_comparison_brief": {
       "next_aida_stage": "desire",
       "next_bdi": {
-        "belief": "他会更清楚左右两个区域在提神强度、甜度、价格或取货速度上的差异。",
-        "desire": "他想根据最关键的一两个标准快速筛掉不合适的选项。",
-        "intention": "他倾向按照对比信息选出更合适的一边，并进入下单前的最终确认。"
+        "belief": "他快速理解了左右区域主要区别及属性对比，疑惑减少，对合适选项的特征有更清晰认识。",
+        "desire": "希望直接基于对比卡缩小决定范围，尽快做出选择，节省精力。",
+        "intention": "马上锁定一个方向并准备做出操作，推进到决策前一步。"
       },
       "risk": "low",
-      "benefit": "medium",
+      "benefit": "high",
       "delta_stage": 0.33,
-      "delta_mental": 1.1,
-      "action_cost": 0.25,
-      "reward": 0.657,
-      "rationale": "结构化对比降低认知负担，抑制继续左右摇摆的犹豫，让他更容易从兴趣比较进入明确偏好。",
+      "delta_mental": 0.4,
+      "rationale": "对比卡有效满足其在两个区间摇摆、快速比较的需求，显著降低选择难度，加速进入决策状态。",
+      "action_cost": 0.3,
+      "preference_score": 0.272,
+      "response_id": "inform_comparison_brief",
       "dialogue_act": "Inform",
       "act_params": {
         "content_type": "comparison",
@@ -139,38 +146,80 @@
         },
         "co_acts": [],
         "response_id": "inform_comparison_brief"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他对左右商品各自的功能、使用场景产生了直观理解，但如果产品非常常规则帮助较有限。",
+        "desire": "希望确认新奇或关键功能是否直接满足当前恢复精力的目标。",
+        "intention": "可能更关注对其需求相关的功能，但若与实际需求关联不大，则仅略微增强兴趣。"
       },
-      "response_id": "inform_comparison_brief"
+      "risk": "moderate",
+      "benefit": "moderate",
+      "delta_stage": 0.1,
+      "delta_mental": 0.1,
+      "rationale": "短动画演示提升直观理解，稍减低比较压力，但若商品并不新颖会略显多余，有一定风险打扰。",
+      "action_cost": 0.4,
+      "preference_score": 0.009999999999999995,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
     }
   },
-  "best_action": "recommend_soft",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Recommend",
+  "best_action": "inform_comparison_brief",
+  "response_id": "inform_comparison_brief",
+  "dialogue_act": "Inform",
   "act_params": {
-    "pressure": "soft"
+    "content_type": "comparison",
+    "depth": "brief"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+    "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
     "screen": {
-      "action": "highlight_recommended_item",
-      "target": "{recommended_item}",
+      "action": "show_comparison_or_details",
+      "target": "{candidate_items}",
       "cta": null
     },
-    "voice_style": "soft",
-    "light": "gentle_highlight",
+    "voice_style": "neutral",
+    "light": "soft_focus_on_comparison_cards",
     "cabinet_motion": null,
-    "duration_ms": 4500,
-    "dialogue_act": "Recommend",
+    "duration_ms": 4000,
+    "dialogue_act": "Inform",
     "act_params": {
-      "pressure": "soft"
+      "content_type": "comparison",
+      "depth": "brief"
     },
     "co_acts": [],
-    "response_id": "recommend_soft"
+    "response_id": "inform_comparison_brief"
   },
-  "response_id": "recommend_soft"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

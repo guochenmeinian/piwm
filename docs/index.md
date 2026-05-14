@@ -1,96 +1,138 @@
 # PIWM Data Index
 
-每条记录对应一个顾客场景：seed → manifest → labeled → prompt → video。
+当前仓库维护两条数据流：
 
-**Pipeline 列说明**：S=seed · M=manifest · L=labeled · P=prompt · V=video
+```text
+seed -> manifest -> prompt -> video
+seed -> manifest -> labeled
+```
 
----
-
-## 现有数据（piwm_700–721）
-
-| ID | Stage | Persona（摘要） | Best Action | S | M | L | P | V | 备注 |
-|---|---|---|---|---|---|---|---|---|---|
-| piwm_700 | interest | 双休日无聊逛街的普通消费者 | Inform:comparison | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_701 | interest | 下班路过便利区的年轻白领女性 | Recommend:soft | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_702 | interest | 午休后路过便利区、想买饮品 | Inform:comparison | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ seed 写 attention，实际生成 interest |
-| piwm_703 | attention | 课间路过校园便利区被设备外观吸引的学生 | Elicit:need_focus | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_704 | attention | 下班途中被智能售货机吸引的年轻女性 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_705 | attention | 午休后路过便利区的中年办公室职员 | Recommend:soft | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ attention 阶段出现 Recommend:soft 偏激进 |
-| piwm_706 | interest | 课间路过校园便利区的男大学生 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_707 | interest | 午后课间路过自助零售区、想买饮品的女生 | Inform:comparison | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_708 | interest | 加班后路过便利区的年轻上班族 | Recommend:soft | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_709 | interest | 午休后路过便利区的中年男职员 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_710 | interest | 午休间隙路过便利区、担心不合适的顾客 | Inform:comparison | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_711 | interest | 课间经过校园便利区的大学生 | Inform:demo | ✓ | ✓ | ✓ | ✓ | ✗ | |
-| piwm_712 | desire | 下班途中准备快速购买的上班族 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ desire 阶段应为 Recommend/Reassure |
-| piwm_713 | desire | 午休后路过便利区的年轻女白领 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ desire 阶段应为 Recommend/Reassure |
-| piwm_714 | desire | 午休结束前路过便利区、比较两个选择 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ desire 阶段应为 Recommend/Reassure |
-| piwm_715 | desire | 课间路过校园便利区的大学生 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ desire 阶段应为 Recommend/Reassure |
-| piwm_716 | desire | 午休后路过便利区、有顾虑的中年女性 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ desire 阶段应为 Reassure:decision |
-| piwm_717 | desire | 下班后路过便利区、反复权衡的年轻上班族 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ desire 阶段应为 Reassure/Recommend |
-| piwm_718 | action | 课间已决定购买、表情轻松的学生 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ action 阶段不应是 Inform:attributes |
-| piwm_719 | action | 午休后快速完成确认的中年男性 | Recommend:soft | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ action 阶段 Recommend:soft 语义存疑 |
-| piwm_720 | action | 下班途中略微迟疑的年轻上班族 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ action 阶段不应是 Inform:attributes |
-| piwm_721 | action | 晚自习前快速购买的学生 | Inform:attributes | ✓ | ✓ | ✓ | ✓ | ✗ | ⚠ action 阶段不应是 Inform:attributes |
+`seed / manifest / labeled / prompts` 已覆盖 `piwm_700` 到 `piwm_805` 共 106 条。  
+`video` 当前已有 3 条样例（`piwm_700`–`piwm_702`）。
 
 ---
 
-## 现有数据分布分析
+## 当前状态
 
-### Stage 分布
+| Stage | Count |
+|---|---:|
+| seed | 106 |
+| manifest | 106 |
+| labeled | 106 |
+| prompts | 106 |
+| video | 3 |
 
-| Stage | 数量 | 占比 | 目标占比 |
-|---|---|---|---|
-| attention | 3 | 14% | 15% |
-| interest | 9 | 41% | 35% |
-| desire | 6 | 27% | 35% |
-| action | 4 | 18% | 15% |
+当前 `labeled` 数据已经过统一重跑和校验：
 
-### Best Action 分布（⚠ 严重失衡）
-
-| Best Action | 现有 | 目标（100条总量） |
-|---|---|---|
-| Inform:attributes | 12 | 12 |
-| Inform:comparison | 4 | 15 |
-| Inform:demo | 1 | 8 |
-| Recommend:soft | 4 | 12 |
-| Recommend:firm | 0 | 8 |
-| Elicit:need_focus | 1 | 10 |
-| Elicit:companion_opinion | 0 | 5 |
-| Reassure:time | 0 | 8 |
-| Reassure:decision | 0 | 7 |
-| Hold:silent | 0 | 10 |
-| Hold:ambient | 0 | 5 |
-| Greet:close | 0 | 5 |
+- 每条记录都有 4 个 candidate actions
+- 每条都包含 `hold_silent` 作为 baseline
+- 每个 outcome 都有完整的 `delta_stage / delta_mental / action_cost / preference_score`
+- `best_action` 与最高 `preference_score` 一致
+- 顶层 `response_id` 与 `best_action` 一致
 
 ---
 
-## 待生成数据规划（piwm_722–821，目标 100 条总量含现有 22 条）
+## Stage 配比
 
-还需生成 **78 条**，seed 需覆盖以下缺口：
+原始 100 条目标分布是 `15 / 35 / 35 / 15`（attention / interest / desire / action）。
+当前新增 6 条长尾动作补样本后，分布变为 `15 / 37 / 39 / 15`。
 
-| 优先级 | 缺口 | 需补条数 | seed 设计方向 |
-|---|---|---|---|
-| 🔴 高 | Recommend:firm | 8 | desire-low-hesitation，顾客信息充足、只差临门一脚 |
-| 🔴 高 | Reassure:time | 8 | desire，外部时间压力明显（赶班车/午休要结束） |
-| 🔴 高 | Reassure:decision | 7 | desire-high-hesitation，决策焦虑、反复拿起放下 |
-| 🔴 高 | Hold:silent | 10 | attention/interest，顾客在思考、不需要打扰 |
-| 🔴 高 | Greet:close | 5 | action，已完成扫码/操作，进入结尾 |
-| 🟡 中 | Hold:ambient | 5 | attention，顾客明显不感兴趣、即将离开 |
-| 🟡 中 | Elicit:companion_opinion | 5 | 带伴场景，需要询问同行者意见 |
-| 🟡 中 | Inform:comparison（补） | 11 | interest，正在多款之间比较 |
-| 🟡 中 | Elicit:need_focus（补） | 9 | attention，顾客信息需求不明确 |
-| 🟢 低 | desire 全段修复 | 6 | 重新生成 712–717，候选集加入 Recommend/Reassure |
-| 🟢 低 | action 全段修复 | 4 | 重新生成 718–721，加入 Greet:close / Reassure:time |
+| Stage | Current | Target |
+|---|---:|---:|
+| attention | 15 | 15 |
+| interest | 37 | 35 |
+| desire | 39 | 35 |
+| action | 15 | 15 |
+
+结论：原始 `700–799` 版本的 stage 配比是精确对齐的。  
+当前 `700–805` 扩展版为了补长尾动作，轻微增加了 `interest / desire`，但没有破坏整体阶段语义。
 
 ---
 
-## Persona 配比目标（78条新增）
+## Best Action 分布
 
-| Persona 类型 | 目标条数 | 特征 |
-|---|---|---|
-| 年轻白领 | 16 | 时间有限、目标明确 |
-| 学生 | 16 | 预算敏感、对商品陌生 |
-| 中年消费者 | 16 | 谨慎、高品质需求 |
-| 老年顾客 | 15 | 不熟悉设备、需要引导 |
-| 带伴购物者 | 15 | 有同行者参与决策 |
+| Best Action | Count |
+|---|---:|
+| Elicit:need_focus | 20 |
+| Inform:comparison | 20 |
+| Inform:demo | 13 |
+| Greet:close | 11 |
+| Reassure:time | 11 |
+| Inform:price | 10 |
+| Recommend:firm | 7 |
+| Reassure:decision | 6 |
+| Inform:attributes | 4 |
+| Recommend:soft | 4 |
+
+结论：动作分布 `总体合理，但不均匀`。
+
+- `attention`：以 `Elicit:need_focus` 和 `Inform:demo` 为主，符合“先聚焦 / 先激发兴趣”的阶段语义。
+- `interest`：以 `Inform:comparison`、`Elicit:need_focus`、`Inform:demo` 为主，符合“比较 / 聚焦 / 理解功能”的中段语义。
+- `desire`：`Recommend:firm / Reassure:time / Inform:price / Inform:comparison / Reassure:decision` 相对均衡，说明后决策阶段已经比早期版本健康很多。
+- `action`：以 `Greet:close` 为主、`Reassure:time` 为辅，基本符合“等待出货 / 礼貌收尾 / 时间确认”的收尾语义。
+
+这轮补样本后，原本最稀缺的两类已经被拉起来：
+
+- `Inform:attributes`：`2 -> 4`
+- `Recommend:soft`：`3 -> 4`
+
+它们仍然比头部动作少，但已经不再是“明显缺失”的状态。
+
+---
+
+## Stage 内部分布
+
+### attention
+
+| Best Action | Count |
+|---|---:|
+| Elicit:need_focus | 9 |
+| Inform:demo | 6 |
+
+### interest
+
+| Best Action | Count |
+|---|---:|
+| Inform:comparison | 14 |
+| Elicit:need_focus | 11 |
+| Inform:demo | 7 |
+| Inform:attributes | 4 |
+| Inform:price | 1 |
+
+### desire
+
+| Best Action | Count |
+|---|---:|
+| Recommend:firm | 7 |
+| Reassure:time | 7 |
+| Inform:price | 9 |
+| Inform:comparison | 6 |
+| Reassure:decision | 6 |
+| Recommend:soft | 4 |
+
+### action
+
+| Best Action | Count |
+|---|---:|
+| Greet:close | 11 |
+| Reassure:time | 4 |
+
+---
+
+## 质量结论
+
+当前这版数据可以作为单一正式版本继续往下走，不需要再区分旧版 / v2 / 迁移版。
+
+可以认为已经解决的问题：
+
+- `piwm_700–799` 已全部按同一 schema、同一 scoring 规则统一生成和校验
+- `piwm_800–805` 已作为长尾动作补样本接入同一流程，新增 `Inform:price * 3 / Inform:attributes * 2 / Recommend:soft * 1`
+- 旧的候选重复、candidate 数量不足、best_action 与 score 不一致问题已清掉
+- `gen_deliberation.py` 已收紧 validator，不再允许 validation 失败后直接落盘
+- prompt 已补充更明确的 action 边界，减少了“模糊需求却直接 comparison / 过早 close / 推荐语义漂移”这类错误
+
+当前剩余工作：
+
+- 补更多 `video` 样例
+- 如果继续追求动作均衡，可进一步补 `Reassure:decision`、`Recommend:soft`、`Inform:attributes`
+- 如需论文或实验记录，可把当前分布和 scoring 规则固化到设计文档中

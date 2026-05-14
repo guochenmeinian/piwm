@@ -1,0 +1,219 @@
+{
+  "session_id": "piwm_753",
+  "persona": "逛街路过便利零售区的年轻白领，已经在智能售货设备前停留了一会儿，对某款商品产生兴趣但还没下定决心。",
+  "persona_visual": "27岁左右的女性，齐肩黑色直发，穿米白色针织开衫和浅蓝色衬衫，下身深灰色直筒裤，单肩背一个棕色通勤包，双手自然露在画面内",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她认为眼前这款商品可能适合现在的需求，但还不确定是否比其他选择更合适。",
+    "desire": "她想快速确认这款商品是否值得购买，最好得到一个不打扰的轻度推荐来降低选择成本。",
+    "intention": "她倾向于继续盯着这款商品观察几秒，如果出现温和提示或理由充分的推荐，就可能进一步做决定。"
+  },
+  "observable_behavior": "她的视线始终集中在前方偏下的同一位置，偶尔轻微眨眼，右手指尖轻捏左手手背，动作克制，表现出中等程度的犹豫和比较。",
+  "facial_expression": "表情安静专注，眉头轻微收拢，嘴唇自然闭合，带有思考和不确定感但没有明显焦虑。",
+  "body_posture": "身体正面朝向镜头，肩膀放松但略向前倾，重心在两脚之间轻微变化，双手停在胸前到腰部之间的画面范围内。",
+  "timeline": {
+    "t_0_2": "这位27岁左右的女性白领正面站在镜头前，视线固定在前方偏下的位置，双手自然停在身前。",
+    "t_2_5": "她保持目光不移，右手指尖轻轻捏住左手手背，眉头微微收紧，像是在认真权衡眼前的选择。",
+    "t_5_8": "她身体略向前倾半分，重心轻轻换到另一只脚上，表情依旧专注而犹豫，似乎等待一个更明确但不强迫的推荐理由。",
+    "t_8_10": "她缓慢眨眼后仍看向同一位置，双手放松了一些，脸上的犹豫略有缓和，但还没有做出最终动作。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_comparison_brief",
+    "recommend_soft"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她认为商品或许适合，但缺乏更多决策信息，犹豫未解。",
+        "desire": "继续静静观察，期望环境安全、无压力。",
+        "intention": "暂时保持观望，短时无决策行为。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默不过度介入，顾客获得自主感，但缺乏新增信息，兴趣与犹豫均无显著波动。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她快速掌握商品主要参数与适用人群，信息更充分，减少不确定感。",
+        "desire": "她希望得到明确关键点，开始思考这些参数是否符合需求。",
+        "intention": "准备更认真地比较和筛选，犹豫略减但尚未完全转向决策。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.2,
+      "delta_mental": 0.2,
+      "rationale": "简短参数展示满足“低打扰”需求，快速补足核心信息，降低顾客疑虑，略向决策推进。",
+      "action_cost": 0.25,
+      "preference_score": 0.13,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    },
+    "inform_comparison_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她能直观看到该商品与其他选择的对比，感受选择成本被显著降低。",
+        "desire": "更倾向主动甄别适合度并挑选具体目标。",
+        "intention": "若对比结果匹配自我预期，会产生强烈欲望尝试或行动。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.35,
+      "delta_mental": 0.35,
+      "rationale": "对比卡帮助顾客克服犹豫，信息透明促进信任，顺利推进进入 desire 阶段，但对部分顾客有转向“理智筛选”风险。",
+      "action_cost": 0.3,
+      "preference_score": 0.25499999999999995,
+      "response_id": "inform_comparison_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_comparison_brief"
+      }
+    },
+    "recommend_soft": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她察觉到平台关注到自己的需求，但推荐方式温和，增强信任与认可感。",
+        "desire": "更愿意考虑被推荐商品，筛选对象被聚焦，潜在心理压力不大。",
+        "intention": "起心动念关注推荐目标，决策观望减少，但尚未直接触发购买行动。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.2,
+      "delta_mental": 0.2,
+      "rationale": "温和推荐结合关注点与兴趣，无强推销意味，提高认同与接受度，轻度降低心理门槛。",
+      "action_cost": 0.45,
+      "preference_score": 0.09000000000000001,
+      "response_id": "recommend_soft",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "response_id": "recommend_soft"
+      }
+    }
+  },
+  "best_action": "inform_comparison_brief",
+  "response_id": "inform_comparison_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "comparison",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+    "screen": {
+      "action": "show_comparison_or_details",
+      "target": "{candidate_items}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_comparison_cards",
+    "cabinet_motion": null,
+    "duration_ms": 4000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "comparison",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_comparison_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

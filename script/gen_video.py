@@ -2,42 +2,203 @@
 """Generate videos from pre-rendered prompt files via Kling API."""
 
 import argparse
+import base64
+import hashlib
+import hmac
+import json
 import os
 import sys
+import time
+import uuid
 from pathlib import Path
+
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:
+    def load_dotenv() -> None:
+        return None
+
+load_dotenv()
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PROMPT_DIR = REPO_ROOT / "data" / "prompts"
 VIDEO_DIR = REPO_ROOT / "data" / "video"
 
 
-def call_kling(prompt: str, session_id: str, output_dir: str, model: str = "kling-v2") -> str:
-    """Call Kling API to generate video. Stub - fill in with actual SDK / HTTP calls.
+def _b64url(data: bytes) -> str:
+    return base64.urlsafe_b64encode(data).rstrip(b"=").decode("ascii")
 
-    Returns the local path or remote URL of the generated video.
-    """
+
+def _make_kling_token() -> str:
+    static_token = os.environ.get("KLING_API_KEY")
+    if static_token:
+        return static_token
+
+    access_key = os.environ.get("KLING_ACCESS_KEY")
+    secret_key = os.environ.get("KLING_SECRET_KEY")
+    if not access_key or not secret_key:
+        raise RuntimeError("Set KLING_API_KEY or KLING_ACCESS_KEY + KLING_SECRET_KEY")
+
+    now = int(time.time())
+    header = {"alg": "HS256", "typ": "JWT"}
+    payload = {
+        "iss": access_key,
+        "exp": now + 1800,
+        "nbf": now - 5,
+    }
+
+    signing_input = ".".join(
+        [
+            _b64url(json.dumps(header, separators=(",", ":"), ensure_ascii=True).encode("utf-8")),
+            _b64url(json.dumps(payload, separators=(",", ":"), ensure_ascii=True).encode("utf-8")),
+        ]
+    )
+    signature = hmac.new(
+        secret_key.encode("utf-8"),
+        signing_input.encode("ascii"),
+        hashlib.sha256,
+    ).digest()
+    return f"{signing_input}.{_b64url(signature)}"
+
+
+def _extract_task_id(data: dict) -> str | None:
+    for key in ("task_id", "id"):
+        if data.get(key):
+            return str(data[key])
+    nested = data.get("data", {})
+    if isinstance(nested, dict):
+        for key in ("task_id", "id"):
+            if nested.get(key):
+                return str(nested[key])
+    return None
+
+
+def _extract_video_url(data: dict, expected_task_id: str | None = None, expected_external_task_id: str | None = None) -> str | None:
+    if data.get("video_url"):
+        return str(data["video_url"])
+    nested = data.get("data", {})
+    if isinstance(nested, list) and nested:
+        for item in nested:
+            if isinstance(item, dict):
+                if expected_task_id and str(item.get("task_id", "")) != str(expected_task_id):
+                    continue
+                if expected_external_task_id:
+                    task_info = item.get("task_info", {})
+                    if isinstance(task_info, dict) and task_info.get("external_task_id") != expected_external_task_id:
+                        continue
+                video_url = _extract_video_url(
+                    {"data": item},
+                    expected_task_id=expected_task_id,
+                    expected_external_task_id=expected_external_task_id,
+                )
+                if video_url:
+                    return video_url
+    if isinstance(nested, dict):
+        if nested.get("video_url"):
+            return str(nested["video_url"])
+        task_result = nested.get("task_result")
+        if isinstance(task_result, dict):
+            if task_result.get("video_url"):
+                return str(task_result["video_url"])
+            videos = task_result.get("videos")
+            if isinstance(videos, list) and videos:
+                first = videos[0]
+                if isinstance(first, dict):
+                    if first.get("video_url"):
+                        return str(first["video_url"])
+                    if first.get("url"):
+                        return str(first["url"])
+            if task_result.get("url"):
+                return str(task_result["url"])
+        resource = nested.get("resource")
+        if isinstance(resource, dict) and resource.get("video_url"):
+            return str(resource["video_url"])
+        videos = nested.get("videos")
+        if isinstance(videos, list) and videos:
+            first = videos[0]
+            if isinstance(first, dict) and first.get("video_url"):
+                return str(first["video_url"])
+            if isinstance(first, dict) and first.get("url"):
+                return str(first["url"])
+    return None
+
+
+def _is_terminal_failure(data: dict) -> bool:
+    text = json.dumps(data, ensure_ascii=False).lower()
+    return any(token in text for token in ["failed", "\"status\":\"fail\"", "\"status\":\"error\""])
+
+
+def _is_still_processing(data: dict) -> bool:
+    text = json.dumps(data, ensure_ascii=False).lower()
+    return any(token in text for token in ["submitted", "processing", "pending", "running", "queue"])
+
+
+def call_kling(prompt: str, session_id: str, output_dir: str, model: str = "kling-v2-6") -> str:
     import requests
 
-    api_key = os.environ.get("KLING_API_KEY")
-    if not api_key:
-        raise RuntimeError("KLING_API_KEY not set")
-
-    endpoint = os.environ.get("KLING_ENDPOINT", "https://api.klingai.com/v1/videos/text2video")
+    base_url = os.environ.get("KLING_BASE_URL", "https://api-singapore.klingai.com").rstrip("/")
+    endpoint = f"{base_url}/v1/videos/text2video"
+    token = _make_kling_token()
+    mode = os.environ.get("KLING_VIDEO_MODE", "std")
+    aspect_ratio = os.environ.get("KLING_ASPECT_RATIO", "16:9")
+    duration = os.environ.get("KLING_DURATION", "10")
+    sound = os.environ.get("KLING_SOUND", "off")
     payload = {
-        "model": model,
+        "model_name": model,
         "prompt": prompt,
-        "duration": 10,
-        "aspect_ratio": "16:9",
+        "duration": str(duration),
+        "aspect_ratio": aspect_ratio,
+        "mode": mode,
+        "sound": sound,
+        "external_task_id": f"{session_id}-{uuid.uuid4().hex[:8]}",
     }
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
     resp = requests.post(endpoint, json=payload, headers=headers, timeout=600)
     resp.raise_for_status()
     data = resp.json()
 
-    video_url = data.get("video_url") or data.get("data", {}).get("video_url")
-    if not video_url:
-        raise RuntimeError(f"No video_url in response: {data}")
+    external_task_id = payload["external_task_id"]
+    video_url = _extract_video_url(data, expected_external_task_id=external_task_id)
+    task_id = _extract_task_id(data)
+
+    if not video_url and not task_id:
+        raise RuntimeError(f"Unexpected create-task response: {data}")
+
+    if not video_url and task_id:
+        query_candidates = [
+            f"{base_url}/v1/videos/text2video/{task_id}",
+            f"{base_url}/v1/videos/text2video?task_id={task_id}",
+            f"{base_url}/v1/videos/text2video?external_task_id={payload['external_task_id']}",
+        ]
+        deadline = time.time() + 60 * 20
+        last_data = data
+        while time.time() < deadline:
+            time.sleep(15)
+            for query_url in query_candidates:
+                try:
+                    poll = requests.get(query_url, headers=headers, timeout=600)
+                except requests.RequestException:
+                    continue
+                if poll.status_code == 404:
+                    continue
+                poll.raise_for_status()
+                last_data = poll.json()
+                video_url = _extract_video_url(
+                    last_data,
+                    expected_task_id=task_id,
+                    expected_external_task_id=external_task_id,
+                )
+                if video_url:
+                    break
+                if _is_terminal_failure(last_data):
+                    raise RuntimeError(f"Kling task failed: {last_data}")
+            if video_url:
+                break
+            if not _is_still_processing(last_data):
+                raise RuntimeError(f"Kling task returned no video_url: {last_data}")
+        if not video_url:
+            raise RuntimeError(f"Kling polling timed out: {last_data}")
 
     os.makedirs(output_dir, exist_ok=True)
     out_path = os.path.join(output_dir, f"{session_id}.mp4")
@@ -68,7 +229,7 @@ def main():
         help="Prompt markdown path (use - for stdin). Omit to batch-process data/prompts/*.md."
     )
     parser.add_argument("--video-dir", default=str(VIDEO_DIR))
-    parser.add_argument("--kling-model", default="kling-v2")
+    parser.add_argument("--kling-model", default="kling-v3")
     parser.add_argument("--dry-run", action="store_true",
                         help="Batch: list prompt files that would be sent. Single: print prompt metadata only.")
     args = parser.parse_args()

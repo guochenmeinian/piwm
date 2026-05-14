@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "inform_comparison_brief",
-    "inform_attributes_brief"
+    "reassure_time_wait",
+    "reassure_decision",
+    "greet_close"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他认为自己已基本确认当前选择没有明显问题，可以继续完成操作。",
-        "desire": "他仍想尽快买到饮料并减少不必要停留。",
-        "intention": "他准备继续伸手完成确认或支付操作。"
+        "belief": "他认为自己已经选定了饮品，并且环境给予了足够自主空间，无需担心被干扰。",
+        "desire": "他想尽快完成操作，避免出错，感到环境支持自助。",
+        "intention": "准备完成购买操作，处于确认后的实施阶段。"
       },
       "risk": "low",
-      "benefit": "medium",
-      "delta_stage": 0.1,
-      "delta_mental": 0.2,
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不介入维持顾客自主和无压力，既不打扰，也无任何心理促进。",
       "action_cost": 0.0,
-      "reward": 0.14,
-      "rationale": "不介入避免打断其已形成的购买动作，让他依靠自我确认自然完成操作。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,122 +60,164 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
+    "reassure_time_wait": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他相信即使当前选择有误也可以返回修改，因此继续确认的风险较低。",
-        "desire": "他快速完成购买的欲望被增强，同时避免按错的顾虑被明显缓解。",
-        "intention": "他准备直接点击确认购买或进入支付，并在必要时使用返回修改。"
+        "belief": "他确认系统正在为他保留选择，无需担心时间压力或他人催促。",
+        "desire": "希望安心操作，避免因匆忙出错。",
+        "intention": "放松心情，更专注于完成购买动作。"
+      },
+      "risk": "very_low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.25,
+      "rationale": "消除时间压力利于增强顾客信任和决断，从而温和推动购买进程。",
+      "action_cost": 0.1,
+      "preference_score": 0.14500000000000002,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "明白即使现在犹豫或者操作出错，仍可以保留候选，降低后悔风险。",
+        "desire": "愿意继续探索，但减少了立即下决定的压力。",
+        "intention": "更从容地准备完成购买，操作时担忧减少。"
       },
       "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.25,
-      "delta_mental": 1.5,
-      "action_cost": 0.3,
-      "reward": 0.82,
-      "rationale": "同时突出确认按钮和可修改退路，会降低操作风险感并催化其完成最后购买动作。",
-      "dialogue_act": "Inform",
+      "benefit": "medium",
+      "delta_stage": 0.15,
+      "delta_mental": 0.3,
+      "rationale": "通过降低决策压力减少顾客犹豫，提升信任感，促进操作行为。",
+      "action_cost": 0.1,
+      "preference_score": 0.19,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
       "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
+        "focus": "decision"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
         "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
+          "action": "show_shortlist_hint",
           "cta": null
         },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
         "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
         "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
+          "focus": "decision"
         },
         "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
+        "response_id": "reassure_decision"
+      }
     },
-    "inform_comparison_brief": {
-      "next_aida_stage": "desire",
+    "greet_close": {
+      "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他意识到还有相似饮品可以比较，当前选择未必是最优。",
-        "desire": "他避免后悔的欲望被激活，但快速完成购买的欲望被削弱。",
-        "intention": "他倾向于暂停支付，先查看或比较其他饮品后再决定。"
+        "belief": "系统流畅提示订单完成并致谢，确认自己已顺利完成购买。",
+        "desire": "希望最后流程顺畅，避免麻烦或遗漏。",
+        "intention": "愿意立刻完成最终确认，顺畅结束购买。"
       },
-      "risk": "medium",
-      "benefit": "low",
-      "delta_stage": -0.33,
-      "delta_mental": -0.4,
-      "action_cost": 0.4,
-      "reward": -0.372,
-      "rationale": "在已准备操作时引入替代比较会放大选择不确定性，使其从购买执行退回到重新权衡。",
-      "dialogue_act": "Inform",
+      "risk": "very_low",
+      "benefit": "high",
+      "delta_stage": 0.3,
+      "delta_mental": 0.45,
+      "rationale": "主动引导顺畅收尾降低出错及遗漏顾虑，正向强化完成购买的信心和体验。",
+      "action_cost": 0.0,
+      "preference_score": 0.345,
+      "response_id": "greet_close",
+      "dialogue_act": "Greet",
       "act_params": {
-        "content_type": "comparison",
-        "depth": "brief"
+        "phase": "close"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "surface_text": "感谢惠顾，祝您使用愉快。",
         "screen": {
-          "action": "show_comparison_or_details",
-          "target": "{candidate_items}",
+          "action": "show_thank_you",
           "cta": null
         },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_comparison_cards",
-        "cabinet_motion": null,
-        "duration_ms": 4000,
-        "dialogue_act": "Inform",
+        "voice_style": "warm",
+        "light": "transaction_complete",
+        "cabinet_motion": "dispense_or_unlock_if_applicable",
+        "duration_ms": 3000,
+        "dialogue_act": "Greet",
         "act_params": {
-          "content_type": "comparison",
-          "depth": "brief"
+          "phase": "close"
         },
         "co_acts": [],
-        "response_id": "inform_comparison_brief"
-      },
-      "response_id": "inform_comparison_brief"
+        "response_id": "greet_close"
+      }
     }
   },
-  "best_action": "inform_attributes_brief",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Inform",
+  "best_action": "greet_close",
+  "response_id": "greet_close",
+  "dialogue_act": "Greet",
   "act_params": {
-    "content_type": "attributes",
-    "depth": "brief"
+    "phase": "close"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "surface_text": "感谢惠顾，祝您使用愉快。",
     "screen": {
-      "action": "show_attribute_table",
-      "target": "{selected_item}",
+      "action": "show_thank_you",
       "cta": null
     },
-    "voice_style": "neutral",
-    "light": "soft_focus_on_attribute_table",
-    "cabinet_motion": null,
-    "duration_ms": 5000,
-    "dialogue_act": "Inform",
+    "voice_style": "warm",
+    "light": "transaction_complete",
+    "cabinet_motion": "dispense_or_unlock_if_applicable",
+    "duration_ms": 3000,
+    "dialogue_act": "Greet",
     "act_params": {
-      "content_type": "attributes",
-      "depth": "brief"
+      "phase": "close"
     },
     "co_acts": [],
-    "response_id": "inform_attributes_brief"
+    "response_id": "greet_close"
   },
-  "response_id": "inform_attributes_brief"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

@@ -1,0 +1,229 @@
+{
+  "session_id": "piwm_778",
+  "persona": "课间赶来便利区的男大学生，想买一款心里早已看中的商品但对是否值得花钱很犹豫。",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色牛仔裤，背着黑色双肩包，手里拿着一部手机和一张校园卡",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "他认为这款商品正符合自己现在的需求，但价格或性价比让他担心买完会后悔。",
+    "desire": "他想确认这次购买是合理和值得的，从而消除决策后悔的顾虑。",
+    "intention": "他倾向于继续盯着目标位置盘算几秒，如果能说服自己值得就准备下单。"
+  },
+  "observable_behavior": "他反复看向同一处位置，又短暂低头看手机，拇指轻轻摩挲校园卡边缘，几次抬手又停住，没有做出最终选择。",
+  "facial_expression": "眉头微皱，嘴唇轻抿，眼神专注但带着明显顾虑，偶尔露出迟疑的神情。",
+  "body_posture": "身体正面朝向镜头，肩膀略向前收，双肘靠近身体，重心在两脚之间轻微来回变化。",
+  "timeline": {
+    "t_0_2": "20岁左右的男大学生站到画面中央，正面朝向镜头，眼睛迅速锁定前方某个位置。",
+    "t_2_5": "他微微皱眉，低头看了一眼手里的手机和校园卡，拇指慢慢摩挲卡片边缘。",
+    "t_5_8": "他再次抬眼盯着同一方向，右手稍微抬起像要操作，却在半空停住，嘴唇抿得更紧。",
+    "t_8_10": "他轻轻吸一口气，身体仍然前倾，眼神在坚定和犹豫之间摇摆，像是在说服自己这次购买是否值得。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_price_brief",
+    "reassure_decision",
+    "reassure_time_wait"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他依然觉得商品匹配需求，但性价比和后悔风险没有变化。",
+        "desire": "依旧想自我说服购买值得，期待有更多线索来帮助决策。",
+        "intention": "还在盘算和犹豫，下单意愿未加强也未减弱。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不给任何干扰，用户可以在完全自主环境中维持现有思考节奏，但难以真正突破心理障碍。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "直接获得了价格和优惠信息，经济性疑虑有所缓解，对理性购买更有把握。",
+        "desire": "想利用当前优惠完成理智决策，减少后悔感和不确定性。",
+        "intention": "准备好进行支付操作，下单意愿显著提升。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.4,
+      "delta_mental": 0.5,
+      "rationale": "快速回应了学生主要心理障碍，通过优惠和促销刺激降低犹豫，直接促进购买转化。",
+      "action_cost": 0.25,
+      "preference_score": 0.36000000000000004,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "感受到商家认可他的犹豫，可先保留选择降低了决策带来的压力。",
+        "desire": "希望以更轻松心态权衡是否出手，无需仓促决定。",
+        "intention": "暂不急于立即下单，但警惕感和后悔压力略减，心理更易向购买过渡。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.2,
+      "rationale": "用体谅和容错信息减轻了下单压力，缓解决策焦虑，但暂时不会直接推进到操作阶段。",
+      "action_cost": 0.1,
+      "preference_score": 0.12000000000000001,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "确认选购空间充足，无时间驱赶，有余地慢慢斟酌价值与得失。",
+        "desire": "安心自我衡量购买带来的满意度，内在牵绊稍有松动。",
+        "intention": "意愿依然盘旋在选择边缘，舒适度提升，但还需内心进一步确证。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.15,
+      "rationale": "消除了时间焦虑，提升决策舒适度，有助于下单，但行动驱动力尚未大幅提升。",
+      "action_cost": 0.1,
+      "preference_score": 0.095,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    }
+  },
+  "best_action": "inform_price_brief",
+  "response_id": "inform_price_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "price",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+    "screen": {
+      "action": "show_price_or_discount",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_price",
+    "cabinet_motion": null,
+    "duration_ms": 3500,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "price",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_price_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

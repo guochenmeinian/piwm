@@ -1,6 +1,6 @@
 # Proactive Intent World Model (PIWM)
 
-轻量版 PIWM 数据合成仓库。它保留 `seed -> manifest -> labeled -> prompts -> video` 的小型生产线，用来快速生成和审阅智能售货机/智能冰箱前置摄像头视角下的顾客行为样本。
+轻量版 PIWM 数据合成仓库。它保留一条交互前视频生成线和一条 action deliberation 标注线，用来快速生成和审阅智能售货机/智能冰箱前置摄像头视角下的顾客行为样本。
 
 当前动作与数据口径：
 
@@ -14,9 +14,11 @@
 ```text
 data/seed/piwm_NNN.txt
   -> script/gen_manifest.py     -> data/manifest/piwm_NNN.json
-  -> script/gen_deliberation.py -> data/labeled/piwm_NNN.json
   -> script/gen_prompt.py       -> data/prompts/piwm_NNN.md
   -> script/gen_video.py        -> data/video/piwm_NNN.mp4
+
+data/manifest/piwm_NNN.json
+  -> script/gen_deliberation.py -> data/labeled/piwm_NNN.json
 ```
 
 ## Directory
@@ -48,9 +50,9 @@ script/
 pip install openai requests
 
 python script/gen_manifest.py "interest 阶段，高犹豫，价格敏感" --id piwm_750
-python script/gen_deliberation.py data/manifest/piwm_750.json
-python script/gen_prompt.py data/labeled/piwm_750.json
+python script/gen_prompt.py data/manifest/piwm_750.json
 KLING_API_KEY=... python script/gen_video.py data/prompts/piwm_750.md
+python script/gen_deliberation.py data/manifest/piwm_750.json
 ```
 
 Normalize labeled files to the current action format:

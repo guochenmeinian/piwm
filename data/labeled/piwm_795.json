@@ -1,0 +1,237 @@
+{
+  "session_id": "piwm_795",
+  "persona": "课间匆忙赶来便利区买饮料的男大学生，准备付款时担心上课时间快到了。",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色牛仔裤，背一个黑色双肩包，手里拿着一部手机",
+  "aida_stage": "action",
+  "bdi": {
+    "belief": "他认为自己已经选好想买的东西，只差完成支付，但担心付款过程会耽误赶回教室的时间。",
+    "desire": "他想尽快确认支付并离开，同时避免因为匆忙而点错或操作失误。",
+    "intention": "他倾向于继续完成支付，但在最后确认前会短暂停顿并再次确认时间是否来得及。"
+  },
+  "observable_behavior": "他双手都在画面内，一手握着手机，另一只手的拇指在手机边缘轻轻停住，视线在前方和手机之间快速切换，动作有短暂停顿但没有后退。",
+  "facial_expression": "眉头轻微皱起，嘴唇抿住，眼神带着赶时间的紧张感和最后确认前的迟疑。",
+  "body_posture": "身体正面朝向镜头，肩膀略微前倾，背包带压在双肩上，站姿稳定但重心轻轻向一侧移动。",
+  "timeline": {
+    "t_0_2": "20岁左右的男性正面站定，低头看了一眼手里的手机，又迅速抬眼看向前方，表情显得有些赶时间。",
+    "t_2_5": "他用拇指在手机边缘轻轻滑动，肩膀微微前倾，眼神在手机和前方之间来回确认。",
+    "t_5_8": "他准备按下确认时突然停住半秒，嘴唇抿紧，眉头轻皱，像是在判断这一步会不会耽误上课。",
+    "t_8_10": "他深吸一口气后放松一点，拇指重新靠近手机操作位置，身体仍面向前方，表现出准备继续完成支付的状态。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "reassure_time_wait",
+    "reassure_decision",
+    "greet_close"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他确信自己可以自主完成付款流程，对程序无压力，依然担心时间，但不被打扰。",
+        "desire": "尽快确认支付、顺利离开，避免犯错。",
+        "intention": "专注完成支付，不受外部影响。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默让顾客完全自主操作，不施加压力，但也未帮助缓解焦虑或推进。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他被明确告知系统会为他保留当前购买，无需担心赶时间导致交易失败或压力太大。",
+        "desire": "确认能够慢慢做选择、不被时间推着走。",
+        "intention": "更安心地完成支付，减少因时间焦虑带来的失误。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.25,
+      "rationale": "主动消除时间焦虑，增强顾客安全感，有助于降低紧张与失误风险。",
+      "action_cost": 0.1,
+      "preference_score": 0.14500000000000002,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他了解到即使现在还不付款，也可以先保留选项，减少因匆忙决策带来的后悔。",
+        "desire": "希望自己有退路，不被迫立即决策。",
+        "intention": "更愿意迅速作决定，因为退路明显，避免拖延。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.2,
+      "rationale": "降低决策压力，减少顾客对操作结果后悔的担忧，促使其更快下单。",
+      "action_cost": 0.1,
+      "preference_score": 0.12000000000000001,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "greet_close": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "系统积极认可他的选择并礼貌致谢，流程顺畅，获得购买完成的即时反馈。",
+        "desire": "感受到交易完成、体验顺畅。",
+        "intention": "操作完毕，正等待取货和结束交易。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": -0.1,
+      "rationale": "提前收尾致谢可能让还未完全确认的顾客感受被催促，略有压力。",
+      "action_cost": 0.0,
+      "preference_score": -0.05,
+      "response_id": "greet_close",
+      "dialogue_act": "Greet",
+      "act_params": {
+        "phase": "close"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "感谢惠顾，祝您使用愉快。",
+        "screen": {
+          "action": "show_thank_you",
+          "cta": null
+        },
+        "voice_style": "warm",
+        "light": "transaction_complete",
+        "cabinet_motion": "dispense_or_unlock_if_applicable",
+        "duration_ms": 3000,
+        "dialogue_act": "Greet",
+        "act_params": {
+          "phase": "close"
+        },
+        "co_acts": [],
+        "response_id": "greet_close"
+      }
+    }
+  },
+  "best_action": "reassure_time_wait",
+  "response_id": "reassure_time_wait",
+  "dialogue_act": "Reassure",
+  "act_params": {
+    "focus": "time"
+  },
+  "co_acts": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "ambient"
+      }
+    }
+  ],
+  "realization": {
+    "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+    "screen": {
+      "action": "show_low_pressure_wait_message",
+      "cta": null
+    },
+    "voice_style": "soft",
+    "light": "low_pressure_idle",
+    "cabinet_motion": null,
+    "duration_ms": 3000,
+    "dialogue_act": "Reassure",
+    "act_params": {
+      "focus": "time"
+    },
+    "co_acts": [
+      {
+        "act": "Hold",
+        "params": {
+          "mode": "ambient"
+        }
+      }
+    ],
+    "response_id": "reassure_time_wait"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

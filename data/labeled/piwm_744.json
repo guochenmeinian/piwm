@@ -1,0 +1,225 @@
+{
+  "session_id": "piwm_744",
+  "persona": "课间路过便利区、被新颖商品吸引但还没弄懂用法的男大学生",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色牛仔裤，双肩背一个黑色书包，手里拿着一部手机",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为面前这款商品外形很新颖，可能有特别的使用方式，但仅凭当前看到的细节还不够理解。",
+    "desire": "他想快速弄清楚商品怎么使用、是否适合课间短时间体验或购买。",
+    "intention": "他倾向于继续停留观察，并期待看到一个简短演示来解答疑惑。"
+  },
+  "observable_behavior": "他长时间盯着前方略低的位置观察细节，偶尔用拇指摩挲手机边缘，另一只手微微抬起又放下，表现出想进一步了解但仍在犹豫。",
+  "facial_expression": "眉头轻皱，眼神专注，嘴唇微微抿住，表情好奇中带着明显迟疑。",
+  "body_posture": "身体正面朝向镜头，上半身略微前倾，双肩稍收，双手保持在胸前到腰间的画面范围内。",
+  "timeline": {
+    "t_0_2": "20岁左右的男大学生从画面前方停住，正面朝向镜头，视线迅速落到前方略低处的商品细节上。",
+    "t_2_5": "他上半身轻轻前倾，眉头微皱，眼睛稳定地扫视细节，拿着手机的手停在胸前没有操作。",
+    "t_5_8": "他抬起空着的手似乎想指向某个细节，又犹豫地收回，嘴唇抿住，目光仍专注停留在同一位置。",
+    "t_8_10": "他低头短暂看一眼手机又抬眼看回前方，保持停留姿态，像是在等待一个简短演示来确认使用方式。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_demo_brief",
+    "elicit_need_focus_open",
+    "inform_attributes_brief"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他依然只能通过外观推测功能，缺乏直接引导或演示，虽然不受打扰但疑惑未减。",
+        "desire": "依旧希望快速掌握用途，未获得新线索。",
+        "intention": "继续短时观察等待，若迟迟无反馈则可能离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "设备未介入，维持自主氛围但无法及时解疑，对提升兴趣或信任无积极贡献。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "简短功能演示清楚展现商品用途和关键玩法，减少理解难度并增强可用性认知。",
+        "desire": "解决核心疑惑后，开始渴望亲自尝试或拥有该商品。",
+        "intention": "准备靠近或询问操作，对购买产生实际考虑。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.4,
+      "delta_mental": 0.5,
+      "rationale": "快速外显功能，直接打消疑虑并增强信任，有效推进兴趣向需求转化。",
+      "action_cost": 0.4,
+      "preference_score": 0.33,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "被友好提问引导关注自身需求点，感知到设备尊重其选择权但仍未直接解答用法困惑。",
+        "desire": "欲望转向主动表达关注点，但若迟迟无用法说明可能失望减弱兴趣。",
+        "intention": "犹豫或简要反馈自己的关切，期待能通过互动获得更定向信息。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.1,
+      "rationale": "开放式提问增强自主感，但若不能迅速切到核心需求，易使兴趣分散或流失。",
+      "action_cost": 0.2,
+      "preference_score": 0.05,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "主要参数列表让他对目标定位、适合人群有初步了解，但对实际用法的直观认知有限。",
+        "desire": "对商品适合性和核心卖点兴趣略有增强，但核心操作疑问未解。",
+        "intention": "考虑是否进一步留意功能细节或等待更多演示信息。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.15,
+      "delta_mental": 0.15,
+      "rationale": "简要参数降低信息门槛，部分缓解犹豫但不及演示直接有效。",
+      "action_cost": 0.25,
+      "preference_score": 0.085,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    }
+  },
+  "best_action": "inform_demo_brief",
+  "response_id": "inform_demo_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "demo",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+    "screen": {
+      "action": "play_short_demo",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "focus_on_demo_area",
+    "cabinet_motion": null,
+    "duration_ms": 8000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "demo",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_demo_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

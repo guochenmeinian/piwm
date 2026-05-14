@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "inform_attributes_brief",
-    "inform_attributes_brief"
+    "reassure_time_wait",
+    "reassure_decision",
+    "greet_close"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他仍认为自己基本选定商品，并可自行完成最后确认。",
-        "desire": "他继续希望不耽误晚自习，尽快完成购买。",
-        "intention": "他会按照当前节奏短暂停顿后继续点击确认或付款。"
+        "belief": "自己已准备好操作，能自主完成，不受外界干扰。",
+        "desire": "尽快自主完成购买，不需额外提示或压力。",
+        "intention": "直接专注下单和支付操作。"
       },
       "risk": "low",
-      "benefit": "medium",
-      "delta_stage": 0.08,
-      "delta_mental": 0.1,
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "保持静默让顾客自主决定，既不增加压力，也不会给积极助力，心理状态保持平稳。",
       "action_cost": 0.0,
-      "reward": 0.082,
-      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率依靠自身确认继续完成操作。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,81 +60,164 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "desire",
+    "reassure_time_wait": {
+      "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他可能怀疑当前操作存在问题或自己是否需要人工协助。",
-        "desire": "他仍想尽快买完饮品，但会短暂权衡继续自助还是寻求帮助。",
-        "intention": "他可能暂停当前确认动作，重新判断是否继续自助完成购买。"
+        "belief": "系统正在为自己预留，无需担心错过时间；可以安心确认。",
+        "desire": "希望确认过程无时间催促，能轻松完成购买。",
+        "intention": "放下时间焦虑，安心完成后续操作。"
       },
-      "risk": "high",
-      "benefit": "low",
-      "delta_stage": -0.33,
-      "delta_mental": -0.9,
-      "action_cost": 0.55,
-      "reward": -0.6370000000000001,
-      "rationale": "在最后确认阶段主动提出人工帮助会暗示流程异常，打断其购买节奏并增加犹豫。",
-      "dialogue_act": "Inform",
+      "risk": "low",
+      "benefit": "moderate",
+      "delta_stage": 0.1,
+      "delta_mental": 0.2,
+      "rationale": "柔性提示保留消除时间压力，有助于稳定顾客决策情绪，稍微提升舒适度和专注感。",
+      "action_cost": 0.1,
+      "preference_score": 0.12000000000000001,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
       "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "做决定无压力、可灵活保留不会立刻失去当前选择。",
+        "desire": "希望避免决定失误造成后悔，倾向谨慎确认。",
+        "intention": "准备完成操作，继续推进购买流程。"
+      },
+      "risk": "low",
+      "benefit": "moderate",
+      "delta_stage": 0.15,
+      "delta_mental": 0.25,
+      "rationale": "明确提示可保留降低顾客后悔风险，帮助顾客坚定决策，推进购买流程。",
+      "action_cost": 0.1,
+      "preference_score": 0.16499999999999998,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
         "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
+          "action": "show_shortlist_hint",
           "cta": null
         },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
         "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
         "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
+          "focus": "decision"
         },
         "co_acts": [],
-        "response_id": "inform_attributes_brief"
+        "response_id": "reassure_decision"
+      }
+    },
+    "greet_close": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "购买即将完成，流程顺畅有礼。",
+        "desire": "希望顺利结束并获得正向确认。",
+        "intention": "完成支付和领取商品。"
       },
-      "response_id": "inform_attributes_brief"
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.3,
+      "delta_mental": 0.35,
+      "rationale": "自动致谢与出货收尾匹配此时意图，强化正向体验，推动流程直达完成。",
+      "action_cost": 0.0,
+      "preference_score": 0.295,
+      "response_id": "greet_close",
+      "dialogue_act": "Greet",
+      "act_params": {
+        "phase": "close"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "感谢惠顾，祝您使用愉快。",
+        "screen": {
+          "action": "show_thank_you",
+          "cta": null
+        },
+        "voice_style": "warm",
+        "light": "transaction_complete",
+        "cabinet_motion": "dispense_or_unlock_if_applicable",
+        "duration_ms": 3000,
+        "dialogue_act": "Greet",
+        "act_params": {
+          "phase": "close"
+        },
+        "co_acts": [],
+        "response_id": "greet_close"
+      }
     }
   },
-  "best_action": "inform_attributes_brief",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Inform",
+  "best_action": "greet_close",
+  "response_id": "greet_close",
+  "dialogue_act": "Greet",
   "act_params": {
-    "content_type": "attributes",
-    "depth": "brief"
+    "phase": "close"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "surface_text": "感谢惠顾，祝您使用愉快。",
     "screen": {
-      "action": "show_attribute_table",
-      "target": "{selected_item}",
+      "action": "show_thank_you",
       "cta": null
     },
-    "voice_style": "neutral",
-    "light": "soft_focus_on_attribute_table",
-    "cabinet_motion": null,
-    "duration_ms": 5000,
-    "dialogue_act": "Inform",
+    "voice_style": "warm",
+    "light": "transaction_complete",
+    "cabinet_motion": "dispense_or_unlock_if_applicable",
+    "duration_ms": 3000,
+    "dialogue_act": "Greet",
     "act_params": {
-      "content_type": "attributes",
-      "depth": "brief"
+      "phase": "close"
     },
     "co_acts": [],
-    "response_id": "inform_attributes_brief"
+    "response_id": "greet_close"
   },
-  "response_id": "inform_attributes_brief"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

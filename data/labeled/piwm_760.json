@@ -1,0 +1,225 @@
+{
+  "session_id": "piwm_760",
+  "persona": "下班路过办公楼便利区的年轻白领女性，已经看中一款想买的商品但还在犹豫是否现在购买。",
+  "persona_visual": "27岁左右的女性，黑色中长发低马尾，穿浅灰色西装外套和白色衬衫，肩背米色通勤包，手里拿着手机和门禁卡",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "她认为眼前这款商品很符合自己下班后的即时需求，品质和口味都可能让她满意。",
+    "desire": "她想买下这款自己明显喜欢的商品，作为下班路上的轻松奖励。",
+    "intention": "她倾向于购买，但还需要一个温和的推荐或确认来打消“要不要现在买”的最后犹豫。"
+  },
+  "observable_behavior": "她的视线长时间停留在前方同一位置，偶尔短暂移开又回到原处，手指轻轻摩挲手机边缘，表现出想买但仍在确认的状态。",
+  "facial_expression": "表情温和而专注，嘴角有轻微上扬，眉头偶尔轻皱，显示出喜欢但仍有中等程度犹豫。",
+  "body_posture": "身体正面朝向镜头微微前倾，双肩放松，双手保持在胸前到腰间画面内，一手握手机一手轻扶包带。",
+  "timeline": {
+    "t_0_2": "这位27岁左右的女性走近后停在画面中央，正面看向前方，双手都在画面内，右手握着手机。",
+    "t_2_5": "她的目光稳定停留在前方某一点，嘴角轻轻上扬，左手轻扶米色通勤包带，身体微微前倾。",
+    "t_5_8": "她短暂垂眼看了一下手里的手机，又抬眼回到原来的注视方向，手指轻轻摩挲手机边缘，眉头略微收紧。",
+    "t_8_10": "她深吸一口气般轻轻抿唇，重新放松表情并保持注视，像是在等待一个温和确认后做出购买决定。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "reassure_decision",
+    "reassure_time_wait",
+    "recommend_soft"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她持续确认商品符合自己的需求，但犹豫未被进一步缓解。",
+        "desire": "继续有购买倾向，但未得到新刺激。",
+        "intention": "维持轻度购买意图，等待更多自我确认。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "维持现状不给干扰，保证自主空间但不主动消除顾客的最后犹豫。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她相信可以先保留候选，没必要马上做决定，消除了后悔和焦虑感。",
+        "desire": "对购买的愿望变得积极明确。",
+        "intention": "准备直接进行购买操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.4,
+      "delta_mental": 0.5,
+      "rationale": "通过温和表达“可以保留候选”，大幅降低顾客决策压力，使其达到无犹豫的购前状态。",
+      "action_cost": 0.1,
+      "preference_score": 0.39,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她感受到没有时间催促，可以安心做决定。",
+        "desire": "因环境宽松而自然而然选择购买。",
+        "intention": "明确准备进行购买。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.4,
+      "rationale": "消除顾客的时间焦虑，提供心理安全感，使其进入准备购买的心态。",
+      "action_cost": 0.1,
+      "preference_score": 0.312,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "recommend_soft": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她得到温和确认，确信所选商品确实适合自己，信心稳定提升。",
+        "desire": "购买意愿被进一步肯定。",
+        "intention": "直接迈入下单购买行为。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.5,
+      "delta_mental": 0.6,
+      "rationale": "温和推荐帮助顾客完成最后确认，直接推动产生下单动作。",
+      "action_cost": 0.45,
+      "preference_score": 0.41,
+      "response_id": "recommend_soft",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "response_id": "recommend_soft"
+      }
+    }
+  },
+  "best_action": "recommend_soft",
+  "response_id": "recommend_soft",
+  "dialogue_act": "Recommend",
+  "act_params": {
+    "pressure": "soft"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+    "screen": {
+      "action": "highlight_recommended_item",
+      "target": "{recommended_item}",
+      "cta": null
+    },
+    "voice_style": "soft",
+    "light": "gentle_highlight",
+    "cabinet_motion": null,
+    "duration_ms": 4500,
+    "dialogue_act": "Recommend",
+    "act_params": {
+      "pressure": "soft"
+    },
+    "co_acts": [],
+    "response_id": "recommend_soft"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

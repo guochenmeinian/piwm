@@ -1,0 +1,225 @@
+{
+  "session_id": "piwm_803",
+  "persona": "第一次使用智能售货设备的退休老人，在社区便利区被一款饮品吸引后停下来进一步了解。",
+  "persona_visual": "68岁左右的男性，短灰发，穿浅灰色针织开衫和米色休闲长裤，胸前挂着老花镜，手里拿着一个深色布质购物袋",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为这款饮品看起来适合尝试，但还不清楚容量、口味和适合人群等基础信息。",
+    "desire": "他想用简明易懂的参数说明判断这款饮品是否适合自己购买。",
+    "intention": "他倾向继续查看信息并比较关键属性，暂时还没有立刻下单。"
+  },
+  "observable_behavior": "他站在设备前停留，视线在镜头下方轻微左右移动，偶尔抬手扶老花镜，另一只手攥着购物袋，动作缓慢而带有中等犹豫。",
+  "facial_expression": "表情专注但略显困惑，眉头轻轻皱起，嘴唇微抿，没有明显焦躁。",
+  "body_posture": "身体正面朝向镜头，微微前倾，肩膀放松，双手始终在画面内，一手靠近胸前扶眼镜，一手垂在身前握着购物袋。",
+  "timeline": {
+    "t_0_2": "这位68岁左右的男性正面站定，微微前倾看向镜头下方，手里的深色布质购物袋停在身前。",
+    "t_2_5": "他轻轻抬手扶了一下胸前的老花镜，视线缓慢左右移动，像是在寻找容量和口味等基础信息。",
+    "t_5_8": "他眉头略皱，嘴唇微抿，手指在购物袋提手上轻轻摩挲，表现出想继续了解但仍有些拿不准。",
+    "t_8_10": "他重新把视线停在镜头下方某一点，身体保持前倾，神情专注，像是在等待更简明的属性说明后再决定。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_demo_brief",
+    "elicit_need_focus_open"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他依然觉得饮品看起来适合尝试，但对容量和适用人群等基础信息依旧不清楚。",
+        "desire": "他仍希望获得简明的参数说明来判断是否购买。",
+        "intention": "继续停留观察，可能在等待信息出现或自己尝试摸索界面。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "没有主动干预，顾客体验到自主空间，但疑问信息未得到改善，心理状态基本不变。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他对饮品的容量、口味和适合人群有了直观了解，觉得信息清晰易懂。",
+        "desire": "进一步根据显示的参数权衡是否适合自己，需要斟酌。",
+        "intention": "考虑实际是否要购买，心理更靠近决策。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.4,
+      "delta_mental": 0.6,
+      "rationale": "简明的参数展示直接响应了顾客对清晰信息的期待，降低犹豫，提升判断信心，使心理更接近实际购买欲望。",
+      "action_cost": 0.25,
+      "preference_score": 0.41000000000000003,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他对饮品的功能特点有了更直观的了解，但对具体容量和适合人群的基础疑问只部分解答。",
+        "desire": "希望将产品演示和参数信息结合起来综合判断适用性。",
+        "intention": "兴趣略有提升，但仍需补全关键决策信息。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.2,
+      "delta_mental": 0.2,
+      "rationale": "通过演示动画一定程度消除对产品新奇性的疑虑，但如不涉及具体参数，核心决策点只得到部分满足，可能留下小疑问。",
+      "action_cost": 0.4,
+      "preference_score": 0.1,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他感觉被设备体贴地询问关心点，有助于明确后续要查看的信息类型。",
+        "desire": "有兴趣主动表达关注点，比如容量或适用人群，期望界面快速响应。",
+        "intention": "准备选择最关心的方面，积极配合获取目标信息。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.2,
+      "delta_mental": 0.3,
+      "rationale": "开放式引导能唤起老人主动表达意愿，增强掌控感，并让信息更贴合自身需要，为后续参数展示创造契机。",
+      "action_cost": 0.2,
+      "preference_score": 0.19,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    }
+  },
+  "best_action": "inform_attributes_brief",
+  "response_id": "inform_attributes_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_attributes_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

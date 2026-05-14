@@ -1,0 +1,226 @@
+{
+  "session_id": "piwm_727",
+  "persona": "路过便利零售区、赶着去办事的中年男性。",
+  "persona_visual": "45 岁左右的男性，短黑发夹杂少量灰发，穿浅灰色夹克和深色休闲裤，右肩背一个黑色斜挎包，手里拿着一部手机。",
+  "aida_stage": "attention",
+  "bdi": {
+    "belief": "他认为前方设备可能只是普通补给点，暂时看不出有值得停下来的理由。",
+    "desire": "他更想保持原本行程，只在确实方便且有明确需要时才考虑停留。",
+    "intention": "他倾向于简单看一眼后继续向前走，不进行进一步查看或操作。"
+  },
+  "observable_behavior": "他经过时短暂放慢脚步，视线在前方停留约两秒，双手始终自然垂在身前或握着手机，没有伸手选择或靠近操作，随后继续向前移动并安静离开画面。",
+  "facial_expression": "表情平静偏冷淡，眉眼没有明显变化，嘴唇自然闭合，没有表现出兴趣被激活的神情。",
+  "body_posture": "身体保持正面朝向镜头，肩膀略微前倾但不靠近，步伐连续而克制，整体姿态像是路过时短暂停顿后继续前行。",
+  "timeline": {
+    "t_0_2": "45 岁左右的男性正面走入画面，浅灰色夹克和黑色斜挎包清晰可见，视线短暂落在前方。",
+    "t_2_5": "他脚步略微放慢，眼睛平静地扫视前方约两秒，右手握着手机停在身前，没有任何伸手动作。",
+    "t_5_8": "他的表情仍然没有明显兴趣变化，目光从前方移回行进方向，脚步重新变得连贯。",
+    "t_8_10": "他保持沉默继续向前移动，身体正面逐渐离开画面，没有回头也没有进行任何操作。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "hold_ambient",
+    "elicit_need_focus_open",
+    "inform_demo_brief"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "他认为设备对路过用户没有强行推销，自己可以自由选择是否停留。",
+        "desire": "保持原有节奏，不受打扰，更倾向继续前行。",
+        "intention": "保持观察后离开，不产生进一步接触意愿。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "非介入保持顾客舒适的自主空间，既不激发兴趣也无退感。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "hold_ambient": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "设备主动表示不会打扰，确认其不会积极推销。",
+        "desire": "更安心地忽略设备，继续原有行程。",
+        "intention": "无意继续了解或停留，准备直接离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.05,
+      "rationale": "主动退出让顾客更坚定原计划，不反感但也无兴趣提升，有轻微疏离感。",
+      "action_cost": 0.05,
+      "preference_score": -0.05500000000000001,
+      "response_id": "hold_ambient",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "ambient"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您慢慢看，需要时我再帮您。",
+        "screen": {
+          "action": "return_to_attract_loop",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
+        "cabinet_motion": null,
+        "duration_ms": 2500,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "ambient"
+        },
+        "co_acts": [],
+        "response_id": "hold_ambient"
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备具备主动理解顾客需求的能力，或许有精准匹配的内容可推荐。",
+        "desire": "感受到被理解的可能，微弱好奇心激活，对某一方面内容可能产生点兴趣。",
+        "intention": "可能短暂停下考虑是否进一步了解某项功能。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.15,
+      "rationale": "开放式引导适度介入，有机会激活兴趣但对赶路顾客略带打扰，效果正向但有限。",
+      "action_cost": 0.2,
+      "preference_score": 0.167,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备直接具象展示亮点，证明产品可能值得一看。",
+        "desire": "首次被某个新颖功能或卖点吸引，存在兴趣被快速激活的机会。",
+        "intention": "或许会短暂停顿进一步观察动画演示内容。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.28,
+      "delta_mental": 0.12,
+      "rationale": "直观演示有效传递卖点，略冒进但有助于刺激兴趣，部分顾客会感到节奏太快。",
+      "action_cost": 0.4,
+      "preference_score": 0.092,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
+    }
+  },
+  "best_action": "elicit_need_focus_open",
+  "response_id": "elicit_need_focus_open",
+  "dialogue_act": "Elicit",
+  "act_params": {
+    "openness": "open",
+    "slot": "need_focus"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+    "screen": {
+      "action": "show_choice_bubbles",
+      "choices": [
+        "价格",
+        "功能",
+        "场景"
+      ],
+      "cta": null
+    },
+    "voice_style": "curious",
+    "light": "soft_invitation",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Elicit",
+    "act_params": {
+      "openness": "open",
+      "slot": "need_focus"
+    },
+    "co_acts": [],
+    "response_id": "elicit_need_focus_open"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

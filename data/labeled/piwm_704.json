@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "inform_comparison_brief",
-    "elicit_need_focus_open"
+    "hold_ambient",
+    "elicit_need_focus_open",
+    "inform_demo_brief"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "attention",
       "next_bdi": {
-        "belief": "她仍认为设备可能有可看的内容，但相关性和购买价值尚未被确认。",
-        "desire": "她仍想用很短时间判断是否值得继续停留。",
-        "intention": "她会再观察几秒，若没有快速发现有用信息，可能转身离开。"
+        "belief": "她感知设备没有主动打扰，可以放心自行观察，但获得的信息量有限，对产品内容仍缺乏明确印象。",
+        "desire": "继续用自主方式判断是否有吸引自己的商品。",
+        "intention": "短暂停留，评估是否值得进一步靠近或点击操作。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": 0.08,
-      "delta_mental": 0.1,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默让顾客保持自主感，无干扰，但缺乏驱动，仅维持当前关注状态。",
       "action_cost": 0.0,
-      "reward": 0.082,
-      "rationale": "沉默不会打扰她，但也无法补足相关性信念，只能让她自然维持短暂注意。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,105 +60,61 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "interest",
+    "hold_ambient": {
+      "next_aida_stage": "attention",
       "next_bdi": {
-        "belief": "她会相信设备里可能有适合下班途中快速购买的饮品或小食，并且浏览成本不高。",
-        "desire": "她想进一步确认是否有符合自己口味和即时需求的选项。",
-        "intention": "她倾向靠近屏幕或继续看清具体品类与价格。"
+        "belief": "她感受到设备主动退出互动，没有压力，但也未获得新的吸引点，对内容兴趣并未增加。",
+        "desire": "仍希望设备能显示些适合她需求的提示，但没有因此更快下决心。",
+        "intention": "倾向保持观望，静观其变。"
       },
       "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.33,
-      "delta_mental": 1.2,
-      "action_cost": 0.25,
-      "reward": 0.707,
-      "rationale": "用“下班路上饮品/轻食”补足需求相关性信念，激活快速判断欲望，使她从注意转向兴趣。",
-      "dialogue_act": "Inform",
+      "benefit": "neutral",
+      "delta_stage": -0.05,
+      "delta_mental": -0.05,
+      "rationale": "主动退出虽保护顾客自主感，但可能略减弱吸引力，轻微降低兴趣。",
+      "action_cost": 0.05,
+      "preference_score": -0.05500000000000001,
+      "response_id": "hold_ambient",
+      "dialogue_act": "Hold",
       "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
+        "mode": "ambient"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "surface_text": "您慢慢看，需要时我再帮您。",
         "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
+          "action": "return_to_attract_loop",
           "cta": null
         },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
         "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
+        "duration_ms": 2500,
+        "dialogue_act": "Hold",
         "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
+          "mode": "ambient"
         },
         "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
-    },
-    "inform_comparison_brief": {
-      "next_aida_stage": "interest",
-      "next_bdi": {
-        "belief": "她会认为设备已经把热门饮品、轻食、价格和标签整理出来，能帮助她快速比较。",
-        "desire": "她想在几个候选中找出最适合当前状态的一项。",
-        "intention": "她倾向停留更久，查看两三个推荐选项并进行初步比较。"
-      },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.28,
-      "delta_mental": 0.7,
-      "action_cost": 0.4,
-      "reward": 0.42199999999999993,
-      "rationale": "直接给出简明对比能降低选择搜索成本，但在注意阶段信息量略高，可能带来轻微推销感。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "comparison",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
-        "screen": {
-          "action": "show_comparison_or_details",
-          "target": "{candidate_items}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_comparison_cards",
-        "cabinet_motion": null,
-        "duration_ms": 4000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "comparison",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "response_id": "inform_comparison_brief"
-      },
-      "response_id": "inform_comparison_brief"
+        "response_id": "hold_ambient"
+      }
     },
     "elicit_need_focus_open": {
       "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她会觉得自己可以先随意浏览，不必马上购买或承担承诺。",
-        "desire": "她的防备感下降，更愿意确认设备是否有值得看的商品。",
-        "intention": "她倾向稍微靠近或轻触开始浏览，但仍保留随时离开的选择。"
+        "belief": "她意识到设备在主动询问她的关注点，觉得被理解且有参与感，开始思考自己是更在意功能、价格还是场景。",
+        "desire": "尝试表达自己的需求导向，从而获取更针对性信息。",
+        "intention": "考虑选择某一关注点进行进一步探索。"
       },
-      "risk": "low",
-      "benefit": "medium",
-      "delta_stage": 0.25,
-      "delta_mental": 0.9,
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 0.4,
+      "rationale": "开放式引导激活顾客内在需求思考，显著推进到兴趣阶段，但若太快可能有小部分顾客感到节奏稍快。",
       "action_cost": 0.2,
-      "reward": 0.53,
-      "rationale": "强调无压力浏览能抑制被推销的顾虑并提升信任，使她更愿意从观察进入轻度探索。",
+      "preference_score": 0.29200000000000004,
+      "response_id": "elicit_need_focus_open",
       "dialogue_act": "Elicit",
       "act_params": {
         "openness": "open",
@@ -186,40 +143,84 @@
         },
         "co_acts": [],
         "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她被简洁明快的动画和简短解说所吸引，快速把握了主打功能，对设备可提供的商品种类或新奇性有了初步认识。",
+        "desire": "进一步了解设备能带来哪些方便或特色，为自己下班购买提供选择依据。",
+        "intention": "倾向于仔细观看演示内容，并思考接下来是否互动。"
       },
-      "response_id": "elicit_need_focus_open"
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": 0.2,
+      "rationale": "短演示吸引视觉注意力，帮助构建商品初印象并降低疑惑，但若顾客尚未准备好或需求模糊，过多展示可能略微造成信息负担。",
+      "action_cost": 0.4,
+      "preference_score": 0.13999999999999999,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
     }
   },
-  "best_action": "inform_attributes_brief",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Inform",
+  "best_action": "elicit_need_focus_open",
+  "response_id": "elicit_need_focus_open",
+  "dialogue_act": "Elicit",
   "act_params": {
-    "content_type": "attributes",
-    "depth": "brief"
+    "openness": "open",
+    "slot": "need_focus"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
     "screen": {
-      "action": "show_attribute_table",
-      "target": "{selected_item}",
+      "action": "show_choice_bubbles",
+      "choices": [
+        "价格",
+        "功能",
+        "场景"
+      ],
       "cta": null
     },
-    "voice_style": "neutral",
-    "light": "soft_focus_on_attribute_table",
+    "voice_style": "curious",
+    "light": "soft_invitation",
     "cabinet_motion": null,
     "duration_ms": 5000,
-    "dialogue_act": "Inform",
+    "dialogue_act": "Elicit",
     "act_params": {
-      "content_type": "attributes",
-      "depth": "brief"
+      "openness": "open",
+      "slot": "need_focus"
     },
     "co_acts": [],
-    "response_id": "inform_attributes_brief"
+    "response_id": "elicit_need_focus_open"
   },
-  "response_id": "inform_attributes_brief"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

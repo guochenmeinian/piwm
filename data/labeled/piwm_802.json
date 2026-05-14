@@ -1,0 +1,229 @@
+{
+  "session_id": "piwm_802",
+  "persona": "下班路过便利区、想快速补充精力的年轻白领男性。",
+  "persona_visual": "28岁左右的男性，短黑发，穿浅灰色衬衫和深色西裤，胸前挂着工牌，肩上背一个黑色通勤包，手里拿着手机。",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "他认为那款功能型饮品可能适合下班后提神，但不确定当前价格是否划算。",
+    "desire": "他想在不花冤枉钱的前提下，尽快确认是否值得购买这款功能型商品。",
+    "intention": "他倾向于先获取简短明确的价格信息，如果价格可接受就继续购买。"
+  },
+  "observable_behavior": "他站在设备前停留，视线在偏上的目标位置和偏下的价格位置之间来回切换，右手握着手机，左手手指轻轻摩挲袖口，动作克制但显出犹豫。",
+  "facial_expression": "眉头轻微收紧，嘴唇抿住，眼神专注而迟疑，表情带有中高程度的权衡感。",
+  "body_posture": "身体正面朝向镜头，肩膀略向前倾，双脚站稳，头部小幅上下转动，双手始终保持在画面内。",
+  "timeline": {
+    "t_0_2": "这名穿浅灰色衬衫的年轻男性停在画面中央，抬眼看向偏上的目标位置，身体微微前倾。",
+    "t_2_5": "他的视线下移到偏下的价格位置，眉头轻轻皱起，握着手机的右手停在胸前没有操作。",
+    "t_5_8": "他再次抬眼看向目标位置，又迅速低头确认价格方向，左手手指轻轻摩挲袖口，显得在计算是否划算。",
+    "t_8_10": "他保持正面站姿，目光停在偏下的价格位置，嘴唇微抿，像是在等待一个简短价格信息后再做决定。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_price_brief",
+    "reassure_decision",
+    "reassure_time_wait"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "仍确认商品有提神功能但价格是否划算未知，仍在权衡。",
+        "desire": "希望尽快获知价格，但可以接受自主决策。",
+        "intention": "观望等待是否会出现价格提示，准备自己做决定。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不介入让顾客继续保持权衡状态，无正负触发。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "已确认该功能型饮品当前售价（及优惠）是否划算，商品实用价值和支出一目了然。",
+        "desire": "愿意迅速决策，减少犹豫和时间消耗。",
+        "intention": "若价格合意则马上进行购买操作。"
+      },
+      "risk": "very low",
+      "benefit": "high",
+      "delta_stage": 0.4,
+      "delta_mental": 0.5,
+      "rationale": "直接满足顾客对价格明确信息的需求，打消犹豫感，使其有信心进入购买。",
+      "action_cost": 0.25,
+      "preference_score": 0.36000000000000004,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "觉得可以不用急于下决心、当前选项可被保留，一时不选也不会错失机会。",
+        "desire": "依然想获得价格信息以决策，但心理压力略有缓解。",
+        "intention": "暂缓决策，可能期待随后有更多信息（如优惠或对比），但短期内不急于离开。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.2,
+      "rationale": "缓冲顾客的决策压力，提升安全感但未解决核心价格疑虑，降低流失概率。",
+      "action_cost": 0.1,
+      "preference_score": 0.12000000000000001,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "感觉自己有足够时间权衡，不担心错失优惠或被催促。",
+        "desire": "仍需价格等明确信息，但时间焦虑降低。",
+        "intention": "打算慢慢考虑，或等待下一步提示，但未明确走向购买动作。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.05,
+      "delta_mental": 0.15,
+      "rationale": "安心时间管理，有助于减轻压力但未显著解决决策关键，温和正向影响。",
+      "action_cost": 0.1,
+      "preference_score": 0.075,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    }
+  },
+  "best_action": "inform_price_brief",
+  "response_id": "inform_price_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "price",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+    "screen": {
+      "action": "show_price_or_discount",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_price",
+    "cabinet_motion": null,
+    "duration_ms": 3500,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "price",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_price_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

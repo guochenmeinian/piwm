@@ -1,0 +1,225 @@
+{
+  "session_id": "piwm_763",
+  "persona": "下班后路过便利区的年轻白领女性，已经选定想买的饮品，只差最后一步确认。",
+  "persona_visual": "27岁左右的女性，黑色中长发低马尾，穿浅灰色西装外套和白色衬衫，肩背一个米色通勤包，手里拿着手机和门禁卡",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "她已经充分了解并认可这款商品，认为它符合自己下班后补充能量的需求。",
+    "desire": "她希望得到一个明确而坚定的推荐，让自己无需再比较就可以放心购买。",
+    "intention": "如果接收到强推荐信号，她会立刻完成最后的确认动作。"
+  },
+  "observable_behavior": "她的视线稳定停留在正前方同一位置，几乎不再左右比较，右手拇指轻轻摩擦手机边缘，随后手指逐渐收紧，表现出即将确认的状态。",
+  "facial_expression": "表情平静但带有明确期待，眉头放松，嘴角轻微上扬，犹豫感很低。",
+  "body_posture": "身体正面朝向镜头，站姿稳定，上半身微微前倾，双手保持在胸前到腰前的画面范围内，姿态放松且接近行动。",
+  "timeline": {
+    "t_0_2": "这位27岁左右的女性正面站定，目光直接落在前方，右手拿着手机，左手扶着肩上的米色通勤包带。",
+    "t_2_5": "她轻轻点头一次，视线没有移开，右手拇指在手机边缘短暂停住，像是在等待最后确认。",
+    "t_5_8": "她的表情变得更笃定，嘴角微微上扬，身体向前倾了一点，双手仍清楚地保持在画面内。",
+    "t_8_10": "她收紧右手手指并微微抬手，露出准备立即确认的动作，目光坚定地停在正前方。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "reassure_decision",
+    "reassure_time_wait",
+    "recommend_firm"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她已经充分了解并认可这款商品，认为它符合自己下班后补充能量的需求。",
+        "desire": "她希望得到一个明确而坚定的推荐，让自己无需再比较就可以放心购买。",
+        "intention": "如果接收到强推荐信号，她会立刻完成最后的确认动作。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默不介入有助于维持顾客低压力和自控氛围，但未向前推进其临门一脚的购买决心。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她对商品的认可未变，并进一步确信自己的选择无须担忧后悔。",
+        "desire": "她安心自信，愿意在没有压力下自主完成最终确认。",
+        "intention": "若感受决策时间可控，将更加放松地推进购买。"
+      },
+      "risk": "very low",
+      "benefit": "medium",
+      "delta_stage": 0.15,
+      "delta_mental": 0.18,
+      "rationale": "轻度安抚降低最后一丝顾虑，为决策制造安全感，进一步巩固其行动意向。",
+      "action_cost": 0.1,
+      "preference_score": 0.13,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她感知到时间上并无压力，无需急于做决定。",
+        "desire": "缓解了行动急迫感，可以更加从容和自信地确认购买。",
+        "intention": "在无时限压力下，她自行决定何时完成确认。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.13,
+      "rationale": "时间宽裕的信号减少顾客可能的焦虑，提升信任但不会主动推动动作。",
+      "action_cost": 0.1,
+      "preference_score": 0.085,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "recommend_firm": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "明确收到系统强有力的推荐，与自己判断高度一致，确信可直接购买无须犹豫。",
+        "desire": "拥有坚实外部背书后，愿意立即迈向付诸行动。",
+        "intention": "准备直接点击/操作完成购买。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.8,
+      "delta_mental": 0.65,
+      "rationale": "强推与其心理预期高度一致，消除了最后疑虑直接驱动行动，但推销感较明显须避免过度。",
+      "action_cost": 0.65,
+      "preference_score": 0.515,
+      "response_id": "recommend_firm",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "pressure": "firm"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "这款最适合您，建议直接选这款。",
+        "screen": {
+          "action": "highlight_single_item_with_cta",
+          "target": "{recommended_item}",
+          "cta": "buy_now"
+        },
+        "voice_style": "assertive",
+        "light": "strong_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "pressure": "firm"
+        },
+        "co_acts": [],
+        "response_id": "recommend_firm"
+      }
+    }
+  },
+  "best_action": "recommend_firm",
+  "response_id": "recommend_firm",
+  "dialogue_act": "Recommend",
+  "act_params": {
+    "pressure": "firm"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "这款最适合您，建议直接选这款。",
+    "screen": {
+      "action": "highlight_single_item_with_cta",
+      "target": "{recommended_item}",
+      "cta": "buy_now"
+    },
+    "voice_style": "assertive",
+    "light": "strong_highlight",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Recommend",
+    "act_params": {
+      "pressure": "firm"
+    },
+    "co_acts": [],
+    "response_id": "recommend_firm"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

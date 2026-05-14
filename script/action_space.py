@@ -248,6 +248,54 @@ RESPONSE_DEFINITIONS.update(
     }
 )
 
+RESPONSE_COSTS: dict[str, float] = {
+    "hold_silent": 0.00,
+    "hold_ambient": 0.05,
+    "reassure_time_wait": 0.10,
+    "reassure_decision": 0.10,
+    "reassure_alternatives": 0.10,
+    "elicit_need_focus_open": 0.20,
+    "elicit_budget": 0.20,
+    "elicit_companion_opinion_open": 0.20,
+    "inform_attributes_brief": 0.25,
+    "inform_price_brief": 0.25,
+    "inform_comparison_brief": 0.30,
+    "inform_demo_brief": 0.40,
+    "recommend_soft": 0.45,
+    "recommend_firm": 0.65,
+    "greet_close": 0.00,
+}
+
+RESPONSE_DESCRIPTIONS: dict[str, str] = {
+    "hold_silent": "静默观察——屏幕保持极简 attract，不做任何主动介入。顾客感受：完全自主空间，零压力。",
+    "hold_ambient": "主动退出互动——回到 attract loop，数字人「不打扰您了」后静默。顾客感受：被放手，无追销感。",
+    "reassure_time_wait": "消除时间焦虑——屏幕显示「为您保留中」小窗，数字人「您慢慢看」后退到背景。顾客感受：时间压力消除。",
+    "reassure_decision": "降低决策压力——数字人「不用马上决定，可以先保留候选」。顾客感受：后悔风险降低。",
+    "reassure_alternatives": "提示备选——数字人「还有其他选择，不用现在定」。顾客感受：不被锁定。",
+    "elicit_need_focus_open": "开放式引导——三选一气泡（功能/价格/场景），数字人「您今天想先看哪一点？」",
+    "elicit_budget": "询问预算——数字人「您大概想花多少？」帮助缩小候选范围。",
+    "elicit_companion_opinion_open": "邀请同伴发言——数字人「这位朋友觉得哪款更合适？」引入同伴参与决策。",
+    "inform_attributes_brief": "展示商品参数——屏幕列出主要规格、价格和适合人群。低打扰。",
+    "inform_price_brief": "展示价格优惠——屏幕显示当前价格和优惠信息，直接解决价格疑虑。",
+    "inform_comparison_brief": "弹出对比卡——双卡对比价格/规格/场景，无强 CTA。选择成本降低。",
+    "inform_demo_brief": "短演示——关键功能 3D 动画（≤10s），数字人简短解说。直观了解功能亮点。",
+    "recommend_soft": "软推荐——高亮某款商品，数字人「这款比较符合您关注的点」，无强 CTA。",
+    "recommend_firm": "强推荐——单品全屏 + 「立即购买」CTA，数字人「这款最适合您，建议直接选」。推销感较强。",
+    "greet_close": "收尾致谢——订单确认页，数字人致谢，出货口出货。顾客感受：顺畅完成购买。",
+}
+
+DEFAULT_SCORE_WEIGHTS = {"alpha": 0.4, "beta": 0.5, "gamma": 0.2}
+
+
+def compute_preference_score(delta_stage: float, delta_mental: float, action_cost: float, weights: dict[str, float] | None = None) -> float:
+    w = weights or DEFAULT_SCORE_WEIGHTS
+    score = (
+        float(w.get("alpha", DEFAULT_SCORE_WEIGHTS["alpha"])) * delta_stage
+        + float(w.get("beta", DEFAULT_SCORE_WEIGHTS["beta"])) * delta_mental
+        - float(w.get("gamma", DEFAULT_SCORE_WEIGHTS["gamma"])) * action_cost
+    )
+    return max(-1.0, min(1.0, score))
+
 
 def response_to_act(response_id: str) -> dict[str, Any]:
     normalized = normalize_response_id(response_id)
@@ -311,20 +359,42 @@ def enrich_labeled_record(record: dict[str, Any]) -> dict[str, Any]:
     """Normalize response ids and enrich action/realization fields in-place."""
     outcomes = record.get("outcomes", {})
     normalized_outcomes: dict[str, Any] = {}
+    weights = DEFAULT_SCORE_WEIGHTS
     for response_id, outcome in outcomes.items():
         normalized = normalize_response_id(response_id)
+        if "reward" in outcome and "preference_score" not in outcome:
+            outcome["preference_score"] = outcome.pop("reward")
+        # Older labeled files used delta_mental in roughly [-3, 3]. Current
+        # schema uses [-1, 1], so normalize obvious old-scale values.
+        delta_mental = float(outcome.get("delta_mental", 0.0))
+        if abs(delta_mental) > 1.0:
+            delta_mental = max(-1.0, min(1.0, delta_mental / 3.0))
+            outcome["delta_mental"] = delta_mental
         outcome.update(enrich_action_payload(normalized))
+        cost = RESPONSE_COSTS.get(normalized, 0.0)
+        outcome["action_cost"] = cost
+        outcome["preference_score"] = compute_preference_score(
+            float(outcome.get("delta_stage", 0.0)),
+            float(outcome.get("delta_mental", 0.0)),
+            cost,
+            weights,
+        )
         normalized_outcomes[normalized] = outcome
     if normalized_outcomes:
         record["outcomes"] = normalized_outcomes
 
     candidate_actions = record.get("candidate_actions", [])
     if candidate_actions:
-        record["candidate_actions"] = [normalize_response_id(action) for action in candidate_actions]
+        if normalized_outcomes:
+            record["candidate_actions"] = list(normalized_outcomes.keys())
+        else:
+            record["candidate_actions"] = list(dict.fromkeys(normalize_response_id(action) for action in candidate_actions))
 
-    best_action = record.get("best_action")
-    if best_action:
-        normalized_best = normalize_response_id(best_action)
+    if normalized_outcomes:
+        normalized_best = max(
+            normalized_outcomes,
+            key=lambda rid: normalized_outcomes[rid].get("preference_score", -999),
+        )
         record["best_action"] = normalized_best
         best = enrich_action_payload(normalized_best)
         record["response_id"] = best["response_id"]
@@ -332,4 +402,6 @@ def enrich_labeled_record(record: dict[str, Any]) -> dict[str, Any]:
         record["act_params"] = best["act_params"]
         record["co_acts"] = best["co_acts"]
         record["realization"] = best["terminal_realization"]
+    record.pop("reward_weights", None)
+    record["score_weights"] = deepcopy(DEFAULT_SCORE_WEIGHTS)
     return record

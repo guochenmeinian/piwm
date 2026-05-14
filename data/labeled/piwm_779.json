@@ -1,0 +1,226 @@
+{
+  "session_id": "piwm_779",
+  "persona": "逛街途中路过室内零售区的年轻女性，正在为是否购买一款看中的饮品反复犹豫。",
+  "persona_visual": "25岁左右的女性，长发微卷自然披肩，穿米白色针织开衫和浅蓝色牛仔裤，斜挎一个浅棕色小包，手里拿着一部手机",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "她认为眼前这款商品很符合自己的口味和当下需求，但又担心只是临时冲动购买。",
+    "desire": "她想获得一个更确定、更安心的理由来降低决策压力。",
+    "intention": "她倾向于先继续盯着商品权衡片刻，等待自己确认后再决定是否购买。"
+  },
+  "observable_behavior": "她长时间将目光固定在前方同一位置，几乎没有伸手操作，只是轻轻摩挲手机边缘，偶尔短暂移开视线又马上看回去。",
+  "facial_expression": "眉头微微皱起，嘴唇轻抿，眼神专注但迟疑，脸上有明显纠结和反复权衡的神情。",
+  "body_posture": "身体正面朝向镜头，上半身略微前倾，双肩有些收紧，双手在胸腹前握着手机，姿态克制而犹豫。",
+  "timeline": {
+    "t_0_2": "这位25岁左右的女性正面站定，微微前倾，目光迅速落在前方某个固定位置，双手握着手机停在胸腹前。",
+    "t_2_5": "她的视线长时间停留不动，眉头逐渐皱起，拇指轻轻摩挲手机边缘，却没有做出任何购买动作。",
+    "t_5_8": "她短暂低头看了一眼手机又抬眼看回原处，嘴唇轻抿，表情显得更加纠结，像是在心里反复比较利弊。",
+    "t_8_10": "她仍然没有伸手操作，只是轻吸一口气后保持注视，肩膀微微放松但神情依旧迟疑，仿佛还在等待一个让自己安心的决定理由。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "reassure_decision",
+    "inform_price_brief",
+    "reassure_time_wait"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她继续相信商品契合自己需求，但对购买的冲动和理性权衡没有新变化。",
+        "desire": "她依然渴望更安心的理由，降低犹豫感。",
+        "intention": "她打算保持当前状态，静静权衡，不着急做决定。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不给予任何介入，维护顾客安全感，但没有为其决策困扰带来新缓解或推进。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她觉得可以不用马上做决定，被理解和尊重，不会因犹豫而错过机会。",
+        "desire": "决策压力下降，更渴望自主而无压力地选择。",
+        "intention": "她放下部分焦虑，准备再认真考虑一会儿，减少冲动后悔的担忧。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.15,
+      "delta_mental": 0.25,
+      "rationale": "主动释放心态，降低决策负担，增强对自己节奏与选择权的信任感。",
+      "action_cost": 0.1,
+      "preference_score": 0.16499999999999998,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她进一步了解商品价格和当前优惠，感到部分理性疑虑得到缓解。",
+        "desire": "对价格透明度和优惠条件获得真实感，更希望将合理性纳入决策考量。",
+        "intention": "她继续观望但比之前更有理由考虑入手，可能减少纠结。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.18,
+      "delta_mental": 0.22,
+      "rationale": "消除理性价格疑虑，轻度促进下决心但无强推进压力。",
+      "action_cost": 0.25,
+      "preference_score": 0.132,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她觉得有充足时间考虑，不用担心被催促或失去购买机会。",
+        "desire": "安全感提升，更放松地反复权衡利弊。",
+        "intention": "准备花更多时间思考，不急于下单，但心理压力有所缓解。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.13,
+      "delta_mental": 0.23,
+      "rationale": "维护自主选择空间，减少时间紧迫感，加强信任与舒适体验。",
+      "action_cost": 0.1,
+      "preference_score": 0.14700000000000002,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    }
+  },
+  "best_action": "reassure_decision",
+  "response_id": "reassure_decision",
+  "dialogue_act": "Reassure",
+  "act_params": {
+    "focus": "decision"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "您可以先保留几个候选，不用马上决定。",
+    "screen": {
+      "action": "show_shortlist_hint",
+      "cta": null
+    },
+    "voice_style": "soft",
+    "light": "low_pressure_idle",
+    "cabinet_motion": null,
+    "duration_ms": 3500,
+    "dialogue_act": "Reassure",
+    "act_params": {
+      "focus": "decision"
+    },
+    "co_acts": [],
+    "response_id": "reassure_decision"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

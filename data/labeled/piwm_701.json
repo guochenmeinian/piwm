@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "inform_comparison_brief",
-    "recommend_soft"
+    "elicit_need_focus_open",
+    "inform_price_brief",
+    "inform_demo_brief"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她仍认为饮品选择里可能有合适的下班轻饮，但需要靠自己继续快速扫视比较。",
-        "desire": "她继续想快速找到一款口味合适、喝起来轻松的饮品。",
-        "intention": "她会继续平稳浏览，若自然注意到合适选项再考虑购买。"
+        "belief": "她继续认为饮品区里有可能有合适选项，但没有获得新信息。",
+        "desire": "依然想快速筛选合适饮品，但保持自主空间。",
+        "intention": "准备在没有外界干预的情况下自行判断并做选择。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": 0.06,
-      "delta_mental": 0.1,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不给予任何干扰，维持顾客平稳浏览和轻松的自我判断状态。",
       "action_cost": 0.0,
-      "reward": 0.07400000000000001,
-      "rationale": "沉默不改变她的主要信念和欲望，只允许她按原节奏自然扫视，因此大概率维持在 interest 并轻微前进。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,159 +60,170 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "desire",
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她会相信眼前饮品可以按清爽解渴、低糖轻负担、提神醒脑这几类快速筛选。",
-        "desire": "她想在最符合自己下班状态的一类中尽快挑出一款。",
-        "intention": "她会把注意力集中到一两个相关类别上，准备进一步确认具体饮品。"
+        "belief": "她意识到可以主动表达自己想关注的点，并得到更定向的信息辅助。",
+        "desire": "对更快捷筛选合适饮品的方式产生轻微兴趣，想更快锁定选项。",
+        "intention": "倾向于选择一个关注方向，介入互动缩短探索路径。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.15,
+      "delta_mental": 0.18,
+      "rationale": "开放式引导帮助她表达需求，缩短犹豫期，轻微提升兴趣，风险在于如果她偏好完全自主则可能感到小幅被打扰。",
+      "action_cost": 0.2,
+      "preference_score": 0.10999999999999999,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她获得了饮品价格和简要优惠信息，价格疑虑被部分缓解。",
+        "desire": "在知晓价格后，对是否值/预算匹配感到更有把握。",
+        "intention": "考虑合适价格范围内的选项，继续筛选，购买意愿略提升。"
       },
       "risk": "low",
       "benefit": "medium",
-      "delta_stage": 0.33,
-      "delta_mental": 1.1,
-      "action_cost": 0.2,
-      "reward": 0.662,
-      "rationale": "轻量分类提示降低比较成本，强化她“能快速找到合适饮品”的信念，使欲望从泛泛兴趣推进到具体筛选。",
+      "delta_stage": 0.12,
+      "delta_mental": 0.14,
+      "rationale": "直接给出价格优惠，有助于基本筛选，强化她找到‘合适且不亏’的目标，低干扰下促进判断。",
+      "action_cost": 0.25,
+      "preference_score": 0.068,
+      "response_id": "inform_price_brief",
       "dialogue_act": "Inform",
       "act_params": {
-        "content_type": "attributes",
+        "content_type": "price",
         "depth": "brief"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
         "screen": {
-          "action": "show_attribute_table",
+          "action": "show_price_or_discount",
           "target": "{selected_item}",
           "cta": null
         },
         "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
+        "light": "soft_focus_on_price",
         "cabinet_motion": null,
-        "duration_ms": 5000,
+        "duration_ms": 3500,
         "dialogue_act": "Inform",
         "act_params": {
-          "content_type": "attributes",
+          "content_type": "price",
           "depth": "brief"
         },
         "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
+        "response_id": "inform_price_brief"
+      }
     },
-    "inform_comparison_brief": {
-      "next_aida_stage": "desire",
+    "inform_demo_brief": {
+      "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她会认为当前选择可以围绕清爽解渴和轻度提神两个目标来比较，不必逐个反复看。",
-        "desire": "她想根据自己此刻更想解渴还是提神来缩小选择范围。",
-        "intention": "她会在两类候选之间做简单取舍，并准备选定更匹配的一款。"
+        "belief": "她对饮品亮点或关键功能有了直观理解，对一些新品表现出额外好奇心。",
+        "desire": "更愿意尝试看起来有趣或方便的饮品，对创新点增添兴趣。",
+        "intention": "若演示吸引到确定偏好，可能缩短决策流程。"
       },
       "risk": "medium",
       "benefit": "medium",
-      "delta_stage": 0.32,
-      "delta_mental": 0.85,
-      "action_cost": 0.35,
-      "reward": 0.5179999999999999,
-      "rationale": "对比引导能帮助她把模糊兴趣转为取舍标准，但主动比较略增加认知负担和被引导感。",
+      "delta_stage": 0.16,
+      "delta_mental": 0.19,
+      "rationale": "短演示在当前低犹豫、平稳兴趣下能显著激活好奇与尝新愿望，若把控时长和主动度则助推决策；若对方偏好静默或已有方向则略有被动风险。",
+      "action_cost": 0.4,
+      "preference_score": 0.07899999999999999,
+      "response_id": "inform_demo_brief",
       "dialogue_act": "Inform",
       "act_params": {
-        "content_type": "comparison",
+        "content_type": "demo",
         "depth": "brief"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
         "screen": {
-          "action": "show_comparison_or_details",
-          "target": "{candidate_items}",
+          "action": "play_short_demo",
+          "target": "{selected_item}",
           "cta": null
         },
         "voice_style": "neutral",
-        "light": "soft_focus_on_comparison_cards",
+        "light": "focus_on_demo_area",
         "cabinet_motion": null,
-        "duration_ms": 4000,
+        "duration_ms": 8000,
         "dialogue_act": "Inform",
         "act_params": {
-          "content_type": "comparison",
+          "content_type": "demo",
           "depth": "brief"
         },
         "co_acts": [],
-        "response_id": "inform_comparison_brief"
-      },
-      "response_id": "inform_comparison_brief"
-    },
-    "recommend_soft": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "她会相信有一款低糖清爽、适合下班顺手带走的饮品与自己当前需求高度匹配。",
-        "desire": "她想省去继续比较的时间，直接拿到一款轻松好喝的饮品。",
-        "intention": "她准备点击或扫码购买这款被提示的匹配饮品。"
-      },
-      "risk": "medium",
-      "benefit": "high",
-      "delta_stage": 0.58,
-      "delta_mental": 1.25,
-      "action_cost": 0.45,
-      "reward": 0.8119999999999999,
-      "rationale": "柔和地给出下班场景的最佳匹配能激活她快速决策的欲望，把“若看到合适就买”的意向推进到实际购买操作。",
-      "dialogue_act": "Recommend",
-      "act_params": {
-        "pressure": "soft"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
-        "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
-          "cta": null
-        },
-        "voice_style": "soft",
-        "light": "gentle_highlight",
-        "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
-        "act_params": {
-          "pressure": "soft"
-        },
-        "co_acts": [],
-        "response_id": "recommend_soft"
-      },
-      "response_id": "recommend_soft"
+        "response_id": "inform_demo_brief"
+      }
     }
   },
-  "best_action": "recommend_soft",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Recommend",
+  "best_action": "elicit_need_focus_open",
+  "response_id": "elicit_need_focus_open",
+  "dialogue_act": "Elicit",
   "act_params": {
-    "pressure": "soft"
+    "openness": "open",
+    "slot": "need_focus"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+    "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
     "screen": {
-      "action": "highlight_recommended_item",
-      "target": "{recommended_item}",
+      "action": "show_choice_bubbles",
+      "choices": [
+        "价格",
+        "功能",
+        "场景"
+      ],
       "cta": null
     },
-    "voice_style": "soft",
-    "light": "gentle_highlight",
+    "voice_style": "curious",
+    "light": "soft_invitation",
     "cabinet_motion": null,
-    "duration_ms": 4500,
-    "dialogue_act": "Recommend",
+    "duration_ms": 5000,
+    "dialogue_act": "Elicit",
     "act_params": {
-      "pressure": "soft"
+      "openness": "open",
+      "slot": "need_focus"
     },
     "co_acts": [],
-    "response_id": "recommend_soft"
+    "response_id": "elicit_need_focus_open"
   },
-  "response_id": "recommend_soft"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

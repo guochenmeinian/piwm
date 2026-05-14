@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "inform_attributes_brief",
-    "recommend_soft"
+    "inform_price_brief",
+    "reassure_decision",
+    "inform_comparison_brief"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "desire",
       "next_bdi": {
-        "belief": "他仍相信这些商品能缓解疲惫，但关于健康程度和性价比的疑虑没有被消除。",
-        "desire": "他依然想尽快选到一个不后悔的商品，但需要继续自我权衡。",
-        "intention": "他仍倾向于购买，但会再看几秒并可能在几个选项之间反复比较。"
+        "belief": "他仍然觉得眼前的选择有可能缓解疲惫，但摇摆于健康与实惠间，尚未减轻顾虑。",
+        "desire": "想找到无遗憾的商品，但仍需自己权衡判断。",
+        "intention": "保持准备但继续思考，尚未下决心。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": 0.05,
-      "delta_mental": -0.1,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默不介入让顾客维持自主决策空间，既不推动也不妨碍决策进程。",
       "action_cost": 0.0,
-      "reward": -0.03,
-      "rationale": "沉默不会增加打扰，但也无法解除健康和划算疑虑，顾客大概率停留在欲望阶段继续犹豫。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,120 +60,156 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "action",
+    "inform_price_brief": {
+      "next_aida_stage": "desire",
       "next_bdi": {
-        "belief": "他会认为系统理解他的纠结点，并能把不同选项的能量补充、健康程度和价格差异快速讲清楚。",
-        "desire": "他想根据简短对比选出最符合自己当前需求的一项。",
-        "intention": "他准备在对比结果中选择更合适的商品并进入购买。"
+        "belief": "他明确知道价格和优惠，有助于解决实惠方面的担忧，但健康/后悔的疑虑仍在。",
+        "desire": "想找到性价比好的选择，动摇略减，但仍短暂评估。",
+        "intention": "更倾向于行动但还需权衡，操作意愿略有提升。"
       },
-      "risk": "medium",
+      "risk": "low",
       "benefit": "medium",
-      "delta_stage": 0.33,
-      "delta_mental": 1.0,
-      "action_cost": 0.4,
-      "reward": 0.592,
-      "rationale": "简短比较能降低选择负担并增强判断确定性，但主动介入略有推销感，整体仍会推动他从欲望转向行动。",
+      "delta_stage": 0.15,
+      "delta_mental": 0.12,
+      "rationale": "直接给予价格和优惠信息，降低顾客对“是否划算”的迷茫，提高决策信心但不过度推进。",
+      "action_cost": 0.25,
+      "preference_score": 0.06999999999999999,
+      "response_id": "inform_price_brief",
       "dialogue_act": "Inform",
       "act_params": {
-        "content_type": "attributes",
+        "content_type": "price",
         "depth": "brief"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
         "screen": {
-          "action": "show_attribute_table",
+          "action": "show_price_or_discount",
           "target": "{selected_item}",
           "cta": null
         },
         "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
+        "light": "soft_focus_on_price",
         "cabinet_motion": null,
-        "duration_ms": 5000,
+        "duration_ms": 3500,
         "dialogue_act": "Inform",
         "act_params": {
-          "content_type": "attributes",
+          "content_type": "price",
           "depth": "brief"
         },
         "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
+        "response_id": "inform_price_brief"
+      }
     },
-    "recommend_soft": {
+    "reassure_decision": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他会更注意到现在可以快速完成购买，减少下班后继续停留和纠结的时间成本。",
-        "desire": "他想尽快结束选择过程，拿到能量补给后离开。",
-        "intention": "他准备立即点击或伸手确认购买，但对是否选到最健康、最划算的商品仍有少量保留。"
+        "belief": "他感受到无需马上决定，后悔风险降低，自己有控制权，减少心理负担。",
+        "desire": "希望买到好东西的愿望未变，但由于心理压力减轻，更接近实际行动。",
+        "intention": "准备进行操作，明确把某商品作为候选对象。"
       },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.28,
-      "delta_mental": 0.35,
-      "action_cost": 0.55,
-      "reward": 0.23200000000000004,
-      "rationale": "温和催促快速结算会放大省时动机并促成行动，但没有充分解决健康和性价比疑虑，且存在一定被催促感。",
-      "dialogue_act": "Recommend",
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.35,
+      "delta_mental": 0.3,
+      "rationale": "主动降低顾客决策压力和后悔感，增强其安全感，让其购买意愿大增并靠近实际操作。",
+      "action_cost": 0.1,
+      "preference_score": 0.26999999999999996,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
       "act_params": {
-        "pressure": "soft"
+        "focus": "decision"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
         "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
+          "action": "show_shortlist_hint",
           "cta": null
         },
         "voice_style": "soft",
-        "light": "gentle_highlight",
+        "light": "low_pressure_idle",
         "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
         "act_params": {
-          "pressure": "soft"
+          "focus": "decision"
         },
         "co_acts": [],
-        "response_id": "recommend_soft"
+        "response_id": "reassure_decision"
+      }
+    },
+    "inform_comparison_brief": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他掌握关键对比信息，纠结减轻，觉得选择难度下降，理性评估感增强。",
+        "desire": "权衡后的愿望转向实际挑选，买的信心提升。",
+        "intention": "准备基于对比结果作出选择，动手操作意愿明显增强。"
       },
-      "response_id": "recommend_soft"
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.24,
+      "rationale": "对比卡快速帮助顾客厘清利弊，减少顾虑，使纠结转为更实际的选择行动。",
+      "action_cost": 0.3,
+      "preference_score": 0.192,
+      "response_id": "inform_comparison_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_comparison_brief"
+      }
     }
   },
-  "best_action": "inform_attributes_brief",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Inform",
+  "best_action": "reassure_decision",
+  "response_id": "reassure_decision",
+  "dialogue_act": "Reassure",
   "act_params": {
-    "content_type": "attributes",
-    "depth": "brief"
+    "focus": "decision"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "surface_text": "您可以先保留几个候选，不用马上决定。",
     "screen": {
-      "action": "show_attribute_table",
-      "target": "{selected_item}",
+      "action": "show_shortlist_hint",
       "cta": null
     },
-    "voice_style": "neutral",
-    "light": "soft_focus_on_attribute_table",
+    "voice_style": "soft",
+    "light": "low_pressure_idle",
     "cabinet_motion": null,
-    "duration_ms": 5000,
-    "dialogue_act": "Inform",
+    "duration_ms": 3500,
+    "dialogue_act": "Reassure",
     "act_params": {
-      "content_type": "attributes",
-      "depth": "brief"
+      "focus": "decision"
     },
     "co_acts": [],
-    "response_id": "inform_attributes_brief"
+    "response_id": "reassure_decision"
   },
-  "response_id": "inform_attributes_brief"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

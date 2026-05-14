@@ -90,7 +90,8 @@ Realization layer 确定终端响应：
 ## 5. Data Generation
 
 ```text
-seed -> manifest -> labeled -> prompts -> video
+seed -> manifest -> prompts -> video
+              └-> labeled
 ```
 
 ### Manifest
@@ -111,23 +112,23 @@ seed -> manifest -> labeled -> prompts -> video
 - next AIDA + next BDI
 - risk / benefit
 - delta_stage / delta_mental
-- action_cost / reward
+- action_cost / preference_score
 - rationale
 - response_id / dialogue_act / act_params / terminal_realization
 
 ### Prompts
 
-将 manifest/labeled 中的顾客观察字段渲染成视频 prompt。视频只描述 intervention 前的顾客状态，不包含终端响应。
+将 manifest 中的顾客观察字段渲染成视频 prompt。视频只描述 intervention 前的顾客状态，不包含终端响应，也不依赖 labeled。
 
-## 6. Reward
+## 6. Preference Score
 
 ```text
-reward = alpha * delta_stage + beta * delta_mental - gamma * action_cost
-default: alpha=0.4, beta=0.5, gamma=0.1
+preference_score = alpha * delta_stage + beta * delta_mental - gamma * action_cost
+default: alpha=0.4, beta=0.5, gamma=0.2
 clip to [-1, 1]
 ```
 
-`delta_mental` 权重高于 `delta_stage`，表示顾客体验和决策压力优先于短期转化。
+`preference_score` 是 synthetic expert preference proxy，不是真实用户 reward。LLM 预测 `delta_stage / delta_mental`，系统注入 `action_cost` 并计算分数。`delta_stage / delta_mental / action_cost` 均按 `[-1, 1]` 或 `[0, 1]` 的可比量纲处理。
 
 ## 7. Compatibility
 

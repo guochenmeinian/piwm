@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "recommend_soft",
-    "inform_attributes_brief",
-    "recommend_soft"
+    "hold_ambient",
+    "elicit_need_focus_open",
+    "inform_demo_brief"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "attention",
       "next_bdi": {
-        "belief": "他仍只模糊知道这里可能有饮品或零食，但没有获得足够线索判断是否值得停留。",
-        "desire": "他更想避免耽误返回办公室的时间，尽快结束这次短暂扫视。",
-        "intention": "他倾向于按原姿态转身离开，不再靠近或操作。"
+        "belief": "他注意到售货设备的存在，但未获得更多新信息，对内容与相关性依然模糊。",
+        "desire": "仍然希望快速判断是否值得停留，尽快返回办公室。",
+        "intention": "保持最初短暂扫视、随时准备离开的态度。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": -0.05,
-      "delta_mental": -0.3,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "未主动介入，顾客既不受到干扰也不获得新线索，心理状态保持原状。",
       "action_cost": 0.0,
-      "reward": -0.16999999999999998,
-      "rationale": "不介入不会修正其“这里可能不值得停留”的信念，时间节省欲望占上风，购买意向自然后退。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,118 +60,167 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "recommend_soft": {
-      "next_aida_stage": "desire",
+    "hold_ambient": {
+      "next_aida_stage": "attention",
       "next_bdi": {
-        "belief": "他会相信这里不仅有可选商品，而且手机扫码即可快速完成，并且当前有小额优惠，停留成本可能低于预期。",
-        "desire": "他避免耽误时间的欲望被安抚，同时被激活了“顺手占个小便宜并带走一瓶饮品”的欲望。",
-        "intention": "他倾向于靠近一步确认优惠商品，如果看到合适饮品则准备扫码购买。"
+        "belief": "他感知到设备尊重他的自主空间，对环境的理解未有新变化。",
+        "desire": "依然注重不被打扰，倾向根据自身判断决策是否停留。",
+        "intention": "更坚定地准备离开，无额外兴趣激发。"
       },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.66,
-      "delta_mental": 0.7,
-      "action_cost": 0.5,
-      "reward": 0.564,
-      "rationale": "把时间风险和价格阻力同时降低，可快速生成购买欲望，但促销语气会带来一定被推销感。",
-      "dialogue_act": "Recommend",
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.05,
+      "rationale": "数字人主动表示不打扰，避免带来压力，但也没有刺激探索兴趣，略微增强离开意图。",
+      "action_cost": 0.05,
+      "preference_score": -0.05500000000000001,
+      "response_id": "hold_ambient",
+      "dialogue_act": "Hold",
       "act_params": {
-        "pressure": "soft"
+        "mode": "ambient"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "surface_text": "您慢慢看，需要时我再帮您。",
         "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
+          "action": "return_to_attract_loop",
           "cta": null
         },
         "voice_style": "soft",
-        "light": "gentle_highlight",
+        "light": "ambient_low_attention",
         "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
+        "duration_ms": 2500,
+        "dialogue_act": "Hold",
         "act_params": {
-          "pressure": "soft"
+          "mode": "ambient"
         },
         "co_acts": [],
-        "response_id": "recommend_soft"
-      },
-      "response_id": "recommend_soft"
+        "response_id": "hold_ambient"
+      }
     },
-    "inform_attributes_brief": {
+    "elicit_need_focus_open": {
       "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "他会认为商品可以按提神、解渴、垫肚子等用途快速区分，但仍需要花一点认知精力比较。",
-        "desire": "他高效筛选的欲望被部分满足，不过对是否真的需要购买仍保持犹豫。",
-        "intention": "他可能短暂停留并横向比较几个类别，但尚未形成明确购买目标。"
+        "belief": "意识到设备可以主动理解并协助他聚焦需求点，感觉交互上有一定关怀与定制可能。",
+        "desire": "如果能迅速触达相关内容，愿意多花一分钟判断选择价值。",
+        "intention": "由纯粹旁观转向考虑是否进入更具体的信息探索。"
       },
       "risk": "medium",
       "benefit": "medium",
-      "delta_stage": 0.25,
-      "delta_mental": 0.55,
+      "delta_stage": 0.33,
+      "delta_mental": 0.25,
+      "rationale": "开放式引导降低筛选难度，有可能刺激兴趣激发，但也有一定被中断/推销感，整体有序正向推进。",
+      "action_cost": 0.2,
+      "preference_score": 0.217,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "直观看到某类商品的功能亮点或便利性，激发好奇心，对设备内容开始具体联想。",
+        "desire": "愿意进一步留意是否有自己实际需要的选择，尤其是新颖或实用点有吸引力。",
+        "intention": "暂缓离开，倾向于多了解方案或产品特点。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.2,
+      "rationale": "功能演示有助于迅速传达亮点，降低认知门槛，可能转变顾客犹豫为初步兴趣，但若内容无关也有被打扰的边界风险。",
       "action_cost": 0.4,
-      "reward": 0.33499999999999996,
-      "rationale": "分类比较能改善其“不知道有没有需要的东西”的信念，但在低兴趣注意阶段可能增加决策负担。",
+      "preference_score": 0.152,
+      "response_id": "inform_demo_brief",
       "dialogue_act": "Inform",
       "act_params": {
-        "content_type": "attributes",
+        "content_type": "demo",
         "depth": "brief"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
         "screen": {
-          "action": "show_attribute_table",
+          "action": "play_short_demo",
           "target": "{selected_item}",
           "cta": null
         },
         "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
+        "light": "focus_on_demo_area",
         "cabinet_motion": null,
-        "duration_ms": 5000,
+        "duration_ms": 8000,
         "dialogue_act": "Inform",
         "act_params": {
-          "content_type": "attributes",
+          "content_type": "demo",
           "depth": "brief"
         },
         "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
+        "response_id": "inform_demo_brief"
+      }
     }
   },
-  "best_action": "recommend_soft",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Recommend",
+  "best_action": "elicit_need_focus_open",
+  "response_id": "elicit_need_focus_open",
+  "dialogue_act": "Elicit",
   "act_params": {
-    "pressure": "soft"
+    "openness": "open",
+    "slot": "need_focus"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+    "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
     "screen": {
-      "action": "highlight_recommended_item",
-      "target": "{recommended_item}",
+      "action": "show_choice_bubbles",
+      "choices": [
+        "价格",
+        "功能",
+        "场景"
+      ],
       "cta": null
     },
-    "voice_style": "soft",
-    "light": "gentle_highlight",
+    "voice_style": "curious",
+    "light": "soft_invitation",
     "cabinet_motion": null,
-    "duration_ms": 4500,
-    "dialogue_act": "Recommend",
+    "duration_ms": 5000,
+    "dialogue_act": "Elicit",
     "act_params": {
-      "pressure": "soft"
+      "openness": "open",
+      "slot": "need_focus"
     },
     "co_acts": [],
-    "response_id": "recommend_soft"
+    "response_id": "elicit_need_focus_open"
   },
-  "response_id": "recommend_soft"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

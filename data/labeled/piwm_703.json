@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "recommend_soft",
-    "elicit_need_focus_open"
+    "hold_ambient",
+    "elicit_need_focus_open",
+    "inform_demo_brief"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "attention",
       "next_bdi": {
-        "belief": "他仍只觉得设备外观有点新奇，但没有获得更多信息，也没有形成是否值得停留的判断。",
-        "desire": "短暂好奇心很快减弱，原本赶路的需求重新占主导。",
-        "intention": "继续边走边看一眼后离开，前往原本目的地。"
+        "belief": "对设备的好奇心保持原状，没有获得新的信息，也没有感受到推销压力。",
+        "desire": "仅仅确认设备是什么，满足简单的路过好奇，不主动深入。",
+        "intention": "继续边走边观察一眼，但很快就会离开，不考虑进一步参与。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": -0.05,
-      "delta_mental": -0.1,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默观察下顾客获得完全自主空间，无正负刺激，心理状态基本维持现状。",
       "action_cost": 0.0,
-      "reward": -0.07,
-      "rationale": "不介入不会打扰他，但也无法把外观好奇转化为明确认知，注意力大概率随步行离开而消散。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,103 +60,61 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "interest",
+    "hold_ambient": {
+      "next_aida_stage": "attention",
       "next_bdi": {
-        "belief": "他会知道这是一台校园智能售货设备，并且支持手机快速查看或购买，而不只是一个外观新奇的装置。",
-        "desire": "原本模糊的好奇被转化为想确认里面卖什么、操作是否方便的轻度探索欲。",
-        "intention": "可能放慢脚步或多看几秒屏幕，但尚未准备购买。"
+        "belief": "设备显得主动体贴，不会主动打扰自己，认为它尊重自己的意愿。",
+        "desire": "满足对无压力环境的期望，更加轻松地路过，确认不会有被推销。",
+        "intention": "准备离开，微增强对设备好感，但仍不考虑停留。"
       },
       "risk": "low",
-      "benefit": "medium",
-      "delta_stage": 0.33,
-      "delta_mental": 0.75,
-      "action_cost": 0.2,
-      "reward": 0.487,
-      "rationale": "轻量说明会补足‘这是什么’的信念缺口，激活低压力探索欲，使他从短暂注意推进到初步兴趣。",
-      "dialogue_act": "Inform",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.05,
+      "rationale": "设备主动表示不打扰缓解了被营销干扰的担忧，轻微提升好感但不足以推进。",
+      "action_cost": 0.05,
+      "preference_score": 0.015,
+      "response_id": "hold_ambient",
+      "dialogue_act": "Hold",
       "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
+        "mode": "ambient"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "surface_text": "您慢慢看，需要时我再帮您。",
         "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
-    },
-    "recommend_soft": {
-      "next_aida_stage": "interest",
-      "next_bdi": {
-        "belief": "他会认为这台设备里可能有同学常买的饮料、零食或课间补给，商品与校园场景有一定相关性。",
-        "desire": "如果他正好有口渴或想吃点东西的潜在需求，可能被热门选择轻微唤起；否则仍只是看看。",
-        "intention": "可能短暂停留比较热门商品，但购买意图仍不稳定。"
-      },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.28,
-      "delta_mental": 0.35,
-      "action_cost": 0.4,
-      "reward": 0.24700000000000003,
-      "rationale": "展示校园热门商品能把设备与他的课间场景关联起来，但在注意阶段略显推荐导向，可能让赶路的他感到轻微被推销。",
-      "dialogue_act": "Recommend",
-      "act_params": {
-        "pressure": "soft"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
-        "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
+          "action": "return_to_attract_loop",
           "cta": null
         },
         "voice_style": "soft",
-        "light": "gentle_highlight",
+        "light": "ambient_low_attention",
         "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
+        "duration_ms": 2500,
+        "dialogue_act": "Hold",
         "act_params": {
-          "pressure": "soft"
+          "mode": "ambient"
         },
         "co_acts": [],
-        "response_id": "recommend_soft"
-      },
-      "response_id": "recommend_soft"
+        "response_id": "hold_ambient"
+      }
     },
     "elicit_need_focus_open": {
       "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "他会相信靠近或扫码只是低成本浏览，不代表必须购买，也不会耽误太久。",
-        "desire": "好奇心得到安全释放，想用很短时间确认菜单、价格或新奇功能。",
-        "intention": "更可能停下或靠近设备浏览几秒，但仍处于了解阶段而非准备下单。"
+        "belief": "设备主动邀请自己表达关注点，感受到一点被尊重，初步意识到可以探索更多信息。",
+        "desire": "如果稍感兴趣，可能被激起深入了解某一方面的好奇心。",
+        "intention": "有可能短暂停下脚步，考虑是否选择一个关注点进行了解。"
       },
-      "risk": "low",
-      "benefit": "high",
+      "risk": "medium",
+      "benefit": "medium",
       "delta_stage": 0.33,
-      "delta_mental": 1.15,
-      "action_cost": 0.25,
-      "reward": 0.6819999999999999,
-      "rationale": "强调‘不买也可快速浏览’会降低承诺压力，增强信任和探索意愿，最适合把路过注意转化为主动了解。",
+      "delta_mental": 0.15,
+      "rationale": "开放式引导有机会激发进一步兴趣，但也有一定打断风险，容易让顾客感到被关注但还不至于反感。",
+      "action_cost": 0.2,
+      "preference_score": 0.167,
+      "response_id": "elicit_need_focus_open",
       "dialogue_act": "Elicit",
       "act_params": {
         "openness": "open",
@@ -184,16 +143,52 @@
         },
         "co_acts": [],
         "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "设备尝试主动展示亮点功能，有直观的新鲜感，但可能缺乏针对性，未必符合当前的浅层好奇。",
+        "desire": "好奇心得到一定满足，但未必和自身需求贴合，可能只是快速欣赏。",
+        "intention": "短时间停留体验，但大概率不会产生深入探索或购买意图。"
       },
-      "response_id": "elicit_need_focus_open"
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.1,
+      "delta_mental": 0.05,
+      "rationale": "快速功能演示可能吸引更多注意但时机略早，未必精准，有新鲜感但依赖顾客兴趣点吻合。",
+      "action_cost": 0.4,
+      "preference_score": -0.015000000000000013,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
     }
   },
   "best_action": "elicit_need_focus_open",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
+  "response_id": "elicit_need_focus_open",
   "dialogue_act": "Elicit",
   "act_params": {
     "openness": "open",
@@ -223,5 +218,9 @@
     "co_acts": [],
     "response_id": "elicit_need_focus_open"
   },
-  "response_id": "elicit_need_focus_open"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

@@ -1,0 +1,225 @@
+{
+  "session_id": "piwm_751",
+  "persona": "课间来到便利区的男大学生，想快速挑一款饮品但还没有下定决心。",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色休闲裤，肩上背一个黑色双肩包，手里拿着一部手机",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他已经浏览过可选商品，并认为其中一款更符合自己现在的口味和课间补充需求。",
+    "desire": "他想在上课前选到一款合适的饮品，同时避免买错或后悔。",
+    "intention": "他倾向继续停留观察那款偏好的商品，但暂时不主动操作，需要温和推荐来推动下一步决定。"
+  },
+  "observable_behavior": "他站在设备前保持正面朝向，视线多次停在同一方向，偶尔短暂扫视旁边选项，手指轻轻摩挲手机边缘但没有点击或伸手操作。",
+  "facial_expression": "表情平静但略显犹豫，眉头轻微收紧，嘴唇自然闭合，眼神在比较后逐渐表现出偏向某一选择的专注感。",
+  "body_posture": "身体微微前倾，双肩放松，双手保持在胸腹前方画面内，一只手握手机，重心稳定地站在原地。",
+  "timeline": {
+    "t_0_2": "20岁左右的男大学生正面站在镜头前，微微抬眼浏览前方选项，双手都在画面内，右手握着手机。",
+    "t_2_5": "他视线从一侧缓慢扫到另一侧，又回到中间偏下的位置，眉头轻轻皱起，像是在比较几款相近选择。",
+    "t_5_8": "他明显把目光停留在同一个位置更久，身体稍微前倾，手指轻轻摩挲手机边缘，但没有伸手操作。",
+    "t_8_10": "他仍站在原地看着偏好的方向，表情保持温和犹豫，像是在等待一个轻柔提示帮助他做出选择。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "elicit_need_focus_open",
+    "inform_attributes_brief",
+    "inform_comparison_brief"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他对几款商品的基础认知未变，主要关注点维持在兴趣和自我比较阶段。",
+        "desire": "依然渴望找到合适饮品，但不受干扰，心理压力小，犹豫保持原有水平。",
+        "intention": "继续自主比较，尚未做出明确选择或行动决定。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默观察不会打扰顾客，也不会帮助其解决犹豫，状态基本维持不变。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "顾客被鼓励反思自己的需求点（功能/价格/场景），更明确自己的关注焦点。",
+        "desire": "对自我需求有更清晰认知，产生进一步探索的动力，略降低犹豫。",
+        "intention": "有可能主动表达兴趣点，为后续产品推荐或信息接受做好准备。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.2,
+      "delta_mental": 0.1,
+      "rationale": "开放式引导轻度介入，促进顾客厘清重点但不会强推，能温和减少内心犹豫；可能略有被打扰风险，但大多被认为是在理解其需求。",
+      "action_cost": 0.2,
+      "preference_score": 0.09,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "主要商品参数和适用场景一目了然，顾客的判断依据更充分。",
+        "desire": "更自信地把偏好商品和实际需求对照，选择障碍减轻，提升购买欲望。",
+        "intention": "倾向于锁定某款商品，准备进一步了解或考虑操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.35,
+      "delta_mental": 0.25,
+      "rationale": "直接显示关键信息能显著降低顾客选择障碍，减少犹豫，让顾客更快进入决策加深阶段。",
+      "action_cost": 0.25,
+      "preference_score": 0.21500000000000002,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    },
+    "inform_comparison_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "同类商品对比使优劣和适配场景更直观，理性对比增强信心。",
+        "desire": "对自己偏好的优点和差别有实际体感，减少后悔可能，提升锁定意向。",
+        "intention": "准备迈向锁定/决策，可能即将主动确认选择。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 0.22,
+      "rationale": "对比卡降低选择成本，增强顾客信念和意愿，温和促进向决策推进，心理风险极低。",
+      "action_cost": 0.3,
+      "preference_score": 0.182,
+      "response_id": "inform_comparison_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_comparison_brief"
+      }
+    }
+  },
+  "best_action": "inform_attributes_brief",
+  "response_id": "inform_attributes_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_attributes_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

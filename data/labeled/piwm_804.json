@@ -1,0 +1,221 @@
+{
+  "session_id": "piwm_804",
+  "persona": "课间路过便利区、想买一瓶提神饮料的女大学生。",
+  "persona_visual": "20岁左右的女性，黑色中长发自然披肩，穿浅灰色连帽卫衣和深色牛仔裤，肩背米白色帆布包，手里拿着一张校园卡和手机。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她认为眼前这款功能饮料大概率适合课间提神，但还需要确认主要成分、口味和适用场景是否符合自己的需求。",
+    "desire": "她想先看清核心参数，判断这款饮料是否能在接下来的课程前提供合适的补充。",
+    "intention": "她倾向于继续停留并查看属性信息，再决定是否进入购买操作。"
+  },
+  "observable_behavior": "她站在原地正面朝向镜头，视线在镜头下方的小范围区域来回移动，偶尔轻轻点头，又短暂停顿，手指无意识地摩挲校园卡边缘。",
+  "facial_expression": "表情专注但略带犹豫，眉头轻微收紧，嘴唇自然抿住，眼神在思考和确认之间切换。",
+  "body_posture": "身体微微前倾，双肩放松，双手保持在胸前偏下位置，重心偶尔从一只脚轻轻转到另一只脚。",
+  "timeline": {
+    "t_0_2": "这名20岁左右的女大学生正面站定，微微前倾，视线落向镜头下方，像是刚注意到一款已基本锁定的功能饮料信息。",
+    "t_2_5": "她的眼睛缓慢左右扫动，眉头轻轻皱起，右手拇指摩挲着校园卡边缘，表现出正在确认主要成分的专注状态。",
+    "t_5_8": "她短暂抿唇并轻轻点了一下头，又把视线移回原处，像是在比较口味和适用场景是否适合接下来的课程。",
+    "t_8_10": "她保持正面姿态停留片刻，神情仍有中等程度的犹豫，双手没有离开画面，像是准备继续查看核心参数后再决定是否购买。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_demo_brief",
+    "inform_price_brief"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她依旧认为这款饮料或许适合提神，但对主要成分和口味等核心参数的疑虑暂未得到缓解。",
+        "desire": "希望进一步获取商品关键信息以做决定，轻微的犹豫持续存在。",
+        "intention": "继续停留与观望，尚未进入行动阶段。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "设备不介入让顾客保持主控，但没有消除她的疑虑，也不会显著推进购买流程。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她明确获得了饮料的主要成分、口味和适用场景信息，增强了对产品的适用性认识并减少了犹豫。",
+        "desire": "更有信心判断该商品是否符合自己课间提神的需求，下一步倾向评估性/价比或购买可能。",
+        "intention": "准备进入决策或购买阶段，意向明显前移。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 0.45,
+      "rationale": "及时匹配顾客的信息需求，消除关键参数疑虑，有效降低犹豫感并促进意向前移。",
+      "action_cost": 0.25,
+      "preference_score": 0.307,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "通过直观的动画和简短解说，加深了对饮料主要功能的理解，对提神效果和使用场景有了更清晰感受。",
+        "desire": "想要尝试或相信商品能满足当天课程前的提神诉求，探索欲增强，犹豫有所缓解。",
+        "intention": "更愿意考虑快速进入决策和行动阶段。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.25,
+      "rationale": "短演示提升产品吸引力和直观信任感，但信息解读量较大，可能略影响专注顾客的自控感。",
+      "action_cost": 0.4,
+      "preference_score": 0.177,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她获知了价格优惠信息，但对成分和口味的疑虑仍存，尚未解决决定性疑问。",
+        "desire": "在未确认参数前，对价格关注度不高，仍以获取基础信息为主要诉求。",
+        "intention": "依然以观望和继续获取关键信息为主，购买意向略有增强但未明显转移到行动。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.1,
+      "delta_mental": 0.05,
+      "rationale": "让顾客意识到价格优势，但未击中其当下需求核心，对决策帮助有限，略微减缓犹豫。",
+      "action_cost": 0.25,
+      "preference_score": 0.015,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
+    }
+  },
+  "best_action": "inform_attributes_brief",
+  "response_id": "inform_attributes_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_attributes_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

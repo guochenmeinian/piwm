@@ -1,0 +1,223 @@
+{
+  "session_id": "piwm_790",
+  "persona": "课间来到便利区的男大学生，已经选好商品并完成操作，正站在设备前等待结果。",
+  "persona_visual": "20岁左右的男性，短黑发，穿浅灰色连帽卫衣和深色牛仔裤，背一个黑色双肩包，左手腕戴运动手表",
+  "aida_stage": "action",
+  "bdi": {
+    "belief": "他认为商品选择和操作流程已经完成，现在只需要等待设备给出结果。",
+    "desire": "他想尽快拿到商品，然后回到教室继续上课。",
+    "intention": "他倾向于原地安静等待，确认完成后礼貌点头致意并离开。"
+  },
+  "observable_behavior": "他站在原地等待，双手始终在画面内，手指轻轻交握后放松，目光稳定看向正前方偏下位置，最后微微点头作为收尾致意。",
+  "facial_expression": "表情放松平静，嘴角有很轻的礼貌微笑，几乎没有犹豫或焦虑感。",
+  "body_posture": "身体正面朝向镜头，肩膀自然放松，重心稳定站立，背包肩带贴在双肩，姿态从容。",
+  "timeline": {
+    "t_0_2": "20岁左右的男性正面站在镜头前，双手在腹前自然交握，视线看向正前方偏下位置，表情平静。",
+    "t_2_5": "他轻轻调整了一下黑色双肩包的肩带，随后双手重新回到画面中央，保持安静等待。",
+    "t_5_8": "他目光短暂下移后又回到正前方，嘴角露出很轻的礼貌微笑，身体仍然稳定站立。",
+    "t_8_10": "他微微点头，像是在完成收尾确认和致谢，然后双手自然放松，准备转身离开。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "reassure_time_wait",
+    "reassure_decision",
+    "greet_close"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "商品和流程都已完成，设备正准备出货，静默等待不会产生新干扰。",
+        "desire": "维持安静的自主等待，迅速取得商品离开。",
+        "intention": "原地静等完成后礼貌致意离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "顾客已确认选择，仅等待结果，静默观察有利于其保有自主与舒适。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "设备正为他保留订单，等待不会错失商品，无需急躁。",
+        "desire": "放下‘担心被催/被抢’的负担，安心等待商品出货。",
+        "intention": "轻松完成收尾动作，取货后离开。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.2,
+      "rationale": "主动告知‘保留中’能减少时间焦虑，增强顾客对秩序与友善体验的信任。",
+      "action_cost": 0.1,
+      "preference_score": 0.12000000000000001,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "系统允许他稍微犹豫并预留已选项，不会因拖延遭受损失。",
+        "desire": "消化决策后的犹豫，确认并巩固购买结果。",
+        "intention": "准备按流程取货，敏感用户可能觉得更安心。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": 0.05,
+      "rationale": "轻柔提醒‘可保留’有助降低极小部分用户的决策压力，但大部分此阶段用户已无明显焦虑。",
+      "action_cost": 0.1,
+      "preference_score": 0.025,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    },
+    "greet_close": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "所有流程顺利，系统对他的购买表示认可，体面完成交互。",
+        "desire": "顺利完成正向收尾，获得积极反馈后带着良好心情离开。",
+        "intention": "完成领取后自然离开，对数字人致谢做出友好回应。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.2,
+      "delta_mental": 0.3,
+      "rationale": "主动致谢和顺畅出货强化了服务感，正向反馈提升顾客愉悦与信任。",
+      "action_cost": 0.0,
+      "preference_score": 0.23,
+      "response_id": "greet_close",
+      "dialogue_act": "Greet",
+      "act_params": {
+        "phase": "close"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "感谢惠顾，祝您使用愉快。",
+        "screen": {
+          "action": "show_thank_you",
+          "cta": null
+        },
+        "voice_style": "warm",
+        "light": "transaction_complete",
+        "cabinet_motion": "dispense_or_unlock_if_applicable",
+        "duration_ms": 3000,
+        "dialogue_act": "Greet",
+        "act_params": {
+          "phase": "close"
+        },
+        "co_acts": [],
+        "response_id": "greet_close"
+      }
+    }
+  },
+  "best_action": "greet_close",
+  "response_id": "greet_close",
+  "dialogue_act": "Greet",
+  "act_params": {
+    "phase": "close"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "感谢惠顾，祝您使用愉快。",
+    "screen": {
+      "action": "show_thank_you",
+      "cta": null
+    },
+    "voice_style": "warm",
+    "light": "transaction_complete",
+    "cabinet_motion": "dispense_or_unlock_if_applicable",
+    "duration_ms": 3000,
+    "dialogue_act": "Greet",
+    "act_params": {
+      "phase": "close"
+    },
+    "co_acts": [],
+    "response_id": "greet_close"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

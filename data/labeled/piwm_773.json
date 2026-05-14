@@ -1,0 +1,240 @@
+{
+  "session_id": "piwm_773",
+  "persona": "午休期间路过办公楼便利区的中年男职员，已经想买一瓶饮品但担心返回会议来不及。",
+  "persona_visual": "45岁左右的男性，短黑发略带灰白，穿浅蓝色衬衫和深灰色西裤，领口微松，左手戴腕表，右手拿着手机，肩上斜挎一个黑色通勤包",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "他认为眼前的商品基本符合自己的午休需求，但购买过程是否足够快仍让他有些不确定。",
+    "desire": "他想尽快完成购买，在不耽误午休后续安排和会议时间的情况下拿到饮品。",
+    "intention": "他倾向于继续购买，但会先反复确认手机时间，再决定是否立刻操作。"
+  },
+  "observable_behavior": "他站在设备前停留，视线在前方和手机之间来回切换，右手把手机举在胸前低头查看，左手手指轻轻敲动包带，动作克制但带有时间压力。",
+  "facial_expression": "眉头轻微皱起，嘴唇抿住，眼神专注又有些犹豫，整体表现为想买但担心耗时的中等焦虑。",
+  "body_posture": "身体正面朝向镜头，上半身略微前倾，双肩有些紧绷，双手始终在画面内，重心偶尔在两脚之间小幅转换。",
+  "timeline": {
+    "t_0_2": "45岁左右的男性正面站到镜头前，先看向前方，随后快速低头看一眼胸前的手机。",
+    "t_2_5": "他保持身体朝前，右手握着手机不遮挡面部，左手轻敲包带，眉头微皱地在前方和手机之间切换视线。",
+    "t_5_8": "他轻轻吸一口气，上半身向前靠近一点，像是在确认自己已经决定购买，但又再次低头查看时间。",
+    "t_8_10": "他抬起头看向前方，表情稍微放松，左手停止敲动，身体稳定下来，呈现出被时间可控感安抚后准备继续操作的状态。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_price_brief",
+    "reassure_time_wait",
+    "reassure_decision"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他仍然认为购买过程可能存在耗时风险，顾虑未减。",
+        "desire": "希望快速拿到饮品，不被打扰但也未获得新的确定性。",
+        "intention": "等待时机合适时自己操作，但犹豫仍在，前进动力有限。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不主动介入给顾客留下完全自主空间，减少外部压力，但无法缓解其时间焦虑和犹豫。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他确认价格优惠无隐藏成本，但购买流程耗时焦虑感依旧。",
+        "desire": "想以实惠价格买到饮品，仍担心耗时是否能控制。",
+        "intention": "略增动力关注购买，但最终决策仍受时间压力制约。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.1,
+      "rationale": "直接解决价格疑虑增强信任和兴趣，但对他主要的时间焦虑帮助有限。",
+      "action_cost": 0.25,
+      "preference_score": 0.04000000000000001,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他相信即使暂不操作，商品会为自己保留，时间压力明显减轻。",
+        "desire": "希望可以安心完成购买而不怕误点或延误会议。",
+        "intention": "准备抓住合适时刻操作，主动权提高，购买决心升温。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 0.4,
+      "rationale": "安抚时间焦虑正中其主要痛点，让其心理阻碍大幅下降，更有信心推进决策和行动。",
+      "action_cost": 0.1,
+      "preference_score": 0.312,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他意识到不用立刻下决定，对错失选择的担忧减少。",
+        "desire": "保持选项弹性，兼顾效率与后悔风险控制。",
+        "intention": "更愿意随时进入下一步，但仍会以时间充裕为前提做最后决策。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.15,
+      "rationale": "给足决策弹性，让顾客降低焦虑感，但对其“必须抓紧时间”的核心动力影响有限。",
+      "action_cost": 0.1,
+      "preference_score": 0.095,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
+        },
+        "co_acts": [],
+        "response_id": "reassure_decision"
+      }
+    }
+  },
+  "best_action": "reassure_time_wait",
+  "response_id": "reassure_time_wait",
+  "dialogue_act": "Reassure",
+  "act_params": {
+    "focus": "time"
+  },
+  "co_acts": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "ambient"
+      }
+    }
+  ],
+  "realization": {
+    "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+    "screen": {
+      "action": "show_low_pressure_wait_message",
+      "cta": null
+    },
+    "voice_style": "soft",
+    "light": "low_pressure_idle",
+    "cabinet_motion": null,
+    "duration_ms": 3000,
+    "dialogue_act": "Reassure",
+    "act_params": {
+      "focus": "time"
+    },
+    "co_acts": [
+      {
+        "act": "Hold",
+        "params": {
+          "mode": "ambient"
+        }
+      }
+    ],
+    "response_id": "reassure_time_wait"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

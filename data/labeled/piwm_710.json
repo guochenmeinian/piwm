@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
+    "elicit_need_focus_open",
     "inform_attributes_brief",
-    "inform_comparison_brief",
-    "recommend_soft"
+    "inform_price_brief"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她仍认为这里可能有合适的提神饮品，但健康程度和甜度信息依然不清楚。",
-        "desire": "她继续想找到低负担、不太甜的饮品，但兴趣可能被午休时间压力削弱。",
-        "intention": "她倾向于再观察几秒，若仍无法判断则可能放弃或转去看手机。"
+        "belief": "这里可能有合适饮品，但还不确定健康度和适合度。",
+        "desire": "继续希望找到低负担饮品，对健康成分仍有疑虑。",
+        "intention": "短时间继续比较和观察，尚未准备主动操作。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": -0.05,
-      "delta_mental": -0.2,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默不打扰，顾客自处空间安全，无明显兴趣波动。",
       "action_cost": 0.0,
-      "reward": -0.12000000000000001,
-      "rationale": "沉默不会增加健康与甜度相关信念，犹豫维持并受时间压力影响，购买意向略微后退。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,23 +60,68 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "desire",
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她会相信这里确实有无糖茶、低糖咖啡或低卡饮品等更符合健康需求的选项。",
-        "desire": "她寻找低负担、午后提神饮品的欲望被增强，并开始偏向低糖品类。",
-        "intention": "她准备把注意力集中到低糖或无糖推荐区域，进一步筛选一两款候选。"
+        "belief": "系统主动理解并关注她的需求，开始相信可根据健康或偏好筛选饮品。",
+        "desire": "愿意表达关注点，或明确期望获取健康相关介绍。",
+        "intention": "可能准备小步与设备交互，锁定筛选条件或减少犹豫。"
       },
       "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.33,
-      "delta_mental": 1.4,
+      "benefit": "medium",
+      "delta_stage": 0.25,
+      "delta_mental": 0.3,
+      "rationale": "开放引导帮助她明确自身需求，提升信任感，减少信息困扰，兴趣上升。",
       "action_cost": 0.2,
-      "reward": 0.8119999999999999,
-      "rationale": "轻量提示低糖提神选项能补足她最缺的健康信念，降低选择焦虑，使兴趣自然转为明确偏好。",
+      "preference_score": 0.21,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "对主要商品有了参数印象，但未过滤健康或甜度相关内容，疑虑略有缓解但犹豫依旧。",
+        "desire": "希望找到符合健康与低糖标准的详细信息。",
+        "intention": "围绕展示内容再做观察，尚未主动选择，仍偏被动。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.1,
+      "rationale": "简要参数能减少部分疑虑，但未针对健康性，顾客兴趣略提升但犹豫未解。",
+      "action_cost": 0.25,
+      "preference_score": 0.04000000000000001,
+      "response_id": "inform_attributes_brief",
       "dialogue_act": "Inform",
       "act_params": {
         "content_type": "attributes",
@@ -100,120 +146,84 @@
         },
         "co_acts": [],
         "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
+      }
     },
-    "inform_comparison_brief": {
-      "next_aida_stage": "desire",
+    "inform_price_brief": {
+      "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她会更清楚不同饮品在咖啡因、糖分和热量上的差异，认为自己可以理性判断哪款更健康。",
-        "desire": "她想快速选出兼顾提神和低负担的最佳平衡款，而不是漫无目的浏览。",
-        "intention": "她准备在对比信息中锁定一款糖分较低且提神效果合适的饮品。"
+        "belief": "商品价格明确，疑虑仅在健康层面，性价比略有关注。",
+        "desire": "希望还是先解决健康负担，低甜属性更受重视。",
+        "intention": "短暂被价格吸引，兴趣稍有波动，但核心疑虑未变。"
       },
-      "risk": "medium",
-      "benefit": "high",
-      "delta_stage": 0.4,
-      "delta_mental": 1.7,
-      "action_cost": 0.35,
-      "reward": 0.975,
-      "rationale": "结构化对比把她的健康不确定转化为可比较信念，显著减少犹豫并推动形成候选偏好。",
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": 0.05,
+      "rationale": "价格信息在当前主诉求（健康）未解时仅小幅吸引，难以主导意向迁移。",
+      "action_cost": 0.25,
+      "preference_score": -0.0049999999999999975,
+      "response_id": "inform_price_brief",
       "dialogue_act": "Inform",
       "act_params": {
-        "content_type": "comparison",
+        "content_type": "price",
         "depth": "brief"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
         "screen": {
-          "action": "show_comparison_or_details",
-          "target": "{candidate_items}",
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
           "cta": null
         },
         "voice_style": "neutral",
-        "light": "soft_focus_on_comparison_cards",
+        "light": "soft_focus_on_price",
         "cabinet_motion": null,
-        "duration_ms": 4000,
+        "duration_ms": 3500,
         "dialogue_act": "Inform",
         "act_params": {
-          "content_type": "comparison",
+          "content_type": "price",
           "depth": "brief"
         },
         "co_acts": [],
-        "response_id": "inform_comparison_brief"
-      },
-      "response_id": "inform_comparison_brief"
-    },
-    "recommend_soft": {
-      "next_aida_stage": "action",
-      "next_bdi": {
-        "belief": "她会认为系统已经根据低糖、提神、快速购买三个条件给出了一款省时选择。",
-        "desire": "她的省时需求被激活，同时仍希望饮品不要太甜、负担不要太高。",
-        "intention": "她准备点击该低糖提神推荐款，进入确认或支付操作。"
-      },
-      "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.66,
-      "delta_mental": 0.7,
-      "action_cost": 0.55,
-      "reward": 0.5589999999999999,
-      "rationale": "快速推荐能利用午休时间压力直接催化操作，但在她仍犹豫时略有推销感，信任提升有限。",
-      "dialogue_act": "Recommend",
-      "act_params": {
-        "pressure": "soft"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
-        "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
-          "cta": null
-        },
-        "voice_style": "soft",
-        "light": "gentle_highlight",
-        "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
-        "act_params": {
-          "pressure": "soft"
-        },
-        "co_acts": [],
-        "response_id": "recommend_soft"
-      },
-      "response_id": "recommend_soft"
+        "response_id": "inform_price_brief"
+      }
     }
   },
-  "best_action": "inform_comparison_brief",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Inform",
+  "best_action": "elicit_need_focus_open",
+  "response_id": "elicit_need_focus_open",
+  "dialogue_act": "Elicit",
   "act_params": {
-    "content_type": "comparison",
-    "depth": "brief"
+    "openness": "open",
+    "slot": "need_focus"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+    "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
     "screen": {
-      "action": "show_comparison_or_details",
-      "target": "{candidate_items}",
+      "action": "show_choice_bubbles",
+      "choices": [
+        "价格",
+        "功能",
+        "场景"
+      ],
       "cta": null
     },
-    "voice_style": "neutral",
-    "light": "soft_focus_on_comparison_cards",
+    "voice_style": "curious",
+    "light": "soft_invitation",
     "cabinet_motion": null,
-    "duration_ms": 4000,
-    "dialogue_act": "Inform",
+    "duration_ms": 5000,
+    "dialogue_act": "Elicit",
     "act_params": {
-      "content_type": "comparison",
-      "depth": "brief"
+      "openness": "open",
+      "slot": "need_focus"
     },
     "co_acts": [],
-    "response_id": "inform_comparison_brief"
+    "response_id": "elicit_need_focus_open"
   },
-  "response_id": "inform_comparison_brief"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

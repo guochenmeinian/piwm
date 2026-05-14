@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "recommend_soft",
     "inform_comparison_brief",
-    "inform_attributes_brief"
+    "inform_attributes_brief",
+    "inform_price_brief"
   ],
   "outcomes": {
     "hold_silent": {
-      "next_aida_stage": "desire",
+      "next_aida_stage": "interest",
       "next_bdi": {
-        "belief": "她继续相信眼前几款饮品都较符合自己想喝清爽饮料的需求，其中一个选项看起来更顺眼。",
-        "desire": "她想在不被打扰的情况下凭直觉快速确定一瓶。",
-        "intention": "她倾向于再看几秒后选择当前目光停留的那瓶饮品。"
+        "belief": "她依然确认自己面对几个能够接受的饮品，准备挑选。",
+        "desire": "希望快速做决定，免受外部推动。",
+        "intention": "继续自主比较选项，并准备自行做出决定。"
       },
       "risk": "low",
       "benefit": "low",
-      "delta_stage": 0.2,
-      "delta_mental": 0.4,
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "无外部干扰给顾客最大自主空间，保持当前积极兴趣，既不推动也不打扰。",
       "action_cost": 0.0,
-      "rationale": "不介入保留她当前轻松对比的自主感，信念和兴趣自然小幅增强，意图从继续对比缓慢靠近选定。",
-      "reward": 0.28,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,62 +60,23 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
-    },
-    "recommend_soft": {
-      "next_aida_stage": "desire",
-      "next_bdi": {
-        "belief": "她相信被提示的饮品口味清爽、负担较轻，和自己此刻想喝轻松饮料的需求更匹配。",
-        "desire": "她更想选择这瓶看起来最符合当前口味偏好的饮品。",
-        "intention": "她准备把这瓶作为优先选择，并短暂确认价格或口味后下单。"
-      },
-      "risk": "low",
-      "benefit": "medium",
-      "delta_stage": 0.33,
-      "delta_mental": 1.2,
-      "action_cost": 0.25,
-      "rationale": "轻量突出“清爽、好入口”的匹配点会强化她对合适口味的信念，减少选择成本，使意图从比较转向偏好锁定。",
-      "reward": 0.707,
-      "dialogue_act": "Recommend",
-      "act_params": {
-        "pressure": "soft"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
-        "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
-          "cta": null
-        },
-        "voice_style": "soft",
-        "light": "gentle_highlight",
-        "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
-        "act_params": {
-          "pressure": "soft"
-        },
-        "co_acts": [],
-        "response_id": "recommend_soft"
-      },
-      "response_id": "recommend_soft"
+      }
     },
     "inform_comparison_brief": {
-      "next_aida_stage": "action",
+      "next_aida_stage": "desire",
       "next_bdi": {
-        "belief": "她清楚两款候选饮品的关键差异，例如一款更清爽解渴、另一款口味更甜更浓。",
-        "desire": "她想选择更符合自己课间快速喝、口感轻松需求的那一款。",
-        "intention": "她准备选定更清爽的那瓶并进行购买操作。"
+        "belief": "她获得了主要饮品之间的规格、价格和适用场景的清晰对比，更易快速锁定最合适选项。",
+        "desire": "在明确的差异下迅速作出自信选择，减少犹豫。",
+        "intention": "准备在确认比较后做决断，购买意向增强。"
       },
       "risk": "low",
       "benefit": "high",
-      "delta_stage": 0.6,
-      "delta_mental": 1.7,
-      "action_cost": 0.35,
-      "rationale": "把她正在对比的两三个选项压缩成清晰差异，会直接消除轻微犹豫并把购买意图推进到选定与操作。",
-      "reward": 1.0,
+      "delta_stage": 0.33,
+      "delta_mental": 0.35,
+      "rationale": "简洁对比降低选择成本，满足她当下比较需求，有效推动其进入决策阶段。",
+      "action_cost": 0.3,
+      "preference_score": 0.247,
+      "response_id": "inform_comparison_brief",
       "dialogue_act": "Inform",
       "act_params": {
         "content_type": "comparison",
@@ -139,23 +101,23 @@
         },
         "co_acts": [],
         "response_id": "inform_comparison_brief"
-      },
-      "response_id": "inform_comparison_brief"
+      }
     },
     "inform_attributes_brief": {
-      "next_aida_stage": "action",
+      "next_aida_stage": "desire",
       "next_bdi": {
-        "belief": "她相信如果已经看中某瓶饮品，可以很快通过手机扫码或一键确认完成购买。",
-        "desire": "她想节省课间时间，尽快拿到饮品离开。",
-        "intention": "她准备对当前基本选定的饮品执行扫码、确认或取货操作。"
+        "belief": "她清楚了解某款饮品的主要参数、口味和适用人群，消除了信息盲区。",
+        "desire": "更有信心做出贴合自身需求的优选决策。",
+        "intention": "锁定方案后倾向短时间内完成购买。"
       },
-      "risk": "medium",
+      "risk": "low",
       "benefit": "medium",
-      "delta_stage": 0.5,
-      "delta_mental": 0.6,
-      "action_cost": 0.55,
-      "rationale": "快速购买提示会激活她节省时间的欲望并推进到操作，但在她仍处于轻微比较时可能带来一定被催促感。",
-      "reward": 0.445,
+      "delta_stage": 0.3,
+      "delta_mental": 0.18,
+      "rationale": "关键属性信息帮助她确认候选饮品能满足需求，对购买起到温和正向推动。",
+      "action_cost": 0.25,
+      "preference_score": 0.15999999999999998,
+      "response_id": "inform_attributes_brief",
       "dialogue_act": "Inform",
       "act_params": {
         "content_type": "attributes",
@@ -180,16 +142,52 @@
         },
         "co_acts": [],
         "response_id": "inform_attributes_brief"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她获知价格与优惠情况，有助于消除对性价比的隐性疑虑。",
+        "desire": "以较优价格购买到称心如意的饮品。",
+        "intention": "更快缩小选项，准备做出理性又满意的选择。"
       },
-      "response_id": "inform_attributes_brief"
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.28,
+      "delta_mental": 0.15,
+      "rationale": "直接解答价格敏感点，为决策提供支撑，强化购买倾向而无强迫干扰感。",
+      "action_cost": 0.25,
+      "preference_score": 0.137,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
     }
   },
   "best_action": "inform_comparison_brief",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
+  "response_id": "inform_comparison_brief",
   "dialogue_act": "Inform",
   "act_params": {
     "content_type": "comparison",
@@ -215,5 +213,9 @@
     "co_acts": [],
     "response_id": "inform_comparison_brief"
   },
-  "response_id": "inform_comparison_brief"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

@@ -1,0 +1,219 @@
+{
+  "session_id": "piwm_752",
+  "persona": "午休后路过便利区的中年男职员，正在快速查看一款可能适合午后提神的商品。",
+  "persona_visual": "40岁左右的男性，短黑发略带发际线后移，穿浅蓝色长袖衬衫和深灰色西裤，胸前挂着工牌，右手拿一部黑色手机",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为眼前这款商品看起来符合午后提神和快速补充状态的需求。",
+    "desire": "他想在不耽误返回工位的情况下，尽快确认这款商品是否值得购买。",
+    "intention": "他倾向继续集中查看，并且很可能在温和推荐引导下进一步产生购买欲望。"
+  },
+  "observable_behavior": "他在镜头前停下后视线持续集中在正前方略低处，停留时间稳定，右手握着手机但没有离开画面，左手轻轻抬起又放下，动作小而明确，犹豫很低。",
+  "facial_expression": "表情平静但专注，眉头轻微上扬，嘴角放松，眼神稳定，呈现出明显兴趣而非困惑。",
+  "body_posture": "身体正面朝向镜头，上半身微微前倾，双肩放松，双手都保持在画面内，站姿稳定且准备继续操作。",
+  "timeline": {
+    "t_0_2": "这名40岁左右的男性从画面前方停住，正面看向镜头下方，右手拿着黑色手机，表情由路过的自然状态转为专注。",
+    "t_2_5": "他保持视线集中，头部微微向前倾，眼睛在同一小范围内停留，像是在认真确认眼前选项的关键信息。",
+    "t_5_8": "他轻轻点了一下头，左手从身侧抬到胸前又缓慢放下，脸上保持平静但有兴趣的神情，没有明显迟疑。",
+    "t_8_10": "他继续正面站稳，目光仍然锁定前方略低处，右手手机保持在画面内，身体微微前倾，呈现出容易被温和推荐推进的状态。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_attributes_brief",
+    "inform_price_brief",
+    "recommend_soft"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他继续认为眼前商品可能适合补充状态，但没有获取更多新信息。",
+        "desire": "他希望保持当前的专注和自主性，避免被打扰。",
+        "intention": "他准备在完全自主下自己决定是否继续查看或考虑购买。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默保持环境尊重了顾客专注，自主体验未受影响，但对推进决策也没有显著作用。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他对商品的关键属性、适用场景和价格有了明确认知，增强了对适用性的信心。",
+        "desire": "他更想根据属性确认这款商品确实能满足午后提神的需求。",
+        "intention": "他进入认真权衡利弊，准备进一步考虑实际购买。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.25,
+      "rationale": "简要参数展示降低犹豫，增加信任和兴趣，温和推进到实际考虑（desire）阶段。",
+      "action_cost": 0.25,
+      "preference_score": 0.20700000000000002,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    },
+    "inform_price_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他对商品价格和优惠信息有了清晰了解，疑虑减少。",
+        "desire": "他更想结合价格进行是否购买的现实权衡。",
+        "intention": "他产生基于性价比考虑实际购买的初步倾向。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.2,
+      "rationale": "主动价格信息化解关键疑虑，适合已有明确兴趣用户，促进往考量（desire）迁移。",
+      "action_cost": 0.25,
+      "preference_score": 0.182,
+      "response_id": "inform_price_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_price_brief"
+      }
+    },
+    "recommend_soft": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他感受到系统识别并贴合了他的关注点，对推荐内容产生认同。",
+        "desire": "他愿意将注意力集中在被推荐的商品，并思考其实际适用性。",
+        "intention": "他更有可能考虑接下来做出购买决策，但无需立即操作。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.35,
+      "delta_mental": 0.15,
+      "rationale": "温和智能推荐被动贴合用户兴趣，但存在轻微打扰风险，效果视其对智能推荐的接受度。",
+      "action_cost": 0.45,
+      "preference_score": 0.12499999999999996,
+      "response_id": "recommend_soft",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "pressure": "soft"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "pressure": "soft"
+        },
+        "co_acts": [],
+        "response_id": "recommend_soft"
+      }
+    }
+  },
+  "best_action": "inform_attributes_brief",
+  "response_id": "inform_attributes_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "attributes",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "screen": {
+      "action": "show_attribute_table",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_attribute_table",
+    "cabinet_motion": null,
+    "duration_ms": 5000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_attributes_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

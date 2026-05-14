@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "recommend_soft",
-    "inform_attributes_brief"
+    "reassure_time_wait",
+    "reassure_decision",
+    "greet_close"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他相信自己刚才的确认点击已经生效，只需等待设备给出取货或支付完成提示。",
-        "desire": "他仍希望尽快拿到饮品并离开，不被额外信息打断。",
-        "intention": "他准备继续安静等待取货提示或下一步完成信号。"
+        "belief": "他保持当前选择已经正确、操作顺利。",
+        "desire": "尽快买到饮品并离开。",
+        "intention": "等待取货提示，准备拿取商品后离开。"
       },
       "risk": "low",
-      "benefit": "medium",
-      "delta_stage": 0.05,
-      "delta_mental": 0.2,
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默不干扰，完全尊重顾客操作流程，保持心理舒适但无额外助力。",
       "action_cost": 0.0,
-      "reward": 0.12000000000000001,
-      "rationale": "沉默不干扰其已形成的购买意图，维持其对流程顺利的信念并让他自然停留在 action 阶段等待结果。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,118 +60,164 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "desire",
-      "next_bdi": {
-        "belief": "他可能认为系统在确认后又插入额外推荐，流程不够直接，甚至担心刚才的确认是否被打断。",
-        "desire": "他更想跳过推荐、避免额外决策，尽快回到原本的取货流程。",
-        "intention": "他准备关闭或忽略加购提示，并重新确认原饮品订单是否仍在继续。"
-      },
-      "risk": "high",
-      "benefit": "low",
-      "delta_stage": -0.33,
-      "delta_mental": -1.7,
-      "action_cost": 0.7,
-      "reward": -1.0,
-      "rationale": "临门加购会抑制其快速完成的欲望并制造被推销感，使其从已准备执行购买倒退到处理干扰和重新确认状态。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
-    },
-    "recommend_soft": {
+    "reassure_time_wait": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他认为接下来只需按屏幕上的简短取货指引操作，能更快完成离开。",
-        "desire": "他更强烈地希望根据最短路径完成取货，减少在设备前停留时间。",
-        "intention": "他准备按照取货口、等待时间或取货码提示立即完成取货操作。"
+        "belief": "系统在关注我的需求，愿意等我慢慢来，但目前我其实已经下单了。",
+        "desire": "尽快完成流程，不用被催促，也不觉得有延误压力。",
+        "intention": "继续等待系统出货反应，准备取货。"
       },
       "risk": "low",
-      "benefit": "high",
-      "delta_stage": 0.12,
-      "delta_mental": 1.1,
-      "action_cost": 0.25,
-      "reward": 0.5730000000000001,
-      "rationale": "简短取货指引直接服务其快速离开的欲望，提升流程掌控感并把 intention 稳定推向购买完成。",
-      "dialogue_act": "Recommend",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.05,
+      "rationale": "温和表达“可以慢慢来”，对已做出决策者无实际帮助，但不会造成打扰，略提升体验。",
+      "action_cost": 0.1,
+      "preference_score": 0.0049999999999999975,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
       "act_params": {
-        "pressure": "soft"
+        "focus": "time"
       },
-      "co_acts": [],
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
       "terminal_realization": {
-        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
         "screen": {
-          "action": "highlight_recommended_item",
-          "target": "{recommended_item}",
+          "action": "show_low_pressure_wait_message",
           "cta": null
         },
         "voice_style": "soft",
-        "light": "gentle_highlight",
+        "light": "low_pressure_idle",
         "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
         "act_params": {
-          "pressure": "soft"
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "系统担心我犹豫，但我已经决定了，感觉介入略显多余。",
+        "desire": "直接完成，减少多余交流。",
+        "intention": "快步推进，无需额外决策。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.1,
+      "rationale": "当前顾客已确认下单，提示可以‘先保留候选’会被感知为打扰，略影响专注和顺畅感。",
+      "action_cost": 0.1,
+      "preference_score": -0.09000000000000001,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "decision"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "decision"
         },
         "co_acts": [],
-        "response_id": "recommend_soft"
+        "response_id": "reassure_decision"
+      }
+    },
+    "greet_close": {
+      "next_aida_stage": "satisfaction",
+      "next_bdi": {
+        "belief": "下单成功，出货流程已顺利进行。",
+        "desire": "获取饮品并完成购买，体验良好。",
+        "intention": "等待并领取商品，准备离开。"
       },
-      "response_id": "recommend_soft"
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.0,
+      "delta_mental": 0.4,
+      "rationale": "订单确认及时致谢和出货令顾客体验连贯、满意，积极正向推进心理和流程。",
+      "action_cost": 0.0,
+      "preference_score": 0.2,
+      "response_id": "greet_close",
+      "dialogue_act": "Greet",
+      "act_params": {
+        "phase": "close"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "感谢惠顾，祝您使用愉快。",
+        "screen": {
+          "action": "show_thank_you",
+          "cta": null
+        },
+        "voice_style": "warm",
+        "light": "transaction_complete",
+        "cabinet_motion": "dispense_or_unlock_if_applicable",
+        "duration_ms": 3000,
+        "dialogue_act": "Greet",
+        "act_params": {
+          "phase": "close"
+        },
+        "co_acts": [],
+        "response_id": "greet_close"
+      }
     }
   },
-  "best_action": "recommend_soft",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Recommend",
+  "best_action": "greet_close",
+  "response_id": "greet_close",
+  "dialogue_act": "Greet",
   "act_params": {
-    "pressure": "soft"
+    "phase": "close"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+    "surface_text": "感谢惠顾，祝您使用愉快。",
     "screen": {
-      "action": "highlight_recommended_item",
-      "target": "{recommended_item}",
+      "action": "show_thank_you",
       "cta": null
     },
-    "voice_style": "soft",
-    "light": "gentle_highlight",
-    "cabinet_motion": null,
-    "duration_ms": 4500,
-    "dialogue_act": "Recommend",
+    "voice_style": "warm",
+    "light": "transaction_complete",
+    "cabinet_motion": "dispense_or_unlock_if_applicable",
+    "duration_ms": 3000,
+    "dialogue_act": "Greet",
     "act_params": {
-      "pressure": "soft"
+      "phase": "close"
     },
     "co_acts": [],
-    "response_id": "recommend_soft"
+    "response_id": "greet_close"
   },
-  "response_id": "recommend_soft"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

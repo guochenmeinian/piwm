@@ -1,0 +1,225 @@
+{
+  "session_id": "piwm_739",
+  "persona": "下班顺路经过便利区、想快速买一瓶饮品的年轻白领。",
+  "persona_visual": "28岁左右的男性，短黑发，穿浅蓝色衬衫和深灰色西裤，肩背一个黑色通勤包，手里拿着手机和工牌挂绳。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他认为眼前两款候选饮品都符合下班后解渴的需求，但需要再确认哪一款更适合现在购买。",
+    "desire": "他想快速获得两款之间的清晰差异，例如口味、容量或健康感上的对比依据。",
+    "intention": "他倾向继续在两款候选之间稳定比较几秒，再根据更明确的差异做出选择。"
+  },
+  "observable_behavior": "他的目光在左右两个固定位置之间有节奏地交替停留，偶尔轻微点头，双手保持在胸前画面内，手机被自然握住但没有操作。",
+  "facial_expression": "表情平静专注，眉头轻微收拢，嘴唇放松，犹豫感较低，更像是在认真核对信息。",
+  "body_posture": "身体正面朝向镜头，站姿稳定，肩部放松，上半身略微前倾，头部随着视线在两侧小幅转动。",
+  "timeline": {
+    "t_0_2": "这名28岁左右的男性白领正面站定，目光先落在左侧固定位置，双手在胸前自然握着手机和工牌挂绳。",
+    "t_2_5": "他将视线平稳移到右侧固定位置，眉头轻微收拢，像是在寻找两款候选饮品之间的差别。",
+    "t_5_8": "他再次看回左侧，又短暂停到右侧，头部只做小幅转动，神情专注但不焦急。",
+    "t_8_10": "他轻轻点了一下头，视线停在右侧固定位置，身体仍然正面微微前倾，表现出接近完成比较的状态。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "inform_comparison_brief",
+    "inform_attributes_brief",
+    "elicit_need_focus_open"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍然自主比较两款饮品，未获取更多差异信息。",
+        "desire": "希望自己能发现明显的对比依据，愿意再观察几秒。",
+        "intention": "继续独立完成比较，短时内无助推也不会快速推进或退缩。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "完全不介入让顾客持续在自身主导下比较，保持舒适但可能错失高效决策契机。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "inform_comparison_brief": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他明确信息落在两款显著差别上，对比依据清晰可靠。",
+        "desire": "想基于新对比快速锁定一款，缩小选择范围。",
+        "intention": "准备将注意力集中到更适合自己的那款，进入决策准备状态。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 0.4,
+      "rationale": "及时对比展示精确契合顾客比较需求，显著降低犹豫感并激活决策欲望。",
+      "action_cost": 0.3,
+      "preference_score": 0.272,
+      "response_id": "inform_comparison_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_comparison_brief"
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他获得了关于两款饮品基本规格和适用人群的信息，但未直击两者核心对比。",
+        "desire": "希望能得到更直接的对比，否则信息量提升不大。",
+        "intention": "继续略带犹豫地比较，或希望下一步有更针对性的提示。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.1,
+      "delta_mental": 0.15,
+      "rationale": "参数简要展示帮助补全客观认知，但对比和决策辅助作用有限，进展温和。",
+      "action_cost": 0.25,
+      "preference_score": 0.065,
+      "response_id": "inform_attributes_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_attributes_brief"
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "被鼓励表达对规格、价格或场景的关注点，但自己已很明确在做对比。",
+        "desire": "期望系统能直接给出差异而不是让他选问题，略感轻微多余。",
+        "intention": "可能选择功能或场景，但也有小概率选择忽略提示继续自身比较。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.05,
+      "delta_mental": 0.0,
+      "rationale": "开放问询具一定交互正面价值，但对专注决策顾客作用不强，偶有轻微打扰感。",
+      "action_cost": 0.2,
+      "preference_score": -0.020000000000000004,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    }
+  },
+  "best_action": "inform_comparison_brief",
+  "response_id": "inform_comparison_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "comparison",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+    "screen": {
+      "action": "show_comparison_or_details",
+      "target": "{candidate_items}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "soft_focus_on_comparison_cards",
+    "cabinet_motion": null,
+    "duration_ms": 4000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "comparison",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_comparison_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

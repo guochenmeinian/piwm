@@ -19,25 +19,26 @@
   },
   "candidate_actions": [
     "hold_silent",
-    "inform_attributes_brief",
-    "inform_price_brief",
-    "inform_attributes_brief"
+    "reassure_time_wait",
+    "reassure_decision",
+    "greet_close"
   ],
   "outcomes": {
     "hold_silent": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他仍认为饮料已经选定，购买步骤简单且无需外部帮助。",
-        "desire": "他继续想在课前快速拿到饮料。",
-        "intention": "他准备继续伸手操作并完成确认购买。"
+        "belief": "他仍然相信购买流程很直接且不需他人协助。",
+        "desire": "继续希望快速完成购买并获得饮料。",
+        "intention": "准备立即操作并确认购买。"
       },
       "risk": "low",
-      "benefit": "medium",
-      "delta_stage": 0.05,
-      "delta_mental": 0.2,
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "不介入让顾客保持完全掌控，符合他强烈的自主行动意图。",
       "action_cost": 0.0,
-      "reward": 0.12000000000000001,
-      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率按原计划自然完成操作。",
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
       "dialogue_act": "Hold",
       "act_params": {
         "mode": "silent"
@@ -59,122 +60,164 @@
         },
         "co_acts": [],
         "response_id": "hold_silent"
-      },
-      "response_id": "hold_silent"
+      }
     },
-    "inform_attributes_brief": {
-      "next_aida_stage": "desire",
-      "next_bdi": {
-        "belief": "他可能认为系统在额外推销，与自己只想快速买饮料的目标不完全一致。",
-        "desire": "他快速完成购买的欲望被打断，加购或优惠比较的欲望被短暂激活但不稳定。",
-        "intention": "他可能暂停确认购买，转而犹豫是否查看加购优惠，或直接忽略提示。"
-      },
-      "risk": "high",
-      "benefit": "low",
-      "delta_stage": -0.33,
-      "delta_mental": -0.9,
-      "action_cost": 0.55,
-      "reward": -0.6370000000000001,
-      "rationale": "加购促销会改变其原本清晰的快速购买路径，容易触发被推销感并使确认购买意图后退到犹豫比较。",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "attributes",
-        "depth": "brief"
-      },
-      "co_acts": [],
-      "terminal_realization": {
-        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
-        "screen": {
-          "action": "show_attribute_table",
-          "target": "{selected_item}",
-          "cta": null
-        },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_attribute_table",
-        "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "attributes",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "response_id": "inform_attributes_brief"
-      },
-      "response_id": "inform_attributes_brief"
-    },
-    "inform_price_brief": {
+    "reassure_time_wait": {
       "next_aida_stage": "action",
       "next_bdi": {
-        "belief": "他会更确认自己选中的饮料、价格和购买信息无误。",
-        "desire": "他对避免买错或多花时间返工的需求被轻度满足，同时仍想快速完成购买。",
-        "intention": "他准备在确认信息无误后立即继续付款购买。"
+        "belief": "时间充裕且系统愿意配合慢节奏，但他本就没时间压力。",
+        "desire": "希望快速购买，无需提醒可等待。",
+        "intention": "继续准备立即完成购买。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "虽然消除时间焦虑的提示出发点友好，但对已决策且急于操作的顾客无实质作用也无负担。",
+      "action_cost": 0.1,
+      "preference_score": -0.020000000000000004,
+      "response_id": "reassure_time_wait",
+      "dialogue_act": "Reassure",
+      "act_params": {
+        "focus": "time"
+      },
+      "co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ],
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000,
+        "dialogue_act": "Reassure",
+        "act_params": {
+          "focus": "time"
+        },
+        "co_acts": [
+          {
+            "act": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
+          }
+        ],
+        "response_id": "reassure_time_wait"
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "系统允许犹豫或保留，但他已无此心理需求。",
+        "desire": "仍想迅速购买，不需进一步决策缓冲。",
+        "intention": "继续准备立即完成购买。"
       },
       "risk": "medium",
-      "benefit": "medium",
-      "delta_stage": 0.04,
-      "delta_mental": 0.35,
-      "action_cost": 0.25,
-      "reward": 0.166,
-      "rationale": "简短确认能增强正确性信念并降低出错风险，但在其已经很确定时也会带来轻微打断成本。",
-      "dialogue_act": "Inform",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": -0.1,
+      "rationale": "鼓励犹豫性缓冲对已坚定购买者反而略显多余，可能让他觉得效率受阻，降低操作体验感。",
+      "action_cost": 0.1,
+      "preference_score": -0.07,
+      "response_id": "reassure_decision",
+      "dialogue_act": "Reassure",
       "act_params": {
-        "content_type": "price",
-        "depth": "brief"
+        "focus": "decision"
       },
       "co_acts": [],
       "terminal_realization": {
-        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
         "screen": {
-          "action": "show_price_or_discount",
-          "target": "{selected_item}",
+          "action": "show_shortlist_hint",
           "cta": null
         },
-        "voice_style": "neutral",
-        "light": "soft_focus_on_price",
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
         "cabinet_motion": null,
         "duration_ms": 3500,
-        "dialogue_act": "Inform",
+        "dialogue_act": "Reassure",
         "act_params": {
-          "content_type": "price",
-          "depth": "brief"
+          "focus": "decision"
         },
         "co_acts": [],
-        "response_id": "inform_price_brief"
+        "response_id": "reassure_decision"
+      }
+    },
+    "greet_close": {
+      "next_aida_stage": "satisfaction",
+      "next_bdi": {
+        "belief": "购买已完成并获得积极反馈。",
+        "desire": "快速拿到饮料并感受到顺畅流程。",
+        "intention": "完成购买，准备领取饮料并离开。"
       },
-      "response_id": "inform_price_brief"
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": -0.33,
+      "delta_mental": 0.7,
+      "rationale": "顺畅收尾和出货完美契合行动意图，增强满意度及信任感，有效推动至满意/回流环节。",
+      "action_cost": 0.0,
+      "preference_score": 0.21799999999999997,
+      "response_id": "greet_close",
+      "dialogue_act": "Greet",
+      "act_params": {
+        "phase": "close"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "感谢惠顾，祝您使用愉快。",
+        "screen": {
+          "action": "show_thank_you",
+          "cta": null
+        },
+        "voice_style": "warm",
+        "light": "transaction_complete",
+        "cabinet_motion": "dispense_or_unlock_if_applicable",
+        "duration_ms": 3000,
+        "dialogue_act": "Greet",
+        "act_params": {
+          "phase": "close"
+        },
+        "co_acts": [],
+        "response_id": "greet_close"
+      }
     }
   },
-  "best_action": "inform_attributes_brief",
-  "reward_weights": {
-    "alpha": 0.4,
-    "beta": 0.5,
-    "gamma": 0.1
-  },
-  "dialogue_act": "Inform",
+  "best_action": "greet_close",
+  "response_id": "greet_close",
+  "dialogue_act": "Greet",
   "act_params": {
-    "content_type": "attributes",
-    "depth": "brief"
+    "phase": "close"
   },
   "co_acts": [],
   "realization": {
-    "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+    "surface_text": "感谢惠顾，祝您使用愉快。",
     "screen": {
-      "action": "show_attribute_table",
-      "target": "{selected_item}",
+      "action": "show_thank_you",
       "cta": null
     },
-    "voice_style": "neutral",
-    "light": "soft_focus_on_attribute_table",
-    "cabinet_motion": null,
-    "duration_ms": 5000,
-    "dialogue_act": "Inform",
+    "voice_style": "warm",
+    "light": "transaction_complete",
+    "cabinet_motion": "dispense_or_unlock_if_applicable",
+    "duration_ms": 3000,
+    "dialogue_act": "Greet",
     "act_params": {
-      "content_type": "attributes",
-      "depth": "brief"
+      "phase": "close"
     },
     "co_acts": [],
-    "response_id": "inform_attributes_brief"
+    "response_id": "greet_close"
   },
-  "response_id": "inform_attributes_brief"
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
 }

@@ -1,0 +1,222 @@
+{
+  "session_id": "piwm_726",
+  "persona": "下班后赶去地铁站的年轻白领，路过便利区时短暂停在智能售货设备前快速确认是否值得购买。",
+  "persona_visual": "28岁左右的男性，短黑发，穿浅灰色衬衫和深色西裤，外搭黑色轻薄夹克，肩背一个深灰色通勤包，手里拿着手机和门禁卡",
+  "aida_stage": "attention",
+  "bdi": {
+    "belief": "他认为这里可能有适合带走的饮品或零食，但自己时间很紧，不确定是否值得继续停留。",
+    "desire": "他想在几秒内快速判断是否需要购买，同时不耽误赶路。",
+    "intention": "他倾向于放弃购买并继续离开，只保持短暂观察。"
+  },
+  "observable_behavior": "他快速扫视前方区域，视线短促地左右移动，手指无意识摩挲手机边缘，随后肩膀和脚步开始向一侧偏转，表现出准备离开的动作。",
+  "facial_expression": "眉头轻微收紧，嘴唇自然闭合，眼神略显急促和犹豫，没有明显购买兴奋感。",
+  "body_posture": "身体正面朝向镜头但重心已偏向一侧，一只脚略微后撤，肩背包带被轻轻拉住，双手保持在胸前到腰部范围内。",
+  "timeline": {
+    "t_0_2": "这名28岁左右的男性匆匆停在镜头前，正面看向前方，眼睛快速扫过视线范围，右手握着手机。",
+    "t_2_5": "他略微皱眉，视线从左到右短促移动，手指轻轻摩挲手机边缘，像是在快速判断是否值得停留。",
+    "t_5_8": "他没有进一步靠近，肩膀开始向右侧微微转动，一只脚后撤半步，重心明显偏向离开的方向。",
+    "t_8_10": "他最后抬眼看了一下前方，表情仍然犹豫但克制，随后身体继续侧转，准备安静地离开画面。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "hold_ambient",
+    "elicit_need_focus_open",
+    "inform_demo_brief"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "他认为设备没有主动推销，保持舒适的观望空间。",
+        "desire": "希望快速自主做出判断，不受干扰。",
+        "intention": "继续短暂观察，如无亮点则准备离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "静默环境让顾客不感被打扰，但也未增加兴趣或降低犹豫，只维持现状。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "co_acts": [],
+        "response_id": "hold_silent"
+      }
+    },
+    "hold_ambient": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "设备明确表达不打扰，顾客相信自己可完全掌控决策节奏。",
+        "desire": "希望获得更多自主空间，降低被打扰概率。",
+        "intention": "考虑自助快速判断，略感好感但准备离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.1,
+      "rationale": "主动退出显示理解顾客节奏，会微弱减少压力，但不会推进兴趣。",
+      "action_cost": 0.05,
+      "preference_score": 0.04,
+      "response_id": "hold_ambient",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "ambient"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您慢慢看，需要时我再帮您。",
+        "screen": {
+          "action": "return_to_attract_loop",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
+        "cabinet_motion": null,
+        "duration_ms": 2500,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "ambient"
+        },
+        "co_acts": [],
+        "response_id": "hold_ambient"
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备快速提供聚焦三选一选项，使他觉得可以高效筛选重点。",
+        "desire": "希望迅速获取与自身需求相关的信息，减少决策所需时间。",
+        "intention": "若选项契合兴趣，愿意短暂停留加深了解。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": 0.15,
+      "rationale": "开放询问能激活对关键信息的兴趣，略提升信任和参与感，但有轻微被介入风险。",
+      "action_cost": 0.2,
+      "preference_score": 0.155,
+      "response_id": "elicit_need_focus_open",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "co_acts": [],
+        "response_id": "elicit_need_focus_open"
+      }
+    },
+    "inform_demo_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备主动通过短动画展示产品核心优势，为他节省理解成本。",
+        "desire": "短时间看到功能亮点后，有条件对产品产生快速兴趣。",
+        "intention": "有可能产生快速停留兴趣，但若动画不吸引，会立即离开。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 0.25,
+      "rationale": "即时展示有力降低决策门槛，短时提升兴趣和信任，但如不契合顾客需求则反感风险升高。",
+      "action_cost": 0.4,
+      "preference_score": 0.177,
+      "response_id": "inform_demo_brief",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "co_acts": [],
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "co_acts": [],
+        "response_id": "inform_demo_brief"
+      }
+    }
+  },
+  "best_action": "inform_demo_brief",
+  "response_id": "inform_demo_brief",
+  "dialogue_act": "Inform",
+  "act_params": {
+    "content_type": "demo",
+    "depth": "brief"
+  },
+  "co_acts": [],
+  "realization": {
+    "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+    "screen": {
+      "action": "play_short_demo",
+      "target": "{selected_item}",
+      "cta": null
+    },
+    "voice_style": "neutral",
+    "light": "focus_on_demo_area",
+    "cabinet_motion": null,
+    "duration_ms": 8000,
+    "dialogue_act": "Inform",
+    "act_params": {
+      "content_type": "demo",
+      "depth": "brief"
+    },
+    "co_acts": [],
+    "response_id": "inform_demo_brief"
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}
