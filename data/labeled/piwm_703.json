@@ -42,7 +42,6 @@
       "act_params": {
         "mode": "silent"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "",
         "screen": {
@@ -57,7 +56,6 @@
         "act_params": {
           "mode": "silent"
         },
-        "co_acts": [],
         "legacy_action": "A0_silence"
       }
     },
@@ -80,7 +78,6 @@
         "content_type": "attributes",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
         "screen": {
@@ -97,7 +94,6 @@
           "content_type": "attributes",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A1_subtle_identify_device"
       }
     },
@@ -120,7 +116,6 @@
         "target": "item",
         "pressure": "soft"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
         "screen": {
@@ -137,7 +132,6 @@
           "target": "item",
           "pressure": "soft"
         },
-        "co_acts": [],
         "legacy_action": "A2_show_campus_popular_picks"
       }
     },
@@ -160,7 +154,6 @@
         "openness": "open",
         "slot": "need_focus"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
         "screen": {
@@ -181,7 +174,6 @@
           "openness": "open",
           "slot": "need_focus"
         },
-        "co_acts": [],
         "legacy_action": "A3_low_commitment_browse_invite"
       }
     }
@@ -197,7 +189,6 @@
     "openness": "open",
     "slot": "need_focus"
   },
-  "co_acts": [],
   "realization": {
     "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
     "screen": {
@@ -218,7 +209,7 @@
       "openness": "open",
       "slot": "need_focus"
     },
-    "co_acts": [],
     "legacy_action": "A3_low_commitment_browse_invite"
-  }
+  },
+  "schema_version": "dialogue_act_terminal_realization_v2.1"
 }

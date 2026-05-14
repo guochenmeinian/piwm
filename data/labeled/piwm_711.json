@@ -42,7 +42,6 @@
       "act_params": {
         "mode": "silent"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "",
         "screen": {
@@ -57,7 +56,6 @@
         "act_params": {
           "mode": "silent"
         },
-        "co_acts": [],
         "legacy_action": "A0_silence"
       }
     },
@@ -80,7 +78,6 @@
         "content_type": "attributes",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
         "screen": {
@@ -97,7 +94,6 @@
           "content_type": "attributes",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A1_quick_energy_info_snippet"
       }
     },
@@ -120,7 +116,6 @@
         "content_type": "comparison",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
         "screen": {
@@ -137,7 +132,6 @@
           "content_type": "comparison",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A2_compare_by_need"
       }
     },
@@ -160,7 +154,6 @@
         "content_type": "demo",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "我用一个简短演示帮您看清楚这个功能。",
         "screen": {
@@ -177,7 +170,6 @@
           "content_type": "demo",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A3_low_risk_trial_prompt"
       }
     }
@@ -193,7 +185,6 @@
     "content_type": "demo",
     "depth": "brief"
   },
-  "co_acts": [],
   "realization": {
     "surface_text": "我用一个简短演示帮您看清楚这个功能。",
     "screen": {
@@ -210,7 +201,7 @@
       "content_type": "demo",
       "depth": "brief"
     },
-    "co_acts": [],
     "legacy_action": "A3_low_risk_trial_prompt"
-  }
+  },
+  "schema_version": "dialogue_act_terminal_realization_v2.1"
 }

@@ -42,7 +42,6 @@
       "act_params": {
         "mode": "silent"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "",
         "screen": {
@@ -57,7 +56,6 @@
         "act_params": {
           "mode": "silent"
         },
-        "co_acts": [],
         "legacy_action": "A0_silence"
       }
     },
@@ -80,7 +78,6 @@
         "content_type": "attributes",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
         "screen": {
@@ -97,7 +94,6 @@
           "content_type": "attributes",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A1_quick_scan_pay_prompt"
       }
     },
@@ -120,7 +116,6 @@
         "content_type": "price",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
         "screen": {
@@ -137,7 +132,6 @@
           "content_type": "price",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A2_confirm_stock_and_price"
       }
     },
@@ -160,7 +154,6 @@
         "content_type": "attributes",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
         "screen": {
@@ -177,7 +170,6 @@
           "content_type": "attributes",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A3_push_bundle_promo"
       }
     }
@@ -193,7 +185,6 @@
     "content_type": "attributes",
     "depth": "brief"
   },
-  "co_acts": [],
   "realization": {
     "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
     "screen": {
@@ -210,7 +201,7 @@
       "content_type": "attributes",
       "depth": "brief"
     },
-    "co_acts": [],
     "legacy_action": "A1_quick_scan_pay_prompt"
-  }
+  },
+  "schema_version": "dialogue_act_terminal_realization_v2.1"
 }

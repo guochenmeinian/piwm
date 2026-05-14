@@ -10,6 +10,9 @@ from copy import deepcopy
 from typing import Any
 
 
+ACTION_SCHEMA_VERSION = "dialogue_act_terminal_realization_v2.1"
+SUPPORTING_ACTS_PARAM = "supporting_acts"
+
 DIALOGUE_ACTS = [
     "Greet",
     "Elicit",
@@ -185,35 +188,108 @@ REALIZATION_TEMPLATES: dict[str, dict[str, Any]] = {
 }
 
 
+def _normalize_supporting_act(supporting_act: dict[str, Any]) -> dict[str, Any]:
+    """Normalize legacy co_acts and v2.1 supporting_acts into one shape."""
+    act = supporting_act.get("type") or supporting_act.get("act")
+    params = supporting_act.get("params", {})
+    if not act:
+        raise ValueError(f"supporting act missing type/act: {supporting_act}")
+    return {"type": act, "params": deepcopy(params)}
+
+
+def normalize_supporting_acts(supporting_acts: list[dict[str, Any]] | None = None) -> list[dict[str, Any]]:
+    normalized = []
+    seen = set()
+    for supporting_act in supporting_acts or []:
+        item = _normalize_supporting_act(supporting_act)
+        key = (item["type"], tuple(sorted(item["params"].items())))
+        if key not in seen:
+            normalized.append(item)
+            seen.add(key)
+    return normalized
+
+
+def supporting_acts_from_params(params: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+    return normalize_supporting_acts((params or {}).get(SUPPORTING_ACTS_PARAM, []))
+
+
+def legacy_co_acts_from_params(params: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+    return [
+        {"act": supporting_act["type"], "params": deepcopy(supporting_act.get("params", {}))}
+        for supporting_act in supporting_acts_from_params(params)
+    ]
+
+
+def merge_supporting_acts(
+    params: dict[str, Any] | None = None,
+    co_acts: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    merged = deepcopy(params or {})
+    supporting_acts = normalize_supporting_acts(
+        list(merged.get(SUPPORTING_ACTS_PARAM, [])) + list(co_acts or [])
+    )
+    if supporting_acts:
+        merged[SUPPORTING_ACTS_PARAM] = supporting_acts
+    else:
+        merged.pop(SUPPORTING_ACTS_PARAM, None)
+    return merged
+
+
+def validate_dialogue_act(act: str, params: dict[str, Any] | None = None) -> None:
+    if act not in DIALOGUE_ACTS:
+        raise ValueError(f"unknown DialogueAct: {act}")
+    params = params or {}
+    allowed = DIALOGUE_ACT_PARAM_VALUES[act]
+    for key, value in params.items():
+        if key == SUPPORTING_ACTS_PARAM:
+            continue
+        if key not in allowed:
+            raise ValueError(f"invalid param for {act}: {key}")
+        if value not in allowed[key]:
+            raise ValueError(f"invalid value for {act}.{key}: {value}")
+    for supporting_act in supporting_acts_from_params(params):
+        validate_dialogue_act(supporting_act["type"], supporting_act.get("params", {}))
+
+
+def _normalize_act_spec(spec: dict[str, Any]) -> dict[str, Any]:
+    params = merge_supporting_acts(spec.get("params", {}), spec.get("co_acts", []))
+    validate_dialogue_act(spec["act"], params)
+    return {
+        "act": spec["act"],
+        "params": params,
+        "co_acts": legacy_co_acts_from_params(params),
+    }
+
+
 def t_state_to_act(t_state: str) -> dict[str, Any]:
     if t_state not in T_STATE_TO_DIALOGUE_ACT:
         raise ValueError(f"unknown T-state: {t_state}")
-    return deepcopy(T_STATE_TO_DIALOGUE_ACT[t_state])
+    return _normalize_act_spec(T_STATE_TO_DIALOGUE_ACT[t_state])
 
 
 def legacy_action_to_act(action: str) -> dict[str, Any]:
     """Map either canonical A1-A8 labels or older dynamic A* aliases to v2 acts."""
     if action in LEGACY_ACTION_TO_DIALOGUE_ACT:
-        return deepcopy(LEGACY_ACTION_TO_DIALOGUE_ACT[action])
+        return _normalize_act_spec(LEGACY_ACTION_TO_DIALOGUE_ACT[action])
 
     lowered = action.lower()
     if "silence" in lowered or "silent" in lowered:
-        return deepcopy(LEGACY_ACTION_TO_DIALOGUE_ACT["A1_silent_observe"])
+        return _normalize_act_spec(LEGACY_ACTION_TO_DIALOGUE_ACT["A1_silent_observe"])
     if "compare" in lowered:
-        return deepcopy(LEGACY_ACTION_TO_DIALOGUE_ACT["A2_offer_value_comparison"])
+        return _normalize_act_spec(LEGACY_ACTION_TO_DIALOGUE_ACT["A2_offer_value_comparison"])
     if "demo" in lowered or "trial" in lowered:
-        return deepcopy(LEGACY_ACTION_TO_DIALOGUE_ACT["A5_provide_demonstration"])
+        return _normalize_act_spec(LEGACY_ACTION_TO_DIALOGUE_ACT["A5_provide_demonstration"])
     if "question" in lowered or "ask" in lowered or "invite" in lowered:
-        return deepcopy(LEGACY_ACTION_TO_DIALOGUE_ACT["A4_open_with_question"])
+        return _normalize_act_spec(LEGACY_ACTION_TO_DIALOGUE_ACT["A4_open_with_question"])
     if "risk" in lowered or "reassur" in lowered or "wait" in lowered:
-        return deepcopy(LEGACY_ACTION_TO_DIALOGUE_ACT["A6_acknowledge_and_wait"])
+        return _normalize_act_spec(LEGACY_ACTION_TO_DIALOGUE_ACT["A6_acknowledge_and_wait"])
     if "recommend" in lowered or "nudge" in lowered or "pick" in lowered or "match" in lowered:
-        return {"act": "Recommend", "params": {"target": "item", "pressure": "soft"}, "co_acts": []}
+        return _normalize_act_spec({"act": "Recommend", "params": {"target": "item", "pressure": "soft"}, "co_acts": []})
     if "price" in lowered:
-        return {"act": "Inform", "params": {"content_type": "price", "depth": "brief"}, "co_acts": []}
+        return _normalize_act_spec({"act": "Inform", "params": {"content_type": "price", "depth": "brief"}, "co_acts": []})
     if "info" in lowered or "tag" in lowered or "hint" in lowered or "popular" in lowered:
-        return {"act": "Inform", "params": {"content_type": "attributes", "depth": "brief"}, "co_acts": []}
-    return {"act": "Inform", "params": {"content_type": "attributes", "depth": "brief"}, "co_acts": []}
+        return _normalize_act_spec({"act": "Inform", "params": {"content_type": "attributes", "depth": "brief"}, "co_acts": []})
+    return _normalize_act_spec({"act": "Inform", "params": {"content_type": "attributes", "depth": "brief"}, "co_acts": []})
 
 
 def action_to_act(action: str) -> dict[str, Any]:
@@ -244,24 +320,27 @@ def derive_terminal_realization(
     co_acts: list[dict[str, Any]] | None = None,
     legacy_action: str | None = None,
 ) -> dict[str, Any]:
+    act_params = merge_supporting_acts(act_params, co_acts)
+    validate_dialogue_act(dialogue_act, act_params)
     template = deepcopy(REALIZATION_TEMPLATES.get(_template_key(dialogue_act, act_params), REALIZATION_TEMPLATES["Hold:ambient"]))
     template.update(
         {
             "dialogue_act": dialogue_act,
             "act_params": deepcopy(act_params),
-            "co_acts": deepcopy(co_acts or []),
             "legacy_action": legacy_action,
         }
     )
+    legacy_co_acts = legacy_co_acts_from_params(act_params)
+    if legacy_co_acts:
+        template["legacy_co_acts"] = legacy_co_acts
     return template
 
 
 def enrich_action_payload(action: str) -> dict[str, Any]:
     act = action_to_act(action)
-    return {
+    payload = {
         "dialogue_act": act["act"],
         "act_params": deepcopy(act["params"]),
-        "co_acts": deepcopy(act.get("co_acts", [])),
         "terminal_realization": derive_terminal_realization(
             act["act"],
             act["params"],
@@ -269,19 +348,29 @@ def enrich_action_payload(action: str) -> dict[str, Any]:
             legacy_action=T_STATE_LEGACY_ACTION.get(action, action),
         ),
     }
+    legacy_co_acts = legacy_co_acts_from_params(act["params"])
+    if legacy_co_acts:
+        payload["legacy_co_acts"] = legacy_co_acts
+    return payload
 
 
 def enrich_labeled_record(record: dict[str, Any]) -> dict[str, Any]:
-    """Add v2 action/realization fields to a labeled record in-place and return it."""
+    """Add v2.1 action/realization fields to a labeled record in-place and return it."""
+    record["schema_version"] = ACTION_SCHEMA_VERSION
     outcomes = record.get("outcomes", {})
     for action, outcome in outcomes.items():
         outcome.update(enrich_action_payload(action))
+        outcome.pop("co_acts", None)
 
     best_action = record.get("best_action")
     if best_action:
         best = enrich_action_payload(best_action)
         record["dialogue_act"] = best["dialogue_act"]
         record["act_params"] = best["act_params"]
-        record["co_acts"] = best["co_acts"]
+        record.pop("co_acts", None)
+        if best.get("legacy_co_acts"):
+            record["legacy_co_acts"] = best["legacy_co_acts"]
+        else:
+            record.pop("legacy_co_acts", None)
         record["realization"] = best["terminal_realization"]
     return record

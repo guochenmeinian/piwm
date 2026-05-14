@@ -26,17 +26,19 @@ Manifest 不包含机器动作，不包含终端响应。
 
 `gen_deliberation.py` 对当前 AIDA 阶段取 4 个候选 T-state，逐一预测 outcome、计算 reward，并选择 `best_action`。
 
-T-state 是兼容标签；脚本会自动补齐 v2 字段：
+T-state 是兼容标签；脚本会自动补齐 v2.1 字段：
 
 - `dialogue_act`
 - `act_params`
-- `co_acts`
+- `act_params.supporting_acts`
+- `legacy_co_acts`（仅旧格式回溯需要时出现）
 - `terminal_realization`
 
 输出结构：
 
 ```json
 {
+  "schema_version": "dialogue_act_terminal_realization_v2.1",
   "candidate_actions": ["T1_SILENT_OBSERVE", "T2_VALUE_COMPARE", "T4_OPEN_QUESTION", "T5_DEMO"],
   "outcomes": {
     "T2_VALUE_COMPARE": {
@@ -51,14 +53,12 @@ T-state 是兼容标签；脚本会自动补齐 v2 字段：
       "rationale": "...",
       "dialogue_act": "Inform",
       "act_params": {"content_type": "comparison", "depth": "brief"},
-      "co_acts": [],
       "terminal_realization": {"surface_text": "...", "screen": {"action": "show_comparison_or_details"}}
     }
   },
   "best_action": "T2_VALUE_COMPARE",
   "dialogue_act": "Inform",
   "act_params": {"content_type": "comparison", "depth": "brief"},
-  "co_acts": [],
   "realization": {"surface_text": "..."}
 }
 ```
@@ -73,6 +73,7 @@ T-state 是兼容标签；脚本会自动补齐 v2 字段：
 
 ```bash
 python script/upgrade_labeled_v2.py
+python script/audit_action_space_v2.py
 ```
 
-脚本会保留旧动作名，同时补齐 v2 policy 和 terminal realization 字段。
+脚本会保留旧动作名，同时补齐 v2.1 policy 和 terminal realization 字段，并把旧 `co_acts` 收敛到 `act_params.supporting_acts / legacy_co_acts`。

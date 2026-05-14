@@ -54,7 +54,7 @@
 | `T3_STRONG_RECOMMEND` | `Recommend(pressure=firm)` |
 | `T4_OPEN_QUESTION` | `Elicit(slot=need_focus)` |
 | `T5_DEMO` | `Inform(content_type=demo)` |
-| `T6_ACK_WAIT` | `Reassure(focus=time)` + `Hold(mode=ambient)` |
+| `T6_ACK_WAIT` | `Reassure(focus=time, supporting_acts=[Hold(mode=ambient)])` |
 | `T7_DISENGAGE` | `Hold(mode=ambient)` |
 | `T_TRANSACT` | `Greet(phase=close)` |
 
@@ -67,8 +67,7 @@ Policy layer 输出：
 ```json
 {
   "dialogue_act": "Inform",
-  "act_params": {"content_type": "comparison", "depth": "brief"},
-  "co_acts": []
+  "act_params": {"content_type": "comparison", "depth": "brief"}
 }
 ```
 

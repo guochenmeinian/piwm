@@ -42,7 +42,6 @@
       "act_params": {
         "mode": "silent"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "",
         "screen": {
@@ -57,7 +56,6 @@
         "act_params": {
           "mode": "silent"
         },
-        "co_acts": [],
         "legacy_action": "A0_silence"
       }
     },
@@ -80,7 +78,6 @@
         "target": "item",
         "pressure": "soft"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
         "screen": {
@@ -97,7 +94,6 @@
           "target": "item",
           "pressure": "soft"
         },
-        "co_acts": [],
         "legacy_action": "A1_highlight_quick_energy_match"
       }
     },
@@ -120,7 +116,6 @@
         "content_type": "comparison",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
         "screen": {
@@ -137,7 +132,6 @@
           "content_type": "comparison",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A2_side_by_side_compare"
       }
     },
@@ -160,7 +154,6 @@
         "target": "item",
         "pressure": "soft"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
         "screen": {
@@ -177,7 +170,6 @@
           "target": "item",
           "pressure": "soft"
         },
-        "co_acts": [],
         "legacy_action": "A3_one_tap_recommended_checkout"
       }
     }
@@ -193,7 +185,6 @@
     "target": "item",
     "pressure": "soft"
   },
-  "co_acts": [],
   "realization": {
     "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
     "screen": {
@@ -210,7 +201,7 @@
       "target": "item",
       "pressure": "soft"
     },
-    "co_acts": [],
     "legacy_action": "A1_highlight_quick_energy_match"
-  }
+  },
+  "schema_version": "dialogue_act_terminal_realization_v2.1"
 }

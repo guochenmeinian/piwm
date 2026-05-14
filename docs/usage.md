@@ -34,7 +34,7 @@ python script/gen_manifest.py "..." -o -
 
 ## gen_deliberation.py
 
-生成 v2-compatible labeled JSON。输出保留 `best_action`，同时新增 `dialogue_act / act_params / co_acts / realization`。
+生成 v2.1-compatible labeled JSON。输出保留 `best_action`，同时新增 `schema_version / dialogue_act / act_params / realization`。辅助动作写入 `act_params.supporting_acts`，旧格式回溯字段为 `legacy_co_acts`。
 
 ```bash
 python script/gen_deliberation.py
@@ -48,12 +48,20 @@ python script/gen_deliberation.py data/manifest/piwm_700.json \
 
 ## upgrade_labeled_v2.py
 
-给已有 labeled JSON 回填 v2 字段。不会改 manifest/kling/video。
+给已有 labeled JSON 回填 v2.1 字段。不会改 manifest/kling/video。
 
 ```bash
 python script/upgrade_labeled_v2.py --dry-run
 python script/upgrade_labeled_v2.py
 python script/upgrade_labeled_v2.py data/labeled/piwm_700.json
+```
+
+## audit_action_space_v2.py
+
+检查 labeled JSON 是否仍有旧顶层 `co_acts` 或 schema 版本不一致。
+
+```bash
+python script/audit_action_space_v2.py
 ```
 
 ## gen_video.py
@@ -81,6 +89,7 @@ python script/gen_video.py data/labeled/piwm_750.json
 ```bash
 python3 -m py_compile script/action_space_v2.py script/gen_manifest.py script/gen_deliberation.py script/gen_video.py script/upgrade_labeled_v2.py
 python script/upgrade_labeled_v2.py --dry-run
+python script/audit_action_space_v2.py
 ```
 
 `upgrade_labeled_v2.py --dry-run` 返回 `0 file(s) would change` 时，说明已有 labeled JSON 已补齐 v2 字段。

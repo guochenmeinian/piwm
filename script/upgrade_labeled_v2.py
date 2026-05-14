@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Backfill PIWM v2 action/terminal-realization fields into labeled JSON files."""
+"""Backfill PIWM v2.1 action/terminal-realization fields into labeled JSON files."""
 
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ def upgrade_file(path: Path, dry_run: bool = False) -> bool:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Backfill v2 action/realization fields in data/labeled/*.json.")
+    parser = argparse.ArgumentParser(description="Backfill v2.1 action/realization fields in data/labeled/*.json.")
     parser.add_argument("paths", nargs="*", help="JSON files to upgrade. Defaults to data/labeled/piwm_*.json.")
     parser.add_argument("--dry-run", action="store_true", help="Only report files that would change.")
     args = parser.parse_args()

@@ -42,7 +42,6 @@
       "act_params": {
         "mode": "silent"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "",
         "screen": {
@@ -57,7 +56,6 @@
         "act_params": {
           "mode": "silent"
         },
-        "co_acts": [],
         "legacy_action": "A0_silence"
       }
     },
@@ -80,7 +78,6 @@
         "content_type": "attributes",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
         "screen": {
@@ -97,7 +94,6 @@
           "content_type": "attributes",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A1_enable_one_tap_checkout"
       }
     },
@@ -117,16 +113,16 @@
       "rationale": "简短确认有货与价格会增强信任、降低最后一秒顾虑，使其购买意图更稳定地进入 action。",
       "dialogue_act": "Reassure",
       "act_params": {
-        "focus": "time"
-      },
-      "co_acts": [
-        {
-          "act": "Hold",
-          "params": {
-            "mode": "ambient"
+        "focus": "time",
+        "supporting_acts": [
+          {
+            "type": "Hold",
+            "params": {
+              "mode": "ambient"
+            }
           }
-        }
-      ],
+        ]
+      },
       "terminal_realization": {
         "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
         "screen": {
@@ -139,18 +135,34 @@
         "duration_ms": 3000,
         "dialogue_act": "Reassure",
         "act_params": {
-          "focus": "time"
+          "focus": "time",
+          "supporting_acts": [
+            {
+              "type": "Hold",
+              "params": {
+                "mode": "ambient"
+              }
+            }
+          ]
         },
-        "co_acts": [
+        "legacy_action": "A2_reassure_price_and_availability",
+        "legacy_co_acts": [
           {
             "act": "Hold",
             "params": {
               "mode": "ambient"
             }
           }
-        ],
-        "legacy_action": "A2_reassure_price_and_availability"
-      }
+        ]
+      },
+      "legacy_co_acts": [
+        {
+          "act": "Hold",
+          "params": {
+            "mode": "ambient"
+          }
+        }
+      ]
     },
     "A3_quick_compare_nearby_options": {
       "next_aida_stage": "interest",
@@ -171,7 +183,6 @@
         "content_type": "comparison",
         "depth": "brief"
       },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
         "screen": {
@@ -188,7 +199,6 @@
           "content_type": "comparison",
           "depth": "brief"
         },
-        "co_acts": [],
         "legacy_action": "A3_quick_compare_nearby_options"
       }
     }
@@ -204,7 +214,6 @@
     "content_type": "attributes",
     "depth": "brief"
   },
-  "co_acts": [],
   "realization": {
     "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
     "screen": {
@@ -221,7 +230,7 @@
       "content_type": "attributes",
       "depth": "brief"
     },
-    "co_acts": [],
     "legacy_action": "A1_enable_one_tap_checkout"
-  }
+  },
+  "schema_version": "dialogue_act_terminal_realization_v2.1"
 }
