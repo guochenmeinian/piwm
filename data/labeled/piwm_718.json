@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_enable_one_tap_checkout": {
       "next_aida_stage": "action",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_enable_one_tap_checkout"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__6bf85b7d"
     },
     "A2_confirm_selection_and_price": {
       "next_aida_stage": "action",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_confirm_selection_and_price"
-      }
+      },
+      "action_key": "Inform_053014d173cc",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "price",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_053014d173cc"
     },
     "A3_suggest_add_on_promo": {
       "next_aida_stage": "desire",
@@ -171,7 +197,16 @@
           "depth": "brief"
         },
         "legacy_action": "A3_suggest_add_on_promo"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__1a1719e7"
     }
   },
   "best_action": "A1_enable_one_tap_checkout",
@@ -203,5 +238,433 @@
     },
     "legacy_action": "A1_enable_one_tap_checkout"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "price",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_053014d173cc",
+    "Inform_24926eed1e21"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他仍认为饮料已经选定，购买步骤简单且无需外部帮助。",
+          "desire": "他继续想在课前快速拿到饮料。",
+          "intention": "他准备继续伸手操作并完成确认购买。"
+        },
+        "risk": "low",
+        "benefit": "medium",
+        "delta_stage": 0.05,
+        "delta_mental": 0.2,
+        "action_cost": 0.0,
+        "reward": 0.12000000000000001,
+        "rationale": "不介入不会打断其已形成的购买意图，顾客大概率按原计划自然完成操作。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会相信当前购买路径更快捷，系统正在帮助他减少操作步骤而不是重新推荐商品。",
+          "desire": "他快速完成购买、赶在上课前拿到饮料的欲望被进一步激活。",
+          "intention": "他准备立即点击一键确认或扫码付款完成购买。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.12,
+        "delta_mental": 0.9,
+        "action_cost": 0.2,
+        "reward": 0.478,
+        "rationale": "提供一键结算强化了“购买很快”的信念，直接服务其快速完成购买的欲望，使意图更稳定地落到付款操作。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_enable_one_tap_checkout"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__6bf85b7d"
+      },
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他可能认为系统在额外推销，与自己只想快速买饮料的目标不完全一致。",
+          "desire": "他快速完成购买的欲望被打断，加购或优惠比较的欲望被短暂激活但不稳定。",
+          "intention": "他可能暂停确认购买，转而犹豫是否查看加购优惠，或直接忽略提示。"
+        },
+        "risk": "high",
+        "benefit": "low",
+        "delta_stage": -0.33,
+        "delta_mental": -0.9,
+        "action_cost": 0.55,
+        "reward": -0.6370000000000001,
+        "rationale": "加购促销会改变其原本清晰的快速购买路径，容易触发被推销感并使确认购买意图后退到犹豫比较。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A3_suggest_add_on_promo"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__1a1719e7"
+      }
+    ],
+    "Inform_053014d173cc": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会更确认自己选中的饮料、价格和购买信息无误。",
+          "desire": "他对避免买错或多花时间返工的需求被轻度满足，同时仍想快速完成购买。",
+          "intention": "他准备在确认信息无误后立即继续付款购买。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.04,
+        "delta_mental": 0.35,
+        "action_cost": 0.25,
+        "reward": 0.166,
+        "rationale": "简短确认能增强正确性信念并降低出错风险，但在其已经很确定时也会带来轻微打断成本。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+          "screen": {
+            "action": "show_price_or_discount",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_price",
+          "cabinet_motion": null,
+          "duration_ms": 3500,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "price",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_confirm_selection_and_price"
+        },
+        "action_key": "Inform_053014d173cc",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "price",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_053014d173cc"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_24926eed1e21",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21__6bf85b7d",
+    "Inform_053014d173cc",
+    "Inform_24926eed1e21__1a1719e7"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他仍认为饮料已经选定，购买步骤简单且无需外部帮助。",
+        "desire": "他继续想在课前快速拿到饮料。",
+        "intention": "他准备继续伸手操作并完成确认购买。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.05,
+      "delta_mental": 0.2,
+      "action_cost": 0.0,
+      "reward": 0.12000000000000001,
+      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率按原计划自然完成操作。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21__6bf85b7d": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会相信当前购买路径更快捷，系统正在帮助他减少操作步骤而不是重新推荐商品。",
+        "desire": "他快速完成购买、赶在上课前拿到饮料的欲望被进一步激活。",
+        "intention": "他准备立即点击一键确认或扫码付款完成购买。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.12,
+      "delta_mental": 0.9,
+      "action_cost": 0.2,
+      "reward": 0.478,
+      "rationale": "提供一键结算强化了“购买很快”的信念，直接服务其快速完成购买的欲望，使意图更稳定地落到付款操作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_enable_one_tap_checkout"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__6bf85b7d"
+    },
+    "Inform_053014d173cc": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更确认自己选中的饮料、价格和购买信息无误。",
+        "desire": "他对避免买错或多花时间返工的需求被轻度满足，同时仍想快速完成购买。",
+        "intention": "他准备在确认信息无误后立即继续付款购买。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.04,
+      "delta_mental": 0.35,
+      "action_cost": 0.25,
+      "reward": 0.166,
+      "rationale": "简短确认能增强正确性信念并降低出错风险，但在其已经很确定时也会带来轻微打断成本。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_confirm_selection_and_price"
+      },
+      "action_key": "Inform_053014d173cc",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "price",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_053014d173cc"
+    },
+    "Inform_24926eed1e21__1a1719e7": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他可能认为系统在额外推销，与自己只想快速买饮料的目标不完全一致。",
+        "desire": "他快速完成购买的欲望被打断，加购或优惠比较的欲望被短暂激活但不稳定。",
+        "intention": "他可能暂停确认购买，转而犹豫是否查看加购优惠，或直接忽略提示。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -0.9,
+      "action_cost": 0.55,
+      "reward": -0.6370000000000001,
+      "rationale": "加购促销会改变其原本清晰的快速购买路径，容易触发被推销感并使确认购买意图后退到犹豫比较。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A3_suggest_add_on_promo"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__1a1719e7"
+    }
+  },
+  "best_action_instance_key": "Inform_24926eed1e21__6bf85b7d"
 }

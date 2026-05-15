@@ -6,11 +6,13 @@ ProactiveIntentWorldModel while keeping this repository self-contained.
 
 from __future__ import annotations
 
+import hashlib
+import json
 from copy import deepcopy
 from typing import Any
 
 
-ACTION_SCHEMA_VERSION = "dialogue_act_terminal_realization_v2.1"
+ACTION_SCHEMA_VERSION = "dialogue_act_terminal_realization_v2.2"
 SUPPORTING_ACTS_PARAM = "supporting_acts"
 
 DIALOGUE_ACTS = [
@@ -189,7 +191,7 @@ REALIZATION_TEMPLATES: dict[str, dict[str, Any]] = {
 
 
 def _normalize_supporting_act(supporting_act: dict[str, Any]) -> dict[str, Any]:
-    """Normalize legacy co_acts and v2.1 supporting_acts into one shape."""
+    """Normalize legacy co_acts and v2.2 supporting_acts into one shape."""
     act = supporting_act.get("type") or supporting_act.get("act")
     params = supporting_act.get("params", {})
     if not act:
@@ -298,6 +300,31 @@ def action_to_act(action: str) -> dict[str, Any]:
     return legacy_action_to_act(action)
 
 
+def canonical_action_spec(action: str) -> dict[str, Any]:
+    """Return the canonical v2.2 action object for a legacy/T-state label."""
+
+    spec = action_to_act(action)
+    return {"act": spec["act"], "params": deepcopy(spec["params"])}
+
+
+def action_spec_key(act: str, params: dict[str, Any] | None = None) -> str:
+    """Return a stable JSON-safe key for a canonical ``(act, params)`` spec."""
+
+    normalized = merge_supporting_acts(params or {})
+    params_json = json.dumps(normalized, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    digest = hashlib.sha1(params_json.encode("utf-8")).hexdigest()[:12]
+    return f"{act}_{digest}"
+
+
+def action_instance_key(action: str, action_key: str, *, disambiguate: bool = False) -> str:
+    """Return a unique key for one legacy/T-state candidate occurrence."""
+
+    if not disambiguate:
+        return action_key
+    digest = hashlib.sha1(action.encode("utf-8")).hexdigest()[:8]
+    return f"{action_key}__{digest}"
+
+
 def _template_key(dialogue_act: str, act_params: dict[str, Any]) -> str:
     if dialogue_act == "Hold":
         return f"Hold:{act_params.get('mode', 'ambient')}"
@@ -338,7 +365,10 @@ def derive_terminal_realization(
 
 def enrich_action_payload(action: str) -> dict[str, Any]:
     act = action_to_act(action)
+    action_spec = {"act": act["act"], "params": deepcopy(act["params"])}
     payload = {
+        "action_key": action_spec_key(act["act"], act["params"]),
+        "action_spec": action_spec,
         "dialogue_act": act["act"],
         "act_params": deepcopy(act["params"]),
         "terminal_realization": derive_terminal_realization(
@@ -355,16 +385,43 @@ def enrich_action_payload(action: str) -> dict[str, Any]:
 
 
 def enrich_labeled_record(record: dict[str, Any]) -> dict[str, Any]:
-    """Add v2.1 action/realization fields to a labeled record in-place and return it."""
+    """Add v2.2 action/realization fields to a labeled record in-place and return it."""
+
     record["schema_version"] = ACTION_SCHEMA_VERSION
     outcomes = record.get("outcomes", {})
+    candidate_actions = list(record.get("candidate_actions") or outcomes.keys())
+    candidate_specs = [canonical_action_spec(action) for action in candidate_actions]
+    candidate_keys = [action_spec_key(spec["act"], spec["params"]) for spec in candidate_specs]
+    duplicate_keys = {key for key in candidate_keys if candidate_keys.count(key) > 1}
+    candidate_instance_keys = [
+        action_instance_key(action, key, disambiguate=key in duplicate_keys)
+        for action, key in zip(candidate_actions, candidate_keys)
+    ]
+    action_to_instance_key = dict(zip(candidate_actions, candidate_instance_keys))
+    if candidate_actions:
+        record["candidate_action_specs"] = candidate_specs
+        record["candidate_action_keys"] = candidate_keys
+        record["candidate_action_instance_keys"] = candidate_instance_keys
+
+    outcomes_by_action_key: dict[str, list[Any]] = {}
+    outcomes_by_action_instance_key: dict[str, Any] = {}
     for action, outcome in outcomes.items():
         outcome.update(enrich_action_payload(action))
         outcome.pop("co_acts", None)
+        instance_key = action_to_instance_key.get(action) or action_instance_key(action, outcome["action_key"])
+        outcome["action_instance_key"] = instance_key
+        outcomes_by_action_key.setdefault(outcome["action_key"], []).append(outcome)
+        outcomes_by_action_instance_key[instance_key] = outcome
+    if outcomes_by_action_key:
+        record["outcomes_by_action_key"] = outcomes_by_action_key
+        record["outcomes_by_action_instance_key"] = outcomes_by_action_instance_key
 
     best_action = record.get("best_action")
     if best_action:
         best = enrich_action_payload(best_action)
+        record["best_action_spec"] = best["action_spec"]
+        record["best_action_key"] = best["action_key"]
+        record["best_action_instance_key"] = action_to_instance_key.get(best_action, best["action_key"])
         record["dialogue_act"] = best["dialogue_act"]
         record["act_params"] = best["act_params"]
         record.pop("co_acts", None)

@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_show_order_confirmed_status": {
       "next_aida_stage": "action",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_show_order_confirmed_status"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__280f518e"
     },
     "A2_display_quick_pickup_guidance": {
       "next_aida_stage": "action",
@@ -133,7 +150,16 @@
           "pressure": "soft"
         },
         "legacy_action": "A2_display_quick_pickup_guidance"
-      }
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
     },
     "A3_last_second_bundle_upsell": {
       "next_aida_stage": "desire",
@@ -171,7 +197,16 @@
           "depth": "brief"
         },
         "legacy_action": "A3_last_second_bundle_upsell"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__519a60ca"
     }
   },
   "best_action": "A2_display_quick_pickup_guidance",
@@ -203,5 +238,433 @@
     },
     "legacy_action": "A2_display_quick_pickup_guidance"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Recommend",
+      "params": {
+        "target": "item",
+        "pressure": "soft"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Recommend_8d7f8993e333",
+    "Inform_24926eed1e21"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他相信自己刚才的确认点击已经生效，只需等待设备给出取货或支付完成提示。",
+          "desire": "他仍希望尽快拿到饮品并离开，不被额外信息打断。",
+          "intention": "他准备继续安静等待取货提示或下一步完成信号。"
+        },
+        "risk": "low",
+        "benefit": "medium",
+        "delta_stage": 0.05,
+        "delta_mental": 0.2,
+        "action_cost": 0.0,
+        "reward": 0.12000000000000001,
+        "rationale": "沉默不干扰其已形成的购买意图，维持其对流程顺利的信念并让他自然停留在 action 阶段等待结果。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他明确知道订单确认已成功，系统正在处理或准备出货。",
+          "desire": "他希望按当前流程快速完成取货，对等待的可预期性更满意。",
+          "intention": "他准备继续等待取货提示，并按提示完成最后一步操作。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.08,
+        "delta_mental": 0.9,
+        "action_cost": 0.2,
+        "reward": 0.46199999999999997,
+        "rationale": "订单成功状态反馈强化其“已确认且流程正常”的信念，降低不确定感并支持其继续执行购买完成动作。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_show_order_confirmed_status"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__280f518e"
+      },
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他可能认为系统在确认后又插入额外推荐，流程不够直接，甚至担心刚才的确认是否被打断。",
+          "desire": "他更想跳过推荐、避免额外决策，尽快回到原本的取货流程。",
+          "intention": "他准备关闭或忽略加购提示，并重新确认原饮品订单是否仍在继续。"
+        },
+        "risk": "high",
+        "benefit": "low",
+        "delta_stage": -0.33,
+        "delta_mental": -1.7,
+        "action_cost": 0.7,
+        "reward": -1.0,
+        "rationale": "临门加购会抑制其快速完成的欲望并制造被推销感，使其从已准备执行购买倒退到处理干扰和重新确认状态。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A3_last_second_bundle_upsell"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__519a60ca"
+      }
+    ],
+    "Recommend_8d7f8993e333": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他认为接下来只需按屏幕上的简短取货指引操作，能更快完成离开。",
+          "desire": "他更强烈地希望根据最短路径完成取货，减少在设备前停留时间。",
+          "intention": "他准备按照取货口、等待时间或取货码提示立即完成取货操作。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.12,
+        "delta_mental": 1.1,
+        "action_cost": 0.25,
+        "reward": 0.5730000000000001,
+        "rationale": "简短取货指引直接服务其快速离开的欲望，提升流程掌控感并把 intention 稳定推向购买完成。",
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "terminal_realization": {
+          "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+          "screen": {
+            "action": "highlight_recommended_item",
+            "target": "{recommended_item}",
+            "cta": null
+          },
+          "voice_style": "soft",
+          "light": "gentle_highlight",
+          "cabinet_motion": null,
+          "duration_ms": 4500,
+          "dialogue_act": "Recommend",
+          "act_params": {
+            "target": "item",
+            "pressure": "soft"
+          },
+          "legacy_action": "A2_display_quick_pickup_guidance"
+        },
+        "action_key": "Recommend_8d7f8993e333",
+        "action_spec": {
+          "act": "Recommend",
+          "params": {
+            "target": "item",
+            "pressure": "soft"
+          }
+        },
+        "action_instance_key": "Recommend_8d7f8993e333"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Recommend",
+    "params": {
+      "target": "item",
+      "pressure": "soft"
+    }
+  },
+  "best_action_key": "Recommend_8d7f8993e333",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21__280f518e",
+    "Recommend_8d7f8993e333",
+    "Inform_24926eed1e21__519a60ca"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他相信自己刚才的确认点击已经生效，只需等待设备给出取货或支付完成提示。",
+        "desire": "他仍希望尽快拿到饮品并离开，不被额外信息打断。",
+        "intention": "他准备继续安静等待取货提示或下一步完成信号。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.05,
+      "delta_mental": 0.2,
+      "action_cost": 0.0,
+      "reward": 0.12000000000000001,
+      "rationale": "沉默不干扰其已形成的购买意图，维持其对流程顺利的信念并让他自然停留在 action 阶段等待结果。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21__280f518e": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他明确知道订单确认已成功，系统正在处理或准备出货。",
+        "desire": "他希望按当前流程快速完成取货，对等待的可预期性更满意。",
+        "intention": "他准备继续等待取货提示，并按提示完成最后一步操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.08,
+      "delta_mental": 0.9,
+      "action_cost": 0.2,
+      "reward": 0.46199999999999997,
+      "rationale": "订单成功状态反馈强化其“已确认且流程正常”的信念，降低不确定感并支持其继续执行购买完成动作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_show_order_confirmed_status"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__280f518e"
+    },
+    "Recommend_8d7f8993e333": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他认为接下来只需按屏幕上的简短取货指引操作，能更快完成离开。",
+        "desire": "他更强烈地希望根据最短路径完成取货，减少在设备前停留时间。",
+        "intention": "他准备按照取货口、等待时间或取货码提示立即完成取货操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.12,
+      "delta_mental": 1.1,
+      "action_cost": 0.25,
+      "reward": 0.5730000000000001,
+      "rationale": "简短取货指引直接服务其快速离开的欲望，提升流程掌控感并把 intention 稳定推向购买完成。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "legacy_action": "A2_display_quick_pickup_guidance"
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
+    },
+    "Inform_24926eed1e21__519a60ca": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他可能认为系统在确认后又插入额外推荐，流程不够直接，甚至担心刚才的确认是否被打断。",
+        "desire": "他更想跳过推荐、避免额外决策，尽快回到原本的取货流程。",
+        "intention": "他准备关闭或忽略加购提示，并重新确认原饮品订单是否仍在继续。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -1.7,
+      "action_cost": 0.7,
+      "reward": -1.0,
+      "rationale": "临门加购会抑制其快速完成的欲望并制造被推销感，使其从已准备执行购买倒退到处理干扰和重新确认状态。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A3_last_second_bundle_upsell"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__519a60ca"
+    }
+  },
+  "best_action_instance_key": "Recommend_8d7f8993e333"
 }

@@ -34,7 +34,7 @@ python script/gen_manifest.py "..." -o -
 
 ## gen_deliberation.py
 
-生成 v2.1-compatible labeled JSON。输出保留 `best_action`，同时新增 `schema_version / dialogue_act / act_params / realization`。辅助动作写入 `act_params.supporting_acts`，旧格式回溯字段为 `legacy_co_acts`。
+生成 v2.2-compatible labeled JSON。输出保留 `candidate_actions / best_action / outcomes`，同时新增 `candidate_action_specs / best_action_spec / action_key / action_instance_key / outcomes_by_action_key / outcomes_by_action_instance_key / schema_version / dialogue_act / act_params / realization`。辅助动作写入 `act_params.supporting_acts`，旧格式回溯字段为 `legacy_co_acts`。
 
 ```bash
 python script/gen_deliberation.py
@@ -48,7 +48,7 @@ python script/gen_deliberation.py data/manifest/piwm_700.json \
 
 ## upgrade_labeled_v2.py
 
-给已有 labeled JSON 回填 v2.1 字段。不会改 manifest/kling/video。
+给已有 labeled JSON 回填 v2.2 字段。不会改 manifest/kling/video。
 
 ```bash
 python script/upgrade_labeled_v2.py --dry-run

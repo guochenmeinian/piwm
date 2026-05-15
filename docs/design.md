@@ -107,6 +107,9 @@ seed -> manifest -> labeled -> kling -> video
 
 对候选动作逐一预测 outcome：
 
+- candidate_action_specs / best_action_spec
+- candidate_action_keys / best_action_key
+- outcomes_by_action_key
 - next AIDA + next BDI
 - risk / benefit
 - delta_stage / delta_mental

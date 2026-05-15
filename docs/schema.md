@@ -1,6 +1,6 @@
 # Data Schema
 
-当前 schema 已同步 PIWM v2.1：旧 `candidate_actions / best_action` 继续保留，新增 `schema_version / dialogue_act / act_params / realization` 和 outcome 级 `terminal_realization`。
+当前 schema 已同步 PIWM v2.2 的相关部分：旧 `candidate_actions / best_action / outcomes` 继续保留，新增 `candidate_action_specs / best_action_spec / candidate_action_keys / candidate_action_instance_keys / best_action_key / best_action_instance_key / outcomes_by_action_key / outcomes_by_action_instance_key / schema_version / dialogue_act / act_params / realization` 和 outcome 级 `terminal_realization`。
 
 字段边界：
 
@@ -8,6 +8,7 @@
 - 辅助动作写入 `act_params.supporting_acts`。
 - 需要旧格式回溯时使用 `legacy_co_acts`。
 - 本仓库是 terminal/prototype 数据线；主项目 `PIWM-Train-Synth-v1` 的真人导购训练数据不在这里维护。
+- 本仓库不复制主项目 `PIWM-Train-Synth-v2` 的 official JSONL，只同步 action-key 和 schema 兼容字段。
 
 ## Manifest
 
@@ -46,8 +47,14 @@ Labeled 在 manifest 基础上追加动作、预测 outcome、reward 和 v2 term
 
 ```json
 {
-  "schema_version": "dialogue_act_terminal_realization_v2.1",
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
   "candidate_actions": ["T1_SILENT_OBSERVE", "T2_VALUE_COMPARE", "T4_OPEN_QUESTION", "T5_DEMO"],
+  "candidate_action_specs": [
+    {"act": "Hold", "params": {"mode": "silent"}},
+    {"act": "Inform", "params": {"content_type": "comparison", "depth": "brief"}}
+  ],
+  "candidate_action_keys": ["Hold_eda24b4bb712", "Inform_5ac252a82695"],
+  "candidate_action_instance_keys": ["Hold_eda24b4bb712", "Inform_5ac252a82695"],
   "outcomes": {
     "T2_VALUE_COMPARE": {
       "next_aida_stage": "desire",
@@ -63,6 +70,9 @@ Labeled 在 manifest 基础上追加动作、预测 outcome、reward 和 v2 term
       "action_cost": 0.3,
       "reward": 0.852,
       "rationale": "比较卡降低决策负担，belief 从模糊变清晰",
+      "action_key": "Inform_5ac252a82695",
+      "action_instance_key": "Inform_5ac252a82695",
+      "action_spec": {"act": "Inform", "params": {"content_type": "comparison", "depth": "brief"}},
       "dialogue_act": "Inform",
       "act_params": {"content_type": "comparison", "depth": "brief"},
       "terminal_realization": {
@@ -78,7 +88,16 @@ Labeled 在 manifest 基础上追加动作、预测 outcome、reward 和 v2 term
       }
     }
   },
+  "outcomes_by_action_key": {
+    "Inform_5ac252a82695": [{"...": "..."}]
+  },
+  "outcomes_by_action_instance_key": {
+    "Inform_5ac252a82695": {"...": "..."}
+  },
   "best_action": "T2_VALUE_COMPARE",
+  "best_action_spec": {"act": "Inform", "params": {"content_type": "comparison", "depth": "brief"}},
+  "best_action_key": "Inform_5ac252a82695",
+  "best_action_instance_key": "Inform_5ac252a82695",
   "dialogue_act": "Inform",
   "act_params": {"content_type": "comparison", "depth": "brief"},
   "realization": {"...": "..."},
@@ -90,13 +109,24 @@ Labeled 在 manifest 基础上追加动作、预测 outcome、reward 和 v2 term
 
 | Field | Required | Meaning |
 |---|---|---|
-| `schema_version` | yes | 当前为 `dialogue_act_terminal_realization_v2.1` |
+| `schema_version` | yes | 当前为 `dialogue_act_terminal_realization_v2.2` |
 | `candidate_actions` | yes | 兼容动作标签；新数据推荐使用 T-state |
+| `candidate_action_specs` | yes | 和 `candidate_actions` 对齐的 canonical `(act, params)` 列表 |
+| `candidate_action_keys` | yes | 和 `candidate_action_specs` 对齐的稳定 key |
+| `candidate_action_instance_keys` | yes | 和旧候选动作一一对齐的唯一 key；仅用于动态 A-action 冲突消解 |
 | `outcomes[*].dialogue_act` | yes | 6-act policy label |
 | `outcomes[*].act_params` | yes | act 参数 |
+| `outcomes[*].action_key` | yes | 当前 outcome 对应的稳定 action key |
+| `outcomes[*].action_instance_key` | yes | 当前 outcome 的唯一 instance key |
+| `outcomes[*].action_spec` | yes | 当前 outcome 对应的 canonical `(act, params)` |
 | `outcomes[*].terminal_realization` | yes | 终端响应包 |
+| `outcomes_by_action_key` | yes | 以 canonical action key 分组的 outcome map；value 是 list |
+| `outcomes_by_action_instance_key` | yes | 以唯一 instance key 索引的 outcome map |
 | `best_action` | yes | `argmax(reward)` |
-| `dialogue_act / act_params` | yes | best action 的 v2.1 policy 字段 |
+| `best_action_spec` | yes | best action 的 canonical `(act, params)` |
+| `best_action_key` | yes | best action 的稳定 key |
+| `best_action_instance_key` | yes | best action 的唯一 instance key |
+| `dialogue_act / act_params` | yes | best action 的 v2.2 policy 字段 |
 | `act_params.supporting_acts` | conditional | 辅助动作，例如 `Reassure + Hold` |
 | `legacy_co_acts` | optional | 仅用于旧 `co_acts` 回溯 |
 | `realization` | yes | best action 的 terminal realization |

@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_quick_scan_pay_prompt": {
       "next_aida_stage": "action",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_quick_scan_pay_prompt"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__dbcb2659"
     },
     "A2_confirm_stock_and_price": {
       "next_aida_stage": "action",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_confirm_stock_and_price"
-      }
+      },
+      "action_key": "Inform_053014d173cc",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "price",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_053014d173cc"
     },
     "A3_push_bundle_promo": {
       "next_aida_stage": "interest",
@@ -171,7 +197,16 @@
           "depth": "brief"
         },
         "legacy_action": "A3_push_bundle_promo"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__76bdb867"
     }
   },
   "best_action": "A1_quick_scan_pay_prompt",
@@ -203,5 +238,433 @@
     },
     "legacy_action": "A1_quick_scan_pay_prompt"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "price",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_053014d173cc",
+    "Inform_24926eed1e21"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "她继续相信眼前这款饮品正符合提神解渴需求，且无需再比较。",
+          "desire": "她仍想尽快买到这款产品，保持低干扰的快速购买欲望。",
+          "intention": "她准备打开手机扫码或支付，直接完成购买操作。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": 0.28,
+        "delta_mental": 0.1,
+        "action_cost": 0.0,
+        "reward": 0.16200000000000003,
+        "rationale": "不介入不会改变其信念，但保留了已形成的明确购买欲望，使她自然从 desire 进入扫码支付的 action。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "她会认为当前商品的购买入口清晰、扫码支付很方便，能快速拿到饮品。",
+          "desire": "她快速购买的欲望被强化，减少了寻找支付入口或操作路径的犹豫。",
+          "intention": "她准备立即对准支付码或商品码进行扫码并完成付款。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.1,
+        "action_cost": 0.2,
+        "reward": 0.662,
+        "rationale": "轻量提示支付入口会增强“购买很顺畅”的信念，激活快速完成的欲望，推动她稳定进入 action。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_quick_scan_pay_prompt"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__dbcb2659"
+      },
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "她可能认为系统在引导她看额外优惠或组合购买，原本简单的选择变复杂了。",
+          "desire": "她的快速购买欲望被省钱或是否参与优惠的念头打断，产生新的比较负担。",
+          "intention": "她可能暂缓扫码，先判断优惠是否值得，甚至放弃继续操作。"
+        },
+        "risk": "high",
+        "benefit": "low",
+        "delta_stage": -0.33,
+        "delta_mental": -1.2,
+        "action_cost": 0.55,
+        "reward": -0.787,
+        "rationale": "在她已准备付款时推送组合优惠会扰动既定信念并制造选择负担，使意图从购买操作倒退到重新评估。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A3_push_bundle_promo"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__76bdb867"
+      }
+    ],
+    "Inform_053014d173cc": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "她会确认所选饮品有货、价格明确，没有需要额外核对的信息。",
+          "desire": "她的安心感上升，继续希望快速买到这款已选定的饮品。",
+          "intention": "她准备直接扫码付款，减少最后一刻的价格或库存疑虑。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.3,
+        "delta_mental": 0.8,
+        "action_cost": 0.25,
+        "reward": 0.495,
+        "rationale": "库存与价格确认降低最后风险感，增强信任和确定性，使购买意图更接近实际支付。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+          "screen": {
+            "action": "show_price_or_discount",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_price",
+          "cabinet_motion": null,
+          "duration_ms": 3500,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "price",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_confirm_stock_and_price"
+        },
+        "action_key": "Inform_053014d173cc",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "price",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_053014d173cc"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_24926eed1e21",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21__dbcb2659",
+    "Inform_053014d173cc",
+    "Inform_24926eed1e21__76bdb867"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她继续相信眼前这款饮品正符合提神解渴需求，且无需再比较。",
+        "desire": "她仍想尽快买到这款产品，保持低干扰的快速购买欲望。",
+        "intention": "她准备打开手机扫码或支付，直接完成购买操作。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.28,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.16200000000000003,
+      "rationale": "不介入不会改变其信念，但保留了已形成的明确购买欲望，使她自然从 desire 进入扫码支付的 action。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21__dbcb2659": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会认为当前商品的购买入口清晰、扫码支付很方便，能快速拿到饮品。",
+        "desire": "她快速购买的欲望被强化，减少了寻找支付入口或操作路径的犹豫。",
+        "intention": "她准备立即对准支付码或商品码进行扫码并完成付款。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.1,
+      "action_cost": 0.2,
+      "reward": 0.662,
+      "rationale": "轻量提示支付入口会增强“购买很顺畅”的信念，激活快速完成的欲望，推动她稳定进入 action。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_quick_scan_pay_prompt"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__dbcb2659"
+    },
+    "Inform_053014d173cc": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会确认所选饮品有货、价格明确，没有需要额外核对的信息。",
+        "desire": "她的安心感上升，继续希望快速买到这款已选定的饮品。",
+        "intention": "她准备直接扫码付款，减少最后一刻的价格或库存疑虑。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": 0.8,
+      "action_cost": 0.25,
+      "reward": 0.495,
+      "rationale": "库存与价格确认降低最后风险感，增强信任和确定性，使购买意图更接近实际支付。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "price",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "我先把价格和优惠信息放在屏幕上，方便您判断。",
+        "screen": {
+          "action": "show_price_or_discount",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_price",
+        "cabinet_motion": null,
+        "duration_ms": 3500,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "price",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_confirm_stock_and_price"
+      },
+      "action_key": "Inform_053014d173cc",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "price",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_053014d173cc"
+    },
+    "Inform_24926eed1e21__76bdb867": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她可能认为系统在引导她看额外优惠或组合购买，原本简单的选择变复杂了。",
+        "desire": "她的快速购买欲望被省钱或是否参与优惠的念头打断，产生新的比较负担。",
+        "intention": "她可能暂缓扫码，先判断优惠是否值得，甚至放弃继续操作。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -1.2,
+      "action_cost": 0.55,
+      "reward": -0.787,
+      "rationale": "在她已准备付款时推送组合优惠会扰动既定信念并制造选择负担，使意图从购买操作倒退到重新评估。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A3_push_bundle_promo"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__76bdb867"
+    }
+  },
+  "best_action_instance_key": "Inform_24926eed1e21__dbcb2659"
 }

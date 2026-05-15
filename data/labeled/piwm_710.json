@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_highlight_low_sugar_refreshers": {
       "next_aida_stage": "desire",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_highlight_low_sugar_refreshers"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
     },
     "A2_compare_caffeine_sugar_calories": {
       "next_aida_stage": "desire",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_compare_caffeine_sugar_calories"
-      }
+      },
+      "action_key": "Inform_5ac252a82695",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ac252a82695"
     },
     "A3_offer_quick_low_sugar_pick": {
       "next_aida_stage": "action",
@@ -171,7 +197,16 @@
           "pressure": "soft"
         },
         "legacy_action": "A3_offer_quick_low_sugar_pick"
-      }
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
     }
   },
   "best_action": "A2_compare_caffeine_sugar_calories",
@@ -203,5 +238,435 @@
     },
     "legacy_action": "A2_compare_caffeine_sugar_calories"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Recommend",
+      "params": {
+        "target": "item",
+        "pressure": "soft"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_5ac252a82695",
+    "Recommend_8d7f8993e333"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "她仍认为这里可能有合适的提神饮品，但健康程度和甜度信息依然不清楚。",
+          "desire": "她继续想找到低负担、不太甜的饮品，但兴趣可能被午休时间压力削弱。",
+          "intention": "她倾向于再观察几秒，若仍无法判断则可能放弃或转去看手机。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": -0.05,
+        "delta_mental": -0.2,
+        "action_cost": 0.0,
+        "reward": -0.12000000000000001,
+        "rationale": "沉默不会增加健康与甜度相关信念，犹豫维持并受时间压力影响，购买意向略微后退。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "她会相信这里确实有无糖茶、低糖咖啡或低卡饮品等更符合健康需求的选项。",
+          "desire": "她寻找低负担、午后提神饮品的欲望被增强，并开始偏向低糖品类。",
+          "intention": "她准备把注意力集中到低糖或无糖推荐区域，进一步筛选一两款候选。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.4,
+        "action_cost": 0.2,
+        "reward": 0.8119999999999999,
+        "rationale": "轻量提示低糖提神选项能补足她最缺的健康信念，降低选择焦虑，使兴趣自然转为明确偏好。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_highlight_low_sugar_refreshers"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21"
+      }
+    ],
+    "Inform_5ac252a82695": [
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "她会更清楚不同饮品在咖啡因、糖分和热量上的差异，认为自己可以理性判断哪款更健康。",
+          "desire": "她想快速选出兼顾提神和低负担的最佳平衡款，而不是漫无目的浏览。",
+          "intention": "她准备在对比信息中锁定一款糖分较低且提神效果合适的饮品。"
+        },
+        "risk": "medium",
+        "benefit": "high",
+        "delta_stage": 0.4,
+        "delta_mental": 1.7,
+        "action_cost": 0.35,
+        "reward": 0.975,
+        "rationale": "结构化对比把她的健康不确定转化为可比较信念，显著减少犹豫并推动形成候选偏好。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+          "screen": {
+            "action": "show_comparison_or_details",
+            "target": "{candidate_items}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_comparison_cards",
+          "cabinet_motion": null,
+          "duration_ms": 4000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "comparison",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_compare_caffeine_sugar_calories"
+        },
+        "action_key": "Inform_5ac252a82695",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "comparison",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_5ac252a82695"
+      }
+    ],
+    "Recommend_8d7f8993e333": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "她会认为系统已经根据低糖、提神、快速购买三个条件给出了一款省时选择。",
+          "desire": "她的省时需求被激活，同时仍希望饮品不要太甜、负担不要太高。",
+          "intention": "她准备点击该低糖提神推荐款，进入确认或支付操作。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.66,
+        "delta_mental": 0.7,
+        "action_cost": 0.55,
+        "reward": 0.5589999999999999,
+        "rationale": "快速推荐能利用午休时间压力直接催化操作，但在她仍犹豫时略有推销感，信任提升有限。",
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "terminal_realization": {
+          "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+          "screen": {
+            "action": "highlight_recommended_item",
+            "target": "{recommended_item}",
+            "cta": null
+          },
+          "voice_style": "soft",
+          "light": "gentle_highlight",
+          "cabinet_motion": null,
+          "duration_ms": 4500,
+          "dialogue_act": "Recommend",
+          "act_params": {
+            "target": "item",
+            "pressure": "soft"
+          },
+          "legacy_action": "A3_offer_quick_low_sugar_pick"
+        },
+        "action_key": "Recommend_8d7f8993e333",
+        "action_spec": {
+          "act": "Recommend",
+          "params": {
+            "target": "item",
+            "pressure": "soft"
+          }
+        },
+        "action_instance_key": "Recommend_8d7f8993e333"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "comparison",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_5ac252a82695",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_5ac252a82695",
+    "Recommend_8d7f8993e333"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她仍认为这里可能有合适的提神饮品，但健康程度和甜度信息依然不清楚。",
+        "desire": "她继续想找到低负担、不太甜的饮品，但兴趣可能被午休时间压力削弱。",
+        "intention": "她倾向于再观察几秒，若仍无法判断则可能放弃或转去看手机。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.2,
+      "action_cost": 0.0,
+      "reward": -0.12000000000000001,
+      "rationale": "沉默不会增加健康与甜度相关信念，犹豫维持并受时间压力影响，购买意向略微后退。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会相信这里确实有无糖茶、低糖咖啡或低卡饮品等更符合健康需求的选项。",
+        "desire": "她寻找低负担、午后提神饮品的欲望被增强，并开始偏向低糖品类。",
+        "intention": "她准备把注意力集中到低糖或无糖推荐区域，进一步筛选一两款候选。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.4,
+      "action_cost": 0.2,
+      "reward": 0.8119999999999999,
+      "rationale": "轻量提示低糖提神选项能补足她最缺的健康信念，降低选择焦虑，使兴趣自然转为明确偏好。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_highlight_low_sugar_refreshers"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
+    },
+    "Inform_5ac252a82695": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她会更清楚不同饮品在咖啡因、糖分和热量上的差异，认为自己可以理性判断哪款更健康。",
+        "desire": "她想快速选出兼顾提神和低负担的最佳平衡款，而不是漫无目的浏览。",
+        "intention": "她准备在对比信息中锁定一款糖分较低且提神效果合适的饮品。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.4,
+      "delta_mental": 1.7,
+      "action_cost": 0.35,
+      "reward": 0.975,
+      "rationale": "结构化对比把她的健康不确定转化为可比较信念，显著减少犹豫并推动形成候选偏好。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_compare_caffeine_sugar_calories"
+      },
+      "action_key": "Inform_5ac252a82695",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ac252a82695"
+    },
+    "Recommend_8d7f8993e333": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她会认为系统已经根据低糖、提神、快速购买三个条件给出了一款省时选择。",
+        "desire": "她的省时需求被激活，同时仍希望饮品不要太甜、负担不要太高。",
+        "intention": "她准备点击该低糖提神推荐款，进入确认或支付操作。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.66,
+      "delta_mental": 0.7,
+      "action_cost": 0.55,
+      "reward": 0.5589999999999999,
+      "rationale": "快速推荐能利用午休时间压力直接催化操作，但在她仍犹豫时略有推销感，信任提升有限。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "legacy_action": "A3_offer_quick_low_sugar_pick"
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
+    }
+  },
+  "best_action_instance_key": "Inform_5ac252a82695"
 }

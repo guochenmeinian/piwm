@@ -26,11 +26,15 @@ Manifest 不包含机器动作，不包含终端响应。
 
 `gen_deliberation.py` 对当前 AIDA 阶段取 4 个候选 T-state，逐一预测 outcome、计算 reward，并选择 `best_action`。
 
-T-state 是兼容标签；脚本会自动补齐 v2.1 字段：
+T-state 是兼容标签；脚本会自动补齐 v2.2 字段：
 
 - `dialogue_act`
 - `act_params`
 - `act_params.supporting_acts`
+- `candidate_action_specs / best_action_spec`
+- `candidate_action_keys / best_action_key`
+- `candidate_action_instance_keys / best_action_instance_key`
+- `outcomes_by_action_key / outcomes_by_action_instance_key`
 - `legacy_co_acts`（仅旧格式回溯需要时出现）
 - `terminal_realization`
 
@@ -38,8 +42,14 @@ T-state 是兼容标签；脚本会自动补齐 v2.1 字段：
 
 ```json
 {
-  "schema_version": "dialogue_act_terminal_realization_v2.1",
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
   "candidate_actions": ["T1_SILENT_OBSERVE", "T2_VALUE_COMPARE", "T4_OPEN_QUESTION", "T5_DEMO"],
+  "candidate_action_specs": [
+    {"act": "Hold", "params": {"mode": "silent"}},
+    {"act": "Inform", "params": {"content_type": "comparison", "depth": "brief"}}
+  ],
+  "candidate_action_keys": ["Hold_eda24b4bb712", "Inform_5ac252a82695"],
+  "candidate_action_instance_keys": ["Hold_eda24b4bb712", "Inform_5ac252a82695"],
   "outcomes": {
     "T2_VALUE_COMPARE": {
       "next_aida_stage": "desire",
@@ -51,12 +61,20 @@ T-state 是兼容标签；脚本会自动补齐 v2.1 字段：
       "action_cost": 0.3,
       "reward": 0.852,
       "rationale": "...",
+      "action_key": "Inform_5ac252a82695",
+      "action_instance_key": "Inform_5ac252a82695",
+      "action_spec": {"act": "Inform", "params": {"content_type": "comparison", "depth": "brief"}},
       "dialogue_act": "Inform",
       "act_params": {"content_type": "comparison", "depth": "brief"},
       "terminal_realization": {"surface_text": "...", "screen": {"action": "show_comparison_or_details"}}
     }
   },
+  "outcomes_by_action_key": {"Inform_5ac252a82695": [{"...": "..."}]},
+  "outcomes_by_action_instance_key": {"Inform_5ac252a82695": {"...": "..."}},
   "best_action": "T2_VALUE_COMPARE",
+  "best_action_spec": {"act": "Inform", "params": {"content_type": "comparison", "depth": "brief"}},
+  "best_action_key": "Inform_5ac252a82695",
+  "best_action_instance_key": "Inform_5ac252a82695",
   "dialogue_act": "Inform",
   "act_params": {"content_type": "comparison", "depth": "brief"},
   "realization": {"surface_text": "..."}
@@ -76,4 +94,4 @@ python script/upgrade_labeled_v2.py
 python script/audit_action_space_v2.py
 ```
 
-脚本会保留旧动作名，同时补齐 v2.1 policy 和 terminal realization 字段，并把旧 `co_acts` 收敛到 `act_params.supporting_acts / legacy_co_acts`。
+脚本会保留旧动作名，同时补齐 v2.2 policy 和 terminal realization 字段，并把旧 `co_acts` 收敛到 `act_params.supporting_acts / legacy_co_acts`。

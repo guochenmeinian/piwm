@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_highlight_quick_best_match": {
       "next_aida_stage": "interest",
@@ -95,7 +103,16 @@
           "pressure": "soft"
         },
         "legacy_action": "A1_highlight_quick_best_match"
-      }
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333__a5814241"
     },
     "A2_offer_simple_category_comparison": {
       "next_aida_stage": "interest",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_offer_simple_category_comparison"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
     },
     "A3_soft_time_saving_coupon_nudge": {
       "next_aida_stage": "desire",
@@ -171,7 +197,16 @@
           "pressure": "soft"
         },
         "legacy_action": "A3_soft_time_saving_coupon_nudge"
-      }
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333__68fb3ad7"
     }
   },
   "best_action": "A1_highlight_quick_best_match",
@@ -203,5 +238,433 @@
     },
     "legacy_action": "A1_highlight_quick_best_match"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Recommend",
+      "params": {
+        "target": "item",
+        "pressure": "soft"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Recommend",
+      "params": {
+        "target": "item",
+        "pressure": "soft"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Recommend_8d7f8993e333",
+    "Inform_24926eed1e21",
+    "Recommend_8d7f8993e333"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "attention",
+        "next_bdi": {
+          "belief": "他仍只模糊知道这里可能有饮品或零食，但没有获得足够线索判断是否值得停留。",
+          "desire": "他更想避免耽误返回办公室的时间，尽快结束这次短暂扫视。",
+          "intention": "他倾向于按原姿态转身离开，不再靠近或操作。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": -0.05,
+        "delta_mental": -0.3,
+        "action_cost": 0.0,
+        "reward": -0.16999999999999998,
+        "rationale": "不介入不会修正其“这里可能不值得停留”的信念，时间节省欲望占上风，购买意向自然后退。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Recommend_8d7f8993e333": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他会更清楚地相信这里有适合午后快速补充的常见选择，例如无糖茶、冰咖啡或小零食，且不需要花太久寻找。",
+          "desire": "他快速判断是否值得停留的欲望被满足，同时轻微激活了“顺手买个提神饮品或零食”的欲望。",
+          "intention": "他倾向于暂停离开的动作，再看一眼被突出显示的商品区域或价格信息。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.2,
+        "action_cost": 0.2,
+        "reward": 0.712,
+        "rationale": "用极短提示把模糊零售设备转化为“午后可快速解决的小选择”，降低搜索成本并把他从扫视拉入兴趣阶段。",
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "terminal_realization": {
+          "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+          "screen": {
+            "action": "highlight_recommended_item",
+            "target": "{recommended_item}",
+            "cta": null
+          },
+          "voice_style": "soft",
+          "light": "gentle_highlight",
+          "cabinet_motion": null,
+          "duration_ms": 4500,
+          "dialogue_act": "Recommend",
+          "act_params": {
+            "target": "item",
+            "pressure": "soft"
+          },
+          "legacy_action": "A1_highlight_quick_best_match"
+        },
+        "action_key": "Recommend_8d7f8993e333",
+        "action_spec": {
+          "act": "Recommend",
+          "params": {
+            "target": "item",
+            "pressure": "soft"
+          }
+        },
+        "action_instance_key": "Recommend_8d7f8993e333__a5814241"
+      },
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他会相信这里不仅有可选商品，而且手机扫码即可快速完成，并且当前有小额优惠，停留成本可能低于预期。",
+          "desire": "他避免耽误时间的欲望被安抚，同时被激活了“顺手占个小便宜并带走一瓶饮品”的欲望。",
+          "intention": "他倾向于靠近一步确认优惠商品，如果看到合适饮品则准备扫码购买。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.66,
+        "delta_mental": 0.7,
+        "action_cost": 0.5,
+        "reward": 0.564,
+        "rationale": "把时间风险和价格阻力同时降低，可快速生成购买欲望，但促销语气会带来一定被推销感。",
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "terminal_realization": {
+          "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+          "screen": {
+            "action": "highlight_recommended_item",
+            "target": "{recommended_item}",
+            "cta": null
+          },
+          "voice_style": "soft",
+          "light": "gentle_highlight",
+          "cabinet_motion": null,
+          "duration_ms": 4500,
+          "dialogue_act": "Recommend",
+          "act_params": {
+            "target": "item",
+            "pressure": "soft"
+          },
+          "legacy_action": "A3_soft_time_saving_coupon_nudge"
+        },
+        "action_key": "Recommend_8d7f8993e333",
+        "action_spec": {
+          "act": "Recommend",
+          "params": {
+            "target": "item",
+            "pressure": "soft"
+          }
+        },
+        "action_instance_key": "Recommend_8d7f8993e333__68fb3ad7"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他会认为商品可以按提神、解渴、垫肚子等用途快速区分，但仍需要花一点认知精力比较。",
+          "desire": "他高效筛选的欲望被部分满足，不过对是否真的需要购买仍保持犹豫。",
+          "intention": "他可能短暂停留并横向比较几个类别，但尚未形成明确购买目标。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.25,
+        "delta_mental": 0.55,
+        "action_cost": 0.4,
+        "reward": 0.33499999999999996,
+        "rationale": "分类比较能改善其“不知道有没有需要的东西”的信念，但在低兴趣注意阶段可能增加决策负担。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_offer_simple_category_comparison"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Recommend",
+    "params": {
+      "target": "item",
+      "pressure": "soft"
+    }
+  },
+  "best_action_key": "Recommend_8d7f8993e333",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Recommend_8d7f8993e333__a5814241",
+    "Inform_24926eed1e21",
+    "Recommend_8d7f8993e333__68fb3ad7"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "他仍只模糊知道这里可能有饮品或零食，但没有获得足够线索判断是否值得停留。",
+        "desire": "他更想避免耽误返回办公室的时间，尽快结束这次短暂扫视。",
+        "intention": "他倾向于按原姿态转身离开，不再靠近或操作。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.3,
+      "action_cost": 0.0,
+      "reward": -0.16999999999999998,
+      "rationale": "不介入不会修正其“这里可能不值得停留”的信念，时间节省欲望占上风，购买意向自然后退。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Recommend_8d7f8993e333__a5814241": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会更清楚地相信这里有适合午后快速补充的常见选择，例如无糖茶、冰咖啡或小零食，且不需要花太久寻找。",
+        "desire": "他快速判断是否值得停留的欲望被满足，同时轻微激活了“顺手买个提神饮品或零食”的欲望。",
+        "intention": "他倾向于暂停离开的动作，再看一眼被突出显示的商品区域或价格信息。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.2,
+      "action_cost": 0.2,
+      "reward": 0.712,
+      "rationale": "用极短提示把模糊零售设备转化为“午后可快速解决的小选择”，降低搜索成本并把他从扫视拉入兴趣阶段。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "legacy_action": "A1_highlight_quick_best_match"
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333__a5814241"
+    },
+    "Inform_24926eed1e21": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会认为商品可以按提神、解渴、垫肚子等用途快速区分，但仍需要花一点认知精力比较。",
+        "desire": "他高效筛选的欲望被部分满足，不过对是否真的需要购买仍保持犹豫。",
+        "intention": "他可能短暂停留并横向比较几个类别，但尚未形成明确购买目标。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.25,
+      "delta_mental": 0.55,
+      "action_cost": 0.4,
+      "reward": 0.33499999999999996,
+      "rationale": "分类比较能改善其“不知道有没有需要的东西”的信念，但在低兴趣注意阶段可能增加决策负担。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_offer_simple_category_comparison"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
+    },
+    "Recommend_8d7f8993e333__68fb3ad7": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会相信这里不仅有可选商品，而且手机扫码即可快速完成，并且当前有小额优惠，停留成本可能低于预期。",
+        "desire": "他避免耽误时间的欲望被安抚，同时被激活了“顺手占个小便宜并带走一瓶饮品”的欲望。",
+        "intention": "他倾向于靠近一步确认优惠商品，如果看到合适饮品则准备扫码购买。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.66,
+      "delta_mental": 0.7,
+      "action_cost": 0.5,
+      "reward": 0.564,
+      "rationale": "把时间风险和价格阻力同时降低，可快速生成购买欲望，但促销语气会带来一定被推销感。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "legacy_action": "A3_soft_time_saving_coupon_nudge"
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333__68fb3ad7"
+    }
+  },
+  "best_action_instance_key": "Recommend_8d7f8993e333__a5814241"
 }

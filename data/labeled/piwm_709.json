@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_show_concise_value_info": {
       "next_aida_stage": "interest",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_show_concise_value_info"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__f46b07b4"
     },
     "A2_guide_need_based_comparison": {
       "next_aida_stage": "desire",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_guide_need_based_comparison"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__1d279dcb"
     },
     "A3_offer_low_commitment_purchase_path": {
       "next_aida_stage": "desire",
@@ -171,7 +197,16 @@
           "depth": "brief"
         },
         "legacy_action": "A3_offer_low_commitment_purchase_path"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__6d67c374"
     }
   },
   "best_action": "A2_guide_need_based_comparison",
@@ -203,5 +238,431 @@
     },
     "legacy_action": "A2_guide_need_based_comparison"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_24926eed1e21",
+    "Inform_24926eed1e21"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他仍认为设备里可能有适合午后补充能量的商品，但是否值得购买尚未被进一步澄清。",
+          "desire": "他继续想快速判断有没有必要买，同时保持克制以避免冲动消费。",
+          "intention": "他会再观察几秒并自行比较需求，如果没有明显合适选项可能转身离开。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": 0.05,
+        "delta_mental": 0.0,
+        "action_cost": 0.0,
+        "reward": 0.020000000000000004,
+        "rationale": "沉默不改变其核心信念，只让他按原有迟疑节奏继续观察，因此AIDA大多停留在interest并仅有轻微自然推进。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他会更清楚设备中有哪些午后补能选项、价格区间和基础特点，认为判断成本降低了。",
+          "desire": "他想从低负担、适合当下状态的商品中筛出一个可能值得买的选项。",
+          "intention": "他倾向于继续看屏幕上的具体商品信息，并把注意力集中到少数几个候选上。"
+        },
+        "risk": "low",
+        "benefit": "medium",
+        "delta_stage": 0.18,
+        "delta_mental": 0.9,
+        "action_cost": 0.2,
+        "reward": 0.502,
+        "rationale": "简短补充价格、品类和补能信息会增强其“可快速判断”的信念，降低迟疑但不强迫决策，使其在interest内明显升温。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_show_concise_value_info"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__f46b07b4"
+      },
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他会相信可以按自己的真实需求在提神、垫肚、少糖或低价之间做理性比较，而不是被随机商品诱导。",
+          "desire": "他更想找到一个与午后状态匹配、且不会显得冲动消费的具体商品。",
+          "intention": "他准备根据需求筛选一两个目标商品，并进一步查看或点选其中最合适的一项。"
+        },
+        "risk": "medium",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.3,
+        "action_cost": 0.35,
+        "reward": 0.747,
+        "rationale": "需求导向比较强化了其理性选择信念并激活“买一个合适而非冲动”的欲望，最可能从interest推进到desire。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_guide_need_based_comparison"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__1d279dcb"
+      },
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他会觉得可以先查看低价小份或推荐补能商品，并且在支付前仍可取消，购买风险相对可控。",
+          "desire": "他对尝试一个低负担商品的欲望上升，但仍会警惕自己是否只是被促成下单。",
+          "intention": "他可能准备点开推荐商品或拿起手机扫码查看购买页，但在最终支付前还会再确认必要性。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.3,
+        "delta_mental": 0.5,
+        "action_cost": 0.45,
+        "reward": 0.325,
+        "rationale": "低承诺购买路径能降低支付风险并催化行动意向，但因他正避免冲动消费，主动促成下单会带来一定推销感。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A3_offer_low_commitment_purchase_path"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__6d67c374"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_24926eed1e21",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21__f46b07b4",
+    "Inform_24926eed1e21__1d279dcb",
+    "Inform_24926eed1e21__6d67c374"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍认为设备里可能有适合午后补充能量的商品，但是否值得购买尚未被进一步澄清。",
+        "desire": "他继续想快速判断有没有必要买，同时保持克制以避免冲动消费。",
+        "intention": "他会再观察几秒并自行比较需求，如果没有明显合适选项可能转身离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": 0.0,
+      "action_cost": 0.0,
+      "reward": 0.020000000000000004,
+      "rationale": "沉默不改变其核心信念，只让他按原有迟疑节奏继续观察，因此AIDA大多停留在interest并仅有轻微自然推进。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21__f46b07b4": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会更清楚设备中有哪些午后补能选项、价格区间和基础特点，认为判断成本降低了。",
+        "desire": "他想从低负担、适合当下状态的商品中筛出一个可能值得买的选项。",
+        "intention": "他倾向于继续看屏幕上的具体商品信息，并把注意力集中到少数几个候选上。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.18,
+      "delta_mental": 0.9,
+      "action_cost": 0.2,
+      "reward": 0.502,
+      "rationale": "简短补充价格、品类和补能信息会增强其“可快速判断”的信念，降低迟疑但不强迫决策，使其在interest内明显升温。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_show_concise_value_info"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__f46b07b4"
+    },
+    "Inform_24926eed1e21__1d279dcb": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会相信可以按自己的真实需求在提神、垫肚、少糖或低价之间做理性比较，而不是被随机商品诱导。",
+        "desire": "他更想找到一个与午后状态匹配、且不会显得冲动消费的具体商品。",
+        "intention": "他准备根据需求筛选一两个目标商品，并进一步查看或点选其中最合适的一项。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.3,
+      "action_cost": 0.35,
+      "reward": 0.747,
+      "rationale": "需求导向比较强化了其理性选择信念并激活“买一个合适而非冲动”的欲望，最可能从interest推进到desire。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_guide_need_based_comparison"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__1d279dcb"
+    },
+    "Inform_24926eed1e21__6d67c374": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会觉得可以先查看低价小份或推荐补能商品，并且在支付前仍可取消，购买风险相对可控。",
+        "desire": "他对尝试一个低负担商品的欲望上升，但仍会警惕自己是否只是被促成下单。",
+        "intention": "他可能准备点开推荐商品或拿起手机扫码查看购买页，但在最终支付前还会再确认必要性。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": 0.5,
+      "action_cost": 0.45,
+      "reward": 0.325,
+      "rationale": "低承诺购买路径能降低支付风险并催化行动意向，但因他正避免冲动消费，主动促成下单会带来一定推销感。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A3_offer_low_commitment_purchase_path"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__6d67c374"
+    }
+  },
+  "best_action_instance_key": "Inform_24926eed1e21__1d279dcb"
 }

@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_quick_energy_info_snippet": {
       "next_aida_stage": "interest",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_quick_energy_info_snippet"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
     },
     "A2_compare_by_need": {
       "next_aida_stage": "desire",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_compare_by_need"
-      }
+      },
+      "action_key": "Inform_5ac252a82695",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ac252a82695"
     },
     "A3_low_risk_trial_prompt": {
       "next_aida_stage": "desire",
@@ -171,7 +197,16 @@
           "depth": "brief"
         },
         "legacy_action": "A3_low_risk_trial_prompt"
-      }
+      },
+      "action_key": "Inform_5ff00ba15ca5",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "demo",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ff00ba15ca5"
     }
   },
   "best_action": "A3_low_risk_trial_prompt",
@@ -203,5 +238,435 @@
     },
     "legacy_action": "A3_low_risk_trial_prompt"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "demo",
+        "depth": "brief"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_5ac252a82695",
+    "Inform_5ff00ba15ca5"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他仍认为右侧某款饮品可能适合课间补充能量，但缺少新的判断依据，价值感没有变得更清晰。",
+          "desire": "他仍想找到一款合适且不后悔的饮品，但犹豫感可能因时间流逝略有增加。",
+          "intention": "他会继续盯着感兴趣方向观察比较，短时间内仍不准备马上下单。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": 0.0,
+        "delta_mental": -0.2,
+        "action_cost": 0.0,
+        "rationale": "沉默不会打扰他，但也不会补足其关于是否值得立刻购买的信念缺口，兴趣保持而犹豫略增。",
+        "reward": -0.1,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他会获得关于目标饮品的关键信息，例如适合课间提神、甜度适中或价格清晰，从而觉得该选择更可评估。",
+          "desire": "他想继续确认这款饮品是否真的符合自己的口味和补能需求，兴趣被强化但后悔顾虑尚未完全消除。",
+          "intention": "他会更集中地查看该饮品信息或价格标签，暂时仍处在比较判断而非立即购买。"
+        },
+        "risk": "low",
+        "benefit": "medium",
+        "delta_stage": 0.15,
+        "delta_mental": 0.8,
+        "action_cost": 0.2,
+        "rationale": "轻量补充课间补能与价格等信息能增强可判断性，提升兴趣和信任，但不足以完全推动到购买意愿。",
+        "reward": 0.44,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_quick_energy_info_snippet"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21"
+      }
+    ],
+    "Inform_5ac252a82695": [
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他会相信不同饮品可以按课间需求快速区分，例如想提神选茶咖、想解渴选运动饮料、想顶饿选酸奶。",
+          "desire": "他想根据自己此刻最重要的需求选出最匹配的一类饮品，以减少选择成本。",
+          "intention": "他倾向于在被明确区分出的候选类别中锁定一款，并进一步确认价格或口味后购买。"
+        },
+        "risk": "medium",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.3,
+        "action_cost": 0.35,
+        "rationale": "按需求做对比能把模糊兴趣转化为具体偏好，降低选择困难，但主动引导略有推销感。",
+        "reward": 0.747,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+          "screen": {
+            "action": "show_comparison_or_details",
+            "target": "{candidate_items}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_comparison_cards",
+          "cabinet_motion": null,
+          "duration_ms": 4000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "comparison",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_compare_by_need"
+        },
+        "action_key": "Inform_5ac252a82695",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "comparison",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_5ac252a82695"
+      }
+    ],
+    "Inform_5ff00ba15ca5": [
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他会相信可以通过选择小瓶、低糖或人气稳定款来降低踩雷和后悔概率。",
+          "desire": "他想选择一个风险较低、课间喝起来负担小的饮品方案。",
+          "intention": "他倾向优先拿起低风险候选款，并在最后确认价格后完成购买。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.6,
+        "action_cost": 0.25,
+        "rationale": "针对其怕后悔的核心顾虑给出低风险试选方案，会直接增强安全感和购买欲望，同时打扰感较低。",
+        "reward": 0.907,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+          "screen": {
+            "action": "play_short_demo",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "focus_on_demo_area",
+          "cabinet_motion": null,
+          "duration_ms": 8000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "demo",
+            "depth": "brief"
+          },
+          "legacy_action": "A3_low_risk_trial_prompt"
+        },
+        "action_key": "Inform_5ff00ba15ca5",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "demo",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_5ff00ba15ca5"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "demo",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_5ff00ba15ca5",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_5ac252a82695",
+    "Inform_5ff00ba15ca5"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍认为右侧某款饮品可能适合课间补充能量，但缺少新的判断依据，价值感没有变得更清晰。",
+        "desire": "他仍想找到一款合适且不后悔的饮品，但犹豫感可能因时间流逝略有增加。",
+        "intention": "他会继续盯着感兴趣方向观察比较，短时间内仍不准备马上下单。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": -0.2,
+      "action_cost": 0.0,
+      "rationale": "沉默不会打扰他，但也不会补足其关于是否值得立刻购买的信念缺口，兴趣保持而犹豫略增。",
+      "reward": -0.1,
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会获得关于目标饮品的关键信息，例如适合课间提神、甜度适中或价格清晰，从而觉得该选择更可评估。",
+        "desire": "他想继续确认这款饮品是否真的符合自己的口味和补能需求，兴趣被强化但后悔顾虑尚未完全消除。",
+        "intention": "他会更集中地查看该饮品信息或价格标签，暂时仍处在比较判断而非立即购买。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.15,
+      "delta_mental": 0.8,
+      "action_cost": 0.2,
+      "rationale": "轻量补充课间补能与价格等信息能增强可判断性，提升兴趣和信任，但不足以完全推动到购买意愿。",
+      "reward": 0.44,
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_quick_energy_info_snippet"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
+    },
+    "Inform_5ac252a82695": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会相信不同饮品可以按课间需求快速区分，例如想提神选茶咖、想解渴选运动饮料、想顶饿选酸奶。",
+        "desire": "他想根据自己此刻最重要的需求选出最匹配的一类饮品，以减少选择成本。",
+        "intention": "他倾向于在被明确区分出的候选类别中锁定一款，并进一步确认价格或口味后购买。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.3,
+      "action_cost": 0.35,
+      "rationale": "按需求做对比能把模糊兴趣转化为具体偏好，降低选择困难，但主动引导略有推销感。",
+      "reward": 0.747,
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_compare_by_need"
+      },
+      "action_key": "Inform_5ac252a82695",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ac252a82695"
+    },
+    "Inform_5ff00ba15ca5": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他会相信可以通过选择小瓶、低糖或人气稳定款来降低踩雷和后悔概率。",
+        "desire": "他想选择一个风险较低、课间喝起来负担小的饮品方案。",
+        "intention": "他倾向优先拿起低风险候选款，并在最后确认价格后完成购买。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.6,
+      "action_cost": 0.25,
+      "rationale": "针对其怕后悔的核心顾虑给出低风险试选方案，会直接增强安全感和购买欲望，同时打扰感较低。",
+      "reward": 0.907,
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "legacy_action": "A3_low_risk_trial_prompt"
+      },
+      "action_key": "Inform_5ff00ba15ca5",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "demo",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ff00ba15ca5"
+    }
+  },
+  "best_action_instance_key": "Inform_5ff00ba15ca5"
 }

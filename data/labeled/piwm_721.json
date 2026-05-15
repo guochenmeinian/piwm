@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_show_order_summary": {
       "next_aida_stage": "action",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_show_order_summary"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__b74f100c"
     },
     "A2_highlight_one_tap_pay": {
       "next_aida_stage": "action",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_highlight_one_tap_pay"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__59be247d"
     },
     "A3_offer_optional_staff_help": {
       "next_aida_stage": "desire",
@@ -171,7 +197,16 @@
           "depth": "brief"
         },
         "legacy_action": "A3_offer_optional_staff_help"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__1d723398"
     }
   },
   "best_action": "A1_show_order_summary",
@@ -203,5 +238,431 @@
     },
     "legacy_action": "A1_show_order_summary"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_24926eed1e21",
+    "Inform_24926eed1e21"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他仍认为自己基本选定商品，并可自行完成最后确认。",
+          "desire": "他继续希望不耽误晚自习，尽快完成购买。",
+          "intention": "他会按照当前节奏短暂停顿后继续点击确认或付款。"
+        },
+        "risk": "low",
+        "benefit": "medium",
+        "delta_stage": 0.08,
+        "delta_mental": 0.1,
+        "action_cost": 0.0,
+        "reward": 0.082,
+        "rationale": "不介入不会打断其已形成的购买意图，顾客大概率依靠自身确认继续完成操作。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他更确信当前选择的饮品、价格和数量无误，最后确认风险较低。",
+          "desire": "他想在确认无误后立刻完成购买，避免因选错而浪费时间。",
+          "intention": "他准备直接点击确认并进入付款或取货操作。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.18,
+        "delta_mental": 1.25,
+        "action_cost": 0.2,
+        "reward": 0.6769999999999999,
+        "rationale": "用简短订单摘要补足其最后确认所需信念，降低选错犹豫并推动其继续付款。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_show_order_summary"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__b74f100c"
+      },
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他相信下一步操作路径很明确，只需点击高亮按钮即可完成购买。",
+          "desire": "他更想快速结束操作并赶去晚自习。",
+          "intention": "他准备立即点击一键付款或确认按钮完成交易。"
+        },
+        "risk": "medium",
+        "benefit": "high",
+        "delta_stage": 0.22,
+        "delta_mental": 0.85,
+        "action_cost": 0.4,
+        "reward": 0.473,
+        "rationale": "高亮最终操作按钮强化快速完成的欲望，但主动催促略有推销和打扰感。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_highlight_one_tap_pay"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__59be247d"
+      },
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他可能怀疑当前操作存在问题或自己是否需要人工协助。",
+          "desire": "他仍想尽快买完饮品，但会短暂权衡继续自助还是寻求帮助。",
+          "intention": "他可能暂停当前确认动作，重新判断是否继续自助完成购买。"
+        },
+        "risk": "high",
+        "benefit": "low",
+        "delta_stage": -0.33,
+        "delta_mental": -0.9,
+        "action_cost": 0.55,
+        "reward": -0.6370000000000001,
+        "rationale": "在最后确认阶段主动提出人工帮助会暗示流程异常，打断其购买节奏并增加犹豫。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A3_offer_optional_staff_help"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__1d723398"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_24926eed1e21",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21__b74f100c",
+    "Inform_24926eed1e21__59be247d",
+    "Inform_24926eed1e21__1d723398"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他仍认为自己基本选定商品，并可自行完成最后确认。",
+        "desire": "他继续希望不耽误晚自习，尽快完成购买。",
+        "intention": "他会按照当前节奏短暂停顿后继续点击确认或付款。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.1,
+      "action_cost": 0.0,
+      "reward": 0.082,
+      "rationale": "不介入不会打断其已形成的购买意图，顾客大概率依靠自身确认继续完成操作。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21__b74f100c": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他更确信当前选择的饮品、价格和数量无误，最后确认风险较低。",
+        "desire": "他想在确认无误后立刻完成购买，避免因选错而浪费时间。",
+        "intention": "他准备直接点击确认并进入付款或取货操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.18,
+      "delta_mental": 1.25,
+      "action_cost": 0.2,
+      "reward": 0.6769999999999999,
+      "rationale": "用简短订单摘要补足其最后确认所需信念，降低选错犹豫并推动其继续付款。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_show_order_summary"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__b74f100c"
+    },
+    "Inform_24926eed1e21__59be247d": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他相信下一步操作路径很明确，只需点击高亮按钮即可完成购买。",
+        "desire": "他更想快速结束操作并赶去晚自习。",
+        "intention": "他准备立即点击一键付款或确认按钮完成交易。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.22,
+      "delta_mental": 0.85,
+      "action_cost": 0.4,
+      "reward": 0.473,
+      "rationale": "高亮最终操作按钮强化快速完成的欲望，但主动催促略有推销和打扰感。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_highlight_one_tap_pay"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__59be247d"
+    },
+    "Inform_24926eed1e21__1d723398": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他可能怀疑当前操作存在问题或自己是否需要人工协助。",
+        "desire": "他仍想尽快买完饮品，但会短暂权衡继续自助还是寻求帮助。",
+        "intention": "他可能暂停当前确认动作，重新判断是否继续自助完成购买。"
+      },
+      "risk": "high",
+      "benefit": "low",
+      "delta_stage": -0.33,
+      "delta_mental": -0.9,
+      "action_cost": 0.55,
+      "reward": -0.6370000000000001,
+      "rationale": "在最后确认阶段主动提出人工帮助会暗示流程异常，打断其购买节奏并增加犹豫。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A3_offer_optional_staff_help"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__1d723398"
+    }
+  },
+  "best_action_instance_key": "Inform_24926eed1e21__b74f100c"
 }

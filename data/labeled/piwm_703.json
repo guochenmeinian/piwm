@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_subtle_identify_device": {
       "next_aida_stage": "interest",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_subtle_identify_device"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
     },
     "A2_show_campus_popular_picks": {
       "next_aida_stage": "interest",
@@ -133,7 +150,16 @@
           "pressure": "soft"
         },
         "legacy_action": "A2_show_campus_popular_picks"
-      }
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
     },
     "A3_low_commitment_browse_invite": {
       "next_aida_stage": "interest",
@@ -175,7 +201,16 @@
           "slot": "need_focus"
         },
         "legacy_action": "A3_low_commitment_browse_invite"
-      }
+      },
+      "action_key": "Elicit_b1166d372e5e",
+      "action_spec": {
+        "act": "Elicit",
+        "params": {
+          "openness": "open",
+          "slot": "need_focus"
+        }
+      },
+      "action_instance_key": "Elicit_b1166d372e5e"
     }
   },
   "best_action": "A3_low_commitment_browse_invite",
@@ -211,5 +246,443 @@
     },
     "legacy_action": "A3_low_commitment_browse_invite"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Recommend",
+      "params": {
+        "target": "item",
+        "pressure": "soft"
+      }
+    },
+    {
+      "act": "Elicit",
+      "params": {
+        "openness": "open",
+        "slot": "need_focus"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Recommend_8d7f8993e333",
+    "Elicit_b1166d372e5e"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "attention",
+        "next_bdi": {
+          "belief": "他仍只觉得设备外观有点新奇，但没有获得更多信息，也没有形成是否值得停留的判断。",
+          "desire": "短暂好奇心很快减弱，原本赶路的需求重新占主导。",
+          "intention": "继续边走边看一眼后离开，前往原本目的地。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": -0.05,
+        "delta_mental": -0.1,
+        "action_cost": 0.0,
+        "reward": -0.07,
+        "rationale": "不介入不会打扰他，但也无法把外观好奇转化为明确认知，注意力大概率随步行离开而消散。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他会知道这是一台校园智能售货设备，并且支持手机快速查看或购买，而不只是一个外观新奇的装置。",
+          "desire": "原本模糊的好奇被转化为想确认里面卖什么、操作是否方便的轻度探索欲。",
+          "intention": "可能放慢脚步或多看几秒屏幕，但尚未准备购买。"
+        },
+        "risk": "low",
+        "benefit": "medium",
+        "delta_stage": 0.33,
+        "delta_mental": 0.75,
+        "action_cost": 0.2,
+        "reward": 0.487,
+        "rationale": "轻量说明会补足‘这是什么’的信念缺口，激活低压力探索欲，使他从短暂注意推进到初步兴趣。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_subtle_identify_device"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21"
+      }
+    ],
+    "Recommend_8d7f8993e333": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他会认为这台设备里可能有同学常买的饮料、零食或课间补给，商品与校园场景有一定相关性。",
+          "desire": "如果他正好有口渴或想吃点东西的潜在需求，可能被热门选择轻微唤起；否则仍只是看看。",
+          "intention": "可能短暂停留比较热门商品，但购买意图仍不稳定。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.28,
+        "delta_mental": 0.35,
+        "action_cost": 0.4,
+        "reward": 0.24700000000000003,
+        "rationale": "展示校园热门商品能把设备与他的课间场景关联起来，但在注意阶段略显推荐导向，可能让赶路的他感到轻微被推销。",
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "terminal_realization": {
+          "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+          "screen": {
+            "action": "highlight_recommended_item",
+            "target": "{recommended_item}",
+            "cta": null
+          },
+          "voice_style": "soft",
+          "light": "gentle_highlight",
+          "cabinet_motion": null,
+          "duration_ms": 4500,
+          "dialogue_act": "Recommend",
+          "act_params": {
+            "target": "item",
+            "pressure": "soft"
+          },
+          "legacy_action": "A2_show_campus_popular_picks"
+        },
+        "action_key": "Recommend_8d7f8993e333",
+        "action_spec": {
+          "act": "Recommend",
+          "params": {
+            "target": "item",
+            "pressure": "soft"
+          }
+        },
+        "action_instance_key": "Recommend_8d7f8993e333"
+      }
+    ],
+    "Elicit_b1166d372e5e": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "他会相信靠近或扫码只是低成本浏览，不代表必须购买，也不会耽误太久。",
+          "desire": "好奇心得到安全释放，想用很短时间确认菜单、价格或新奇功能。",
+          "intention": "更可能停下或靠近设备浏览几秒，但仍处于了解阶段而非准备下单。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.15,
+        "action_cost": 0.25,
+        "reward": 0.6819999999999999,
+        "rationale": "强调‘不买也可快速浏览’会降低承诺压力，增强信任和探索意愿，最适合把路过注意转化为主动了解。",
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "terminal_realization": {
+          "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+          "screen": {
+            "action": "show_choice_bubbles",
+            "choices": [
+              "价格",
+              "功能",
+              "场景"
+            ],
+            "cta": null
+          },
+          "voice_style": "curious",
+          "light": "soft_invitation",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Elicit",
+          "act_params": {
+            "openness": "open",
+            "slot": "need_focus"
+          },
+          "legacy_action": "A3_low_commitment_browse_invite"
+        },
+        "action_key": "Elicit_b1166d372e5e",
+        "action_spec": {
+          "act": "Elicit",
+          "params": {
+            "openness": "open",
+            "slot": "need_focus"
+          }
+        },
+        "action_instance_key": "Elicit_b1166d372e5e"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Elicit",
+    "params": {
+      "openness": "open",
+      "slot": "need_focus"
+    }
+  },
+  "best_action_key": "Elicit_b1166d372e5e",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Recommend_8d7f8993e333",
+    "Elicit_b1166d372e5e"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "他仍只觉得设备外观有点新奇，但没有获得更多信息，也没有形成是否值得停留的判断。",
+        "desire": "短暂好奇心很快减弱，原本赶路的需求重新占主导。",
+        "intention": "继续边走边看一眼后离开，前往原本目的地。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": -0.05,
+      "delta_mental": -0.1,
+      "action_cost": 0.0,
+      "reward": -0.07,
+      "rationale": "不介入不会打扰他，但也无法把外观好奇转化为明确认知，注意力大概率随步行离开而消散。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会知道这是一台校园智能售货设备，并且支持手机快速查看或购买，而不只是一个外观新奇的装置。",
+        "desire": "原本模糊的好奇被转化为想确认里面卖什么、操作是否方便的轻度探索欲。",
+        "intention": "可能放慢脚步或多看几秒屏幕，但尚未准备购买。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 0.75,
+      "action_cost": 0.2,
+      "reward": 0.487,
+      "rationale": "轻量说明会补足‘这是什么’的信念缺口，激活低压力探索欲，使他从短暂注意推进到初步兴趣。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_subtle_identify_device"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
+    },
+    "Recommend_8d7f8993e333": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会认为这台设备里可能有同学常买的饮料、零食或课间补给，商品与校园场景有一定相关性。",
+        "desire": "如果他正好有口渴或想吃点东西的潜在需求，可能被热门选择轻微唤起；否则仍只是看看。",
+        "intention": "可能短暂停留比较热门商品，但购买意图仍不稳定。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.28,
+      "delta_mental": 0.35,
+      "action_cost": 0.4,
+      "reward": 0.24700000000000003,
+      "rationale": "展示校园热门商品能把设备与他的课间场景关联起来，但在注意阶段略显推荐导向，可能让赶路的他感到轻微被推销。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "legacy_action": "A2_show_campus_popular_picks"
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
+    },
+    "Elicit_b1166d372e5e": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他会相信靠近或扫码只是低成本浏览，不代表必须购买，也不会耽误太久。",
+        "desire": "好奇心得到安全释放，想用很短时间确认菜单、价格或新奇功能。",
+        "intention": "更可能停下或靠近设备浏览几秒，但仍处于了解阶段而非准备下单。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.15,
+      "action_cost": 0.25,
+      "reward": 0.6819999999999999,
+      "rationale": "强调‘不买也可快速浏览’会降低承诺压力，增强信任和探索意愿，最适合把路过注意转化为主动了解。",
+      "dialogue_act": "Elicit",
+      "act_params": {
+        "openness": "open",
+        "slot": "need_focus"
+      },
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Elicit",
+        "act_params": {
+          "openness": "open",
+          "slot": "need_focus"
+        },
+        "legacy_action": "A3_low_commitment_browse_invite"
+      },
+      "action_key": "Elicit_b1166d372e5e",
+      "action_spec": {
+        "act": "Elicit",
+        "params": {
+          "openness": "open",
+          "slot": "need_focus"
+        }
+      },
+      "action_instance_key": "Elicit_b1166d372e5e"
+    }
+  },
+  "best_action_instance_key": "Elicit_b1166d372e5e"
 }

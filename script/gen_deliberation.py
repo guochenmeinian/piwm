@@ -6,7 +6,7 @@ import json
 import sys
 from pathlib import Path
 from openai import OpenAI
-from action_space_v2 import ACTION_SCHEMA_VERSION, enrich_action_payload
+from action_space_v2 import enrich_action_payload, enrich_labeled_record
 
 try:
     from dotenv import load_dotenv
@@ -322,8 +322,7 @@ def deliberate(
     best_action = max(last_outcomes.items(), key=lambda kv: kv[1]["reward"])[0]
     best_payload = enrich_action_payload(best_action)
 
-    return {
-        "schema_version": ACTION_SCHEMA_VERSION,
+    record = {
         "candidate_actions": candidates,
         "outcomes": last_outcomes,
         "best_action": best_action,
@@ -333,6 +332,7 @@ def deliberate(
         "realization": best_payload["terminal_realization"],
         "reward_weights": {"alpha": alpha, "beta": beta, "gamma": gamma},
     }
+    return enrich_labeled_record(record)
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────

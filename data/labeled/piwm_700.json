@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_provide_key_product_info": {
       "next_aida_stage": "desire",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_provide_key_product_info"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
     },
     "A2_compare_best_value_options": {
       "next_aida_stage": "desire",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_compare_best_value_options"
-      }
+      },
+      "action_key": "Inform_5ac252a82695",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ac252a82695"
     },
     "A3_reduce_risk_with_trial_offer": {
       "next_aida_stage": "action",
@@ -171,7 +197,16 @@
           "depth": "brief"
         },
         "legacy_action": "A3_reduce_risk_with_trial_offer"
-      }
+      },
+      "action_key": "Inform_5ff00ba15ca5",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "demo",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ff00ba15ca5"
     }
   },
   "best_action": "A2_compare_best_value_options",
@@ -203,5 +238,435 @@
     },
     "legacy_action": "A2_compare_best_value_options"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "demo",
+        "depth": "brief"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_5ac252a82695",
+    "Inform_5ff00ba15ca5"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "interest",
+        "next_bdi": {
+          "belief": "售货机里可能仍有值得看的商品，但缺少新的信息帮助她缩小选择范围。",
+          "desire": "继续了解和比较商品，维持谨慎观察的需求。",
+          "intention": "继续停留浏览一小段时间，若仍无法确认可能放弃或转移注意力。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": 0.05,
+        "delta_mental": -0.1,
+        "action_cost": 0.0,
+        "reward": -0.03,
+        "rationale": "沉默不会打扰顾客，但也不会改变其信息不足和犹豫的信念，购买意图基本停留在观察比较阶段。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "她能更清楚地看到商品价格、口味、规格和卖点，认为部分商品可能符合自己的需求。",
+          "desire": "想进一步锁定其中一两个更合适的选项，并判断哪一个最值得买。",
+          "intention": "从泛泛浏览转向重点查看候选商品，准备基于关键信息做进一步选择。"
+        },
+        "risk": "low",
+        "benefit": "medium",
+        "delta_stage": 0.33,
+        "delta_mental": 1.1,
+        "action_cost": 0.2,
+        "reward": 0.662,
+        "rationale": "轻量补充商品关键信息会降低信息不确定性，增强其对具体商品的兴趣，使其从兴趣浏览推进到产生偏好。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_provide_key_product_info"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21"
+      }
+    ],
+    "Inform_5ac252a82695": [
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "她可以快速看到几款商品在价格、热度、适合场景和性价比上的差异，认为选择成本被降低。",
+          "desire": "想在推荐的高性价比或热门选项中挑出最适合当前心情的一款。",
+          "intention": "围绕少数候选商品进行最后比较，倾向于选择其中一个继续操作。"
+        },
+        "risk": "medium",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.5,
+        "action_cost": 0.4,
+        "reward": 0.842,
+        "rationale": "比较引导能直接回应她正在权衡的状态，减少决策负担并增强候选商品吸引力，但主动推荐略有推销感。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+          "screen": {
+            "action": "show_comparison_or_details",
+            "target": "{candidate_items}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_comparison_cards",
+          "cabinet_motion": null,
+          "duration_ms": 4000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "comparison",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_compare_best_value_options"
+        },
+        "action_key": "Inform_5ac252a82695",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "comparison",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_5ac252a82695"
+      }
+    ],
+    "Inform_5ff00ba15ca5": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "她认为即使只是随便逛逛，当前也可以用较低成本尝试一件商品，购买风险和后悔成本较低。",
+          "desire": "想趁低风险优惠尝试一款看起来还不错的商品。",
+          "intention": "准备选择一款商品并进入扫码或支付操作。"
+        },
+        "risk": "medium",
+        "benefit": "high",
+        "delta_stage": 0.58,
+        "delta_mental": 1.2,
+        "action_cost": 0.55,
+        "reward": 0.7769999999999999,
+        "rationale": "低风险试买或小额优惠会抑制价格和后悔顾虑，激活尝试欲望并可能推动到购买操作，但在兴趣阶段略显催促。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+          "screen": {
+            "action": "play_short_demo",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "focus_on_demo_area",
+          "cabinet_motion": null,
+          "duration_ms": 8000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "demo",
+            "depth": "brief"
+          },
+          "legacy_action": "A3_reduce_risk_with_trial_offer"
+        },
+        "action_key": "Inform_5ff00ba15ca5",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "demo",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_5ff00ba15ca5"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "comparison",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_5ac252a82695",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_5ac252a82695",
+    "Inform_5ff00ba15ca5"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "售货机里可能仍有值得看的商品，但缺少新的信息帮助她缩小选择范围。",
+        "desire": "继续了解和比较商品，维持谨慎观察的需求。",
+        "intention": "继续停留浏览一小段时间，若仍无法确认可能放弃或转移注意力。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": -0.1,
+      "action_cost": 0.0,
+      "reward": -0.03,
+      "rationale": "沉默不会打扰顾客，但也不会改变其信息不足和犹豫的信念，购买意图基本停留在观察比较阶段。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她能更清楚地看到商品价格、口味、规格和卖点，认为部分商品可能符合自己的需求。",
+        "desire": "想进一步锁定其中一两个更合适的选项，并判断哪一个最值得买。",
+        "intention": "从泛泛浏览转向重点查看候选商品，准备基于关键信息做进一步选择。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.1,
+      "action_cost": 0.2,
+      "reward": 0.662,
+      "rationale": "轻量补充商品关键信息会降低信息不确定性，增强其对具体商品的兴趣，使其从兴趣浏览推进到产生偏好。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_provide_key_product_info"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21"
+    },
+    "Inform_5ac252a82695": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她可以快速看到几款商品在价格、热度、适合场景和性价比上的差异，认为选择成本被降低。",
+        "desire": "想在推荐的高性价比或热门选项中挑出最适合当前心情的一款。",
+        "intention": "围绕少数候选商品进行最后比较，倾向于选择其中一个继续操作。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.5,
+      "action_cost": 0.4,
+      "reward": 0.842,
+      "rationale": "比较引导能直接回应她正在权衡的状态，减少决策负担并增强候选商品吸引力，但主动推荐略有推销感。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "comparison",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_compare_best_value_options"
+      },
+      "action_key": "Inform_5ac252a82695",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "comparison",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ac252a82695"
+    },
+    "Inform_5ff00ba15ca5": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "她认为即使只是随便逛逛，当前也可以用较低成本尝试一件商品，购买风险和后悔成本较低。",
+        "desire": "想趁低风险优惠尝试一款看起来还不错的商品。",
+        "intention": "准备选择一款商品并进入扫码或支付操作。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.58,
+      "delta_mental": 1.2,
+      "action_cost": 0.55,
+      "reward": 0.7769999999999999,
+      "rationale": "低风险试买或小额优惠会抑制价格和后悔顾虑，激活尝试欲望并可能推动到购买操作，但在兴趣阶段略显催促。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "demo",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "我用一个简短演示帮您看清楚这个功能。",
+        "screen": {
+          "action": "play_short_demo",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "focus_on_demo_area",
+        "cabinet_motion": null,
+        "duration_ms": 8000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "demo",
+          "depth": "brief"
+        },
+        "legacy_action": "A3_reduce_risk_with_trial_offer"
+      },
+      "action_key": "Inform_5ff00ba15ca5",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "demo",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_5ff00ba15ca5"
+    }
+  },
+  "best_action_instance_key": "Inform_5ac252a82695"
 }

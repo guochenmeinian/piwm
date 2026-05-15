@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_clarify_choice_criteria": {
       "next_aida_stage": "action",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_clarify_choice_criteria"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__6e89516a"
     },
     "A2_offer_low_regret_default": {
       "next_aida_stage": "action",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_offer_low_regret_default"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__e7a4c05c"
     },
     "A3_time_sensitive_pickup_prompt": {
       "next_aida_stage": "action",
@@ -171,7 +197,16 @@
           "pressure": "soft"
         },
         "legacy_action": "A3_time_sensitive_pickup_prompt"
-      }
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
     }
   },
   "best_action": "A1_clarify_choice_criteria",
@@ -203,5 +238,433 @@
     },
     "legacy_action": "A1_clarify_choice_criteria"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Recommend",
+      "params": {
+        "target": "item",
+        "pressure": "soft"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_24926eed1e21",
+    "Recommend_8d7f8993e333"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他仍认为两个选择都可行，但会根据刚才停留更久的方向形成轻微偏好。",
+          "desire": "他继续想快速买一瓶让下午更舒服的饮品，并希望不再花太多时间纠结。",
+          "intention": "他准备自然伸手拿起其中一个选项并去结账。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": 0.22,
+        "delta_mental": 0.15,
+        "action_cost": 0.0,
+        "reward": 0.163,
+        "rationale": "不介入不会改变核心信念，但保留自主感并让他沿着已接近决定的状态自然推进到拿取。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会更清楚地相信左侧更偏解渴实用，右侧更偏新鲜口味，两者适合的需求场景不同。",
+          "desire": "他想根据自己此刻更重视解渴还是尝鲜来做一个更稳妥的选择。",
+          "intention": "他准备按当前最优先的需求选定其中一瓶并伸手拿取。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.35,
+        "action_cost": 0.25,
+        "reward": 0.782,
+        "rationale": "用场景标准帮助他重构两个选项的差异，降低比较犹豫并把原本的购买倾向推进为明确拿取。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_clarify_choice_criteria"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__6e89516a"
+      },
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会相信在时间有限且不想踩雷的情况下，选择更解渴、更稳妥的那瓶后悔概率更低。",
+          "desire": "他更想避免口味不合或下午不舒服的风险，优先满足实用和稳妥。",
+          "intention": "他准备选择被提示为低后悔风险的饮品并完成购买。"
+        },
+        "risk": "medium",
+        "benefit": "high",
+        "delta_stage": 0.34,
+        "delta_mental": 1.05,
+        "action_cost": 0.35,
+        "reward": 0.626,
+        "rationale": "给出低后悔默认项会强化稳妥信念、抑制选择焦虑，从而推动他直接进入购买操作。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_offer_low_regret_default"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__e7a4c05c"
+      }
+    ],
+    "Recommend_8d7f8993e333": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会意识到午休快结束，继续比较的时间成本高于两瓶饮品之间的差异。",
+          "desire": "他想尽快结束选择并回到工作状态，但也可能觉得自己的选择节奏被催促。",
+          "intention": "他可能会为了省时间立即拿起其中一瓶去结账。"
+        },
+        "risk": "high",
+        "benefit": "medium",
+        "delta_stage": 0.3,
+        "delta_mental": -0.65,
+        "action_cost": 0.75,
+        "reward": -0.28,
+        "rationale": "用时间压力能催化拿取动作，但会压缩自主比较空间，容易引发被推销或被催促的不适感。",
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "terminal_realization": {
+          "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+          "screen": {
+            "action": "highlight_recommended_item",
+            "target": "{recommended_item}",
+            "cta": null
+          },
+          "voice_style": "soft",
+          "light": "gentle_highlight",
+          "cabinet_motion": null,
+          "duration_ms": 4500,
+          "dialogue_act": "Recommend",
+          "act_params": {
+            "target": "item",
+            "pressure": "soft"
+          },
+          "legacy_action": "A3_time_sensitive_pickup_prompt"
+        },
+        "action_key": "Recommend_8d7f8993e333",
+        "action_spec": {
+          "act": "Recommend",
+          "params": {
+            "target": "item",
+            "pressure": "soft"
+          }
+        },
+        "action_instance_key": "Recommend_8d7f8993e333"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_24926eed1e21",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21__6e89516a",
+    "Inform_24926eed1e21__e7a4c05c",
+    "Recommend_8d7f8993e333"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他仍认为两个选择都可行，但会根据刚才停留更久的方向形成轻微偏好。",
+        "desire": "他继续想快速买一瓶让下午更舒服的饮品，并希望不再花太多时间纠结。",
+        "intention": "他准备自然伸手拿起其中一个选项并去结账。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.22,
+      "delta_mental": 0.15,
+      "action_cost": 0.0,
+      "reward": 0.163,
+      "rationale": "不介入不会改变核心信念，但保留自主感并让他沿着已接近决定的状态自然推进到拿取。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21__6e89516a": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更清楚地相信左侧更偏解渴实用，右侧更偏新鲜口味，两者适合的需求场景不同。",
+        "desire": "他想根据自己此刻更重视解渴还是尝鲜来做一个更稳妥的选择。",
+        "intention": "他准备按当前最优先的需求选定其中一瓶并伸手拿取。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.35,
+      "action_cost": 0.25,
+      "reward": 0.782,
+      "rationale": "用场景标准帮助他重构两个选项的差异，降低比较犹豫并把原本的购买倾向推进为明确拿取。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_clarify_choice_criteria"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__6e89516a"
+    },
+    "Inform_24926eed1e21__e7a4c05c": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会相信在时间有限且不想踩雷的情况下，选择更解渴、更稳妥的那瓶后悔概率更低。",
+        "desire": "他更想避免口味不合或下午不舒服的风险，优先满足实用和稳妥。",
+        "intention": "他准备选择被提示为低后悔风险的饮品并完成购买。"
+      },
+      "risk": "medium",
+      "benefit": "high",
+      "delta_stage": 0.34,
+      "delta_mental": 1.05,
+      "action_cost": 0.35,
+      "reward": 0.626,
+      "rationale": "给出低后悔默认项会强化稳妥信念、抑制选择焦虑，从而推动他直接进入购买操作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_offer_low_regret_default"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__e7a4c05c"
+    },
+    "Recommend_8d7f8993e333": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会意识到午休快结束，继续比较的时间成本高于两瓶饮品之间的差异。",
+        "desire": "他想尽快结束选择并回到工作状态，但也可能觉得自己的选择节奏被催促。",
+        "intention": "他可能会为了省时间立即拿起其中一瓶去结账。"
+      },
+      "risk": "high",
+      "benefit": "medium",
+      "delta_stage": 0.3,
+      "delta_mental": -0.65,
+      "action_cost": 0.75,
+      "reward": -0.28,
+      "rationale": "用时间压力能催化拿取动作，但会压缩自主比较空间，容易引发被推销或被催促的不适感。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "legacy_action": "A3_time_sensitive_pickup_prompt"
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
+    }
+  },
+  "best_action_instance_key": "Inform_24926eed1e21__6e89516a"
 }

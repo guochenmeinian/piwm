@@ -57,7 +57,15 @@
           "mode": "silent"
         },
         "legacy_action": "A0_silence"
-      }
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
     },
     "A1_surface_health_value_cue": {
       "next_aida_stage": "action",
@@ -95,7 +103,16 @@
           "depth": "brief"
         },
         "legacy_action": "A1_surface_health_value_cue"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__f53ff0f2"
     },
     "A2_offer_quick_comparison": {
       "next_aida_stage": "action",
@@ -133,7 +150,16 @@
           "depth": "brief"
         },
         "legacy_action": "A2_offer_quick_comparison"
-      }
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__10c48810"
     },
     "A3_gentle_fast_checkout_nudge": {
       "next_aida_stage": "action",
@@ -171,7 +197,16 @@
           "pressure": "soft"
         },
         "legacy_action": "A3_gentle_fast_checkout_nudge"
-      }
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
     }
   },
   "best_action": "A1_surface_health_value_cue",
@@ -203,5 +238,433 @@
     },
     "legacy_action": "A1_surface_health_value_cue"
   },
-  "schema_version": "dialogue_act_terminal_realization_v2.1"
+  "schema_version": "dialogue_act_terminal_realization_v2.2",
+  "candidate_action_specs": [
+    {
+      "act": "Hold",
+      "params": {
+        "mode": "silent"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Inform",
+      "params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      }
+    },
+    {
+      "act": "Recommend",
+      "params": {
+        "target": "item",
+        "pressure": "soft"
+      }
+    }
+  ],
+  "candidate_action_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21",
+    "Inform_24926eed1e21",
+    "Recommend_8d7f8993e333"
+  ],
+  "outcomes_by_action_key": {
+    "Hold_eda24b4bb712": [
+      {
+        "next_aida_stage": "desire",
+        "next_bdi": {
+          "belief": "他仍相信这些商品能缓解疲惫，但关于健康程度和性价比的疑虑没有被消除。",
+          "desire": "他依然想尽快选到一个不后悔的商品，但需要继续自我权衡。",
+          "intention": "他仍倾向于购买，但会再看几秒并可能在几个选项之间反复比较。"
+        },
+        "risk": "low",
+        "benefit": "low",
+        "delta_stage": 0.05,
+        "delta_mental": -0.1,
+        "action_cost": 0.0,
+        "reward": -0.03,
+        "rationale": "沉默不会增加打扰，但也无法解除健康和划算疑虑，顾客大概率停留在欲望阶段继续犹豫。",
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "terminal_realization": {
+          "surface_text": "",
+          "screen": {
+            "action": "idle_minimal",
+            "cta": null
+          },
+          "voice_style": "silent",
+          "light": "maintain_current_soft_breathing",
+          "cabinet_motion": null,
+          "duration_ms": 0,
+          "dialogue_act": "Hold",
+          "act_params": {
+            "mode": "silent"
+          },
+          "legacy_action": "A0_silence"
+        },
+        "action_key": "Hold_eda24b4bb712",
+        "action_spec": {
+          "act": "Hold",
+          "params": {
+            "mode": "silent"
+          }
+        },
+        "action_instance_key": "Hold_eda24b4bb712"
+      }
+    ],
+    "Inform_24926eed1e21": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会更相信某个选项既能补充能量，又相对健康且价格合理。",
+          "desire": "他想抓住这个兼顾能量、健康和性价比的选择，减少下班后继续纠结的负担。",
+          "intention": "他准备伸手选择该商品并完成购买操作。"
+        },
+        "risk": "low",
+        "benefit": "high",
+        "delta_stage": 0.33,
+        "delta_mental": 1.5,
+        "action_cost": 0.25,
+        "reward": 0.857,
+        "rationale": "用轻量标签补足健康和性价比信息，直接修正核心疑虑并激活尽快无悔购买的欲望，使意图推进到购买操作。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A1_surface_health_value_cue"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__f53ff0f2"
+      },
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会认为系统理解他的纠结点，并能把不同选项的能量补充、健康程度和价格差异快速讲清楚。",
+          "desire": "他想根据简短对比选出最符合自己当前需求的一项。",
+          "intention": "他准备在对比结果中选择更合适的商品并进入购买。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.33,
+        "delta_mental": 1.0,
+        "action_cost": 0.4,
+        "reward": 0.592,
+        "rationale": "简短比较能降低选择负担并增强判断确定性，但主动介入略有推销感，整体仍会推动他从欲望转向行动。",
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "terminal_realization": {
+          "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+          "screen": {
+            "action": "show_attribute_table",
+            "target": "{selected_item}",
+            "cta": null
+          },
+          "voice_style": "neutral",
+          "light": "soft_focus_on_attribute_table",
+          "cabinet_motion": null,
+          "duration_ms": 5000,
+          "dialogue_act": "Inform",
+          "act_params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          },
+          "legacy_action": "A2_offer_quick_comparison"
+        },
+        "action_key": "Inform_24926eed1e21",
+        "action_spec": {
+          "act": "Inform",
+          "params": {
+            "content_type": "attributes",
+            "depth": "brief"
+          }
+        },
+        "action_instance_key": "Inform_24926eed1e21__10c48810"
+      }
+    ],
+    "Recommend_8d7f8993e333": [
+      {
+        "next_aida_stage": "action",
+        "next_bdi": {
+          "belief": "他会更注意到现在可以快速完成购买，减少下班后继续停留和纠结的时间成本。",
+          "desire": "他想尽快结束选择过程，拿到能量补给后离开。",
+          "intention": "他准备立即点击或伸手确认购买，但对是否选到最健康、最划算的商品仍有少量保留。"
+        },
+        "risk": "medium",
+        "benefit": "medium",
+        "delta_stage": 0.28,
+        "delta_mental": 0.35,
+        "action_cost": 0.55,
+        "reward": 0.23200000000000004,
+        "rationale": "温和催促快速结算会放大省时动机并促成行动，但没有充分解决健康和性价比疑虑，且存在一定被催促感。",
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "terminal_realization": {
+          "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+          "screen": {
+            "action": "highlight_recommended_item",
+            "target": "{recommended_item}",
+            "cta": null
+          },
+          "voice_style": "soft",
+          "light": "gentle_highlight",
+          "cabinet_motion": null,
+          "duration_ms": 4500,
+          "dialogue_act": "Recommend",
+          "act_params": {
+            "target": "item",
+            "pressure": "soft"
+          },
+          "legacy_action": "A3_gentle_fast_checkout_nudge"
+        },
+        "action_key": "Recommend_8d7f8993e333",
+        "action_spec": {
+          "act": "Recommend",
+          "params": {
+            "target": "item",
+            "pressure": "soft"
+          }
+        },
+        "action_instance_key": "Recommend_8d7f8993e333"
+      }
+    ]
+  },
+  "best_action_spec": {
+    "act": "Inform",
+    "params": {
+      "content_type": "attributes",
+      "depth": "brief"
+    }
+  },
+  "best_action_key": "Inform_24926eed1e21",
+  "candidate_action_instance_keys": [
+    "Hold_eda24b4bb712",
+    "Inform_24926eed1e21__f53ff0f2",
+    "Inform_24926eed1e21__10c48810",
+    "Recommend_8d7f8993e333"
+  ],
+  "outcomes_by_action_instance_key": {
+    "Hold_eda24b4bb712": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "他仍相信这些商品能缓解疲惫，但关于健康程度和性价比的疑虑没有被消除。",
+        "desire": "他依然想尽快选到一个不后悔的商品，但需要继续自我权衡。",
+        "intention": "他仍倾向于购买，但会再看几秒并可能在几个选项之间反复比较。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": -0.1,
+      "action_cost": 0.0,
+      "reward": -0.03,
+      "rationale": "沉默不会增加打扰，但也无法解除健康和划算疑虑，顾客大概率停留在欲望阶段继续犹豫。",
+      "dialogue_act": "Hold",
+      "act_params": {
+        "mode": "silent"
+      },
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0,
+        "dialogue_act": "Hold",
+        "act_params": {
+          "mode": "silent"
+        },
+        "legacy_action": "A0_silence"
+      },
+      "action_key": "Hold_eda24b4bb712",
+      "action_spec": {
+        "act": "Hold",
+        "params": {
+          "mode": "silent"
+        }
+      },
+      "action_instance_key": "Hold_eda24b4bb712"
+    },
+    "Inform_24926eed1e21__f53ff0f2": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更相信某个选项既能补充能量，又相对健康且价格合理。",
+        "desire": "他想抓住这个兼顾能量、健康和性价比的选择，减少下班后继续纠结的负担。",
+        "intention": "他准备伸手选择该商品并完成购买操作。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.33,
+      "delta_mental": 1.5,
+      "action_cost": 0.25,
+      "reward": 0.857,
+      "rationale": "用轻量标签补足健康和性价比信息，直接修正核心疑虑并激活尽快无悔购买的欲望，使意图推进到购买操作。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A1_surface_health_value_cue"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__f53ff0f2"
+    },
+    "Inform_24926eed1e21__10c48810": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会认为系统理解他的纠结点，并能把不同选项的能量补充、健康程度和价格差异快速讲清楚。",
+        "desire": "他想根据简短对比选出最符合自己当前需求的一项。",
+        "intention": "他准备在对比结果中选择更合适的商品并进入购买。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.33,
+      "delta_mental": 1.0,
+      "action_cost": 0.4,
+      "reward": 0.592,
+      "rationale": "简短比较能降低选择负担并增强判断确定性，但主动介入略有推销感，整体仍会推动他从欲望转向行动。",
+      "dialogue_act": "Inform",
+      "act_params": {
+        "content_type": "attributes",
+        "depth": "brief"
+      },
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000,
+        "dialogue_act": "Inform",
+        "act_params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        },
+        "legacy_action": "A2_offer_quick_comparison"
+      },
+      "action_key": "Inform_24926eed1e21",
+      "action_spec": {
+        "act": "Inform",
+        "params": {
+          "content_type": "attributes",
+          "depth": "brief"
+        }
+      },
+      "action_instance_key": "Inform_24926eed1e21__10c48810"
+    },
+    "Recommend_8d7f8993e333": {
+      "next_aida_stage": "action",
+      "next_bdi": {
+        "belief": "他会更注意到现在可以快速完成购买，减少下班后继续停留和纠结的时间成本。",
+        "desire": "他想尽快结束选择过程，拿到能量补给后离开。",
+        "intention": "他准备立即点击或伸手确认购买，但对是否选到最健康、最划算的商品仍有少量保留。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.28,
+      "delta_mental": 0.35,
+      "action_cost": 0.55,
+      "reward": 0.23200000000000004,
+      "rationale": "温和催促快速结算会放大省时动机并促成行动，但没有充分解决健康和性价比疑虑，且存在一定被催促感。",
+      "dialogue_act": "Recommend",
+      "act_params": {
+        "target": "item",
+        "pressure": "soft"
+      },
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500,
+        "dialogue_act": "Recommend",
+        "act_params": {
+          "target": "item",
+          "pressure": "soft"
+        },
+        "legacy_action": "A3_gentle_fast_checkout_nudge"
+      },
+      "action_key": "Recommend_8d7f8993e333",
+      "action_spec": {
+        "act": "Recommend",
+        "params": {
+          "target": "item",
+          "pressure": "soft"
+        }
+      },
+      "action_instance_key": "Recommend_8d7f8993e333"
+    }
+  },
+  "best_action_instance_key": "Inform_24926eed1e21__f53ff0f2"
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit lightweight PIWM labeled JSON files for v2.1 action-space fields."""
+"""Audit lightweight PIWM labeled JSON files for v2.2 action-space fields."""
 
 from __future__ import annotations
 
@@ -29,6 +29,18 @@ def audit_labeled_dir(labeled_dir: Path) -> dict[str, Any]:
             diagnostics["schema_version_mismatch"] += 1
         if "co_acts" in row:
             diagnostics["top_level_co_acts_present"] += 1
+        if len(row.get("candidate_actions", [])) != len(row.get("candidate_action_specs", [])):
+            diagnostics["candidate_action_specs_count_mismatch"] += 1
+        if len(row.get("candidate_actions", [])) != len(row.get("candidate_action_instance_keys", [])):
+            diagnostics["candidate_action_instance_keys_count_mismatch"] += 1
+        if len(set(row.get("candidate_action_instance_keys", []))) != len(row.get("candidate_action_instance_keys", [])):
+            diagnostics["candidate_action_instance_key_duplicate"] += 1
+        if row.get("best_action") and not row.get("best_action_spec"):
+            diagnostics["best_action_spec_missing"] += 1
+        if row.get("outcomes") and not row.get("outcomes_by_action_key"):
+            diagnostics["outcomes_by_action_key_missing"] += 1
+        if row.get("outcomes") and not row.get("outcomes_by_action_instance_key"):
+            diagnostics["outcomes_by_action_instance_key_missing"] += 1
         best_dialogue_acts[row.get("dialogue_act", "<missing>")] += 1
         for support in supporting_acts_from_params(row.get("act_params", {})):
             supporting_acts[support["type"]] += 1
@@ -40,6 +52,12 @@ def audit_labeled_dir(labeled_dir: Path) -> dict[str, Any]:
             terminal = outcome.get("terminal_realization", {})
             if "co_acts" in terminal:
                 diagnostics["terminal_co_acts_present"] += 1
+            if "action_key" not in outcome:
+                diagnostics["outcome_action_key_missing"] += 1
+            if "action_spec" not in outcome:
+                diagnostics["outcome_action_spec_missing"] += 1
+            if "action_instance_key" not in outcome:
+                diagnostics["outcome_action_instance_key_missing"] += 1
             params = merge_supporting_acts(outcome.get("act_params", {}), outcome.get("co_acts", []))
             candidate_dialogue_acts[outcome.get("dialogue_act", "<missing>")] += 1
             for support in supporting_acts_from_params(params):
@@ -47,7 +65,7 @@ def audit_labeled_dir(labeled_dir: Path) -> dict[str, Any]:
 
     n_records = sum(best_dialogue_acts.values())
     return {
-        "artifact": "piwm_lightweight_action_space_v2_1_audit",
+        "artifact": "piwm_lightweight_action_space_v2_2_audit",
         "schema_version": ACTION_SCHEMA_VERSION,
         "labeled_dir": labeled_dir.as_posix(),
         "n_records": n_records,
