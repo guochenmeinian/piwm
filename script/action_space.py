@@ -324,17 +324,8 @@ def derive_terminal_realization(
     dialogue_act: str,
     act_params: dict[str, Any],
     co_acts: list[dict[str, Any]] | None = None,
-    response_id: str | None = None,
 ) -> dict[str, Any]:
     template = deepcopy(REALIZATION_TEMPLATES.get(_template_key(dialogue_act, act_params), REALIZATION_TEMPLATES["Hold:ambient"]))
-    template.update(
-        {
-            "dialogue_act": dialogue_act,
-            "act_params": deepcopy(act_params),
-            "co_acts": deepcopy(co_acts or []),
-            "response_id": response_id,
-        }
-    )
     return template
 
 
@@ -343,14 +334,10 @@ def enrich_action_payload(response_id: str) -> dict[str, Any]:
     act = response_to_act(normalized)
     return {
         "response_id": normalized,
-        "dialogue_act": act["act"],
-        "act_params": deepcopy(act["params"]),
-        "co_acts": deepcopy(act.get("co_acts", [])),
         "terminal_realization": derive_terminal_realization(
             act["act"],
             act["params"],
             act.get("co_acts", []),
-            response_id=normalized,
         ),
     }
 
@@ -370,6 +357,9 @@ def enrich_labeled_record(record: dict[str, Any]) -> dict[str, Any]:
         if abs(delta_mental) > 1.0:
             delta_mental = max(-1.0, min(1.0, delta_mental / 3.0))
             outcome["delta_mental"] = delta_mental
+        outcome.pop("dialogue_act", None)
+        outcome.pop("act_params", None)
+        outcome.pop("co_acts", None)
         outcome.update(enrich_action_payload(normalized))
         cost = RESPONSE_COSTS.get(normalized, 0.0)
         outcome["action_cost"] = cost
@@ -398,10 +388,10 @@ def enrich_labeled_record(record: dict[str, Any]) -> dict[str, Any]:
         record["best_action"] = normalized_best
         best = enrich_action_payload(normalized_best)
         record["response_id"] = best["response_id"]
-        record["dialogue_act"] = best["dialogue_act"]
-        record["act_params"] = best["act_params"]
-        record["co_acts"] = best["co_acts"]
         record["realization"] = best["terminal_realization"]
+    record.pop("dialogue_act", None)
+    record.pop("act_params", None)
+    record.pop("co_acts", None)
     record.pop("reward_weights", None)
     record["score_weights"] = deepcopy(DEFAULT_SCORE_WEIGHTS)
     return record

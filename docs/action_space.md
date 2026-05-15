@@ -33,19 +33,15 @@ Policy 只决定"做什么"，Terminal Realization 决定"终端怎么表现"。
 
 ```json
 {
-  "response_id": "inform_comparison_brief",
   "surface_text": "...",
   "screen": {"action": "...", "target": "...", "cta": null},
   "voice_style": "neutral | soft | assertive | curious | warm | silent",
   "light": "...",
   "cabinet_motion": null,
-  "duration_ms": 0,
-  "dialogue_act": "Inform",
-  "act_params": {"content_type": "comparison", "depth": "brief"},
-  "co_acts": []
+  "duration_ms": 0
 }
 ```
 
-`response_id` 是某个 `dialogue_act + act_params + co_acts` 组合的稳定键，用于 `candidate_actions / best_action / outcomes` 做索引；它不是新的语义层。
+`response_id` 是当前唯一对外暴露的动作键，用于 `candidate_actions / best_action / outcomes` 做索引。`dialogue_act / act_params / co_acts` 只作为内部实现映射存在于 `script/action_space.py`，不再进入训练样本。
 
 实现入口：`script/action_space.py`

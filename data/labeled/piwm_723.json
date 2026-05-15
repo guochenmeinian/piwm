@@ -39,11 +39,6 @@
       "action_cost": 0.0,
       "preference_score": 0.0,
       "response_id": "hold_silent",
-      "dialogue_act": "Hold",
-      "act_params": {
-        "mode": "silent"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "",
         "screen": {
@@ -53,13 +48,7 @@
         "voice_style": "silent",
         "light": "maintain_current_soft_breathing",
         "cabinet_motion": null,
-        "duration_ms": 0,
-        "dialogue_act": "Hold",
-        "act_params": {
-          "mode": "silent"
-        },
-        "co_acts": [],
-        "response_id": "hold_silent"
+        "duration_ms": 0
       }
     },
     "hold_ambient": {
@@ -77,11 +66,6 @@
       "action_cost": 0.05,
       "preference_score": 0.060000000000000005,
       "response_id": "hold_ambient",
-      "dialogue_act": "Hold",
-      "act_params": {
-        "mode": "ambient"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "您慢慢看，需要时我再帮您。",
         "screen": {
@@ -91,13 +75,7 @@
         "voice_style": "soft",
         "light": "ambient_low_attention",
         "cabinet_motion": null,
-        "duration_ms": 2500,
-        "dialogue_act": "Hold",
-        "act_params": {
-          "mode": "ambient"
-        },
-        "co_acts": [],
-        "response_id": "hold_ambient"
+        "duration_ms": 2500
       }
     },
     "elicit_need_focus_open": {
@@ -115,12 +93,6 @@
       "action_cost": 0.2,
       "preference_score": 0.192,
       "response_id": "elicit_need_focus_open",
-      "dialogue_act": "Elicit",
-      "act_params": {
-        "openness": "open",
-        "slot": "need_focus"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
         "screen": {
@@ -135,14 +107,7 @@
         "voice_style": "curious",
         "light": "soft_invitation",
         "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Elicit",
-        "act_params": {
-          "openness": "open",
-          "slot": "need_focus"
-        },
-        "co_acts": [],
-        "response_id": "elicit_need_focus_open"
+        "duration_ms": 5000
       }
     },
     "inform_demo_brief": {
@@ -160,12 +125,6 @@
       "action_cost": 0.4,
       "preference_score": 0.202,
       "response_id": "inform_demo_brief",
-      "dialogue_act": "Inform",
-      "act_params": {
-        "content_type": "demo",
-        "depth": "brief"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "我用一个简短演示帮您看清楚这个功能。",
         "screen": {
@@ -176,25 +135,12 @@
         "voice_style": "neutral",
         "light": "focus_on_demo_area",
         "cabinet_motion": null,
-        "duration_ms": 8000,
-        "dialogue_act": "Inform",
-        "act_params": {
-          "content_type": "demo",
-          "depth": "brief"
-        },
-        "co_acts": [],
-        "response_id": "inform_demo_brief"
+        "duration_ms": 8000
       }
     }
   },
   "best_action": "inform_demo_brief",
   "response_id": "inform_demo_brief",
-  "dialogue_act": "Inform",
-  "act_params": {
-    "content_type": "demo",
-    "depth": "brief"
-  },
-  "co_acts": [],
   "realization": {
     "surface_text": "我用一个简短演示帮您看清楚这个功能。",
     "screen": {
@@ -205,14 +151,7 @@
     "voice_style": "neutral",
     "light": "focus_on_demo_area",
     "cabinet_motion": null,
-    "duration_ms": 8000,
-    "dialogue_act": "Inform",
-    "act_params": {
-      "content_type": "demo",
-      "depth": "brief"
-    },
-    "co_acts": [],
-    "response_id": "inform_demo_brief"
+    "duration_ms": 8000
   },
   "score_weights": {
     "alpha": 0.4,

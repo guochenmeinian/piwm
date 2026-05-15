@@ -39,11 +39,6 @@
       "action_cost": 0.0,
       "preference_score": 0.0,
       "response_id": "hold_silent",
-      "dialogue_act": "Hold",
-      "act_params": {
-        "mode": "silent"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "",
         "screen": {
@@ -53,13 +48,7 @@
         "voice_style": "silent",
         "light": "maintain_current_soft_breathing",
         "cabinet_motion": null,
-        "duration_ms": 0,
-        "dialogue_act": "Hold",
-        "act_params": {
-          "mode": "silent"
-        },
-        "co_acts": [],
-        "response_id": "hold_silent"
+        "duration_ms": 0
       }
     },
     "reassure_decision": {
@@ -77,11 +66,6 @@
       "action_cost": 0.1,
       "preference_score": 0.095,
       "response_id": "reassure_decision",
-      "dialogue_act": "Reassure",
-      "act_params": {
-        "focus": "decision"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "您可以先保留几个候选，不用马上决定。",
         "screen": {
@@ -91,13 +75,7 @@
         "voice_style": "soft",
         "light": "low_pressure_idle",
         "cabinet_motion": null,
-        "duration_ms": 3500,
-        "dialogue_act": "Reassure",
-        "act_params": {
-          "focus": "decision"
-        },
-        "co_acts": [],
-        "response_id": "reassure_decision"
+        "duration_ms": 3500
       }
     },
     "recommend_soft": {
@@ -115,11 +93,6 @@
       "action_cost": 0.45,
       "preference_score": 0.115,
       "response_id": "recommend_soft",
-      "dialogue_act": "Recommend",
-      "act_params": {
-        "pressure": "soft"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
         "screen": {
@@ -130,13 +103,7 @@
         "voice_style": "soft",
         "light": "gentle_highlight",
         "cabinet_motion": null,
-        "duration_ms": 4500,
-        "dialogue_act": "Recommend",
-        "act_params": {
-          "pressure": "soft"
-        },
-        "co_acts": [],
-        "response_id": "recommend_soft"
+        "duration_ms": 4500
       }
     },
     "recommend_firm": {
@@ -154,11 +121,6 @@
       "action_cost": 0.65,
       "preference_score": 0.36,
       "response_id": "recommend_firm",
-      "dialogue_act": "Recommend",
-      "act_params": {
-        "pressure": "firm"
-      },
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "这款最适合您，建议直接选这款。",
         "screen": {
@@ -169,23 +131,12 @@
         "voice_style": "assertive",
         "light": "strong_highlight",
         "cabinet_motion": null,
-        "duration_ms": 5000,
-        "dialogue_act": "Recommend",
-        "act_params": {
-          "pressure": "firm"
-        },
-        "co_acts": [],
-        "response_id": "recommend_firm"
+        "duration_ms": 5000
       }
     }
   },
   "best_action": "recommend_firm",
   "response_id": "recommend_firm",
-  "dialogue_act": "Recommend",
-  "act_params": {
-    "pressure": "firm"
-  },
-  "co_acts": [],
   "realization": {
     "surface_text": "这款最适合您，建议直接选这款。",
     "screen": {
@@ -196,13 +147,7 @@
     "voice_style": "assertive",
     "light": "strong_highlight",
     "cabinet_motion": null,
-    "duration_ms": 5000,
-    "dialogue_act": "Recommend",
-    "act_params": {
-      "pressure": "firm"
-    },
-    "co_acts": [],
-    "response_id": "recommend_firm"
+    "duration_ms": 5000
   },
   "score_weights": {
     "alpha": 0.4,

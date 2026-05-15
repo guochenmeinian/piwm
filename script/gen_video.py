@@ -154,7 +154,19 @@ def call_kling(prompt: str, session_id: str, output_dir: str, model: str = "klin
     }
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
-    resp = requests.post(endpoint, json=payload, headers=headers, timeout=600)
+    resp = None
+    for attempt in range(6):
+        resp = requests.post(endpoint, json=payload, headers=headers, timeout=600)
+        if resp.status_code != 429:
+            break
+        wait_seconds = int(os.environ.get("KLING_RATE_LIMIT_WAIT", "180"))
+        print(
+            f"[kling] create task rate-limited for {session_id}; "
+            f"waiting {wait_seconds}s before retry {attempt + 1}/6",
+            file=sys.stderr,
+        )
+        time.sleep(wait_seconds)
+    assert resp is not None
     resp.raise_for_status()
     data = resp.json()
 

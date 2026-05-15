@@ -332,9 +332,6 @@ def deliberate(
         "outcomes": last_outcomes,
         "best_action": best_action,
         "response_id": best_payload["response_id"],
-        "dialogue_act": best_payload["dialogue_act"],
-        "act_params": best_payload["act_params"],
-        "co_acts": best_payload["co_acts"],
         "realization": best_payload["terminal_realization"],
         "score_weights": {"alpha": alpha, "beta": beta, "gamma": gamma},
     }

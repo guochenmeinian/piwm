@@ -82,9 +82,6 @@ LLM 不负责输出：
 系统根据 `response_id` 自动补齐动作契约和分数：
 
 - `response_id`
-- `dialogue_act`
-- `act_params`
-- `co_acts`
 - `terminal_realization`
 - `action_cost`
 - `preference_score`
@@ -107,7 +104,7 @@ best_action = argmax(preference_score)
 
 ---
 
-## 审计与重跑
+## Validation And Review
 
 `gen_deliberation.py` 在保存前会做严格校验。
 
@@ -130,11 +127,9 @@ best_action = argmax(preference_score)
 2. 自动 retry
 3. 若多次 retry 后仍失败，脚本直接报错，不落盘
 
-这意味着当前数据不会再出现“validation 失败但照样保存 best attempt”的旧问题。
-
 ---
 
-## 人工审计与少量校正
+## Manual Review
 
 自动校验只能保证结构一致，不能完全保证语义自然。
 
@@ -144,8 +139,11 @@ best_action = argmax(preference_score)
 - 看 score 排序是否和场景语义一致
 - 看是否出现“过早 close”“模糊需求却直接 comparison”“推荐语义漂移”这类问题
 
-如果问题来自 LLM 输出不稳，优先重跑。  
-如果问题来自少量边界样本的 score 排序仍不理想，允许极少量人工校正，但必须保证：
+若发现问题，处理原则是：
+
+- 优先重跑，保持数据自然生成。
+- 只有在少量边界样本上，才做人工校正。
+- 任何人工修改都必须同时满足下面三条：
 
 - 改后的 `preference_score` 仍符合公式
 - `best_action` 仍等于最高 score
@@ -170,17 +168,11 @@ best_action = argmax(preference_score)
       "preference_score": 0.592,
       "rationale": "...",
       "response_id": "inform_comparison_brief",
-      "dialogue_act": "Inform",
-      "act_params": {"content_type": "comparison", "depth": "brief"},
-      "co_acts": [],
       "terminal_realization": {"surface_text": "...", "screen": {"action": "show_comparison_or_details"}}
     }
   },
   "best_action": "inform_comparison_brief",
   "response_id": "inform_comparison_brief",
-  "dialogue_act": "Inform",
-  "act_params": {"content_type": "comparison", "depth": "brief"},
-  "co_acts": [],
   "realization": {"surface_text": "..."}
 }
 ```
@@ -191,17 +183,4 @@ best_action = argmax(preference_score)
 
 `gen_video.py` 读取 `data/prompts/*.md` 并调用 Kling API 生成 `data/video/*.mp4`。
 
-这一步当前不是主线，但保留接口不变，方便在 state / labeled 稳定后再批量补视频。
-
----
-
-## Normalize Existing Labeled Files
-
-运行：
-
-```bash
-python script/upgrade_labeled.py
-```
-
-脚本会统一 labeled 文件中的 `response_id`、动作语义字段和 realization 字段。  
-当前 `piwm_700–799` 已经全部按统一 schema 和统一 scoring 规则校验过，不再区分旧版批次。
+视频阶段只负责把 pre-interaction state 变成可视样本，不参与 `best_action` 决策。

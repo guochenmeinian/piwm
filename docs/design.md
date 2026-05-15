@@ -1,6 +1,6 @@
 # PIWM Data Design
 
-本文记录轻量 `piwm` 仓库的当前设计。它保持小仓库定位：快速生成 seed、manifest、labeled、视频 prompt 和少量视频样例。
+本文只说明 PIWM 数据的任务设定、状态建模和动作建模。
 
 ## 1. Problem
 
@@ -13,7 +13,7 @@
 核心难点：
 
 - 顾客意图是内隐变量，只能通过目光、停留、姿态、手部动作等外显信号间接推断。
-- 干预后的真实反应难以低成本采集，因此轻量仓库使用 LLM 生成 action-conditioned outcome，再用 Kling 生成可视样例。
+- 干预后的真实反应难以低成本采集，因此标注部分采用结构化 synthetic preference。
 
 ## 2. State Model
 
@@ -62,7 +62,7 @@
 
 ## 4. Realization
 
-Policy layer 输出：
+内部实现上，`response_id` 会映射到更细的策略模板：
 
 ```json
 {
@@ -85,40 +85,23 @@ Realization layer 确定终端响应：
 }
 ```
 
-这样可以避免把“策略选择”“屏幕 UI”“数字人台词”混成一个不可维护字段。
+对外的数据样本只保留 `response_id` 和 realization，不再额外展开 `dialogue_act / act_params / co_acts`。这样可以避免把训练动作键和内部模板结构混在一起。
 
-## 5. Data Generation
+## 5. Data Roles
 
 ```text
 seed -> manifest -> prompts -> video
               └-> labeled
 ```
 
-### Manifest
+各层职责：
 
-由 seed 约束生成顾客当前状态：
+- `manifest`：描述交互前顾客状态。
+- `labeled`：描述给定状态下的候选动作与偏好。
+- `prompt`：把状态转成视频生成脚本。
+- `video`：交互前 10 秒的可视化片段。
 
-- persona / persona_visual
-- AIDA + BDI
-- observable behavior
-- facial expression
-- body posture
-- timeline
-
-### Labeled
-
-对候选动作逐一预测 outcome：
-
-- next AIDA + next BDI
-- risk / benefit
-- delta_stage / delta_mental
-- action_cost / preference_score
-- rationale
-- response_id / dialogue_act / act_params / terminal_realization
-
-### Prompts
-
-将 manifest 中的顾客观察字段渲染成视频 prompt。视频只描述 intervention 前的顾客状态，不包含终端响应，也不依赖 labeled。
+更具体的字段约束见 [schema.md](schema.md)，生成步骤见 [pipeline.md](pipeline.md)。
 
 ## 6. Preference Score
 
@@ -129,13 +112,3 @@ clip to [-1, 1]
 ```
 
 `preference_score` 是 synthetic expert preference proxy，不是真实用户 reward。LLM 预测 `delta_stage / delta_mental`，系统注入 `action_cost` 并计算分数。`delta_stage / delta_mental / action_cost` 均按 `[-1, 1]` 或 `[0, 1]` 的可比量纲处理。
-
-## 7. Compatibility
-
-本仓库早期 22 条 labeled 样例使用旧动作键。运行：
-
-```bash
-python script/upgrade_labeled.py
-```
-
-即可统一归一到 `response_id` 格式。新生成数据直接使用 canonical action 格式。

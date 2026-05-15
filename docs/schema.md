@@ -1,6 +1,6 @@
 # Data Schema
 
-当前 schema 使用统一 action 格式：`candidate_actions / best_action` 仍作为索引字段保留，值改为 `response_id`；动作语义由 `dialogue_act / act_params / co_acts` 描述。
+当前 schema 使用统一 action 格式：`candidate_actions / best_action` 直接使用 `response_id` 作为动作键。
 
 ## Manifest
 
@@ -56,28 +56,18 @@ Labeled 在 manifest 基础上追加候选动作、预测 outcome、synthetic pr
       "preference_score": 0.592,
       "rationale": "比较卡降低决策负担，belief 从模糊变清晰",
       "response_id": "inform_comparison_brief",
-      "dialogue_act": "Inform",
-      "act_params": {"content_type": "comparison", "depth": "brief"},
-      "co_acts": [],
       "terminal_realization": {
         "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
         "screen": {"action": "show_comparison_or_details", "target": "{candidate_items}", "cta": null},
         "voice_style": "neutral",
         "light": "soft_focus_on_comparison_cards",
         "cabinet_motion": null,
-        "duration_ms": 4000,
-        "dialogue_act": "Inform",
-        "act_params": {"content_type": "comparison", "depth": "brief"},
-        "co_acts": [],
-        "response_id": "inform_comparison_brief"
+        "duration_ms": 4000
       }
     }
   },
   "best_action": "inform_comparison_brief",
   "response_id": "inform_comparison_brief",
-  "dialogue_act": "Inform",
-  "act_params": {"content_type": "comparison", "depth": "brief"},
-  "co_acts": [],
   "realization": {"...": "..."},
   "score_weights": {"alpha": 0.4, "beta": 0.5, "gamma": 0.2}
 }
@@ -89,13 +79,10 @@ Labeled 在 manifest 基础上追加候选动作、预测 outcome、synthetic pr
 |---|---|---|
 | `candidate_actions` | yes | 当前候选 `response_id` 列表 |
 | `outcomes[*].response_id` | yes | outcome 对应的稳定动作键 |
-| `outcomes[*].dialogue_act` | yes | 6-act policy label |
-| `outcomes[*].act_params` | yes | act 参数 |
-| `outcomes[*].co_acts` | yes | 可共现的非 task act |
 | `outcomes[*].terminal_realization` | yes | 终端响应包 |
 | `outcomes[*].preference_score` | yes | 系统计算的 synthetic preference score |
 | `best_action` | yes | `argmax(preference_score)` |
-| `dialogue_act / act_params / co_acts` | yes | best action 的 policy 字段 |
+| `response_id` | yes | `best_action` 的显式镜像字段 |
 | `realization` | yes | best action 的 terminal realization |
 
 Preference score:
@@ -107,14 +94,6 @@ default: alpha=0.4, beta=0.5, gamma=0.2
 ```
 
 `preference_score` 是用于合成标注的专家偏好代理分数，不是真实用户反馈 reward。LLM 只预测 outcome；`action_cost / preference_score / best_action` 由系统确定。
-
-## Normalize Labeled Files
-
-运行以下命令可统一刷新 labeled 文件中的动作索引和 realization 字段：
-
-```bash
-python script/upgrade_labeled.py
-```
 
 ## Prompt
 

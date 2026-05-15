@@ -19,7 +19,9 @@ export OPENAI_API_KEY=...
 需要调用 Kling 时设置：
 
 ```bash
-export KLING_API_KEY=...
+export KLING_ACCESS_KEY=...
+export KLING_SECRET_KEY=...
+export KLING_BASE_URL=https://api-beijing.klingai.com
 ```
 
 ## gen_manifest.py
@@ -36,7 +38,7 @@ python script/gen_manifest.py "..." -o -
 
 ## gen_deliberation.py
 
-生成 labeled JSON。输出保留 `best_action`，同时补齐 `response_id / dialogue_act / act_params / co_acts / realization`。
+生成 labeled JSON。输出保留 `best_action`，同时补齐 `response_id / realization`。
 LLM 只预测 outcome；`action_cost / preference_score / best_action` 由系统生成。
 
 ```bash
@@ -76,8 +78,8 @@ python script/gen_prompt.py data/manifest/piwm_700.json
 
 ```bash
 python script/gen_video.py --dry-run
-KLING_API_KEY=... python script/gen_video.py
-KLING_API_KEY=... python script/gen_video.py data/prompts/piwm_700.md
+python script/gen_video.py
+python script/gen_video.py data/prompts/piwm_700.md
 ```
 
 ## Common Flow
@@ -85,7 +87,7 @@ KLING_API_KEY=... python script/gen_video.py data/prompts/piwm_700.md
 ```bash
 python script/gen_manifest.py "desire 阶段，中等犹豫" --id piwm_750
 python script/gen_prompt.py data/manifest/piwm_750.json
-KLING_API_KEY=... python script/gen_video.py data/prompts/piwm_750.md
+python script/gen_video.py data/prompts/piwm_750.md
 python script/gen_deliberation.py data/manifest/piwm_750.json
 ```
 
@@ -95,5 +97,3 @@ python script/gen_deliberation.py data/manifest/piwm_750.json
 python3 -m py_compile script/action_space.py script/gen_manifest.py script/gen_deliberation.py script/gen_prompt.py script/gen_video.py script/upgrade_labeled.py
 python script/upgrade_labeled.py --dry-run
 ```
-
-`upgrade_labeled.py --dry-run` 返回 `0 file(s) would change` 时，说明已有 labeled JSON 已归一。

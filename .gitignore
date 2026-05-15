@@ -1,2 +1,5 @@
 .env
 .claude
+.vscode
+.DS_Store
+
