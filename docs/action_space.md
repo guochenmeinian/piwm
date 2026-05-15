@@ -42,6 +42,6 @@ Policy 只决定"做什么"，Terminal Realization 决定"终端怎么表现"。
 }
 ```
 
-`response_id` 是当前唯一对外暴露的动作键，用于 `candidate_actions / best_action / outcomes` 做索引。`dialogue_act / act_params / co_acts` 只作为内部实现映射存在于 `script/action_space.py`，不再进入训练样本。
+`response_id` 是当前唯一对外暴露的动作键，用于 `candidate_actions / best_action / outcomes` 做索引。当前已包含 `greet_open / greet_close` 两种问候阶段，其中 `greet_open` 用于初次进入交互范围的低打扰开场，`greet_close` 用于交易完成后的收尾。`dialogue_act / act_params / co_acts` 只作为内部实现映射存在于 `script/action_space.py`，不再进入训练样本。
 
 实现入口：`script/action_space.py`

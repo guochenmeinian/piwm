@@ -7,7 +7,7 @@ seed -> manifest -> prompt -> video
 seed -> manifest -> labeled
 ```
 
-`seed / manifest / labeled / prompts / video` 已覆盖 `piwm_700` 到 `piwm_805` 共 106 条。
+`seed / manifest / labeled / prompts / video` 已覆盖 `piwm_700` 到 `piwm_817` 共 118 条。
 
 ---
 
@@ -26,11 +26,11 @@ seed -> manifest -> labeled
 
 | Stage | Count |
 |---|---:|
-| seed | 106 |
-| manifest | 106 |
-| labeled | 106 |
-| prompts | 106 |
-| video | 106 |
+| seed | 118 |
+| manifest | 118 |
+| labeled | 118 |
+| prompts | 118 |
+| video | 118 |
 
 `labeled` 字段约束：
 
@@ -62,13 +62,13 @@ seed -> manifest -> labeled
 
 ## Stage 配比
 
-当前 stage 分布为 `15 / 37 / 39 / 15`（attention / interest / desire / action）。
+当前 stage 分布为 `21 / 41 / 41 / 15`（attention / interest / desire / action）。
 
 | Stage | Count |
 |---|---:|
-| attention | 15 |
-| interest | 37 |
-| desire | 39 |
+| attention | 21 |
+| interest | 41 |
+| desire | 41 |
 | action | 15 |
 
 结论：整体阶段分布是均衡的，中段 `interest / desire` 略多，但仍然符合零售交互数据的自然形态。
@@ -87,13 +87,16 @@ seed -> manifest -> labeled
 | Inform:price | 10 |
 | Recommend:firm | 7 |
 | Reassure:decision | 6 |
+| Greet:open | 6 |
 | Inform:attributes | 4 |
 | Recommend:soft | 4 |
+| Hold:silent | 5 |
+| Hold:ambient | 1 |
 
 结论：动作分布 `总体合理，但不均匀`。
 
-- `attention`：以 `Elicit:need_focus` 和 `Inform:demo` 为主，符合“先聚焦 / 先激发兴趣”的阶段语义。
-- `interest`：以 `Inform:comparison`、`Elicit:need_focus`、`Inform:demo` 为主，符合“比较 / 聚焦 / 理解功能”的中段语义。
+- `attention`：已包含 `Greet:open` 补样本，覆盖“刚进入、尚未开始浏览”的低打扰开场。
+- `interest`：新增 `Hold:silent / Hold:ambient` 补样本，覆盖“当前最优策略是不打断”的场景。
 - `desire`：`Recommend:firm / Reassure:time / Inform:price / Inform:comparison / Reassure:decision` 相对均衡，符合“推进决策但不过早收尾”的语义。
 - `action`：以 `Greet:close` 为主、`Reassure:time` 为辅，基本符合“等待出货 / 礼貌收尾 / 时间确认”的收尾语义。
 
@@ -107,6 +110,7 @@ seed -> manifest -> labeled
 |---|---:|
 | Elicit:need_focus | 9 |
 | Inform:demo | 6 |
+| Greet:open | 6 |
 
 ### interest
 
@@ -116,7 +120,9 @@ seed -> manifest -> labeled
 | Elicit:need_focus | 11 |
 | Inform:demo | 7 |
 | Inform:attributes | 4 |
+| Hold:silent | 3 |
 | Inform:price | 1 |
+| Hold:ambient | 1 |
 
 ### desire
 
@@ -128,6 +134,7 @@ seed -> manifest -> labeled
 | Inform:comparison | 6 |
 | Reassure:decision | 6 |
 | Recommend:soft | 4 |
+| Hold:silent | 2 |
 
 ### action
 
@@ -250,12 +257,24 @@ seed -> manifest -> labeled
 | piwm_803 | inform_attributes_brief |
 | piwm_804 | inform_attributes_brief |
 | piwm_805 | recommend_soft |
+| piwm_806 | greet_open |
+| piwm_807 | greet_open |
+| piwm_808 | greet_open |
+| piwm_809 | greet_open |
+| piwm_810 | hold_silent |
+| piwm_811 | hold_silent |
+| piwm_812 | hold_silent |
+| piwm_813 | hold_ambient |
+| piwm_814 | greet_open |
+| piwm_815 | greet_open |
+| piwm_816 | hold_silent |
+| piwm_817 | hold_silent |
 
 ---
 
 ## 质量结论
 
-当前数据可以直接作为正式版本使用，结构完整、索引清晰、视频与标注一一对应。
+当前 `seed / manifest / labeled / prompts / video` 结构完整、索引清晰，全部样本已经一一对应。
 
 可以直接把这份文档理解为：
 

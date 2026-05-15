@@ -1,0 +1,160 @@
+{
+  "session_id": "piwm_816",
+  "persona": "正在从容浏览的年轻女性，当前不需要额外帮助。",
+  "persona_visual": "26岁左右的女性，黑色中长发，穿米白色衬衫和浅灰色长裤。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她已经能够根据当前信息继续自行判断。",
+    "desire": "想保留自然浏览的节奏。",
+    "intention": "继续独立查看，不希望被打断。"
+  },
+  "observable_behavior": "她在几个区域之间稳定查看，视线切换自然，动作从容，没有困惑表现。",
+  "facial_expression": "表情放松而专注。",
+  "body_posture": "身体略微前倾，站姿稳定。",
+  "timeline": {
+    "t_0_2": "顾客已经停在设备前。",
+    "t_2_5": "她自然查看不同区域。",
+    "t_5_8": "继续顺畅浏览，没有出现停滞。",
+    "t_8_10": "保持原有节奏，仍在自主观察。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "hold_ambient",
+    "elicit_need_focus_open",
+    "inform_attributes_brief"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她继续依靠现有信息自行判断。",
+        "desire": "保留舒适的浏览节奏。",
+        "intention": "继续自然查看。"
+      },
+      "risk": "very low",
+      "benefit": "high",
+      "delta_stage": 0.1,
+      "delta_mental": 0.3,
+      "rationale": "她已经顺畅浏览，不打断本身就是帮助。",
+      "action_cost": 0.0,
+      "preference_score": 0.19,
+      "response_id": "hold_silent",
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0
+      }
+    },
+    "hold_ambient": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "系统愿意给她空间。",
+        "desire": "继续自由浏览。",
+        "intention": "继续停留观察。"
+      },
+      "risk": "very low",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.18,
+      "rationale": "背景退出也合适，但仍比彻底静默多了一次介入。",
+      "action_cost": 0.05,
+      "preference_score": 0.11199999999999999,
+      "response_id": "hold_ambient",
+      "terminal_realization": {
+        "surface_text": "您慢慢看，需要时我再帮您。",
+        "screen": {
+          "action": "return_to_attract_loop",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
+        "cabinet_motion": null,
+        "duration_ms": 2500
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "系统打断了她原有的浏览节奏。",
+        "desire": "原本的自主探索被分散。",
+        "intention": "可能停下来回应。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.01,
+      "delta_mental": -0.07,
+      "rationale": "没有卡住时发问，会把自然浏览变成被动回应。",
+      "action_cost": 0.2,
+      "preference_score": -0.07100000000000001,
+      "response_id": "elicit_need_focus_open",
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备突然把她拉向某个商品信息。",
+        "desire": "原有自由浏览被收窄。",
+        "intention": "可能看一眼，但未必受益。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.02,
+      "delta_mental": -0.05,
+      "rationale": "未锁定单品时展示参数属于过度帮助。",
+      "action_cost": 0.25,
+      "preference_score": -0.067,
+      "response_id": "inform_attributes_brief",
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000
+      }
+    }
+  },
+  "best_action": "hold_silent",
+  "response_id": "hold_silent",
+  "realization": {
+    "surface_text": "",
+    "screen": {
+      "action": "idle_minimal",
+      "cta": null
+    },
+    "voice_style": "silent",
+    "light": "maintain_current_soft_breathing",
+    "cabinet_motion": null,
+    "duration_ms": 0
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

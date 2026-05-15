@@ -1,0 +1,160 @@
+{
+  "session_id": "piwm_811",
+  "persona": "午休时独自看商品的年轻男性，已经在顺畅地自行比较。",
+  "persona_visual": "23岁左右的男性，短发，穿白色T恤和深色休闲裤，手里拿着手机。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "他已经能从当前信息中继续自行判断。",
+    "desire": "想保留自主比较空间，不想被额外打断。",
+    "intention": "继续按自己的节奏观察并形成偏好。"
+  },
+  "observable_behavior": "他的视线在少数几个区域之间缓慢切换，每次都有自然停留，没有明显卡住。",
+  "facial_expression": "神情专注平和，没有焦虑或困惑。",
+  "body_posture": "身体正面朝向设备，上半身轻微前倾，动作克制稳定。",
+  "timeline": {
+    "t_0_2": "顾客已经停在设备前。",
+    "t_2_5": "他缓慢查看不同位置。",
+    "t_5_8": "视线继续自然切换，比较过程顺畅。",
+    "t_8_10": "保持专注浏览，没有寻求帮助。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "hold_ambient",
+    "inform_comparison_brief",
+    "elicit_need_focus_open"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他仍能自己完成当前判断。",
+        "desire": "保留安静比较空间。",
+        "intention": "继续自然浏览并逐步形成偏好。"
+      },
+      "risk": "very low",
+      "benefit": "high",
+      "delta_stage": 0.1,
+      "delta_mental": 0.32,
+      "rationale": "顾客当前并未受阻，最合适的是让其继续顺畅自我推进。",
+      "action_cost": 0.0,
+      "preference_score": 0.2,
+      "response_id": "hold_silent",
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0
+      }
+    },
+    "hold_ambient": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "系统不会过度介入。",
+        "desire": "继续保持自主。",
+        "intention": "继续停留比较。"
+      },
+      "risk": "very low",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.18,
+      "rationale": "背景退出也匹配，只是多了一次不必要的提示。",
+      "action_cost": 0.05,
+      "preference_score": 0.11199999999999999,
+      "response_id": "hold_ambient",
+      "terminal_realization": {
+        "surface_text": "您慢慢看，需要时我再帮您。",
+        "screen": {
+          "action": "return_to_attract_loop",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
+        "cabinet_motion": null,
+        "duration_ms": 2500
+      }
+    },
+    "inform_comparison_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备开始替他组织比较。",
+        "desire": "也许能更快确认，但当前未必需要。",
+        "intention": "可能转向屏幕信息。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.03,
+      "delta_mental": -0.04,
+      "rationale": "只有当比较受阻时对比卡才明显有益，此处会打断已有节奏。",
+      "action_cost": 0.3,
+      "preference_score": -0.068,
+      "response_id": "inform_comparison_brief",
+      "terminal_realization": {
+        "surface_text": "我把这几款的差别列在屏幕上，您可以先比较价格、功能和适合场景。",
+        "screen": {
+          "action": "show_comparison_or_details",
+          "target": "{candidate_items}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_comparison_cards",
+        "cabinet_motion": null,
+        "duration_ms": 4000
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备提问打断了他已有的比较过程。",
+        "desire": "原有自主判断被分散。",
+        "intention": "可能停下来回应问题。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.01,
+      "delta_mental": -0.07,
+      "rationale": "顾客已经在比较中，开放提问反而把他拉回更早阶段。",
+      "action_cost": 0.2,
+      "preference_score": -0.07100000000000001,
+      "response_id": "elicit_need_focus_open",
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000
+      }
+    }
+  },
+  "best_action": "hold_silent",
+  "response_id": "hold_silent",
+  "realization": {
+    "surface_text": "",
+    "screen": {
+      "action": "idle_minimal",
+      "cta": null
+    },
+    "voice_style": "silent",
+    "light": "maintain_current_soft_breathing",
+    "cabinet_motion": null,
+    "duration_ms": 0
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

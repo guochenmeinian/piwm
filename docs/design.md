@@ -49,6 +49,7 @@
 
 | response_id | act |
 |---|---|
+| `greet_open` | `Greet(phase=open)` |
 | `hold_silent` | `Hold(mode=silent)` |
 | `inform_comparison_brief` | `Inform(content_type=comparison, depth=brief)` |
 | `recommend_firm` | `Recommend(pressure=firm)` |

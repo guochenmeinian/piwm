@@ -1,0 +1,155 @@
+{
+  "session_id": "piwm_812",
+  "persona": "已经有偏好但仍在从容确认的年轻上班族女性。",
+  "persona_visual": "28岁左右的女性，黑色中长发，穿浅灰色西装外套和白色衬衫，肩背米色通勤包。",
+  "aida_stage": "desire",
+  "bdi": {
+    "belief": "她认为目标商品大概率适合自己，当前只是在做最后的自我确认。",
+    "desire": "想在不被额外推动的情况下，自主完成最后判断。",
+    "intention": "继续安静确认片刻，随后自己决定是否操作。"
+  },
+  "observable_behavior": "她长时间看向同一位置，偶尔做很轻的视线调整，整体状态平稳，没有求助迹象。",
+  "facial_expression": "表情专注而放松，犹豫程度较低。",
+  "body_posture": "身体轻微前倾，双手自然停在身前，姿态稳定。",
+  "timeline": {
+    "t_0_2": "顾客已经锁定目标方向。",
+    "t_2_5": "她保持稳定注视。",
+    "t_5_8": "只做轻微视线调整，没有转向其他候选。",
+    "t_8_10": "继续从容确认，尚未开始操作。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "reassure_decision",
+    "reassure_time_wait",
+    "recommend_soft"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "她继续相信自己的判断已经足够。",
+        "desire": "保留自主完成决策的空间。",
+        "intention": "按自己的节奏完成最后确认。"
+      },
+      "risk": "very low",
+      "benefit": "high",
+      "delta_stage": 0.12,
+      "delta_mental": 0.3,
+      "rationale": "当前顾客已经接近自然决策，静默避免把低犹豫误判为求助。",
+      "action_cost": 0.0,
+      "preference_score": 0.198,
+      "response_id": "hold_silent",
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0
+      }
+    },
+    "reassure_decision": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "系统在降低决策压力。",
+        "desire": "她并不特别需要这种安抚。",
+        "intention": "可能继续看，但节奏被轻微介入。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.12,
+      "rationale": "安抚不会太错，但顾客当前并没有明显后悔焦虑。",
+      "action_cost": 0.1,
+      "preference_score": 0.072,
+      "response_id": "reassure_decision",
+      "terminal_realization": {
+        "surface_text": "您可以先保留几个候选，不用马上决定。",
+        "screen": {
+          "action": "show_shortlist_hint",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3500
+      }
+    },
+    "reassure_time_wait": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "系统给了她更多时间感。",
+        "desire": "她原本就并不急躁。",
+        "intention": "继续确认，但收益有限。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.05,
+      "delta_mental": 0.08,
+      "rationale": "没有时间压力线索时，这类安抚只是温和但多余。",
+      "action_cost": 0.1,
+      "preference_score": 0.04,
+      "response_id": "reassure_time_wait",
+      "terminal_realization": {
+        "surface_text": "不着急，您可以慢慢看，需要我时我再出现。",
+        "screen": {
+          "action": "show_low_pressure_wait_message",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "low_pressure_idle",
+        "cabinet_motion": null,
+        "duration_ms": 3000
+      }
+    },
+    "recommend_soft": {
+      "next_aida_stage": "desire",
+      "next_bdi": {
+        "belief": "系统替她做了额外确认。",
+        "desire": "她可能觉得被轻微推动。",
+        "intention": "仍会决定，但自主感下降。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.06,
+      "delta_mental": -0.03,
+      "rationale": "在她本来就能自行完成确认时推荐会显得多余。",
+      "action_cost": 0.45,
+      "preference_score": -0.08100000000000002,
+      "response_id": "recommend_soft",
+      "terminal_realization": {
+        "surface_text": "如果您想省时间，可以先从这款开始看，它比较符合您现在关注的点。",
+        "screen": {
+          "action": "highlight_recommended_item",
+          "target": "{recommended_item}",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "gentle_highlight",
+        "cabinet_motion": null,
+        "duration_ms": 4500
+      }
+    }
+  },
+  "best_action": "hold_silent",
+  "response_id": "hold_silent",
+  "realization": {
+    "surface_text": "",
+    "screen": {
+      "action": "idle_minimal",
+      "cta": null
+    },
+    "voice_style": "silent",
+    "light": "maintain_current_soft_breathing",
+    "cabinet_motion": null,
+    "duration_ms": 0
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

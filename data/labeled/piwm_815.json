@@ -1,0 +1,159 @@
+{
+  "session_id": "piwm_815",
+  "persona": "刚从走廊经过的年轻男性，在设备前停顿整理手机消息。",
+  "persona_visual": "27岁左右的男性，短黑发，穿浅蓝色衬衫和深色长裤，肩背黑色双肩包。",
+  "aida_stage": "attention",
+  "bdi": {
+    "belief": "他还没有真正开始关注设备内容。",
+    "desire": "先处理手机上的消息。",
+    "intention": "继续看手机，之后再决定是否关注周围。"
+  },
+  "observable_behavior": "他停在设备前，低头查看手机，手指有轻微操作，没有抬头看向机器。",
+  "facial_expression": "神情平稳，注意力集中在手机上。",
+  "body_posture": "身体朝向设备，肩膀放松，站姿自然。",
+  "timeline": {
+    "t_0_2": "顾客经过后停在设备附近。",
+    "t_2_5": "他低头查看手机消息。",
+    "t_5_8": "手指轻微滑动，仍未抬头。",
+    "t_8_10": "继续停留原地，注意力还在手机上。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "greet_open",
+    "hold_ambient",
+    "elicit_need_focus_open"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "他仍只是初步注意到设备。",
+        "desire": "保留一点好奇。",
+        "intention": "可能继续停留，也可能离开。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.0,
+      "rationale": "沉默缺少把路过注意转成持续关注的作用。",
+      "action_cost": 0.0,
+      "preference_score": 0.0,
+      "response_id": "hold_silent",
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0
+      }
+    },
+    "greet_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "他感到设备欢迎自己开始查看。",
+        "desire": "愿意继续停留。",
+        "intention": "把注意力真正转向设备。"
+      },
+      "risk": "low",
+      "benefit": "high",
+      "delta_stage": 0.3,
+      "delta_mental": 0.3,
+      "rationale": "在刚停下的节点，欢迎能以最低负担完成第一次接触。",
+      "action_cost": 0.05,
+      "preference_score": 0.26,
+      "response_id": "greet_open",
+      "terminal_realization": {
+        "surface_text": "欢迎光临，您可以先随便看看。",
+        "screen": {
+          "action": "show_welcome",
+          "cta": null
+        },
+        "voice_style": "warm",
+        "light": "soft_welcome",
+        "cabinet_motion": null,
+        "duration_ms": 2500
+      }
+    },
+    "hold_ambient": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "设备不会过度打扰。",
+        "desire": "可以自己决定是否继续。",
+        "intention": "仍在观察阶段。"
+      },
+      "risk": "very low",
+      "benefit": "medium",
+      "delta_stage": 0.05,
+      "delta_mental": 0.08,
+      "rationale": "低打扰有效，但不足以替代第一次欢迎。",
+      "action_cost": 0.05,
+      "preference_score": 0.05,
+      "response_id": "hold_ambient",
+      "terminal_realization": {
+        "surface_text": "您慢慢看，需要时我再帮您。",
+        "screen": {
+          "action": "return_to_attract_loop",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
+        "cabinet_motion": null,
+        "duration_ms": 2500
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备直接进入需求询问。",
+        "desire": "开始思考自己更在意什么。",
+        "intention": "可能继续，但节奏被提前。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.18,
+      "delta_mental": 0.1,
+      "rationale": "问题不是错，但当前更需要被迎接而不是立刻被问。",
+      "action_cost": 0.2,
+      "preference_score": 0.08199999999999999,
+      "response_id": "elicit_need_focus_open",
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000
+      }
+    }
+  },
+  "best_action": "greet_open",
+  "response_id": "greet_open",
+  "realization": {
+    "surface_text": "欢迎光临，您可以先随便看看。",
+    "screen": {
+      "action": "show_welcome",
+      "cta": null
+    },
+    "voice_style": "warm",
+    "light": "soft_welcome",
+    "cabinet_motion": null,
+    "duration_ms": 2500
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

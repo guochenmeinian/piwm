@@ -1,0 +1,160 @@
+{
+  "session_id": "piwm_813",
+  "persona": "在设备前停留浏览了一会儿的年轻女性，希望系统退回背景。",
+  "persona_visual": "25岁左右的女性，齐肩短发，穿浅蓝色衬衫和深色长裤。",
+  "aida_stage": "interest",
+  "bdi": {
+    "belief": "她觉得自己可以继续慢慢看，暂时不需要额外说明。",
+    "desire": "想在低打扰环境里继续自由浏览。",
+    "intention": "如果系统不继续追问，她会愿意多停留一会儿。"
+  },
+  "observable_behavior": "她持续看向前方，浏览节奏已经放慢，偶尔短暂停顿，但并不显得困惑。",
+  "facial_expression": "神情平稳自然，带轻微思考。",
+  "body_posture": "站姿放松，身体略微前倾，双手自然放置。",
+  "timeline": {
+    "t_0_2": "顾客已经在设备前停留。",
+    "t_2_5": "她缓慢查看前方信息。",
+    "t_5_8": "浏览节奏进一步放慢，状态稳定。",
+    "t_8_10": "仍愿意继续看，但没有进一步互动需求。"
+  },
+  "candidate_actions": [
+    "hold_silent",
+    "hold_ambient",
+    "elicit_need_focus_open",
+    "inform_attributes_brief"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "她仍可自在浏览。",
+        "desire": "保留安静空间。",
+        "intention": "继续自行观察。"
+      },
+      "risk": "very low",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.18,
+      "rationale": "静默也合适，但没有显式传达系统会退到背景。",
+      "action_cost": 0.0,
+      "preference_score": 0.122,
+      "response_id": "hold_silent",
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0
+      }
+    },
+    "hold_ambient": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "系统理解她当前想自己看。",
+        "desire": "更愿意在低打扰状态下继续停留。",
+        "intention": "继续自由浏览。"
+      },
+      "risk": "very low",
+      "benefit": "high",
+      "delta_stage": 0.12,
+      "delta_mental": 0.32,
+      "rationale": "顾客并不需要彻底沉默，而是需要系统明确退回背景，ambient 更贴合。",
+      "action_cost": 0.05,
+      "preference_score": 0.198,
+      "response_id": "hold_ambient",
+      "terminal_realization": {
+        "surface_text": "您慢慢看，需要时我再帮您。",
+        "screen": {
+          "action": "return_to_attract_loop",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
+        "cabinet_motion": null,
+        "duration_ms": 2500
+      }
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "系统又把互动拉回来了。",
+        "desire": "原本想自由浏览。",
+        "intention": "可能感到被打断。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.01,
+      "delta_mental": -0.08,
+      "rationale": "她已经稳定浏览，再次提问会违背低打扰需求。",
+      "action_cost": 0.2,
+      "preference_score": -0.07600000000000001,
+      "response_id": "elicit_need_focus_open",
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000
+      }
+    },
+    "inform_attributes_brief": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备额外提供了当前未必需要的信息。",
+        "desire": "浏览被带向某个商品。",
+        "intention": "自主探索空间下降。"
+      },
+      "risk": "medium",
+      "benefit": "low",
+      "delta_stage": 0.02,
+      "delta_mental": -0.05,
+      "rationale": "没有锁定单品需求时展示参数属于过度介入。",
+      "action_cost": 0.25,
+      "preference_score": -0.067,
+      "response_id": "inform_attributes_brief",
+      "terminal_realization": {
+        "surface_text": "屏幕上列出了主要参数、价格和适合人群，您可以先快速看一眼。",
+        "screen": {
+          "action": "show_attribute_table",
+          "target": "{selected_item}",
+          "cta": null
+        },
+        "voice_style": "neutral",
+        "light": "soft_focus_on_attribute_table",
+        "cabinet_motion": null,
+        "duration_ms": 5000
+      }
+    }
+  },
+  "best_action": "hold_ambient",
+  "response_id": "hold_ambient",
+  "realization": {
+    "surface_text": "您慢慢看，需要时我再帮您。",
+    "screen": {
+      "action": "return_to_attract_loop",
+      "cta": null
+    },
+    "voice_style": "soft",
+    "light": "ambient_low_attention",
+    "cabinet_motion": null,
+    "duration_ms": 2500
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

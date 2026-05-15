@@ -25,6 +25,7 @@ DIALOGUE_ACT_PARAM_VALUES: dict[str, dict[str, list[str]]] = {
 }
 
 RESPONSE_DEFINITIONS: dict[str, dict[str, Any]] = {
+    "greet_open": {"act": "Greet", "params": {"phase": "open"}, "co_acts": []},
     "hold_silent": {"act": "Hold", "params": {"mode": "silent"}, "co_acts": []},
     "inform_comparison_brief": {
         "act": "Inform",
@@ -203,6 +204,14 @@ REALIZATION_TEMPLATES: dict[str, dict[str, Any]] = {
         "cabinet_motion": "dispense_or_unlock_if_applicable",
         "duration_ms": 3000,
     },
+    "Greet:open": {
+        "surface_text": "欢迎光临，您可以先随便看看。",
+        "screen": {"action": "show_welcome", "cta": None},
+        "voice_style": "warm",
+        "light": "soft_welcome",
+        "cabinet_motion": None,
+        "duration_ms": 2500,
+    },
 }
 
 
@@ -249,6 +258,7 @@ RESPONSE_DEFINITIONS.update(
 )
 
 RESPONSE_COSTS: dict[str, float] = {
+    "greet_open": 0.05,
     "hold_silent": 0.00,
     "hold_ambient": 0.05,
     "reassure_time_wait": 0.10,
@@ -267,6 +277,7 @@ RESPONSE_COSTS: dict[str, float] = {
 }
 
 RESPONSE_DESCRIPTIONS: dict[str, str] = {
+    "greet_open": "开场欢迎——顾客刚进入交互范围时做低打扰问候，帮助其把注意力转向设备。",
     "hold_silent": "静默观察——屏幕保持极简 attract，不做任何主动介入。顾客感受：完全自主空间，零压力。",
     "hold_ambient": "主动退出互动——回到 attract loop，数字人「不打扰您了」后静默。顾客感受：被放手，无追销感。",
     "reassure_time_wait": "消除时间焦虑——屏幕显示「为您保留中」小窗，数字人「您慢慢看」后退到背景。顾客感受：时间压力消除。",
