@@ -1,13 +1,13 @@
 # Proactive Intent World Model (PIWM)
 
-轻量版 PIWM 数据合成仓库。它保留一条交互前视频生成线和一条 action deliberation 标注线，用来快速生成和审阅智能售货机/智能冰箱前置摄像头视角下的顾客行为样本。
+PIWM 数据生成仓库，用来生成零售设备前置摄像头视角下的顾客状态、动作偏好标注和交互前视频样本。
 
-当前动作与数据口径：
+当前数据包含两条主线：
 
-- policy 语义中心是 6 个 `DialogueAct`：`Greet / Elicit / Inform / Recommend / Reassure / Hold`。
-- `response_id` 作为稳定动作键；语义中心仍是 `dialogue_act / act_params / co_acts`。
-- labeled JSON 使用 `candidate_actions / best_action / outcomes`，并在 outcome 与顶层补齐 action 语义字段。
-- 每个 outcome 会补齐 `terminal_realization`，描述屏幕、语音、灯效、柜体动作和持续时间。
+- `seed -> manifest -> prompt -> video`
+- `seed -> manifest -> labeled`
+
+当前 `piwm_700` 到 `piwm_817` 共 118 条，`seed / manifest / labeled / prompts / video` 已一一对应。
 
 ## Pipeline
 
@@ -36,7 +36,6 @@ docs/
   pipeline.md
   usage.md
 script/
-  action_space.py
   gen_manifest.py
   gen_deliberation.py
   gen_prompt.py
@@ -51,14 +50,16 @@ pip install openai requests
 
 python script/gen_manifest.py "interest 阶段，高犹豫，价格敏感" --id piwm_750
 python script/gen_prompt.py data/manifest/piwm_750.json
-KLING_API_KEY=... python script/gen_video.py data/prompts/piwm_750.md
 python script/gen_deliberation.py data/manifest/piwm_750.json
+python script/gen_video.py data/prompts/piwm_750.md
 ```
 
-Normalize labeled files to the current action format:
+Kling 相关环境变量：
 
 ```bash
-python script/upgrade_labeled.py
+export KLING_ACCESS_KEY=...
+export KLING_SECRET_KEY=...
+export KLING_BASE_URL=https://api-beijing.klingai.com
 ```
 
-Docs: [docs/action_space.md](docs/action_space.md) · [docs/schema.md](docs/schema.md) · [docs/pipeline.md](docs/pipeline.md) · [docs/usage.md](docs/usage.md)
+Docs: [docs/index.md](docs/index.md) · [docs/schema.md](docs/schema.md) · [docs/pipeline.md](docs/pipeline.md) · [docs/usage.md](docs/usage.md)
