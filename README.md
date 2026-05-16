@@ -7,7 +7,7 @@ PIWM 数据生成仓库，用来生成零售设备前置摄像头视角下的顾
 - `seed -> manifest -> prompt -> video`
 - `seed -> manifest -> labeled`
 
-当前 `piwm_700` 到 `piwm_817` 共 118 条，`seed / manifest / labeled / prompts / video` 已一一对应。
+当前 `piwm_700` 到 `piwm_1017` 共 318 条 `seed / manifest / labeled / prompts`。其中 `piwm_700` 到 `piwm_817` 共 118 条已有视频；`piwm_818` 到 `piwm_1017` 共 200 条是 prompt-ready / video-pending 扩展样本，等待 Kling 成片。
 
 ## Pipeline
 
@@ -20,6 +20,18 @@ data/seed/piwm_NNN.txt
 data/manifest/piwm_NNN.json
   -> script/gen_deliberation.py -> data/labeled/piwm_NNN.json
 ```
+
+当前规模：
+
+| Layer | Count |
+|---|---:|
+| seed | 318 |
+| manifest | 318 |
+| labeled | 318 |
+| prompts | 318 |
+| video | 118 |
+
+注意：`piwm_818` 到 `piwm_1017` 尚未生成视频，不能当作已成片多模态训练数据。
 
 ## Directory
 

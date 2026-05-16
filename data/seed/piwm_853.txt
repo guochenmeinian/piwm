@@ -1,0 +1,1 @@
+interest 阶段，预算压力较低、目标明确、希望快速完成选择的消费者。，顾客稳定看向屏幕主区域，短暂停顿后再次确认信息。整体动作缓慢、连续、真实，没有夸张表演。，target_act=Inform:attributes，生成 prompt-ready 扩展样本，video_pending

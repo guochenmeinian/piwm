@@ -1,0 +1,1 @@
+interest 阶段，准备给别人买东西但不确定对方偏好、需要比较适合场景的礼物购买者。，顾客靠近设备观察，眉头轻微收紧，像是在理解功能如何使用。整体动作缓慢、连续、真实，没有夸张表演。，target_act=Inform:demo，生成 prompt-ready 扩展样本，video_pending

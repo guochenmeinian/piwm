@@ -1,0 +1,1220 @@
+{
+  "artifact": "piwm_target_promptready_expansion",
+  "piwm_root": "/Users/mutsumi/Desktop/WorkSpace/piwm",
+  "start_id": 818,
+  "requested_count": 200,
+  "written_count": 200,
+  "skipped_count": 0,
+  "status": "prompt_ready_video_pending",
+  "video_generation": "not_run_missing_kling_credentials",
+  "records": [
+    {
+      "session_id": "piwm_818",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_819",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_820",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_821",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_822",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_823",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_824",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_825",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_826",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_827",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_828",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_829",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_830",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_831",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_832",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_833",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_834",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_835",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_836",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_837",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_838",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_839",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_840",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_841",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_842",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_843",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_844",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_845",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_846",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_847",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_848",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "attention",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_849",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_850",
+      "best_action": "elicit_need_focus_open",
+      "aida_stage": "interest",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_851",
+      "best_action": "inform_comparison_brief",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_852",
+      "best_action": "inform_demo_brief",
+      "aida_stage": "interest",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_853",
+      "best_action": "inform_attributes_brief",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_854",
+      "best_action": "inform_price_brief",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_855",
+      "best_action": "inform_comparison_brief",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_856",
+      "best_action": "inform_price_brief",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_857",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_858",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_859",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_860",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_861",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_862",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_863",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_864",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_865",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_866",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_867",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_868",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_869",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_870",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_871",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_872",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_873",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_874",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_875",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_876",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_877",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_878",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_879",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_880",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_881",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_882",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_883",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_884",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_885",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_886",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_887",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_888",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_889",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_890",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_891",
+      "best_action": "greet_open",
+      "aida_stage": "attention",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_892",
+      "best_action": "greet_close",
+      "aida_stage": "action",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_893",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_894",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_895",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_896",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_897",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_898",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_899",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_900",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_901",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_902",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_903",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_904",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_905",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_906",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_907",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_908",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_909",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_910",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_911",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_912",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_913",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_914",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_915",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_916",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_917",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_918",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_919",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_920",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_921",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_922",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_923",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_924",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_925",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_926",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_927",
+      "best_action": "reassure_time_wait",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_928",
+      "best_action": "reassure_decision",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_929",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_930",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_931",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_932",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_933",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_934",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_935",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_936",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_937",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_938",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_939",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_940",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_941",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_942",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_943",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_944",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_945",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_946",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_947",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_948",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_949",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_950",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_951",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_952",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_953",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_954",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_955",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_956",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_957",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_958",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_959",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_960",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_961",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_962",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_963",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_964",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_965",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_966",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_967",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_968",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_969",
+      "best_action": "recommend_soft",
+      "aida_stage": "desire",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_970",
+      "best_action": "recommend_firm",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_971",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_972",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_973",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_974",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_975",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_976",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_977",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_978",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_979",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_980",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_981",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_982",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_983",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_984",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_985",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_986",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_987",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_988",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_989",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_990",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_991",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_992",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_993",
+      "best_action": "hold_silent",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_994",
+      "best_action": "hold_silent",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_995",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_996",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_997",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_998",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_999",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_1000",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_1001",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_1002",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_1003",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_1004",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_1005",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_1006",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_1007",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_1008",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_1009",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_1010",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_1011",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    },
+    {
+      "session_id": "piwm_1012",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "first_time_high_consideration"
+    },
+    {
+      "session_id": "piwm_1013",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "experienced_brand_loyal"
+    },
+    {
+      "session_id": "piwm_1014",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "gift_buyer_uncertain"
+    },
+    {
+      "session_id": "piwm_1015",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_insensitive_decisive"
+    },
+    {
+      "session_id": "piwm_1016",
+      "best_action": "hold_ambient",
+      "aida_stage": "desire",
+      "persona_type": "browser_low_intent"
+    },
+    {
+      "session_id": "piwm_1017",
+      "best_action": "hold_ambient",
+      "aida_stage": "interest",
+      "persona_type": "price_sensitive_cautious"
+    }
+  ],
+  "skipped": [],
+  "counts_after_generation": {
+    "seed": 318,
+    "manifest": 318,
+    "labeled": 318,
+    "prompts": 318,
+    "video": 118
+  }
+}

@@ -1,0 +1,1 @@
+interest 阶段，准备给别人买东西但不确定对方偏好、需要比较适合场景的礼物购买者。，顾客停在设备前，视线在几个区域之间切换，像是在寻找优先关注点。整体动作缓慢、连续、真实，没有夸张表演。，target_act=Elicit:need_focus，生成 prompt-ready 扩展样本，video_pending

@@ -1,0 +1,1 @@
+attention 阶段，熟悉该类设备和品牌、已有偏好但仍会做最后确认的消费者。，顾客刚进入设备前方，步伐放慢，视线开始转向屏幕区域。整体动作缓慢、连续、真实，没有夸张表演。，target_act=Greet:open，生成 prompt-ready 扩展样本，video_pending

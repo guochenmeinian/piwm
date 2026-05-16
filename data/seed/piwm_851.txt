@@ -1,0 +1,1 @@
+interest 阶段，熟悉该类设备和品牌、已有偏好但仍会做最后确认的消费者。，顾客反复看向两个相邻区域，头部轻微左右切换，正在比较差异。整体动作缓慢、连续、真实，没有夸张表演。，target_act=Inform:comparison，生成 prompt-ready 扩展样本，video_pending

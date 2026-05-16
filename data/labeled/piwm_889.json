@@ -1,0 +1,162 @@
+{
+  "session_id": "piwm_889",
+  "persona": "预算压力较低、目标明确、希望快速完成选择的消费者。",
+  "persona_visual": "一名 30–45 岁亚洲男性，穿简洁商务休闲装，站姿稳定，动作干脆。",
+  "aida_stage": "attention",
+  "bdi": {
+    "belief": "设备前方可能有值得了解的商品或服务，但当前仍处于刚接近、尚未明确需求的阶段。",
+    "desire": "希望先轻松确认这里是否有自己感兴趣的选项。",
+    "intention": "短暂停留并观察设备反馈，再决定是否继续浏览。"
+  },
+  "observable_behavior": "顾客刚进入设备前方，步伐放慢，视线开始转向屏幕区域。整体动作缓慢、连续、真实，没有夸张表演。",
+  "facial_expression": "表情自然克制，带有轻微思考或确认感，没有明显焦躁、惊讶或防御。",
+  "body_posture": "身体正面对向设备，站姿稳定，双手自然放在手机、包带或设备前方可见区域。",
+  "timeline": {
+    "t_0_2": "顾客进入或已经停留在设备前方，视线先稳定看向前方区域。",
+    "t_2_5": "顾客继续刚进入设备前方，步伐放慢，视线开始转向屏幕区域，头部和视线变化幅度较小。",
+    "t_5_8": "顾客保持自然停顿，短暂下移视线后再回到前方，表现出比较或确认。",
+    "t_8_10": "顾客仍停留在原位，动作节奏平稳，没有突然离开、付款界面展示或夸张动作。"
+  },
+  "generation_status": "prompt_ready_video_pending",
+  "target_act": "Greet:open",
+  "candidate_actions": [
+    "hold_silent",
+    "greet_open",
+    "hold_ambient",
+    "elicit_need_focus_open"
+  ],
+  "outcomes": {
+    "hold_silent": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "设备响应有一定帮助，但没有完全击中当前最需要解决的问题。",
+        "desire": "仍希望继续确认更相关的信息。",
+        "intention": "暂时停留在 attention 附近，继续观察或比较。"
+      },
+      "risk": "low",
+      "benefit": "low",
+      "delta_stage": 0.0,
+      "delta_mental": 0.03,
+      "rationale": "Hold:silent is plausible but less aligned than Greet:open for this sampled state.",
+      "response_id": "hold_silent",
+      "terminal_realization": {
+        "surface_text": "",
+        "screen": {
+          "action": "idle_minimal",
+          "cta": null
+        },
+        "voice_style": "silent",
+        "light": "maintain_current_soft_breathing",
+        "cabinet_motion": null,
+        "duration_ms": 0
+      },
+      "action_cost": 0.0,
+      "preference_score": 0.015
+    },
+    "greet_open": {
+      "next_aida_stage": "interest",
+      "next_bdi": {
+        "belief": "设备响应与当前状态匹配，信息或节奏上的不确定性下降。",
+        "desire": "愿意继续沿当前路径推进，因为选择压力和理解成本降低。",
+        "intention": "进入或维持 interest 阶段，并继续与设备进行低压力互动。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.24,
+      "delta_mental": 0.24,
+      "rationale": "Greet:open matches the visible attention state and improves the shopper's next step without breaking target-frontcam timing.",
+      "response_id": "greet_open",
+      "terminal_realization": {
+        "surface_text": "欢迎光临，您可以先随便看看。",
+        "screen": {
+          "action": "show_welcome",
+          "cta": null
+        },
+        "voice_style": "warm",
+        "light": "soft_welcome",
+        "cabinet_motion": null,
+        "duration_ms": 2500
+      },
+      "action_cost": 0.05,
+      "preference_score": 0.206
+    },
+    "hold_ambient": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "设备响应有一定帮助，但没有完全击中当前最需要解决的问题。",
+        "desire": "仍希望继续确认更相关的信息。",
+        "intention": "暂时停留在 attention 附近，继续观察或比较。"
+      },
+      "risk": "low",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.1,
+      "rationale": "Hold:ambient is plausible but less aligned than Greet:open for this sampled state.",
+      "response_id": "hold_ambient",
+      "terminal_realization": {
+        "surface_text": "您慢慢看，需要时我再帮您。",
+        "screen": {
+          "action": "return_to_attract_loop",
+          "cta": null
+        },
+        "voice_style": "soft",
+        "light": "ambient_low_attention",
+        "cabinet_motion": null,
+        "duration_ms": 2500
+      },
+      "action_cost": 0.05,
+      "preference_score": 0.07200000000000001
+    },
+    "elicit_need_focus_open": {
+      "next_aida_stage": "attention",
+      "next_bdi": {
+        "belief": "设备响应有一定帮助，但没有完全击中当前最需要解决的问题。",
+        "desire": "仍希望继续确认更相关的信息。",
+        "intention": "暂时停留在 attention 附近，继续观察或比较。"
+      },
+      "risk": "medium",
+      "benefit": "medium",
+      "delta_stage": 0.08,
+      "delta_mental": 0.1,
+      "rationale": "Elicit:need_focus is plausible but less aligned than Greet:open for this sampled state.",
+      "response_id": "elicit_need_focus_open",
+      "terminal_realization": {
+        "surface_text": "您今天想先看价格、功能，还是适合什么场景？",
+        "screen": {
+          "action": "show_choice_bubbles",
+          "choices": [
+            "价格",
+            "功能",
+            "场景"
+          ],
+          "cta": null
+        },
+        "voice_style": "curious",
+        "light": "soft_invitation",
+        "cabinet_motion": null,
+        "duration_ms": 5000
+      },
+      "action_cost": 0.2,
+      "preference_score": 0.041999999999999996
+    }
+  },
+  "best_action": "greet_open",
+  "response_id": "greet_open",
+  "expansion_batch": "2026-05-16_promptready_200",
+  "realization": {
+    "surface_text": "欢迎光临，您可以先随便看看。",
+    "screen": {
+      "action": "show_welcome",
+      "cta": null
+    },
+    "voice_style": "warm",
+    "light": "soft_welcome",
+    "cabinet_motion": null,
+    "duration_ms": 2500
+  },
+  "score_weights": {
+    "alpha": 0.4,
+    "beta": 0.5,
+    "gamma": 0.2
+  }
+}

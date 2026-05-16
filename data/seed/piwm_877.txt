@@ -1,0 +1,1 @@
+attention 阶段，预算压力较低、目标明确、希望快速完成选择的消费者。，顾客刚进入设备前方，步伐放慢，视线开始转向屏幕区域。整体动作缓慢、连续、真实，没有夸张表演。，target_act=Greet:open，生成 prompt-ready 扩展样本，video_pending

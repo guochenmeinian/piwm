@@ -7,7 +7,7 @@ seed -> manifest -> prompt -> video
 seed -> manifest -> labeled
 ```
 
-`seed / manifest / labeled / prompts / video` 已覆盖 `piwm_700` 到 `piwm_817` 共 118 条。
+`seed / manifest / labeled / prompts` 已覆盖 `piwm_700` 到 `piwm_1017` 共 318 条；其中 `piwm_700` 到 `piwm_817` 共 118 条已有视频，`piwm_818` 到 `piwm_1017` 共 200 条为 prompt-ready / video-pending 扩展样本。
 
 ---
 
@@ -26,10 +26,10 @@ seed -> manifest -> labeled
 
 | Stage | Count |
 |---|---:|
-| seed | 118 |
-| manifest | 118 |
-| labeled | 118 |
-| prompts | 118 |
+| seed | 318 |
+| manifest | 318 |
+| labeled | 318 |
+| prompts | 318 |
 | video | 118 |
 
 `labeled` 字段约束：
@@ -62,20 +62,50 @@ seed -> manifest -> labeled
 
 ## Stage 配比
 
-当前 stage 分布为 `21 / 41 / 41 / 15`（attention / interest / desire / action）。
+当前 prompt-ready stage 分布为 `50 / 91 / 144 / 33`（attention / interest / desire / action）。
 
 | Stage | Count |
 |---|---:|
-| attention | 21 |
-| interest | 41 |
-| desire | 41 |
-| action | 15 |
+| attention | 50 |
+| interest | 91 |
+| desire | 144 |
+| action | 33 |
 
-结论：整体阶段分布是均衡的，中段 `interest / desire` 略多，但仍然符合零售交互数据的自然形态。
+结论：扩展后中后段 `interest / desire` 占比更高，符合智能售货设备前置摄像头更常捕捉到“已经停留、比较、确认”的目标域特征。`attention / action` 仍保留足够覆盖，用于开场和收尾行为。
+
+## Prompt-Ready Expansion Status
+
+2026-05-16 新增 `piwm_818` 到 `piwm_1017` 共 200 条扩展样本。该批次只完成：
+
+- seed
+- manifest
+- labeled
+- prompt
+
+尚未完成：
+
+- Kling video
+- sampled frames
+- visual QA
+
+因此，`piwm_818` 到 `piwm_1017` 只能写成 `prompt_ready_video_pending`，不能写成已成片多模态训练数据。
+
+扩展后的 best DialogueAct 分布已经按六个元动作均衡：
+
+| DialogueAct | Count |
+|---|---:|
+| Elicit | 53 |
+| Greet | 53 |
+| Hold | 53 |
+| Inform | 53 |
+| Reassure | 53 |
+| Recommend | 53 |
 
 ---
 
-## Best Action 分布
+## Best Action 分布（video-backed 118）
+
+下表保留原始已成片 `piwm_700` 到 `piwm_817` 的分布，用于区分“已有视频数据”和“prompt-ready 扩展队列”。完整 318 条的 DialogueAct 级分布见上一节。
 
 | Best Action | Count |
 |---|---:|
@@ -102,7 +132,9 @@ seed -> manifest -> labeled
 
 ---
 
-## Stage 内部分布
+## Stage 内部分布（video-backed 118）
+
+以下分布同样只覆盖已成片 118 条。
 
 ### attention
 
@@ -145,9 +177,13 @@ seed -> manifest -> labeled
 
 ---
 
-## Index -> Best Action
+## Index -> Best Action（video-backed 118）
 
-下表按 `labeled/*.json` 顶层 `best_action` 统计，可直接当作每个样本的主动作索引表。
+下表是原始已成片 118 条的主动作索引。扩展批次 `piwm_818` 到 `piwm_1017` 的机器可读索引见：
+
+```text
+data/expansion/promptready_818_1017.json
+```
 
 | Index | Best Action |
 |---|---|
